@@ -102,9 +102,14 @@ npm i -g github:iifzx/design-garden && design-garden
 # classic git clone (user-level, all projects)
 git clone https://github.com/iifzx/design-garden.git ~/.agents/skills/design-garden
 
+# DeepSeek Harness (dsh) — skill roots are non-recursive, so clone to a skill root
+git clone https://github.com/iifzx/design-garden.git ~/.dsh/skills/design-garden
+
 # or project-level
 git clone https://github.com/iifzx/design-garden.git <your-project>/.zcode/skills/design-garden
 ```
+
+DeepSeek Harness note: dsh reads the same Agent Skills standard (SKILL.md dirs, non-recursive discovery under `~/.dsh/skills` or `~/.agents/skills`). The skill declares `whenToUse` for dsh's trigger metadata.
 
 > ZCode desktop: **Plugin Marketplace → Add → paste `https://github.com/iifzx/design-garden`**. The marketplace layout follows the Claude Code plugin convention; if your CLI's loader expects different nesting, the git-clone path always works — report it as an issue so we can support your loader too.
 

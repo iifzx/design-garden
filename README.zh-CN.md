@@ -80,9 +80,14 @@ npm i -g github:iifzx/design-garden && design-garden
 # 经典 git clone（用户级，所有项目生效）
 git clone https://github.com/iifzx/design-garden.git ~/.agents/skills/design-garden
 
+# DeepSeek Harness（dsh）——技能根目录不递归，直接克隆到技能根
+git clone https://github.com/iifzx/design-garden.git ~/.dsh/skills/design-garden
+
 # 或项目级
 git clone https://github.com/iifzx/design-garden.git <你的项目>/.zcode/skills/design-garden
 ```
+
+DeepSeek Harness 说明：dsh 读取同一套 Agent Skills 标准（SKILL.md 目录，`~/.dsh/skills` 或 `~/.agents/skills` 下非递归发现），本 skill 已声明 `whenToUse` 触发元数据。
 
 > ZCode 桌面版：**插件市场 → 添加 → 粘贴 `https://github.com/iifzx/design-garden`**。市场布局遵循 Claude Code 插件约定；如果你的 CLI 加载器要求不同的嵌套结构，git clone 路径永远可用——也请提 issue 让我们支持你的加载器。
 

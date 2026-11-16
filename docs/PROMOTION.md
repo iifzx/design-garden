@@ -66,6 +66,14 @@ Maintainer-facing copy for listing design-garden in aggregators and social chann
 >
 > 4/ Browsable knowledge base (9 domains, 18 style recipes, the merged anti-slop canon): iifzx.github.io/design-garden — MIT, zero deps. Plant something. 🌱
 
+### 4. [awesome-deepseek-harness](https://github.com/deepseek-ai/deepseek-harness) ecosystem (skills/plugins list; also add the `dsh` topic to the repo)
+
+```markdown
+- [design-garden](https://github.com/iifzx/design-garden) — Universal self-improving **skill** (behavior-layer, not a tool plugin): 9 design domains + 18 style recipes + anti-slop canon, runtime learnings, eval-gated promotion. Agent Skills standard with `whenToUse` metadata — drop `skills/design-garden/` into `~/.dsh/skills/` or clone to `~/.agents/skills/design-garden`. Knowledge base: https://iifzx.github.io/design-garden/
+```
+
+Also relevant: [dsh-skills-bridge](https://github.com/deepseek-ai/deepseek-harness/discussions/5213) mounts `~/.claude/skills` into dsh — design-garden installed the Claude way is auto-visible to dsh users with that bridge.
+
 ## Star History (add when stars exist)
 
 ```markdown
@@ -79,5 +87,6 @@ Maintainer-facing copy for listing design-garden in aggregators and social chann
 | VoltAgent/awesome-agent-skills | not submitted | — |
 | ComposioHQ/awesome-claude-skills | not submitted | — |
 | bergside/awesome-design-skills | not submitted | — |
+| awesome-deepseek-harness (DSH ecosystem) | not submitted | — |
 | Show HN | not posted | — |
 | 即刻/V2EX (中文) | not posted | — |

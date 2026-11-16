@@ -8,7 +8,7 @@
  * Preserved in the mirror: .zcode-plugin/, .claude-plugin/ (hand-maintained manifests).
  * CI runs this on every push to main; can also run locally: node scripts/sync_plugin.mjs
  */
-import { cpSync, rmSync, mkdirSync, existsSync, readdirSync } from "node:fs";
+import { cpSync, rmSync, mkdirSync, existsSync, readdirSync, writeFileSync, readFileSync } from "node:fs";
 import path from "node:path";
 
 const ROOT = path.resolve(import.meta.dirname, "..");
@@ -32,4 +32,8 @@ for (const m of MIRROR) {
   cpSync(src, path.join(DEST, m), { recursive: true });
 }
 
-console.log(`mirrored ${MIRROR.join(", ")} → ${path.relative(ROOT, DEST)}`);
+// DeepSeek Harness bundle convention: VERSION file matches the manifest version
+const pkg = JSON.parse(readFileSync(path.join(ROOT, "package.json"), "utf-8"));
+writeFileSync(path.join(DEST, "VERSION"), `${pkg.version}\n`);
+
+console.log(`mirrored ${MIRROR.join(", ")} (+ VERSION) → ${path.relative(ROOT, DEST)}`);

@@ -1,6 +1,7 @@
 ---
 name: design-garden
 description: Use for ANY design or aesthetic work — UI/web/mobile interfaces, landing pages, dashboards, posters, banners, social graphics, ads, icons, logos, brand identity, typography, color palettes, slides/decks/PPT, charts and data visualization, video storyboards and motion design, illustration and generative art, or any "make it look better / review this design" request. Triggers on design, 设计, beautiful, aesthetics, poster, banner, icon, logo, brand, UI, dashboard, landing page, hero, slides, deck, PPT, presentation, chart, infographic, illustration, palette, font pairing, redesign, make it pop/professional/clean — even if the user doesn't say "design" but asks for anything visual to be made or judged. Produces differentiated art directions instead of AI-slop defaults, executes with craft rules distilled from top design skills, runs a critique gate before delivery, and records structured learnings after every task so it keeps improving.
+whenToUse: Use whenever the task involves creating, reviewing, or improving anything visual or aesthetic — UI, landing pages, posters, banners, icons, logos, brand identity, slides, charts, video storyboards, illustration, typography, or design critique. Skip for purely functional, non-visual engineering tasks.
 ---
 
 # design-garden

@@ -2,6 +2,13 @@
 
 Each entry records what design-garden *learned* in that version, not just what changed. Growth is the product.
 
+## v0.2.1 — DeepSeek Harness support (2026-11-17)
+
+**Learned — about the DSH ecosystem**
+- DeepSeek Harness (`dsh`) reads the same Agent Skills standard: SKILL.md directories, non-recursive discovery under `~/.dsh/skills` or `~/.agents/skills`, folder name must match frontmatter `name`. Our flat clone install already satisfies it; the nested mirror now also carries a `VERSION` file per the DSH bundle convention.
+- `whenToUse` metadata added to SKILL.md frontmatter — dsh's trigger signal, safely ignored by other loaders.
+- In DSH terms this ships as a **skill** (behavior layer), not a Cordis tool plugin — plugins change what an agent can reach; skills change how it works. Documented in both READMEs + PROMOTION.md entry for the DSH ecosystem list.
+
 ## v0.2.0 — Distribution, gallery, and the recipes that learned from being used (2026-11-17)
 
 **Learned — about distribution**
