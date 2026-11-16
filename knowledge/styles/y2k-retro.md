@@ -68,3 +68,9 @@ updated: 2026-11-16
 - millennium optimism
 - pixel and vector mix
 - sparkle stars, CRT scanlines
+
+## Field QA (v0.2.0 gallery run)
+
+- Chrome headline on the ice ground is 2.18:1 — midnight navy is the default ground for any chrome-carrying hero; ice is for chrome-free compositions.
+- VT323 carries labels ≥24px only; body copy always moves to the sans (now explicit).
+- Three families (Michroma + VT323 + sans) is a sanctioned exception to the two-typeface floor — the pixel voice is structural here.

@@ -68,3 +68,9 @@ updated: 2026-11-16
 - muted matcha accent
 - wood texture hint
 - asymmetric vertical rhythm
+
+## Field QA (v0.2.0 gallery run)
+
+- Stone gray (#9A948A-class) is 2.5:1 on paper — non-text use only (rules, frames); metadata runs in sumi ink.
+- The scale tops at ~37px: heroes add +1–2 ratio steps (46px+).
+- CJK vertical strips are a CJK-content tool — skip them for Latin copy rather than pasting ornament glyphs (its own Don't).

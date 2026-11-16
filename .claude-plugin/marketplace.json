@@ -1,0 +1,24 @@
+{
+  "name": "design-garden",
+  "owner": {
+    "name": "iifzx",
+    "url": "https://github.com/iifzx/design-garden"
+  },
+  "plugins": [
+    {
+      "name": "design-garden",
+      "source": "./skills/design-garden",
+      "version": "0.2.0",
+      "description": "The design skill that grows — universal, self-improving design for AI agents: UI, posters, icons, logos, slides, data-viz, video, illustration.",
+      "displayName": "Design Garden",
+      "displayName_i18n": {
+        "zh-CN": "设计花园"
+      },
+      "description_i18n": {
+        "zh-CN": "会成长的设计 skill：UI、海报、图标、品牌、幻灯片、图表、视频、插画全覆盖，每次任务自动积累经验。"
+      },
+      "category": "productivity",
+      "keywords": ["design", "ui", "agents", "skills"]
+    }
+  ]
+}

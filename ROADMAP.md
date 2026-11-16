@@ -17,9 +17,9 @@ The garden's direction, in order of priority. Anything here is up for grabs — 
 
 ## v0.4 — distribution
 
-- [ ] Plugin/marketplace packaging (one-command install for ZCode & Claude Code plugin systems)
-- [ ] Submission & listing in the agent-skill registries and awesome lists
-- [ ] Per-style example galleries (one rendered image per style recipe, grown from the evals)
+- [x] Plugin/marketplace packaging — done in v0.2.0 (`.claude-plugin/marketplace.json` + CI-synced `skills/design-garden/` mirror + npm installer)
+- [ ] Submission & listing in the agent-skill registries and awesome lists (copy ready in [docs/PROMOTION.md](docs/PROMOTION.md))
+- [ ] Per-style example galleries (one rendered image per style recipe, grown from the evals) — first six shipped in examples/styles/ in v0.2.0, rest via community
 - [ ] A public "what the garden learned" dashboard generated from `learnings/` + CHANGELOG
 
 ## Non-goals

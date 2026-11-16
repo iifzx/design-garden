@@ -1,0 +1,16 @@
+{
+  "files": ["README.md"],
+  "imageSize": 80,
+  "contributorsPerLine": 7,
+  "projectName": "design-garden",
+  "projectOwner": "iifzx",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "contributors": [
+    {
+      "name": "iifzx",
+      "github": "iifzx",
+      "contributions": ["code", "doc", "design", "maintenance", "translation"]
+    }
+  ]
+}

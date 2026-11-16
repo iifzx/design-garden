@@ -68,3 +68,9 @@ updated: 2026-11-16
 - 1px light border highlight
 - Apple-style material design
 - glass over color blobs
+
+## Field QA (v0.2.0 gallery run)
+
+- The scrim clause is a HARD rule, not a layout bullet: white glass lightens the gradient's own mid-tones — text directly on glass cannot reach 4.5:1 on the warm zones without a dark in-card scrim.
+- Display face: swap Space Grotesk (conflicts with anti-slop #11) for Sora or Outfit.
+- Skip parallax clauses on single-screen work; bias the gradient's dark end under the text column.

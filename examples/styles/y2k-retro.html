@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Fern — landing hero · Y2K Retro</title>
+<meta name="description" content="Style-recipe demo: Fern plant-care hero in the Y2K retro recipe.">
+<!--
+  RECIPE: knowledge/styles/y2k-retro.md
+  Palette: midnight navy #191D3A ground (dark variant chosen OVER ice so the chrome ramp keeps ≥3:1 on the
+    display: lightest stop 13.9:1, darkest stop #9AA3B2 6.5:1 — on ice the chrome headline would fall to 2.2:1)
+    / chrome ramp #E3E7EF→#9AA3B2→#E8EDF5 on the display only / cyber lime #B8FF2E ~12% / hot magenta #FF3EA5
+    / aqua #3FE0C5 / sparkle white. No vaporwave purple; navy is the recipe's own ground.
+  Contrast audit:
+    white on navy 16.4:1 ✓ · aqua labels on navy 9.9:1 ✓ · navy on lime 13.6:1 ✓ · navy on magenta 5.1:1 ✓
+    · navy on aqua 9.9:1 ✓ · chrome headline on navy ≥6.5:1 ✓ (headline/body ≥4.5 ✓)
+  Type: Michroma (display caps, tracking +5%) + VT323 (pixel labels, never below 20px) + Poppins (body copy —
+    recipe: "longer copy moves to the sans"; three families are the recipe's explicit stack, flagged in QA).
+    Scale 1.333: 18/24/32/43/57 — display at 57.
+  Signature moves used: liquid chrome display with horizon reflection below baseline / translucent bubble CTA
+    with inner glow + specular dot / pixel-vs-vector clash (VT323 labels, Michroma, smooth SVG) / symmetric
+    sparkle scatter / one deliberate lens flare glinting where the shine exits the type / chrome bevel on one
+    element only (the display) / scanlines 3%.
+  Motion: 300–500ms bouncy elastic entrances (one orchestrated load moment); chrome shine sweeps on a seamless
+    2s loop; wordmark cursor flickers CRT-style at low frequency; loops stop under prefers-reduced-motion;
+    zero JS — content visible without it.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=VT323&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#191D3A;
+    --chrome-hi:#E3E7EF;
+    --chrome-mid:#9AA3B2;
+    --chrome-lo:#E8EDF5;
+    --lime:#B8FF2E;
+    --magenta:#FF3EA5;
+    --aqua:#3FE0C5;
+    --white:#FFFFFF;
+    --pop:cubic-bezier(.34,1.56,.64,1);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;overflow-x:clip}
+  body{background:var(--navy);color:var(--white);font:400 24px/1.5 "Poppins",system-ui,sans-serif}
+  h1,h2,p,ul{margin:0}
+  a{color:inherit;text-decoration:none}
+  ul{padding:0;list-style:none}
+  :focus-visible{outline:2px solid var(--lime);outline-offset:4px;border-radius:999px}
+
+  .page{min-height:100vh;display:flex;flex-direction:column;position:relative;overflow:clip}
+  /* CRT scanlines 3% */
+  .page::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0 1px,transparent 1px 3px);
+  }
+
+  /* ---------- translucent retro blobs ---------- */
+  .blob{position:absolute;border-radius:50%;pointer-events:none}
+  .bubble-aqua{width:380px;height:380px;left:-140px;bottom:-120px;background:radial-gradient(circle at 42% 38%,rgba(63,224,197,.14),rgba(63,224,197,.05) 62%,transparent 72%)}
+  .ring-magenta{width:320px;height:320px;left:6%;top:-90px;border:26px solid rgba(255,62,165,.13)}
+
+  /* ---------- header ---------- */
+  .top{display:flex;align-items:center;justify-content:space-between;padding:32px 64px;position:relative;z-index:2}
+  .wordmark{display:inline-flex;align-items:center;gap:10px;font:400 20px/1 "Michroma",sans-serif;letter-spacing:.05em}
+  .cursor{width:12px;height:22px;background:var(--lime);animation:flicker 1.4s steps(1) infinite}
+  @keyframes flicker{50%{opacity:0}}
+  .top-nav{display:flex;gap:36px}
+  .top-nav a{font:400 24px/1 "VT323",monospace;color:var(--aqua);letter-spacing:.03em;padding:6px 0}
+  .top-nav a:hover,.top-nav a:focus-visible{color:var(--lime)}
+
+  /* ---------- centered optimistic hero ---------- */
+  .hero{
+    flex:1;position:relative;z-index:2;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;   /* the recipe's centered hero — this style centers on purpose */
+    padding:24px 96px 64px;
+  }
+  .display{position:relative}
+  h1{
+    font:400 57px/1.2 "Michroma",sans-serif;
+    text-transform:uppercase;letter-spacing:.05em;
+    background:
+      linear-gradient(115deg,transparent 42%,rgba(255,255,255,.95) 50%,transparent 58%) no-repeat,
+      linear-gradient(180deg,var(--chrome-hi) 8%,var(--chrome-mid) 52%,var(--chrome-lo) 88%);
+    background-size:250% 100%,100% 100%;
+    background-position:220% 0,0 0;
+    -webkit-background-clip:text;background-clip:text;
+    color:transparent;
+    -webkit-text-stroke:1px rgba(25,29,58,.4);   /* chrome bevel edge */
+    animation:shine 2s linear infinite;
+  }
+  h1 .line{display:block}
+  @keyframes shine{from{background-position:220% 0,0 0}to{background-position:-220% 0,0 0}}
+  /* horizon reflection below baseline */
+  .mirror{
+    font:400 57px/1.2 "Michroma",sans-serif;
+    text-transform:uppercase;letter-spacing:.05em;
+    background:linear-gradient(180deg,var(--chrome-hi) 8%,var(--chrome-mid) 52%,var(--chrome-lo) 88%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    transform:scaleY(-1);
+    opacity:.3;filter:blur(1px);
+    margin-top:-58px;
+    -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.5),transparent 60%);
+    mask-image:linear-gradient(to bottom,rgba(0,0,0,.5),transparent 60%);
+    pointer-events:none;user-select:none;
+  }
+  .lead{margin-top:36px;max-width:40ch;text-wrap:pretty}
+
+  .pills{margin-top:32px;display:flex;gap:20px;align-items:center;flex-wrap:wrap;justify-content:center}
+  .pill{
+    display:inline-flex;align-items:center;
+    font:400 24px/1 "VT323",monospace;color:var(--navy);letter-spacing:.04em;
+    border-radius:999px;padding:14px 26px;
+  }
+  .pill.lime{background:var(--lime);transform:rotate(2deg)}
+  .pill.magenta{background:var(--magenta);transform:rotate(-3deg);font-size:26px;padding:12px 30px}
+  .pill.aqua{background:var(--aqua);transform:rotate(1deg);padding:11px 20px}
+
+  .cta{
+    margin-top:44px;
+    display:inline-flex;align-items:center;justify-content:center;
+    min-height:64px;padding:0 44px;border-radius:999px;position:relative;
+    background:rgba(184,255,46,.92);
+    font:600 20px/1 "Poppins",sans-serif;color:var(--navy);
+    box-shadow:inset 0 0 26px rgba(255,255,255,.5),0 14px 40px rgba(63,224,197,.22);
+    transition:transform 320ms var(--pop);
+  }
+  .cta::after{   /* specular dot */
+    content:"";position:absolute;left:22px;top:10px;width:14px;height:14px;border-radius:50%;
+    background:radial-gradient(circle,rgba(255,255,255,.95),rgba(255,255,255,0) 70%);
+  }
+  .cta:hover,.cta:focus-visible{transform:scale(1.05)}
+
+  /* one deliberate lens flare — the glint where the shine exits the type */
+  .flare{
+    position:absolute;right:8%;top:16%;width:84px;height:84px;pointer-events:none;
+    background:
+      radial-gradient(circle 7px at 50% 50%,rgba(255,255,255,.95),rgba(255,255,255,0) 100%),
+      linear-gradient(to right,transparent 46%,rgba(255,255,255,.55) 50%,transparent 54%),
+      linear-gradient(to bottom,transparent 46%,rgba(255,255,255,.55) 50%,transparent 54%);
+    opacity:.8;
+  }
+
+  /* symmetric sparkle scatter */
+  .sparkles{position:absolute;inset:0;margin:auto;width:900px;height:520px;z-index:-1}
+  .sparkles use{fill:var(--white)}
+  .sparkles .tint-a{fill:var(--aqua)}
+  .sparkles .tint-b{fill:var(--lime)}
+
+  /* ---------- ONE orchestrated load moment ---------- */
+  @keyframes popIn{from{opacity:0;transform:translateY(14px) scale(.94)}to{opacity:1;transform:none}}
+  @keyframes pillIn{from{opacity:0;transform:var(--r,none) scale(.8)}to{opacity:1;transform:var(--r,none) scale(1)}}
+  .display{animation:popIn 420ms var(--pop) both}
+  .lead{animation:popIn 420ms var(--pop) 90ms both}
+  .pill{--r:rotate(0deg)}
+  .pill.lime{--r:rotate(2deg);animation:pillIn 400ms var(--pop) 180ms both}
+  .pill.magenta{--r:rotate(-3deg);animation:pillIn 400ms var(--pop) 260ms both}
+  .pill.aqua{--r:rotate(1deg);animation:pillIn 400ms var(--pop) 340ms both}
+  .cta{--r:none;animation:pillIn 420ms var(--pop) 420ms both}
+
+  @media (prefers-reduced-motion: reduce){
+    h1{animation:none;background-position:0 0,0 0}   /* shine parked off-text */
+    .display,.lead,.pill,.cta{animation:none}
+    .cursor{animation:none}
+    .cta{transition:none}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="blob bubble-aqua" aria-hidden="true"></div>
+  <div class="blob ring-magenta" aria-hidden="true"></div>
+
+  <header class="top">
+    <p class="wordmark">FERN <span class="cursor" aria-hidden="true"></span></p>
+    <nav class="top-nav" aria-label="Product areas">
+      <a href="#">REMINDERS</a>
+      <a href="#">PLANT ID</a>
+      <a href="#">EXPERTS</a>
+    </nav>
+  </header>
+
+  <main class="hero">
+    <svg class="sparkles" viewBox="0 0 900 520" aria-hidden="true">
+      <defs>
+        <path id="star" d="M0,-12 C2,-4 4,-2 12,0 C4,2 2,4 0,12 C-2,4 -4,2 -12,0 C-4,-2 -2,-4 0,-12 Z"/>
+      </defs>
+      <use href="#star" x="0" y="0" transform="translate(90,80) scale(1.4)"/>
+      <use href="#star" class="tint-a" transform="translate(810,80) scale(1.4)"/>
+      <use href="#star" transform="translate(160,430) scale(0.9)"/>
+      <use href="#star" class="tint-b" transform="translate(740,430) scale(0.9)"/>
+      <use href="#star" transform="translate(450,40) scale(1.1)"/>
+      <use href="#star" class="tint-a" transform="translate(60,250) scale(0.8)"/>
+      <use href="#star" transform="translate(840,250) scale(0.8)"/>
+    </svg>
+
+    <div class="flare" aria-hidden="true"></div>
+
+    <div class="display">
+      <h1><span class="line">Plant care</span><span class="line">that runs itself.</span></h1>
+      <div class="mirror" aria-hidden="true"><span>Plant care</span><span style="display:block">that runs itself.</span></div>
+    </div>
+
+    <p class="lead">Care reminders, plant identification, and expert help in one app.</p>
+
+    <ul class="pills" aria-label="What Fern does">
+      <li class="pill lime">REMINDERS</li>
+      <li class="pill magenta">PLANT ID</li>
+      <li class="pill aqua">EXPERT HELP</li>
+    </ul>
+
+    <a class="cta" href="#">Start your free week</a>
+  </main>
+</div>
+</body>
+</html>

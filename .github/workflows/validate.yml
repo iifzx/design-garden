@@ -15,3 +15,5 @@ jobs:
           node-version: "20"
       - name: Run knowledge validator
         run: node scripts/validate_knowledge.mjs
+      - name: Check relative markdown links
+        run: node scripts/check_links.mjs

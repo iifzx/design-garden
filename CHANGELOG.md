@@ -2,6 +2,20 @@
 
 Each entry records what design-garden *learned* in that version, not just what changed. Growth is the product.
 
+## v0.2.0 — Distribution, gallery, and the recipes that learned from being used (2026-11-17)
+
+**Learned — about distribution**
+- Plugin/marketplace packaging: `.claude-plugin/marketplace.json` + a CI-synced nested mirror (`skills/design-garden/`) so one-command installs work (`/plugin marketplace add iifzx/design-garden`) while plain git-clone installs keep working unchanged
+- npm installer (`scripts/install.js`, `package.json`): `npm i -g github:iifzx/design-garden`
+
+**Learned — the recipes learned from being used**
+- A fresh agent built six same-brief heroes from six style recipes; every recipe got a `Field QA` section: type scales are body→section ladders and heroes need +1–2 ratio steps (now stated in core/typography too); swiss steel gray and japandi stone gray can't carry text (demoted to non-text); glassmorphism's scrim clause promoted to a hard rule and Space Grotesk swapped out; y2k's midnight navy is the default chrome ground; neo-brutalism's stacking-context gotcha recorded in learnings/ui-web.md
+- Style gallery shipped: one brief, six styles, sources included — examples/styles/
+
+**Learned — housekeeping**
+- Relative-link integrity checker (331 links verified in CI), tag→release automation extracting the CHANGELOG section, welcome bot for first-time contributors, all-contributors recognition
+- Promotion kit: ready-to-paste awesome-list entries and social drafts (docs/PROMOTION.md)
+
 ## v0.1.5 — Ten languages (2026-11-17)
 
 **Learned — about reaching everyone**

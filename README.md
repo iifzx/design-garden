@@ -92,15 +92,21 @@ The workflow itself is a distillation of the strongest process ideas in agent de
 Works with any agent that supports the SKILL.md convention (ZCode, Claude Code, and compatible CLIs):
 
 ```bash
-# user-level (all projects)
-git clone https://github.com/iifzx/design-garden.git ~/.agents/skills/design-garden
+# one command via plugin marketplace (Claude Code)
+/plugin marketplace add iifzx/design-garden
+/plugin install design-garden@design-garden
 
-# or use the installer (clones or updates, same target)
-curl -fsSL https://raw.githubusercontent.com/iifzx/design-garden/main/scripts/install.sh -o install-design-garden.sh && sh install-design-garden.sh
+# via npm/github (cross-platform installer)
+npm i -g github:iifzx/design-garden && design-garden
+
+# classic git clone (user-level, all projects)
+git clone https://github.com/iifzx/design-garden.git ~/.agents/skills/design-garden
 
 # or project-level
 git clone https://github.com/iifzx/design-garden.git <your-project>/.zcode/skills/design-garden
 ```
+
+> ZCode desktop: **Plugin Marketplace → Add → paste `https://github.com/iifzx/design-garden`**. The marketplace layout follows the Claude Code plugin convention; if your CLI's loader expects different nesting, the git-clone path always works — report it as an issue so we can support your loader too.
 
 No build step, no dependencies — it's markdown plus two optional Node scripts (stdlib only).
 
@@ -135,6 +141,18 @@ English is the primary version — the skill content (SKILL.md, knowledge files)
 - Français: [README.fr.md](README.fr.md) · Deutsch: [README.de.md](README.de.md) · Русский: [README.ru.md](README.ru.md)
 
 The v0.1.5 translations were drafted by GLM-5.3-Flash — improvements from native speakers are very welcome (see [CONTRIBUTING.md](CONTRIBUTING.md#translations)).
+
+## Contributors
+
+This garden lives on contributions, recognized via [all-contributors](https://allcontributors.org) (`.all-contributorsrc`):
+
+<!-- all-contributors table start -->
+|                                                                                                            |
+|------------------------------------------------------------------------------------------------------------|
+| [@iifzx](https://github.com/iifzx) 💼 📖 🎨 🚧 🌍 — code, docs, design, maintenance, translations |
+<!-- all-contributors table end -->
+
+Feed it and add yourself: comment `@all-contributors please add @<you> for <contributions>` on any issue, or PR the table above.
 
 ## License & credits
 

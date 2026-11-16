@@ -1,0 +1,35 @@
+#!/usr/bin/env node
+/**
+ * Mirror the runtime skill (SKILL.md + knowledge/ + learnings/) into skills/design-garden/
+ * so plugin marketplaces get the nested layout (skills/<name>/SKILL.md) that
+ * Claude Code / ZCode plugin loaders expect, while the repo root keeps the
+ * flat layout that plain `git clone` installs use.
+ *
+ * Preserved in the mirror: .zcode-plugin/, .claude-plugin/ (hand-maintained manifests).
+ * CI runs this on every push to main; can also run locally: node scripts/sync_plugin.mjs
+ */
+import { cpSync, rmSync, mkdirSync, existsSync, readdirSync } from "node:fs";
+import path from "node:path";
+
+const ROOT = path.resolve(import.meta.dirname, "..");
+const DEST = path.join(ROOT, "skills", "design-garden");
+const MIRROR = ["SKILL.md", "knowledge", "learnings"];
+const PRESERVE = new Set([".zcode-plugin", ".claude-plugin"]);
+
+mkdirSync(DEST, { recursive: true });
+
+// clear everything except hand-maintained manifest dirs
+for (const entry of readdirSync(DEST)) {
+  if (!PRESERVE.has(entry)) {
+    rmSync(path.join(DEST, entry), { recursive: true, force: true });
+  }
+}
+
+// mirror the runtime skill
+for (const m of MIRROR) {
+  const src = path.join(ROOT, m);
+  if (!existsSync(src)) throw new Error(`missing source: ${src}`);
+  cpSync(src, path.join(DEST, m), { recursive: true });
+}
+
+console.log(`mirrored ${MIRROR.join(", ")} → ${path.relative(ROOT, DEST)}`);

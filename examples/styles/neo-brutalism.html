@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fern — landing hero · Neo-Brutalism</title>
+<meta name="description" content="Style-recipe demo: Fern plant-care hero in the neo-brutalism recipe.">
+<!--
+  RECIPE: knowledge/styles/neo-brutalism.md
+  Palette: bone #F5F1E6 dominant / ink #1A1A17 (never #000) / acid yellow #FFD23F (ticker + marker + CTA, ~11%) /
+           cobalt #4E7CFF (one promoted card) / hot pink #FF6FA5 (one sticker). No gradients anywhere.
+  Contrast audit:
+    ink on bone 15.4:1 ✓ · ink on yellow 12.0:1 ✓ · ink on cobalt 4.67:1 ✓ (body ≥4.5) · ink on pink 6.68:1 ✓
+    headline/body all ≥4.5 ✓
+  Border audit: 3px solid ink on EVERY bordered element — no mixed thicknesses among siblings
+    (the 10px divider bar is the recipe's sanctioned "thick ink bar" divider device, not a component border).
+  Shadow audit: exactly one vector globally — 6px 6px 0 ink; hover 8px 8px + lift; press 2px + translate 4px.
+  Type: Archivo Black (display, single weight — range via size) + Space Mono 400/700 (structural mono voice).
+    Scale 1.333: 15/20/27/36/48/64. Display leading 0.95. Marker block behind ONE word ("itself").
+  Signature moves used: uniform 6px hard shadow / marker highlight / mono bracket tags / ticker marquee /
+    sticker badge rotated −3° (only rotating element).
+  Cards deviate per anti-slop "deviate twice": cobalt card promoted (large, icon), yellow card small,
+    expert help demoted to a bracket tag (not a card).
+  Motion: 120–180ms crisp ease-out; motion lives in the shadow; one orchestrated load moment;
+    marquee is the recipe's continuous ticker loop; prefers-reduced-motion pauses it; zero JS.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bone:#F5F1E6;
+    --ink:#1A1A17;
+    --yellow:#FFD23F;
+    --cobalt:#4E7CFF;
+    --pink:#FF6FA5;
+    --bw:3px;               /* one border width everywhere */
+    --shadow:6px 6px 0 var(--ink);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;overflow-x:clip}
+  body{background:var(--bone);color:var(--ink);font:400 16px/1.55 "Space Mono",monospace}
+  h1,h2,p{margin:0}
+  a{color:inherit;text-decoration:none}
+  :focus-visible{outline:var(--bw) solid var(--ink);outline-offset:3px}
+
+  .page{min-height:100vh;display:flex;flex-direction:column}
+
+  /* ---------- ticker: the loud announcing strip ---------- */
+  .ticker{
+    background:var(--yellow);
+    border-block:var(--bw) solid var(--ink);
+    overflow:hidden;
+  }
+  .ticker .track{
+    display:flex;width:max-content;
+    animation:roll 18s linear infinite;
+  }
+  .ticker span{
+    font:700 20px/1 "Space Mono",monospace;
+    padding:16px 0;white-space:nowrap;letter-spacing:.02em;
+  }
+  @keyframes roll{to{transform:translateX(-50%)}}
+  .track-rev{animation-direction:reverse}
+
+  /* ---------- header ---------- */
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px 96px;flex-wrap:wrap}
+  .wordmark{
+    display:inline-flex;align-items:center;
+    background:var(--bone);border:var(--bw) solid var(--ink);box-shadow:var(--shadow);
+    font:400 27px/1 "Archivo Black",sans-serif;padding:12px 20px;
+  }
+  .tags{display:flex;gap:16px;flex-wrap:wrap}
+  .tag{
+    font:700 15px/1 "Space Mono",monospace;letter-spacing:.04em;
+    border:var(--bw) solid var(--ink);padding:12px 16px;
+    transition:box-shadow 140ms ease-out,transform 140ms ease-out;
+  }
+  .tag:hover{box-shadow:var(--shadow);transform:translate(-2px,-2px)}  /* motion lives in the shadow */
+
+  .divider{height:10px;background:var(--ink)}   /* thick ink bar, not a hairline */
+
+  /* ---------- hero ---------- */
+  .hero{
+    flex:1;display:grid;grid-template-columns:7fr 5fr;gap:48px;
+    padding:40px 96px 48px;align-items:center;
+  }
+  h1{
+    font:400 64px/0.95 "Archivo Black",sans-serif;
+    letter-spacing:-0.005em;max-width:11ch;
+  }
+  h1 mark{background:var(--yellow);color:var(--ink);padding:0 10px}
+  .lead{font-size:20px;line-height:1.55;max-width:44ch;margin-top:24px}
+  .actions{margin-top:32px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+  .cta{
+    display:inline-flex;align-items:center;justify-content:center;
+    min-height:64px;padding:0 36px;
+    background:var(--yellow);color:var(--ink);
+    border:var(--bw) solid var(--ink);box-shadow:var(--shadow);
+    font:700 20px/1 "Space Mono",monospace;
+    transition:box-shadow 140ms ease-out,transform 140ms ease-out;
+  }
+  .cta:hover{box-shadow:8px 8px 0 var(--ink);transform:translate(-2px,-2px)}
+  .cta:active{box-shadow:2px 2px 0 var(--ink);transform:translate(4px,4px)}   /* press: into the shadow */
+  .fine{font-size:15px}
+
+  /* ---------- deck: deviated card set ---------- */
+  .deck{display:flex;flex-direction:column;gap:24px;position:relative}
+  .card{border:var(--bw) solid var(--ink);box-shadow:var(--shadow);padding:24px}
+  .card.cobalt{background:var(--cobalt);padding:32px}
+  .card.cobalt h2{font:400 36px/1 "Archivo Black",sans-serif;margin-top:20px}
+  .card.yellow{background:var(--yellow);align-self:flex-start}
+  .card.yellow h2{font:400 27px/1 "Archivo Black",sans-serif}
+  .tag-line{font:700 15px/1 "Space Mono",monospace;letter-spacing:.04em;padding-block:4px}
+  .sticker{
+    position:absolute;top:-18px;right:-14px;z-index:2;
+    background:var(--pink);border:var(--bw) solid var(--ink);box-shadow:var(--shadow);
+    font:700 15px/1 "Space Mono",monospace;letter-spacing:.04em;
+    padding:12px 16px;transform:rotate(-3deg);   /* sticker: the only rotation, ±3° */
+  }
+  .sprout{width:88px;height:88px;display:block}
+
+  /* ---------- ONE orchestrated load moment ---------- */
+  @keyframes drop{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+  @keyframes pop{from{opacity:0;transform:rotate(-3deg) scale(.92)}to{opacity:1;transform:rotate(-3deg) scale(1)}}
+  h1{animation:drop 150ms ease-out both}
+  .lead{animation:drop 150ms ease-out 60ms both}
+  .actions{animation:drop 150ms ease-out 120ms both}
+  .card.cobalt{animation:drop 150ms ease-out 180ms both}
+  .card.yellow{animation:drop 150ms ease-out 240ms both}
+  .tag-line{animation:drop 150ms ease-out 300ms both}
+  .sticker{animation:pop 150ms ease-out 360ms both}
+
+  @media (prefers-reduced-motion: reduce){
+    .ticker .track{animation:none}       /* first copy stays visible and readable */
+    h1,.lead,.actions,.card.cobalt,.card.yellow,.tag-line,.sticker{animation:none}
+    .tag,.cta{transition:none}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="ticker" aria-label="Announcements">
+    <div class="track" aria-hidden="false">
+      <span>CARE REMINDERS — PLANT ID — EXPERT HELP — START YOUR FREE WEEK — CARE REMINDERS — PLANT ID — EXPERT HELP — START YOUR FREE WEEK —&nbsp;</span>
+      <span aria-hidden="true">CARE REMINDERS — PLANT ID — EXPERT HELP — START YOUR FREE WEEK — CARE REMINDERS — PLANT ID — EXPERT HELP — START YOUR FREE WEEK —&nbsp;</span>
+    </div>
+  </div>
+
+  <header class="bar">
+    <a class="wordmark" href="#">Fern</a>
+    <nav class="tags" aria-label="Product areas">
+      <a class="tag" href="#">[ REMINDERS ]</a>
+      <a class="tag" href="#">[ PLANT ID ]</a>
+      <a class="tag" href="#">[ EXPERT HELP ]</a>
+    </nav>
+  </header>
+
+  <div class="divider" role="presentation"></div>
+
+  <main class="hero">
+    <div class="pitch">
+      <h1>Plant care that runs <mark>itself</mark>.</h1>
+      <p class="lead">Care reminders, plant identification, and expert help in one app.</p>
+      <div class="actions">
+        <a class="cta" href="#">Start your free week</a>
+        <p class="fine">then $[PLACEHOLDER]/month</p>
+      </div>
+    </div>
+
+    <div class="deck">
+      <span class="sticker">[ FREE WEEK ]</span>
+      <article class="card cobalt">
+        <svg class="sprout" viewBox="0 0 72 72" fill="none" stroke="#1A1A17" stroke-width="3.5" stroke-linecap="square" aria-hidden="true">
+          <path d="M36 62V34"/>
+          <path d="M36 36C36 22 26 14 12 14c0 14 10 22 24 22Z"/>
+          <path d="M36 30c0-12 9-19 22-19 0 12-9 19-22 19Z"/>
+          <path d="M20 62h32l-4-12H24l-4 12Z"/>
+        </svg>
+        <h2>Plant ID</h2>
+      </article>
+      <article class="card yellow">
+        <h2>Reminders</h2>
+      </article>
+      <p class="tag-line">[ EXPERT HELP ]</p>
+    </div>
+  </main>
+
+  <div class="ticker ticker-bottom" aria-hidden="true">
+    <div class="track track-rev">
+      <span>START YOUR FREE WEEK — EXPERT HELP — PLANT ID — CARE REMINDERS — START YOUR FREE WEEK — EXPERT HELP — PLANT ID — CARE REMINDERS —&nbsp;</span>
+      <span>START YOUR FREE WEEK — EXPERT HELP — PLANT ID — CARE REMINDERS — START YOUR FREE WEEK — EXPERT HELP — PLANT ID — CARE REMINDERS —&nbsp;</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

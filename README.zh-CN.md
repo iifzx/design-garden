@@ -70,15 +70,21 @@ scripts/                  validate_knowledge.mjs（CI 门禁）· ab_harness.mjs
 适用于任何支持 SKILL.md 约定的 agent（ZCode、Claude Code 及兼容 CLI）：
 
 ```bash
-# 用户级（所有项目生效）
-git clone https://github.com/iifzx/design-garden.git ~/.agents/skills/design-garden
+# 插件市场一条命令（Claude Code）
+/plugin marketplace add iifzx/design-garden
+/plugin install design-garden@design-garden
 
-# 或用安装脚本（自动克隆或更新，目标一致）
-curl -fsSL https://raw.githubusercontent.com/iifzx/design-garden/main/scripts/install.sh -o install-design-garden.sh && sh install-design-garden.sh
+# npm/github 安装器（跨平台）
+npm i -g github:iifzx/design-garden && design-garden
+
+# 经典 git clone（用户级，所有项目生效）
+git clone https://github.com/iifzx/design-garden.git ~/.agents/skills/design-garden
 
 # 或项目级
 git clone https://github.com/iifzx/design-garden.git <你的项目>/.zcode/skills/design-garden
 ```
+
+> ZCode 桌面版：**插件市场 → 添加 → 粘贴 `https://github.com/iifzx/design-garden`**。市场布局遵循 Claude Code 插件约定；如果你的 CLI 加载器要求不同的嵌套结构，git clone 路径永远可用——也请提 issue 让我们支持你的加载器。
 
 无构建步骤、无依赖——就是 markdown 加两个可选的 Node 脚本（仅标准库）。
 
@@ -111,6 +117,18 @@ git clone https://github.com/iifzx/design-garden.git <你的项目>/.zcode/skill
 - Français：[README.fr.md](README.fr.md) · Deutsch：[README.de.md](README.de.md) · Русский：[README.ru.md](README.ru.md)
 
 v0.1.5 的翻译由 GLM-5.3-Flash 起草——母语者的润色非常欢迎（见 [CONTRIBUTING.md](CONTRIBUTING.md#translations)）。想新增语言？见 CONTRIBUTING 的 "Translations" 一节。
+
+## 贡献者
+
+花园靠贡献生存，通过 [all-contributors](https://allcontributors.org)（`.all-contributorsrc`）记录认可：
+
+<!-- all-contributors table start -->
+|                                                                                                            |
+|------------------------------------------------------------------------------------------------------------|
+| [@iifzx](https://github.com/iifzx) 💼 📖 🎨 🚧 🌍 — 代码 · 文档 · 设计 · 维护 · 翻译 |
+<!-- all-contributors table end -->
+
+喂它并加上自己：在任意 issue 里评论 `@all-contributors please add @<你> for <贡献类型>`，或直接 PR 上面的表格。
 
 ## 许可与致谢
 

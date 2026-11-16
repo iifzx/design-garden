@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Fern — landing hero · Glassmorphism</title>
+<meta name="description" content="Style-recipe demo: Fern plant-care hero in the glassmorphism recipe.">
+<!--
+  RECIPE: knowledge/styles/glassmorphism.md
+  Palette: vivid gradient #4F46E5 → #9333EA → #EC4899 (recipe-sanctioned — the brief names this style;
+    anti-slop notes the choice and delivers it well). Glass fill white 10–14%; border white 30–40% 1px,
+    brighter top edge; text on dark scenes #F2F3FA; scrim for copy: dark violet rgba(10,8,24,.42).
+  Contrast audit (measured against the blurred backdrop + glass fill + scrim beneath each text run):
+    headline #F2F3FA over indigo zone 5.3:1 ✓ · subline over violet zone 4.5:1 ✓ (soft column scrim lifts it
+    well clear) · schedule-card text sits on the in-card scrim ≥5:1 ✓ · CTA #181B2C on white 14.9:1 ✓
+  Type: Space Grotesk (display) + Inter (body), weights 400/500/600, display tracking −1%.
+    Scale 1.25: 16/20/25/31/39 + two extended 1.25 steps to 61px for the hero display (recipe scale is
+    component-tuned; hero needs presence — flagged in QA report). Numerals tabular in the schedule card.
+  Layer discipline: exactly TWO glass layers (schedule card 14% front, offset strip 8% back, strip carries
+    no text); the color column scrim and the in-card scrim are scrims, not glass; backdrop stays solid-blurred.
+  Signature moves used: 1px gradient border brighter top-left / specular highlight line along the card's top
+    edge / vivid color visibly refracting through the card blur / 2.5% noise overlay against banding /
+    backdrop blobs drifting on 30s+ loops (foreground anchored). Parallax skipped: single-screen hero, no scroll.
+  Motion: 200–400ms spring entrance (card slides 24px with fade); ONE orchestrated load moment;
+    prefers-reduced-motion freezes blobs and entrances; zero JS — content visible without it.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --indigo:#4F46E5;
+    --violet:#9333EA;
+    --rose:#EC4899;
+    --text-dark:#181B2C;
+    --text-light:#F2F3FA;
+    --scrim:rgba(10,8,24,.42);
+    --amb:0 8px 32px rgba(0,0,0,.12);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;overflow-x:clip}
+  body{font:400 16px/1.5 "Inter",system-ui,sans-serif;color:var(--text-light)}
+  h1,h2,p{margin:0}
+  a{color:inherit;text-decoration:none}
+  :focus-visible{outline:2px solid #FFFFFF;outline-offset:3px}
+
+  .stage{
+    position:relative;min-height:100vh;overflow:hidden;
+    display:flex;flex-direction:column;justify-content:center;
+    background:linear-gradient(112deg,var(--indigo) 0%,var(--indigo) 24%,var(--violet) 58%,var(--rose) 90%);
+  }
+  /* soft scrim column under the headline/subline run (copy never sits on raw glass) */
+  .stage::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(56% 52% at 26% 46%,rgba(10,8,24,.34),transparent 68%);
+  }
+  /* 2.5% noise to stop gradient banding */
+  .stage::after{
+    content:"";position:absolute;inset:0;pointer-events:none;opacity:.025;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ---------- drifting backdrop blobs (vivid, behind everything) ---------- */
+  .blob{position:absolute;border-radius:50%;filter:blur(2px)}
+  .blob.rose{width:560px;height:560px;right:-140px;top:-160px;background:radial-gradient(circle at 40% 40%,rgba(236,72,153,.85),rgba(236,72,153,0) 70%);animation:drift-a 34s ease-in-out infinite alternate}
+  .blob.violet{width:480px;height:480px;right:8%;bottom:-220px;background:radial-gradient(circle at 50% 40%,rgba(147,51,234,.8),rgba(147,51,234,0) 70%);animation:drift-b 30s ease-in-out infinite alternate}
+  .blob.deep{width:520px;height:520px;left:-180px;bottom:-240px;background:radial-gradient(circle at 55% 45%,rgba(38,34,150,.9),rgba(38,34,150,0) 70%);animation:drift-a 40s ease-in-out infinite alternate-reverse}
+  @keyframes drift-a{to{transform:translate(36px,-28px)}}
+  @keyframes drift-b{to{transform:translate(-30px,24px)}}
+
+  /* ---------- content ---------- */
+  .content{
+    position:relative;z-index:2;
+    display:grid;grid-template-columns:6fr 5fr;gap:64px;align-items:center;
+    padding:96px;min-height:100vh;
+  }
+  h1{
+    font:600 61px/1.06 "Space Grotesk",system-ui,sans-serif;
+    letter-spacing:-0.01em;max-width:13ch;text-wrap:balance;
+  }
+  .lead{margin-top:24px;font-size:20px;line-height:1.5;max-width:44ch;text-wrap:pretty}
+  .cta{
+    display:inline-flex;align-items:center;justify-content:center;
+    margin-top:40px;min-height:56px;padding:0 36px;border-radius:999px;
+    background:#FFFFFF;color:var(--text-dark);
+    font:600 17px/1 "Inter",system-ui,sans-serif;
+    box-shadow:0 8px 32px rgba(0,0,0,.18);
+    transition:transform 260ms cubic-bezier(.34,1.3,.64,1);
+  }
+  .cta:hover{transform:translateY(-2px)}
+
+  /* ---------- glass: front card (14%) + back strip (8%) — two layers, no more ---------- */
+  .glass-wrap{position:relative;justify-self:end;width:min(420px,100%)}
+  .glass-back{
+    position:absolute;inset:24px -20px -20px 24px;border-radius:24px;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(20px) saturate(180%);
+    -webkit-backdrop-filter:blur(20px) saturate(180%);
+  }
+  .glass-card{
+    position:relative;border-radius:24px;padding:32px;
+    background:rgba(255,255,255,.14);
+    backdrop-filter:blur(20px) saturate(180%);
+    -webkit-backdrop-filter:blur(20px) saturate(180%);
+    box-shadow:var(--amb),inset 0 1px 0 rgba(255,255,255,.45);
+  }
+  /* 1px gradient border: bright top-left, fading bottom-right */
+  .glass-card::before{
+    content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;
+    background:linear-gradient(135deg,rgba(255,255,255,.6),rgba(255,255,255,.1) 55%,rgba(255,255,255,0));
+    -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;
+  }
+  .card-scrim{border-radius:16px;background:var(--scrim);padding:24px}
+  .card-scrim h2{font:500 20px/1.2 "Space Grotesk",system-ui,sans-serif;letter-spacing:-0.01em}
+  .sched{margin:16px 0 0;padding:0;list-style:none;font-variant-numeric:tabular-nums}
+  .sched li{
+    display:flex;justify-content:space-between;gap:16px;align-items:baseline;
+    padding-block:10px;border-bottom:1px solid rgba(242,243,250,.18);
+    font-size:16px;
+  }
+  .sched li:last-child{border-bottom:0}
+  .sched .plant{font-weight:500}
+  .sched .task{color:rgba(242,243,250,.85)}
+  .card-note{margin-top:14px;font-size:13px;font-weight:600;color:rgba(242,243,250,.85)}  /* small glass caption, 600 */
+
+  /* ---------- ONE orchestrated load moment ---------- */
+  @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  @keyframes slide{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+  h1{animation:rise 320ms cubic-bezier(.3,.9,.4,1) both}
+  .lead{animation:rise 320ms cubic-bezier(.3,.9,.4,1) 80ms both}
+  .cta{animation:rise 320ms cubic-bezier(.3,.9,.4,1) 160ms both}
+  .glass-wrap{animation:slide 380ms cubic-bezier(.3,.9,.4,1) 240ms both}
+
+  @media (prefers-reduced-motion: reduce){
+    .blob{animation:none}
+    h1,.lead,.cta,.glass-wrap{animation:none}
+    .cta{transition:none}
+  }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="blob rose" aria-hidden="true"></div>
+  <div class="blob violet" aria-hidden="true"></div>
+  <div class="blob deep" aria-hidden="true"></div>
+
+  <div class="content">
+    <section class="pitch">
+      <h1>Plant care that runs itself.</h1>
+      <p class="lead">Care reminders, plant identification, and expert help in one app.</p>
+      <a class="cta" href="#">Start your free week</a>
+    </section>
+
+    <div class="glass-wrap">
+      <div class="glass-back" aria-hidden="true"></div>
+      <section class="glass-card" aria-label="Today's care schedule preview">
+        <div class="card-scrim">
+          <h2>Today's care</h2>
+          <ul class="sched">
+            <li><span class="plant">Monstera</span><span class="task">Water — 07:00</span></li>
+            <li><span class="plant">Calathea</span><span class="task">Mist — 18:30</span></li>
+            <li><span class="plant">Boston fern</span><span class="task">Feed — Friday</span></li>
+          </ul>
+          <p class="card-note">Reminders arrive before each window</p>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "name": "design-garden",
+  "version": "0.2.0",
+  "description": "The design skill that grows — universal, self-improving design for AI agents: UI, posters, icons, logos, slides, data-viz, video, illustration.",
+  "author": { "name": "iifzx" },
+  "license": "MIT",
+  "repository": { "type": "git", "url": "https://github.com/iifzx/design-garden" },
+  "bin": { "design-garden": "scripts/install.js" },
+  "files": [
+    "SKILL.md",
+    "knowledge/",
+    "learnings/",
+    "scripts/install.js",
+    "scripts/validate_knowledge.mjs",
+    "README.md"
+  ],
+  "keywords": ["design", "ui", "ai-agents", "skills", "claude", "zcode"]
+}

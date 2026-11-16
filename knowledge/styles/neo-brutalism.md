@@ -68,3 +68,9 @@ updated: 2026-11-16
 - sticker badge UI
 - raw anti-design web
 - marker highlight headline
+
+## Field QA (v0.2.0 gallery run)
+
+- Stacking-context gotcha: CSS entrance animations create stacking contexts — a shadowed card silently painted over a rotated sticker that had no z-index. Give every rotated/offset decorative element an explicit z-index when siblings animate.
+- The ink-border mass dominates visually even on the bone ground: audit contrast against the ink, not the bone.
+- Keep radius 0 throughout for the raw feel — the 0–8px allowance is a trap toward softness.

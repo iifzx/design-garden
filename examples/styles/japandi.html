@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fern — landing hero · Japandi</title>
+<meta name="description" content="Style-recipe demo: Fern plant-care hero in the japandi recipe.">
+<!--
+  RECIPE: knowledge/styles/japandi.md
+  Palette: unbleached paper #F1EBDF ~60% / sumi ink #2B2620 / wood #A8917A (structure only) /
+    matcha #7C8B66 used EXACTLY ONCE (the brush circle on "itself") / stone #9A948A (non-text hairlines only).
+  Contrast audit:
+    sumi on paper 12.6:1 ✓ (recipe floor ≥7:1 ✓) · paper on sumi (CTA, seal) 12.6:1 ✓
+    matcha brush stroke on paper 3.1:1 — decorative mark, not text ✓
+    wood frame 2.5:1 and stone rules 2.5:1 — kept non-text/structural. NOTE for recipe QA: stone gray
+    (#9A948A on paper = 2.5:1) cannot carry text at any WCAG level, so the recipe's "stone metadata" role
+    was reassigned to sumi; flagged in the report.
+  Type: EB Garamond (display) + Karla (body), body leading 1.7, labels caps +0.15em at 13px.
+    Scale 1.25: 15/19/24/30/37 + one extended step to 46px for the hero display (recipe scale tops at 37 —
+    quiet by design; 46 keeps one step of presence — flagged in QA report).
+  Layout: asymmetry, ≥35% deliberate emptiness (ma), 12px base modules, hairline rule placed off-center,
+    low-contrast imagery in wide margins (never full-bleed). Craft marks: hanko-style seal + drawn frond.
+    Two material hints max: paper grain (~4%) + wood frame. No Japanese glyphs — English content only.
+  Motion: 300–500ms fades with a gentle 10px rise, stagger 60ms; brush circle and frond draw like ink settling;
+    hover: ink darkens one step, underline draws 200ms; ONE orchestrated load moment; zero JS.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F1EBDF;
+    --sumi:#2B2620;
+    --sumi-deep:#1B1712;   /* ink, one step darker — hover state */
+    --wood:#A8917A;
+    --matcha:#7C8B66;
+    --stone:#9A948A;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;overflow-x:clip}
+  body{
+    background:var(--paper);color:var(--sumi);
+    font:400 19px/1.7 "Karla",system-ui,sans-serif;
+  }
+  h1,h2,p{margin:0}
+  a{color:inherit;text-decoration:none}
+  :focus-visible{outline:1.5px solid var(--sumi);outline-offset:4px}
+
+  .page{min-height:100vh;display:flex;flex-direction:column;position:relative}
+  /* paper grain, ~4% — material hint 1 of 2 */
+  .page::before{
+    content:"";position:absolute;inset:0;pointer-events:none;opacity:.04;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)'/%3E%3C/svg%3E");
+  }
+
+  /* ---------- quiet header ---------- */
+  .top{display:flex;align-items:center;justify-content:space-between;padding:40px 120px}
+  .wordmark{font:500 24px/1 "EB Garamond",serif;letter-spacing:.01em}
+  .top-nav{display:flex;gap:36px}
+  .top-nav a{
+    font:500 13px/1 "Karla",sans-serif;text-transform:uppercase;letter-spacing:.15em;
+    position:relative;padding:6px 0;transition:color 200ms ease;
+  }
+  .top-nav a::after{
+    content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--sumi);
+    transform:scaleX(0);transform-origin:left;transition:transform 200ms ease;
+  }
+  .top-nav a:hover,.top-nav a:focus-visible{color:var(--sumi-deep)}
+  .top-nav a:hover::after,.top-nav a:focus-visible::after{transform:scaleX(1)}
+
+  /* ---------- asymmetric main, one idea, wide emptiness ---------- */
+  .main{
+    flex:1;display:grid;grid-template-columns:7fr 5fr;column-gap:96px;
+    padding:48px 120px 96px;align-content:start;position:relative;
+  }
+  /* off-center hairline pulling the eye across emptiness */
+  .main::before{
+    content:"";position:absolute;top:48px;bottom:120px;left:57%;width:1px;background:var(--stone);
+  }
+  h1{
+    margin-top:56px;
+    font:500 46px/1.25 "EB Garamond",serif;
+    max-width:12ch;text-wrap:balance;
+  }
+  .word{position:relative;display:inline-block}
+  .word svg{
+    position:absolute;left:-14%;top:-12%;width:128%;height:124%;
+    overflow:visible;pointer-events:none;
+  }
+  .lead{margin-top:32px;max-width:30ch;text-wrap:pretty}
+  .cta{
+    display:inline-flex;align-items:center;justify-content:center;
+    margin-top:56px;min-height:56px;padding:0 36px;border-radius:2px;
+    background:var(--sumi);color:var(--paper);
+    font:500 16px/1 "Karla",sans-serif;letter-spacing:.02em;
+    transition:background-color 200ms ease;
+  }
+  .cta:hover,.cta:focus-visible{background:var(--sumi-deep)}   /* ink darkens one step */
+
+  /* ---------- framed frond, low contrast, wide margins ---------- */
+  .plate{margin-top:64px}
+  .plate .frame{
+    border:1px solid var(--wood);   /* wood hint 2 of 2 */
+    padding:48px 44px;
+  }
+  .plate svg{display:block;width:100%;height:auto}
+  .plate-meta{
+    display:flex;align-items:center;justify-content:space-between;
+    margin-top:24px;
+  }
+  .plate-meta figcaption{font-size:13px;letter-spacing:.15em;text-transform:uppercase;font-weight:500}
+  .seal{
+    width:44px;height:44px;background:var(--sumi);color:var(--paper);
+    display:inline-flex;align-items:center;justify-content:center;
+    font:700 12px/1 "Karla",sans-serif;letter-spacing:.08em;
+  }
+
+  /* ---------- ONE orchestrated load moment ---------- */
+  @keyframes settle{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  h1{animation:settle 450ms ease-out both}
+  .lead{animation:settle 450ms ease-out 60ms both}
+  .cta{animation:settle 450ms ease-out 120ms both}
+  .plate{animation:settle 450ms ease-out 180ms both}
+  .brush{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 500ms ease-out 400ms forwards}
+  .frond path{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 500ms ease-out 260ms forwards}
+
+  @media (prefers-reduced-motion: reduce){
+    h1,.lead,.cta,.plate{animation:none}
+    .brush,.frond path{animation:none;stroke-dashoffset:0}
+    .top-nav a,.cta{transition:none}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="top">
+    <a class="wordmark" href="#">Fern</a>
+    <nav class="top-nav" aria-label="Product areas">
+      <a href="#">Reminders</a>
+      <a href="#">Plant ID</a>
+      <a href="#">Experts</a>
+    </nav>
+  </header>
+
+  <main class="main">
+    <section class="pitch">
+      <h1>Plant care<br>that runs
+        <span class="word">itself.<svg viewBox="0 0 220 80" aria-hidden="true">
+          <path class="brush" pathLength="1" fill="none" stroke="#7C8B66" stroke-width="2.5" stroke-linecap="round"
+            d="M22,42 C20,16 68,7 112,8 C168,9 204,18 201,40 C198,62 152,73 102,72 C56,71 24,64 23,44 C22,38 26,30 34,26"/>
+        </svg></span>
+      </h1>
+      <p class="lead">Care reminders, plant identification, and expert help in one app.</p>
+      <a class="cta" href="#">Start your free week</a>
+    </section>
+
+    <figure class="plate">
+      <div class="frame">
+        <!-- sumi frond: drawn strokes settling into the paper -->
+        <svg class="frond" viewBox="0 0 300 420" role="img" aria-label="Ink drawing of a fern frond">
+          <g fill="none" stroke="#2B2620" stroke-linecap="round" opacity=".78">
+            <path pathLength="1" stroke-width="4" d="M150,402 C147,310 152,180 150,58"/>
+            <path pathLength="1" stroke-width="2.5" d="M150,352 C122,344 100,330 88,310"/>
+            <path pathLength="1" stroke-width="2.5" d="M150,352 C178,344 200,330 212,310"/>
+            <path pathLength="1" stroke-width="2.5" d="M150,296 C120,288 96,272 86,250"/>
+            <path pathLength="1" stroke-width="2.5" d="M150,296 C180,288 204,272 214,250"/>
+            <path pathLength="1" stroke-width="2.2" d="M150,240 C122,232 100,218 92,198"/>
+            <path pathLength="1" stroke-width="2.2" d="M150,240 C178,232 200,218 208,198"/>
+            <path pathLength="1" stroke-width="2" d="M150,184 C126,176 106,164 100,146"/>
+            <path pathLength="1" stroke-width="2" d="M150,184 C174,176 194,164 200,146"/>
+            <path pathLength="1" stroke-width="1.8" d="M150,132 C130,124 114,114 110,98"/>
+            <path pathLength="1" stroke-width="1.8" d="M150,132 C170,124 186,114 190,98"/>
+            <path pathLength="1" stroke-width="1.6" d="M150,86 C136,80 124,72 121,60"/>
+            <path pathLength="1" stroke-width="1.6" d="M150,86 C164,80 176,72 179,60"/>
+          </g>
+        </svg>
+      </div>
+      <div class="plate-meta">
+        <figcaption>Care sheet</figcaption>
+        <span class="seal" aria-label="Fern seal">FERN</span>
+      </div>
+    </figure>
+  </main>
+
+</div>
+</body>
+</html>

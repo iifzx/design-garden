@@ -17,6 +17,19 @@ The two jazz posters are the DEAL output in the flesh: same subject world (ink b
 
 The flower poster is the first output from a **fresh agent session running the installed skill** — it dealt 3 directions (vertical market board / paper-cut wreath / seed-packet label), executed the wreath, and its GATE caught the SVG wreath falling off-canvas plus a broken type-scale chain before delivery. The visible `[店名]`/`[促销主打]` slots are the no-invented-facts rule in action.
 
+## Style gallery — one brief, six styles
+
+Same product ("Fern", plant-care subscription), same copy, six style recipes — **the only variable is the style system**. Built by a fresh agent run treating the recipes as authority; the run's recipe QA findings were folded back into the recipes themselves (see each file's `Field QA` section).
+
+| | | |
+|---|---|---|
+| <img src="styles/swiss-international.png" width="180" alt="Swiss International hero"> | <img src="styles/neo-brutalism.png" width="180" alt="Neo-brutalism hero"> | <img src="styles/dark-tech.png" width="180" alt="Dark tech hero"> |
+| [swiss-international](styles/swiss-international.png) · [html](styles/swiss-international.html) | [neo-brutalism](styles/neo-brutalism.png) · [html](styles/neo-brutalism.html) | [dark-tech](styles/dark-tech.png) · [html](styles/dark-tech.html) |
+| <img src="styles/glassmorphism.png" width="180" alt="Glassmorphism hero"> | <img src="styles/y2k-retro.png" width="180" alt="Y2K retro hero"> | <img src="styles/japandi.png" width="180" alt="Japandi hero"> |
+| [glassmorphism](styles/glassmorphism.png) · [html](styles/glassmorphism.html) | [y2k-retro](styles/y2k-retro.png) · [html](styles/y2k-retro.html) | [japandi](styles/japandi.png) · [html](styles/japandi.html) |
+
+Honest caption: glassmorphism's vivid gradient is the style's own signature (opted in by choosing the recipe) — outside a glassmorphism brief, that gradient sits on our Never list. Twelve more styles await rendering: claim them in [issue #2](https://github.com/iifzx/design-garden/issues/2).
+
 ## What the critique gate caught in these very outputs
 
 Real fixes the GATE round made before delivery — evidence the quality loop works:
