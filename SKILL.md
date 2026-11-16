@@ -41,6 +41,7 @@ Read `knowledge/INDEX.md` (paths are relative to the directory containing this f
 | `knowledge/core/color.md` | When palette isn't fully fixed |
 | `knowledge/core/typography.md` | When type isn't fully fixed |
 | `knowledge/core/motion.md` | When anything moves or responds |
+| `knowledge/core/critique.md` | Review/improve tasks — how to deliver damage-ranked critique |
 | `knowledge/styles/<style>.md` × 1–2 | Matching the mood (chosen in DEAL) |
 
 Hard cap: **≤6 knowledge files per task.** If a file is missing, continue without it. Files with `status: experimental` in the index load only when the user explicitly names that style or topic.

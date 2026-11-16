@@ -1,0 +1,30 @@
+# Auto-label PRs by what they feed
+style-recipe:
+  - changed-files:
+      - any-glob-to-any-file: "knowledge/styles/**"
+
+domain-knowledge:
+  - changed-files:
+      - any-glob-to-any-file: "knowledge/domains/**"
+      - any-glob-to-any-file: "knowledge/core/**"
+
+learning-entry:
+  - changed-files:
+      - any-glob-to-any-file: "learnings/**"
+
+evals:
+  - changed-files:
+      - any-glob-to-any-file: "evals/**"
+
+site:
+  - changed-files:
+      - any-glob-to-any-file: "scripts/build_site.mjs"
+
+docs:
+  - changed-files:
+      - any-glob-to-any-file: "**/*.md"
+
+ci:
+  - changed-files:
+      - any-glob-to-any-file: ".github/**"
+      - any-glob-to-any-file: "scripts/**"

@@ -8,6 +8,9 @@ Every piece here was produced by **design-garden running its own workflow** (PAR
 |---|---|---|---|---|
 | Bike repair shop landing page | `ui-web-01` | **GLM-5.3-Flash** | [hero](images/bike-shop-hero.png) · [mobile 375px](images/bike-shop-mobile.png) · [full page](images/bike-shop-full.png) | [landing.html](bike-shop-landing/landing.html) |
 | Jazz café opening poster (1080×1350) | `poster-banner-01` | **GLM-5.3-Flash** | [poster](images/jazz-poster.png) | [late-set-1080x1350.html](jazz-cafe-poster/late-set-1080x1350.html) |
+| Jazz café poster — direction 2 "Cut Record" | `poster-banner-01` (the DEAL's dealt variant) | **GLM-5.3-Flash** | [poster](images/jazz-poster-cut-record.png) | [cut-record-1080x1350.html](jazz-cafe-poster/cut-record-1080x1350.html) |
+
+The two jazz posters are the DEAL output in the flesh: same subject world (ink black, brass, cream), structurally different compositions (a void with one spotlight vs a cropped record where type is the image). See [case-studies/poster-dealing.md](../knowledge/case-studies/poster-dealing.md) for why directions must differ in structure, not palette.
 | Plant-care app icon set (8 glyphs) | `icon-01` | **GLM-5.3-Flash** | [verification sheet](images/icon-sheet.png) | [icon-sheet.html](plant-icons/icon-sheet.html) + [svg/](plant-icons/svg/) |
 | Social preview (1280×640) | repo promo | **GLM-5.3-Flash** | [preview](images/social-preview.png) | [preview-1280x640.html](social-preview/preview-1280x640.html) |
 

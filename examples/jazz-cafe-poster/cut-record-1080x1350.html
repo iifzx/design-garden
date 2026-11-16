@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink-black:#1A1712;
+    --cream:#F2E9D8;
+    --cream-dim:#D8CCB4;
+    --brass:#C9A25C;
+    --burnt:#B04A38;        /* one loud accent: the record's first pressing stamp */
+    --safe:80px;
+  }
+  *{margin:0;box-sizing:border-box}
+  html,body{background:var(--ink-black)}
+  body{position:relative;width:1080px;height:1350px;overflow:hidden;
+    font-family:"JetBrains Mono",monospace;color:var(--cream)}
+  /* the record: cropped off the right edge — type IS the image */
+  .disc{position:absolute;top:-120px;left:430px;width:1400px;height:1400px;border-radius:50%;
+    background:radial-gradient(circle, #221E17 0 17%, #1D1A14 17% 100%);
+    box-shadow:inset 0 0 0 2px rgba(242,233,216,.14)}
+  .grooves{position:absolute;inset:0;border-radius:50%}
+  .grooves circle{fill:none;stroke:rgba(242,233,216,.10)}
+  .label{position:absolute;top:430px;left:760px;width:400px;height:400px;border-radius:50%;
+    background:var(--brass);color:var(--ink-black);
+    display:flex;flex-direction:column;justify-content:center;padding:0 44px;
+    box-shadow:0 0 0 10px rgba(26,23,18,.9), 0 0 0 12px rgba(201,162,92,.5)}
+  .label .side{font:700 15px/1 "JetBrains Mono",monospace;letter-spacing:.18em;text-transform:uppercase}
+  .label .name{font:italic 400 58px/1.02 "Instrument Serif",Georgia,serif;margin:14px 0 18px;letter-spacing:-.01em}
+  .label .tracks{font:400 13.5px/1.75 "JetBrains Mono",monospace;letter-spacing:.02em}
+  .stamp{position:absolute;top:120px;left:64px;padding:10px 16px;border:2px solid var(--burnt);
+    color:var(--burnt);font:700 16px/1 "JetBrains Mono",monospace;letter-spacing:.16em;
+    text-transform:uppercase;transform:rotate(-4deg);background:rgba(26,23,18,.55)}
+  .when{position:absolute;left:var(--safe);bottom:300px}
+  .when .date{font:400 250px/0.9 "Instrument Serif",Georgia,serif;letter-spacing:-.02em;color:var(--cream)}
+  .when .clock{font:700 40px/1.3 "JetBrains Mono",monospace;color:var(--brass);letter-spacing:.06em}
+  .foot{position:absolute;left:var(--safe);right:var(--safe);bottom:120px;
+    border-top:1px solid rgba(201,162,92,.4);padding-top:24px;
+    display:flex;justify-content:space-between;align-items:baseline;
+    font:400 24px/1.4 "JetBrains Mono",monospace;color:var(--cream-dim)}
+  .foot .where{color:var(--cream)}
+</style>
+</head>
+<body>
+  <div class="disc" aria-hidden="true">
+    <svg class="grooves" viewBox="0 0 1400 1400" aria-hidden="true">
+      <circle cx="700" cy="700" r="640"/><circle cx="700" cy="700" r="600"/><circle cx="700" cy="700" r="560"/>
+      <circle cx="700" cy="700" r="520"/><circle cx="700" cy="700" r="480"/><circle cx="700" cy="700" r="440"/>
+      <circle cx="700" cy="700" r="400"/><circle cx="700" cy="700" r="360"/><circle cx="700" cy="700" r="330"/>
+    </svg>
+  </div>
+  <div class="label">
+    <p class="side">Side A · First pressing</p>
+    <p class="name">The Late Set</p>
+    <p class="tracks">
+      Track 1 — doors · 19:00<br>
+      Track 2 — first set · 20:30<br>
+      Track 3 — [ACT NAME] trio<br>
+      Track 4 — [ACT NAME] quartet<br>
+      Track 5 — late jam · until late
+    </p>
+  </div>
+  <p class="stamp">Grand opening</p>
+  <div class="when">
+    <p class="date">21</p>
+    <p class="clock">FRI 22:00 · NOVEMBER</p>
+  </div>
+  <div class="foot">
+    <p class="where">[PLACEHOLDER: street address], Mill Street district</p>
+    <p>No cover · walk-ins</p>
+  </div>
+</body>
+</html>

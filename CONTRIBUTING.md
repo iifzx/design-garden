@@ -23,7 +23,7 @@ You don't need to write code or design professionally to matter here — the "so
 The zero-skill ladder, easiest first:
 
 1. ⭐ **Star & share** — helps the garden find more feeders.
-2. 🗳️ **Blind vote** — in Discussions → *Polls*, pick which of two anonymous designs looks better. Votes are community advisory signal for evals; rubric scores still decide promotions (see `evals/README.md`).
+2. 🗳️ **Blind vote** — open the latest vote post in Discussions, look at the two anonymous designs, and reply **1** or **2**. Votes are community advisory signal for evals; rubric scores still decide promotions (see `evals/README.md`).
 3. 🌻 **First bloom report** — file the "🌻 小白报告 · First bloom" issue and answer 3 plain-language questions. Every report gets distilled into the knowledge base.
 4. 📋 **Post a real design need** — "I need a lost-cat flyer" is valuable: good real briefs become eval tasks (maintainers convert and credit you).
 

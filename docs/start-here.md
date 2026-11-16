@@ -57,7 +57,7 @@ Technology should serve everyone — **this project runs on ordinary users**. Fr
 | Effort | What you can do | Time |
 |---|---|---|
 | ⭐ | Star the repository — helps more people find it | 10 sec |
-| 🗳️ | Vote in [Discussions](https://github.com/iifzx/design-garden/discussions) **Polls**: which of two images looks better? One click | 30 sec |
+| 🗳️ | Open the latest **vote post** in [Discussions](https://github.com/iifzx/design-garden/discussions): which of two designs looks better? Reply **1** or **2** | 30 sec |
 | 🌻 | File a [**First bloom report**](https://github.com/iifzx/design-garden/issues/new?template=beginner_bloom.yml): answer 3 questions — what did you ask it to make? how did it turn out? what surprised or bugged you? | 2 min |
 | 📋 | Post a **real design need from your life** as an issue ("I need a lost-cat flyer") — good real briefs become test tasks that make the skill better at real life | 3 min |
 | 🌱 | Comfortable now? Head back to [CONTRIBUTING.md](../CONTRIBUTING.md) for the full contribution paths: share learnings, write style recipes, run reviews | one cup of tea |

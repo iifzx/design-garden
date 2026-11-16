@@ -57,7 +57,7 @@ git clone https://github.com/iifzx/design-garden.git ~/.agents/skills/design-gar
 | 门槛 | 你能做的 | 花多久 |
 |---|---|---|
 | ⭐ | 给仓库点一个 Star——让更多人刷到它 | 10 秒 |
-| 🗳️ | 去 [Discussions](https://github.com/iifzx/design-garden/discussions) 的 **Polls（投票）** 区参加盲投票：两张图哪张更好看？点一下就行 | 30 秒 |
+| 🗳️ | 打开 [Discussions](https://github.com/iifzx/design-garden/discussions) 里最新的**投票贴**：两张图哪张更好看？回个 **1** 或 **2** 就行 | 30 秒 |
 | 🌻 | 提交一份[**小白报告**](https://github.com/iifzx/design-garden/issues/new?template=beginner_bloom.yml)：回答 3 个问题——你让它做了什么？结果怎样？哪里惊喜/哪里不满意？ | 2 分钟 |
 | 📋 | 把你**真实的设计需求**发成 issue（"我需要一张寻猫启事"）——好的真实需求会变成项目的测试题，让 skill 变得更懂生活 | 3 分钟 |
 | 🌱 | 用顺手了？回到 [CONTRIBUTING.md](../CONTRIBUTING.md)，那里有正经的贡献路线：分享经验、写风格配方、做评审 | 一杯茶的时间 |

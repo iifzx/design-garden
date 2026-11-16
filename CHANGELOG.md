@@ -2,6 +2,26 @@
 
 Each entry records what design-garden *learned* in that version, not just what changed. Growth is the product.
 
+## v0.1.3 — The missing capability: critique (2026-11-17)
+
+**Learned — a capability the skill promised but never taught**
+- `knowledge/core/critique.md`: reviewing *other people's* designs is its own craft — intent reconstruction, the 5-second/squint/device passes, damage ranking (top 3 per round), four-part findings (what → rule → concrete fix → severity), "make it pop" translations into testable statements, tone discipline. The skill triggers on "review this design" — now it knows how.
+
+**Learned — about the community mechanism**
+- The voting loop was empty, so it got seeded: two real poster directions from the same brief (Late Set vs Cut Record) now run as blind vote post #1 — and examples/ finally shows the DEAL's output, not just one direction.
+
+**Learned — housekeeping**
+- Site gains a Guides section (beginner guides, contributing, roadmap, changelog are now browsable outside GitHub)
+- PRs auto-labeled by what they feed (style-recipe / domain-knowledge / learning-entry / evals)
+- Vote flow documented as reply-1-or-2 vote posts (native poll widgets aren't API-creatable)
+
+## v0.1.2 — Browsable knowledge base (2026-11-17)
+
+- Site: zero-dependency single-file knowledge browser deployed to GitHub Pages (searchable, status chips, source links); stats.json feeds dynamic README badges that grow with the garden
+- scripts/build_site.mjs fixes recorded: nested client-side template literals need escaped backticks/`${}`; `esc()` must escape `"` for attribute safety; markdown list continuations (2-space indent) merge into the previous item
+- knowledge/styles/_TEMPLATE.md shipped (was referenced, never existed); validator skips _TEMPLATE files
+- scripts/install.sh (clone-or-update), AGENTS.md for agents working in this repo, honest comparison table in both READMEs
+
 ## v0.1.1 — Community standards & showcase (2026-11-17)
 
 **Learned — about itself**

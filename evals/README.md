@@ -30,7 +30,7 @@ Growth without measurement becomes bloat. This directory holds the measurement: 
 
 ## Community blind votes (advisory)
 
-Maintainers may post generated blind pairs to **Discussions → Polls** so anyone can vote "which looks better" — no code or design background needed (this is rung 2 of the zero-skill ladder in CONTRIBUTING.md). Votes are **advisory signal**: they tell maintainers where to look and surface disagreements, but promotion is still decided by rubric scores per `rubric.md`. A large vote split against a winning rubric score is a flag worth investigating, not an automatic veto.
+Maintainers may post generated blind pairs as **vote posts in Discussions** so anyone can vote "which looks better" by replying 1 or 2 — no code or design background needed (this is rung 2 of the zero-skill ladder in CONTRIBUTING.md). Votes are **advisory signal**: they tell maintainers where to look and surface disagreements, but promotion is still decided by rubric scores per `rubric.md`. A large vote split against a winning rubric score is a flag worth investigating, not an automatic veto.
 
 ## Task index
 

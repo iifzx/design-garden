@@ -216,6 +216,20 @@ if (existsSync(learnDir)) {
   }
 }
 
+// guides & community docs
+const guideFiles = [
+  ["docs/start-here.md", "Beginner guide (EN) — install, use, help out with zero code"],
+  ["docs/start-here.zh-CN.md", "Beginner guide (中文) — 零代码安装、使用与贡献"],
+  ["CONTRIBUTING.md", "The growth protocol: schemas, quality bar, promotion, security rules"],
+  ["ROADMAP.md", "Where the garden grows next"],
+  ["CHANGELOG.md", "What the garden learned, per version"],
+  ["SOURCES.md", "What the garden was planted from"],
+];
+for (const [f, sum] of guideFiles) {
+  const p = path.join(ROOT, f);
+  if (existsSync(p)) addPage(p, "Guides", sum);
+}
+
 // stats
 const stats = {
   core: pages.filter((p) => p.kind === "core").length,
@@ -228,7 +242,7 @@ const stats = {
 
 // ---------- html ----------
 const STATUS_CLASS = { core: "s-core", proven: "s-proven", experimental: "s-exp", local: "s-local" };
-const groups = ["Router", "Core", "Domains", "Styles", "Case studies", "Learnings"];
+const groups = ["Router", "Core", "Domains", "Styles", "Case studies", "Learnings", "Guides"];
 
 const navItems = groups
   .filter((g) => pages.some((p) => p.category === g))

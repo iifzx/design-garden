@@ -10,6 +10,7 @@ The router's catalog. Load **≤6 files per task**, in the priority order given 
 | core/layout.md | core | Grid grammar, spacing rhythm, screen windows, responsive rules | Any screen/canvas composition |
 | core/motion.md | core | Motion decision framework, easing/duration/spring tables, choreography | Anything moves or responds |
 | core/anti-slop.md | core | The canonical AI-tell catalog with fixes | Always, every task |
+| core/critique.md | core | Reviewing others' work: damage-ranked, evidence-based critique protocol | Review or improve tasks |
 | domains/ui-web.md | core | Web UI craft: floors, tokens, 708px screen map, audit ladder + checklist | ui-web |
 | domains/ui-mobile.md | core | Mobile app craft: touch physics, safe areas, Dynamic Type + checklist | ui-mobile |
 | domains/poster-banner.md | core | Platform sizes, safe zones, 3-zone hierarchy, print specs + checklist | poster-banner |
