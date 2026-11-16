@@ -96,6 +96,19 @@ node scripts/ab_harness.mjs --pair a.png b.png --out eval.html
 
 Install your fork locally to test: clone into your agent's skills directory (e.g. `~/.agents/skills/design-garden` or `~/.zcode/skills/design-garden`) and use it on a real brief. Its LEARN step will write entries into `learnings/` — PR the generalizable ones.
 
+## Translations
+
+English is the source of truth and the skill's working language — SKILL.md and `knowledge/` stay English so trigger descriptions and loaded instructions behave reliably across models. Translations cover the **docs layer** only.
+
+To add a language:
+
+1. Create `README.<code>.md` (BCP-47 style codes: `README.ja.md`, `README.de.md`, `README.ko.md`…), mirroring the English README's structure. Name yourself in the contributors list of that file.
+2. Update the language switcher at the top of **every** README: `English | [简体中文](README.zh-CN.md) | [日本語](README.ja.md)` — current language stays unlinked, others link.
+3. Add the new file to the Translations list in the English README and its own file.
+4. Sync rule: when the English README changes materially in a release, update translations in the same release — or add a visible `> ⚠️ This translation trails <version>` note at the top rather than letting it drift silently.
+
+For translating the *content* (knowledge files) into other languages, open an issue first — it changes trigger behavior for users of that language and needs a design decision, not just a PR.
+
 ## Recognition
 
 Every contribution lands in the CHANGELOG as "what the garden learned", and significant sources are credited in `SOURCES.md`. Gardens are judged by what they grow.

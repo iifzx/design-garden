@@ -1,5 +1,7 @@
 # 🌱 design-garden
 
+English | **[简体中文](README.zh-CN.md)**
+
 **The design skill that grows.** A universal, self-improving design skill for AI coding agents — covering anything aesthetic: UI, posters, banners, icons, logos, brand identity, slides, data visualization, video & motion, illustration, typography, and design critique.
 
 ![CI](https://github.com/iifzx/design-garden/actions/workflows/validate.yml/badge.svg)
@@ -51,7 +53,7 @@ knowledge/
   case-studies/           before/after with reasoning
 learnings/                the skill's field notes — starts seeded, grows with every task
 evals/                    benchmark briefs with deliberate traps + rubric + blind A/B harness
-scripts/                  validate_knowledge.py (CI gate) · ab_harness.py (blind eval pages)
+scripts/                  validate_knowledge.mjs (CI gate) · ab_harness.mjs (blind eval pages)
 ```
 
 Every knowledge file carries frontmatter (`id / kind / applies / status / source / updated`). `experimental` knowledge loads only on explicit match; `proven` loads by default. The router reads `knowledge/INDEX.md` and never loads more than ~6 files per task — **growing without bloating**.
@@ -86,29 +88,20 @@ Just design. The skill triggers on anything aesthetic:
 **The garden grows on small PRs.** Add a style recipe (~1 hour), report a learning from your own use (minutes), or run an eval to promote an experimental rule to proven. Everything is in [CONTRIBUTING.md](CONTRIBUTING.md) — the short version:
 
 1. Fork, add **one small file** following the schema (or one learning entry)
-2. `python scripts/validate_knowledge.py` must pass (CI enforces it)
+2. `node scripts/validate_knowledge.mjs` must pass (CI enforces it)
 3. Open the PR — CHANGELOG will say "the garden learned X"
 
 Community knowledge starts `experimental` (loads only on explicit match) and becomes `proven` by winning a blind A/B eval — so growth is *verified*, not just accumulated.
 
 ---
 
-## 中文说明
+## Translations
 
-**design-garden（设计花园）是一个会成长的万能设计 skill**，覆盖一切与审美相关的工作：UI 界面、落地页、海报横幅、图标、logo 品牌、幻灯片、数据图表、视频动效、插画、字体排印与设计评审。
+English is the primary version — the skill content (SKILL.md, knowledge files) and trigger vocabulary stay English for model reliability. Community translations of the README live alongside it:
 
-**它和普通设计 skill 的区别：会学习。**
+- 简体中文: [README.zh-CN.md](README.zh-CN.md)
 
-1. **越用越强**：每次设计任务结束，它会自动把一条结构化经验（场景 → 有效做法 → 踩坑）写进 `learnings/`，下次同类任务优先读取——不用重装、不用改代码，装上就在成长
-2. **人人可喂**：所有知识都是小文件，一次 PR = 一条新风格配方 / 一条领域技法 / 一份案例。不会写代码也能贡献
-3. **有晋升机制**：新知识先标 `experimental`（仅在明确匹配时加载），必须通过盲测对比评测才能转正为 `proven`——保证它"变好"而不只是"变多"，这是大多数 prompt 合集做不到的
-4. **成长可读**：每个版本的 CHANGELOG 记录"这个版本学会了什么"
-
-**安装**：把仓库 clone 到 agent 的 skills 目录（`~/.agents/skills/design-garden` 或项目内 `.zcode/skills/design-garden`）即可，无任何依赖。
-
-**工作流**：解析任务 → 按需加载知识（≤6 个文件，永不爆上下文）→ 2–3 个差异化艺术方向 → 执行 → 评审门（每轮只修最伤的 3 个问题）→ 交付 → 记录经验。内置三源合并的"AI 味"黑名单和 9 大领域的评审清单。
-
-**参与共建**：见 [CONTRIBUTING.md](CONTRIBUTING.md)，或直接提一个 🧠 Learning Report issue 分享你的设计经验。
+To add a language, see the [Translations](CONTRIBUTING.md#translations) section in CONTRIBUTING.md.
 
 ## License & credits
 
