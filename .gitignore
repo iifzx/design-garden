@@ -1,0 +1,17 @@
+# eval render output
+eval.html
+selftest/
+renders/
+
+# agent-internal files
+.zcode/
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# editor
+*.swp
+.idea/
+.vscode/

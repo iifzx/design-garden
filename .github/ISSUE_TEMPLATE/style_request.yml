@@ -1,0 +1,43 @@
+name: "🎨 Style request"
+description: "Request a style recipe that design-garden doesn't have yet"
+labels: ["style-request"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Style name
+      placeholder: "e.g. risograph-print"
+    validations:
+      required: true
+  - type: dropdown
+    id: applies
+    attributes:
+      label: Best-suited domains
+      multiple: true
+      options:
+        - ui-web
+        - ui-mobile
+        - poster-banner
+        - icon
+        - logo-brand
+        - slides
+        - data-viz
+        - video-motion
+        - illustration-art
+  - type: textarea
+    id: essence
+    attributes:
+      label: Essence
+      description: "What makes it instantly recognizable — palette feel, type attitude, layout grammar"
+    validations:
+      required: true
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: "Links to real-world examples (with permission/rights respected)"
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it's worth a slot
+      description: "What briefs would it serve that existing styles can't?"

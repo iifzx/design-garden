@@ -1,0 +1,54 @@
+name: "🧠 Learning report"
+description: "Share a design learning from your own use of design-garden — the fuel that grows the garden"
+labels: ["learning-report"]
+body:
+  - type: dropdown
+    id: domain
+    attributes:
+      label: Domain
+      options:
+        - ui-web
+        - ui-mobile
+        - poster-banner
+        - icon
+        - logo-brand
+        - slides
+        - data-viz
+        - video-motion
+        - illustration-art
+        - other
+    validations:
+      required: true
+  - type: textarea
+    id: situation
+    attributes:
+      label: Situation
+      description: "The actual constraint or problem you hit — one or two sentences"
+    validations:
+      required: true
+  - type: textarea
+    id: move
+    attributes:
+      label: Move
+      description: "What worked — concrete and reproducible, numbers beat adjectives"
+    validations:
+      required: true
+  - type: textarea
+    id: pitfall
+    attributes:
+      label: Pitfall
+      description: "What to avoid next time"
+  - type: dropdown
+    id: confidence
+    attributes:
+      label: Confidence
+      options: ["one-off", "repeated", "user-confirmed"]
+    validations:
+      required: true
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Terms
+      options:
+        - label: "This contains no client/private data and I'm OK with it being published under the repo license"
+          required: true

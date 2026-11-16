@@ -1,0 +1,30 @@
+name: "🐛 Knowledge bug"
+description: "A rule in the knowledge base hurt real output — tell us so we can fix or demote it"
+labels: ["knowledge-bug"]
+body:
+  - type: dropdown
+    id: file
+    attributes:
+      label: Which knowledge file
+      description: "Path under knowledge/ (e.g. domains/ui-web.md, styles/dark-tech.md)"
+    validations:
+      required: true
+  - type: textarea
+    id: misfire
+    attributes:
+      label: What misfired
+      description: "The specific rule and how it hurt the output"
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Evidence
+      description: "Brief + what you got + what you expected. Screenshots welcome"
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed fix
+      description: "Reworded rule, narrower scope, or demotion to experimental"
