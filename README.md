@@ -5,8 +5,12 @@ English | **[简体中文](README.zh-CN.md)**
 **The design skill that grows.** A universal, self-improving design skill for AI coding agents — covering anything aesthetic: UI, posters, banners, icons, logos, brand identity, slides, data visualization, video & motion, illustration, typography, and design critique.
 
 ![CI](https://github.com/iifzx/design-garden/actions/workflows/validate.yml/badge.svg)
-![knowledge](https://img.shields.io/badge/knowledge-core%206%20%C2%B7%20domains%209%20%C2%B7%20styles%2018-2E7D32)
+![styles](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fiifzx.github.io%2Fdesign-garden%2Fstats.json&query=%24.styles&label=style%20recipes&color=2E7D32)
+![domains](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fiifzx.github.io%2Fdesign-garden%2Fstats.json&query=%24.domains&label=domains&color=2E7D32)
+![learnings](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fiifzx.github.io%2Fdesign-garden%2Fstats.json&query=%24.learnings&label=learnings%20files&color=A98A3D)
 
+> 📚 **Browse the whole knowledge base online** — every playbook and style recipe, searchable: **[iifzx.github.io/design-garden](https://iifzx.github.io/design-garden/)**
+>
 > 🌱 **New to AI tools?** No-code install, plain-language usage, and zero-skill ways to help: **[Start Here](docs/start-here.md)** (中文：[新手指南](docs/start-here.zh-CN.md))
 
 ## What it makes
@@ -24,7 +28,17 @@ Most agent "design skills" are frozen prompt packs: strong on day one, stale on 
 
 ---
 
-## Why it's different: four growth loops
+## Why it's different
+
+| | **design-garden** | Frozen prompt packs | Single-domain skills |
+|---|---|---|---|
+| Coverage | All 9 design domains + 18 styles | Varies | One domain, deep |
+| Growth | Learns from every task + community PRs | Never changes | Manual forks |
+| Quality control | Eval-gated promotion + CI injection scan | None | Rarely |
+| Beginner paths | Designed-in (vote, report, translate) | None | None |
+| Bloat control | ≤6 files loaded per task, line budgets | Grows forever | N/A |
+
+### The four growth loops
 
 ```
             ┌──────────────────────────────────────────────┐
@@ -80,6 +94,9 @@ Works with any agent that supports the SKILL.md convention (ZCode, Claude Code, 
 ```bash
 # user-level (all projects)
 git clone https://github.com/iifzx/design-garden.git ~/.agents/skills/design-garden
+
+# or use the installer (clones or updates, same target)
+curl -fsSL https://raw.githubusercontent.com/iifzx/design-garden/main/scripts/install.sh -o install-design-garden.sh && sh install-design-garden.sh
 
 # or project-level
 git clone https://github.com/iifzx/design-garden.git <your-project>/.zcode/skills/design-garden

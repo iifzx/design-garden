@@ -5,8 +5,12 @@
 English | **简体中文**
 
 ![CI](https://github.com/iifzx/design-garden/actions/workflows/validate.yml/badge.svg)
-![knowledge](https://img.shields.io/badge/知识-核心%206%20%C2%B7%20领域%209%20%C2%B7%20风格%2018-2E7D32)
+![styles](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fiifzx.github.io%2Fdesign-garden%2Fstats.json&query=%24.styles&label=%E9%A3%8E%E6%A0%BC%E9%85%8D%E6%96%B9&color=2E7D32)
+![domains](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fiifzx.github.io%2Fdesign-garden%2Fstats.json&query=%24.domains&label=%E9%A2%86%E5%9F%9F&color=2E7D32)
+![learnings](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fiifzx.github.io%2Fdesign-garden%2Fstats.json&query=%24.learnings&label=%E7%BB%8F%E9%AA%8C%E5%BA%93&color=A98A3D)
 
+> 📚 **在线浏览全部知识库**——每份领域手册和风格配方都可搜索：**[iifzx.github.io/design-garden](https://iifzx.github.io/design-garden/)**
+>
 > 🌻 **完全没接触过 AI 工具？** 不用写代码就能安装、使用、甚至帮上忙：**[新手指南](docs/start-here.zh-CN.md)**（English: [Start Here](docs/start-here.md)）
 
 ## 它能做出什么
@@ -68,6 +72,9 @@ scripts/                  validate_knowledge.mjs（CI 门禁）· ab_harness.mjs
 ```bash
 # 用户级（所有项目生效）
 git clone https://github.com/iifzx/design-garden.git ~/.agents/skills/design-garden
+
+# 或用安装脚本（自动克隆或更新，目标一致）
+curl -fsSL https://raw.githubusercontent.com/iifzx/design-garden/main/scripts/install.sh -o install-design-garden.sh && sh install-design-garden.sh
 
 # 或项目级
 git clone https://github.com/iifzx/design-garden.git <你的项目>/.zcode/skills/design-garden

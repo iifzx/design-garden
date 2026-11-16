@@ -179,7 +179,7 @@ for (const sub of KNOWLEDGE_DIRS) {
     err(`${sub}: missing directory`);
     continue;
   }
-  for (const f of readdirSync(dir).filter((f) => f.endsWith(".md")).sort()) {
+  for (const f of readdirSync(dir).filter((f) => f.endsWith(".md") && f !== "_TEMPLATE.md").sort()) {
     const file = path.join(dir, f);
     const text = readFileSync(file, "utf-8");
     const status = checkKnowledgeFile(file, root);
