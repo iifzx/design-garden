@@ -7,6 +7,8 @@ English | **[简体中文](README.zh-CN.md)**
 ![CI](https://github.com/iifzx/design-garden/actions/workflows/validate.yml/badge.svg)
 ![knowledge](https://img.shields.io/badge/knowledge-core%206%20%C2%B7%20domains%209%20%C2%B7%20styles%2018-2E7D32)
 
+> 🌱 **New to AI tools?** No-code install, plain-language usage, and zero-skill ways to help: **[Start Here](docs/start-here.md)** (中文：[新手指南](docs/start-here.zh-CN.md))
+
 Most agent "design skills" are frozen prompt packs: strong on day one, stale on day thirty, and always one author's taste. **design-garden is built to be fed** — by your daily design work, and by the community. It doesn't just execute design tasks; it *learns from every task it runs*.
 
 ---

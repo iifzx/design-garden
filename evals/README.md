@@ -28,6 +28,10 @@ Growth without measurement becomes bloat. This directory holds the measurement: 
 - A tie is a fail for promotion: knowledge must earn its lines.
 - One eval is evidence, two is stronger, and a task where the knowledge domain doesn't apply proves nothing — pick tasks that discriminate.
 
+## Community blind votes (advisory)
+
+Maintainers may post generated blind pairs to **Discussions → Polls** so anyone can vote "which looks better" — no code or design background needed (this is rung 2 of the zero-skill ladder in CONTRIBUTING.md). Votes are **advisory signal**: they tell maintainers where to look and surface disagreements, but promotion is still decided by rubric scores per `rubric.md`. A large vote split against a winning rubric score is a flag worth investigating, not an automatic veto.
+
 ## Task index
 
 Each task file in `tasks/` names its domain. To add tasks: follow an existing file's shape (brief + deliberate traps + what strong output looks like). Traps are what make tasks discriminating — a brief without traps scores every output the same.

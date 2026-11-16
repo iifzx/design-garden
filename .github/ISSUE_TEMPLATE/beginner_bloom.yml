@@ -1,0 +1,39 @@
+name: "🌻 小白报告 · First bloom"
+description: "不写代码也能贡献：告诉我们你用它做了什么、感觉如何 · No code needed: tell us what you made and how it felt"
+labels: ["first-bloom"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        欢迎你！这是给"完全不会编程"的朋友准备的贡献方式，3 个问题就完成。你的直觉和感受会被整理进知识库，帮 design-garden 变得更懂真实的人。🌸
+        Welcome! This is the zero-code contribution path — 3 questions and you're done. Your instincts get distilled into the knowledge base.
+  - type: textarea
+    id: asked
+    attributes:
+      label: "1️⃣ 你让 AI 做了什么？ · What did you ask it to make?"
+      description: "用你自己的话说就行，比如「卖荔枝的朋友圈促销图」 · Plain words are perfect, e.g. 'a WeChat promo image for lychees'"
+    validations:
+      required: true
+  - type: dropdown
+    id: turned
+    attributes:
+      label: "2️⃣ 结果怎么样？ · How did it turn out?"
+      options:
+        - "超出预期 · Better than expected"
+        - "挺好，直接能用 · Good, used it as-is"
+        - "一般，小改能用 · Okay, small tweaks fixed it"
+        - "不理想，没采用 · Not great, gave up"
+    validations:
+      required: true
+  - type: textarea
+    id: felt
+    attributes:
+      label: "3️⃣ 最惊喜的一点 / 最不对劲的一点？ · One thing that surprised you or felt off?"
+      description: "什么都行：「颜色很丑」「字太小」「居然会自己配字体」 · Anything: 'colors ugly', 'text too small', 'it picked fonts by itself!'"
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: "条款 · Terms"
+      options:
+        - label: "可以匿名引用我的描述进知识库 · OK to quote my description (anonymized) in the knowledge base"
+          required: true

@@ -16,10 +16,24 @@ experimental  ──►  (eval-passed)  ──►   (foundational, maintained by
 - **`core`** — foundational modules the workflow depends on; changed only with extra care and review.
 - **`learnings/`** — field notes recorded by the skill itself during real tasks (`status: local`). The raw ore; knowledge files are the refined metal.
 
+## 🌻 New here? Zero-skill contributions
+
+You don't need to write code or design professionally to matter here — the "something feels off" instinct of a real user is exactly what machines lack. The full beginner walkthrough lives in the **Start Here guide**: [docs/start-here.md](docs/start-here.md) · 中文版 [docs/start-here.zh-CN.md](docs/start-here.zh-CN.md).
+
+The zero-skill ladder, easiest first:
+
+1. ⭐ **Star & share** — helps the garden find more feeders.
+2. 🗳️ **Blind vote** — in Discussions → *Polls*, pick which of two anonymous designs looks better. Votes are community advisory signal for evals; rubric scores still decide promotions (see `evals/README.md`).
+3. 🌻 **First bloom report** — file the "🌻 小白报告 · First bloom" issue and answer 3 plain-language questions. Every report gets distilled into the knowledge base.
+4. 📋 **Post a real design need** — "I need a lost-cat flyer" is valuable: good real briefs become eval tasks (maintainers convert and credit you).
+
+When you're comfortable, the professional paths below are waiting.
+
 ## What you can contribute
 
 | Contribution | Where | Effort |
 |---|---|---|
+| 🌻 First bloom (zero-code) | [issue template](https://github.com/iifzx/design-garden/issues/new?template=beginner_bloom.yml) — see the beginner section above | 2 min |
 | 🧠 Learning report | open an issue (template) or PR a new entry into `learnings/<domain>.md` | minutes |
 | 🎨 Style recipe | `knowledge/styles/<slug>.md` — follow the style schema | ~1 hour |
 | 🔧 Domain technique | PR a section into an existing `knowledge/domains/<domain>.md` | ~1 hour |

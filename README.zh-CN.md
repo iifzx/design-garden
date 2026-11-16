@@ -7,6 +7,8 @@ English | **简体中文**
 ![CI](https://github.com/iifzx/design-garden/actions/workflows/validate.yml/badge.svg)
 ![knowledge](https://img.shields.io/badge/知识-核心%206%20%C2%B7%20领域%209%20%C2%B7%20风格%2018-2E7D32)
 
+> 🌻 **完全没接触过 AI 工具？** 不用写代码就能安装、使用、甚至帮上忙：**[新手指南](docs/start-here.zh-CN.md)**（English: [Start Here](docs/start-here.md)）
+
 大多数 agent"设计 skill"是冻结的 prompt 包：第一天很强，第三十天就过时，而且永远只是一个人的品味。**design-garden 是被设计来"被喂养"的**——被你的日常设计工作喂养，被社区喂养。它不只是执行设计任务；它**从自己跑过的每个任务中学习**。
 
 ---
