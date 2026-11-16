@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F3EA; --green:#2E4B3C; --green-deep:#22382D;
+    --brass:#A98A3D; --ink:#1E241F; --muted:#5D655B; --hairline:#D9D4C2;
+  }
+  *{margin:0;box-sizing:border-box}
+  body{width:1280px;height:640px;overflow:hidden;background:var(--paper);
+    font-family:"Archivo",system-ui,sans-serif;color:var(--ink);position:relative}
+  .frame{position:absolute;inset:28px;border:2px solid var(--green)}
+  .content{position:absolute;inset:28px;display:flex}
+  .left{flex:1.25;padding:56px 48px;display:flex;flex-direction:column}
+  .kicker{font:700 15px/1 "JetBrains Mono",monospace;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--green)}
+  .kicker .dot{color:var(--brass)}
+  h1{margin-top:22px;font:italic 400 108px/1 "Instrument Serif",Georgia,serif;
+    color:var(--green);letter-spacing:-0.01em}
+  h1 .ug{font-style:normal;color:var(--ink)}
+  .tagline{margin-top:20px;font:700 25px/1.35 "Archivo",sans-serif;max-width:30ch}
+  .tagline em{font-style:normal;box-shadow:inset 0 -0.32em rgba(169,138,61,.35)}
+  .stats{margin-top:auto;display:flex;gap:0;border-top:2px solid var(--ink);padding-top:18px}
+  .stat{padding-right:36px;margin-right:36px;border-right:1px solid var(--hairline)}
+  .stat:last-child{border-right:0}
+  .stat b{display:block;font:900 30px/1 "Archivo",sans-serif;color:var(--green)}
+  .stat span{font:400 13px/1.4 "JetBrains Mono",monospace;color:var(--muted)}
+  .right{flex:1;background:var(--green);color:var(--paper);position:relative;
+    display:flex;flex-direction:column;justify-content:center;padding:0 56px}
+  .rings{position:absolute;inset:0;opacity:.14}
+  .loop{position:relative;border:1.5px solid rgba(246,243,234,.45);border-radius:8px;
+    padding:13px 18px;margin:10px 0;font:400 15.5px/1.4 "Archivo",sans-serif}
+  .loop b{font-weight:700}
+  .loop .n{font:700 12px/1 "JetBrains Mono",monospace;color:var(--brass);
+    letter-spacing:.1em;display:block;margin-bottom:5px}
+  .loop.last{background:rgba(169,138,61,.22);border-color:var(--brass)}
+  .loop-arrow{font:700 16px/1 "JetBrains Mono",monospace;color:var(--brass);
+    margin:2px 0 2px 22px}
+</style>
+</head>
+<body>
+  <div class="frame"></div>
+  <div class="content">
+    <div class="left">
+      <p class="kicker">an open-source skill <span class="dot">●</span> for ai agents</p>
+      <h1>design<span class="ug">-garden</span></h1>
+      <p class="tagline">The design skill that <em>grows</em> — it learns from every task, and the whole world can feed it.</p>
+      <div class="stats">
+        <div class="stat"><b>9</b><span>design domains</span></div>
+        <div class="stat"><b>18</b><span>style recipes</span></div>
+        <div class="stat"><b>4</b><span>growth loops</span></div>
+        <div class="stat"><b>0</b><span>dependencies</span></div>
+      </div>
+    </div>
+    <div class="right">
+      <svg class="rings" viewBox="0 0 560 640" aria-hidden="true">
+        <circle cx="470" cy="120" r="300" fill="none" stroke="#F6F3EA" stroke-width="1.5"/>
+        <circle cx="470" cy="120" r="200" fill="none" stroke="#F6F3EA" stroke-width="1.5"/>
+        <circle cx="470" cy="120" r="110" fill="none" stroke="#F6F3EA" stroke-width="1.5"/>
+      </svg>
+      <div class="loop"><span class="n">① RUNTIME</span><b>every task</b> writes one learning entry</div>
+      <p class="loop-arrow">↓</p>
+      <div class="loop"><span class="n">② COMMUNITY</span><b>one small PR</b> adds one piece of knowledge</div>
+      <p class="loop-arrow">↓</p>
+      <div class="loop"><span class="n">③ EVAL-GATED</span><b>blind A/B win</b> promotes experimental → proven</div>
+      <p class="loop-arrow">↓</p>
+      <div class="loop last"><span class="n">④ VERSIONED</span><b>changelog says</b> what the garden learned</div>
+    </div>
+  </div>
+</body>
+</html>

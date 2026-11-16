@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<title>Late Set — opening night poster</title>
+<style>
+  :root{
+    /* derived from the subject: an after-dark jazz café */
+    --ink-black:#1A1712;      /* the room with the lights down */
+    --ink-soft:#241F17;       /* first circle of light */
+    --cream:#F2E9D8;          /* the printed bill */
+    --cream-dim:#D8CCB4;      /* secondary lines, 90% strength */
+    --brass:#C9A25C;          /* the piano fittings */
+    --safe:96px;              /* ≥50-100px edge clearance at 1080 wide */
+  }
+  *{margin:0;box-sizing:border-box}
+  html,body{background:var(--ink-black)}
+  body{
+    position:relative;width:1080px;height:1350px;overflow:hidden;
+    font-family:"Instrument Serif",Georgia,serif;color:var(--cream);
+  }
+  /* the spotlight: the single ornament — it places the setlist */
+  .spot{
+    position:absolute;left:50%;top:62%;width:860px;height:560px;
+    transform:translate(-50%,-50%);
+    background:radial-gradient(ellipse at center, rgba(201,162,92,.16) 0%, rgba(201,162,92,.05) 42%, transparent 70%);
+  }
+  .stage{
+    position:absolute;inset:var(--safe);
+    display:flex;flex-direction:column;
+  }
+  .kicker{
+    font:400 26px/1 "Instrument Serif",Georgia,serif;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--brass);
+  }
+  .name{
+    margin-top:40px;
+    font:italic 400 clamp(120px,14vw,152px)/0.95 "Instrument Serif",Georgia,serif;
+    letter-spacing:-0.02em;
+  }
+  .name small{display:block;font-style:normal;font-size:clamp(30px,3.4vw,40px);letter-spacing:.22em;text-transform:uppercase;color:var(--cream-dim);margin-top:28px}
+  .setlist{
+    margin-top:auto;margin-bottom:auto;padding-top:120px;
+    display:flex;flex-direction:column;gap:18px;
+  }
+  .setlist .line{
+    font:400 34px/1.3 "Instrument Serif",Georgia,serif;color:var(--cream-dim);
+  }
+  .setlist .line strong{color:var(--cream);font-weight:400}
+  .when{
+    display:flex;align-items:baseline;gap:32px;margin-top:64px;
+  }
+  .when .date{
+    font:400 264px/0.9 "Instrument Serif",Georgia,serif;letter-spacing:-0.03em;
+  }
+  .when .clock{font:400 56px/1.1 "Instrument Serif",Georgia,serif;color:var(--brass)}
+  .when .clock span{display:block;font-size:26px;letter-spacing:.18em;color:var(--cream-dim);text-transform:uppercase}
+  .foot{
+    margin-top:56px;display:flex;justify-content:space-between;align-items:baseline;
+    font:400 26px/1.4 "Instrument Serif",Georgia,serif;color:var(--cream-dim);
+    border-top:1px solid rgba(201,162,92,.35);padding-top:28px;
+  }
+  .foot .where{max-width:60%;color:var(--cream)} /* full strength: where must survive the squint test */
+  @media (prefers-reduced-motion:no-preference){
+    .spot{animation:pool 2.4s ease-out both}
+    @keyframes pool{from{opacity:0}to{opacity:1}}
+  }
+</style>
+</head>
+<body>
+  <div class="spot" aria-hidden="true"></div>
+  <div class="stage">
+    <p class="kicker">Grand opening · one night</p>
+    <h1 class="name">The Late Set<small>jazz café · live until late</small></h1>
+    <div class="setlist" aria-label="Programme">
+      <p class="line"><strong>Doors</strong> 19:00 · <strong>First set</strong> 20:30</p>
+      <p class="line"><strong>[ACT NAME]</strong> trio · <strong>[ACT NAME]</strong> quartet · late jam</p>
+    </div>
+    <div class="when">
+      <p class="date">21</p>
+      <p class="clock">22:00<span>Friday · November</span></p>
+    </div>
+    <div class="foot">
+      <p class="where">[PLACEHOLDER: street address], Mill Street district</p>
+      <p>No cover · walk-ins welcome</p>
+    </div>
+  </div>
+</body>
+</html>

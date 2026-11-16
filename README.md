@@ -9,6 +9,15 @@ English | **[简体中文](README.zh-CN.md)**
 
 > 🌱 **New to AI tools?** No-code install, plain-language usage, and zero-skill ways to help: **[Start Here](docs/start-here.md)** (中文：[新手指南](docs/start-here.zh-CN.md))
 
+## What it makes
+
+Real outputs from the skill running its own eval briefs — every piece below went through the full workflow, critique gate included. More in [examples/](examples/README.md), with the fixes the gate caught.
+
+| | | |
+|---|---|---|
+| <img src="examples/images/bike-shop-hero.png" width="270" alt="Bike repair shop landing page hero"> | <img src="examples/images/jazz-poster.png" width="270" alt="Jazz cafe opening night poster"> | <img src="examples/images/icon-sheet.png" width="270" alt="Plant-care icon set verification sheet"> |
+| Landing page — [mobile 375px](examples/images/bike-shop-mobile.png) · [full](examples/images/bike-shop-full.png) | Opening-night poster, 1080×1350 | Icon set with 16/24/48 export ladder |
+
 Most agent "design skills" are frozen prompt packs: strong on day one, stale on day thirty, and always one author's taste. **design-garden is built to be fed** — by your daily design work, and by the community. It doesn't just execute design tasks; it *learns from every task it runs*.
 
 ---

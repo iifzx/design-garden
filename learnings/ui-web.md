@@ -11,6 +11,12 @@ Field notes recorded while working on web UI tasks. Newest first. See `learnings
 
 ## Entries
 
+### 2026-11-17 | emphasized span broke across lines on mobile headline
+- Situation: `<em>` accent ("same day") wrapped mid-phrase on 375px — the underline ran across the break and read as two separate accents
+- Move: `white-space: nowrap` on the accent span makes the phrase wrap as a unit; `text-wrap: balance` on the h1 alone was NOT enough — balance evens line lengths but never keeps an inline span intact
+- Pitfall: multi-word headline accents need nowrap themselves; balance is a line-length tool, not a keep-together tool
+- Confidence: repeated
+
 ### 2026-11-16 | static landing page with an "open today" header claim
 - Situation: no JS allowed (QR-code visitors), so the page cannot know the current weekday — a static "Open today 9–18" would lie every Monday
 - Move: replaced with the real weekly ranges ("Tue–Fri 9–18 · Sat 10–16") in the sign header; hours still findable in ~3 seconds

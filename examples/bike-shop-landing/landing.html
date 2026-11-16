@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spoke &amp; Sprocket — Bicycle Workshop</title>
+<meta name="description" content="Independent bike repair on the corner of Mill Street. Same-day tune-ups, honest diagnostics, closed Mondays.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* palette derived from the subject: sign green, sign-lettering cream, door-bell brass,
+       chain-oil ink, receipt-roll paper */
+    --paper:#F6F3EA;
+    --paper-well:#EFEADC;
+    --green:#2E4B3C;
+    --green-deep:#22382D;
+    --brass:#A98A3D;
+    --ink:#1E241F;
+    --muted:#5D655B;
+    --hairline:#D9D4C2;
+    --cream:#F6F3EA;
+    --cream-bright:#FDFCF7;
+    --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-6:24px;
+    --space-8:32px; --space-12:48px; --space-15:64px; --space-21:96px; --space-27:144px;
+    --wrap:min(100% - 2*var(--space-12), 1080px);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;overflow-x:clip}
+  body{
+    background:var(--paper);color:var(--ink);
+    font:400 16px/1.55 "Archivo",system-ui,sans-serif;
+  }
+  h1,h2,h3{margin:0;line-height:1.08;letter-spacing:-0.01em}
+  p{margin:0}
+  a{color:inherit}
+  .wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--space-6)}
+  :focus-visible{outline:2px solid var(--green);outline-offset:2px;border-radius:2px}
+  /* kickers removed in gate round 2: eyebrows above every heading are the #4 slop tell */
+
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    min-height:48px;padding:var(--space-3) var(--space-6);
+    background:var(--green);color:var(--cream);
+    font-weight:700;font-size:17px;text-decoration:none;border:0;border-radius:6px;
+  }
+  .btn:hover{background:var(--green-deep)}
+  .btn .price-hint{font-weight:400;opacity:.85;margin-left:var(--space-2)}
+
+  /* header = the shop sign itself */
+  .sign{background:var(--green);color:var(--cream)}
+  .sign .wrap{display:flex;align-items:center;gap:var(--space-6);min-height:76px;flex-wrap:wrap;padding-block:var(--space-3)}
+  .wordmark{display:flex;align-items:baseline;gap:var(--space-3);font-weight:900;font-size:20px;letter-spacing:.02em;text-transform:uppercase}
+  .wordmark svg{width:26px;height:26px;align-self:center}
+  .hours-inline{font-size:14px;color:var(--cream);opacity:.92}
+  .hours-inline strong{font-weight:700}
+  .sign .btn{margin-left:auto;background:var(--cream);color:var(--green)}
+  .sign .btn:hover{background:var(--cream-bright)}
+
+  /* hero */
+  .hero{padding-block:var(--space-21) var(--space-15)}
+  .hero h1{font-size:clamp(44px,7vw,84px);font-weight:900;max-width:14ch;text-wrap:balance}
+  .hero h1 em{white-space:nowrap}
+  .hero h1 em{font-style:normal;color:var(--green);box-shadow:inset 0 -0.14em var(--brass)}
+  .hero .lead{margin-top:var(--space-6);font-size:21px;color:var(--muted);max-width:44ch}
+  .hero .actions{margin-top:var(--space-8);display:flex;gap:var(--space-4);align-items:center;flex-wrap:wrap}
+  .link-quiet{font-weight:500;color:var(--green);text-decoration-thickness:1.5px;text-underline-offset:3px}
+
+  /* price ledger — section gaps alternate 96/144 so seams don't rhyme */
+  .section{padding-block:var(--space-21)}
+  .section h2{font-size:clamp(30px,4vw,44px);font-weight:900}
+  table.ledger{width:100%;border-collapse:collapse;margin-top:var(--space-8);font-variant-numeric:tabular-nums}
+  table.ledger th{
+    text-align:left;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--muted);border-bottom:2px solid var(--ink);padding:var(--space-3) var(--space-4) var(--space-2);
+  }
+  table.ledger td{padding:var(--space-4);border-bottom:1px solid var(--hairline);vertical-align:top}
+  table.ledger td.price{font-weight:700;font-size:19px;text-align:right;white-space:nowrap}
+  table.ledger .svc{font-weight:700;font-size:18px}
+  table.ledger .incl{color:var(--muted);font-size:14.5px}
+  .tag-most{
+    display:inline-block;margin-left:var(--space-2);padding:1px var(--space-2);
+    border:1.5px solid var(--brass);border-radius:4px;color:var(--ink);
+    font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+  }
+  .ledger-note{margin-top:var(--space-4);font-size:14.5px;color:var(--muted)}
+
+  /* symptom ledger — replaces the 3-card feature row */
+  .symptoms{background:var(--paper-well);padding-block:var(--space-27)}
+  .symptom-grid{margin-top:var(--space-8);display:grid;grid-template-columns:1fr 1fr;gap:0 var(--space-12)}
+  .symptom{padding-block:var(--space-4);border-bottom:1px solid var(--hairline)}
+  .symptom dt{font-weight:700;font-size:17px}
+  .symptom dd{margin:var(--space-1) 0 0;font-size:14.5px;color:var(--muted)}
+  .symptom dd strong{color:var(--ink);font-weight:600}
+
+  /* mechanics */
+  .mechs{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-8);margin-top:var(--space-8)}
+  .mech{border-top:2px solid var(--ink);padding-top:var(--space-4)}
+  .mech h3{font-size:24px;font-weight:900}
+  .mech .role{color:var(--green);font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;margin-top:2px}
+  .mech p{margin-top:var(--space-3);color:var(--muted)}
+  .mech .bench-note{margin-top:var(--space-3);font-size:14px;color:var(--ink);border-left:3px solid var(--brass);padding-left:var(--space-3)}
+
+  /* visit */
+  #visit{padding-block:var(--space-27)}
+  .visit-grid{display:grid;grid-template-columns:auto 1fr;gap:var(--space-12);margin-top:var(--space-8);align-items:start}
+  table.hours{border-collapse:collapse;font-variant-numeric:tabular-nums}
+  table.hours td{padding:var(--space-2) var(--space-6);border-bottom:1px solid var(--hairline);font-size:16px}
+  table.hours td:first-child{font-weight:700;min-width:9ch}
+  table.hours tr.closed td{color:var(--muted)}
+  table.hours tr.closed td:last-child{font-weight:700;letter-spacing:.04em}
+  .address{font-size:18px;line-height:1.6}
+  .address strong{font-size:20px}
+  .address .map-link{display:inline-block;margin-top:var(--space-3)}
+
+  /* booking band */
+  .book-band{background:var(--green);color:var(--cream);padding-block:var(--space-15)}
+  .book-band h2{font-size:clamp(30px,4vw,44px);font-weight:900}
+  .book-band form{margin-top:var(--space-8);display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4);max-width:640px}
+  .book-band label{display:grid;gap:var(--space-1);font-size:14px;font-weight:700}
+  .book-band input,.book-band select{
+    min-height:48px;padding:var(--space-2) var(--space-3);font:inherit;color:var(--ink);
+    background:var(--paper);border:1px solid var(--hairline);border-radius:6px;
+  }
+  .book-band .form-actions{grid-column:1/-1;display:flex;gap:var(--space-4);align-items:center;flex-wrap:wrap}
+  .book-band .btn{background:var(--cream);color:var(--green)}
+  .book-band .tel{font-weight:700;color:var(--cream);opacity:.95}
+
+  /* footer */
+  footer{padding-block:var(--space-8);color:var(--muted);font-size:14px}
+  footer .wrap{display:flex;justify-content:space-between;gap:var(--space-4);flex-wrap:wrap}
+
+  /* sticky mobile booking bar */
+  .book-bar{display:none}
+
+  @media (max-width:720px){
+    .sign .btn{display:none} /* sticky bar becomes the single header action */
+    .hours-inline{display:none}
+    .hero{padding-block:var(--space-12)}
+    .symptom-grid,.mechs{grid-template-columns:1fr}
+    .symptom-grid{gap:0}
+    .visit-grid{grid-template-columns:1fr;gap:var(--space-8)}
+    .book-band form{grid-template-columns:1fr}
+    body{padding-bottom:76px} /* room for sticky bar */
+    .book-bar{
+      display:flex;position:fixed;inset:auto 0 0 0;z-index:1100;
+      background:var(--green);padding:var(--space-3) var(--space-6) calc(var(--space-3) + env(safe-area-inset-bottom));
+    }
+    .book-bar .btn{flex:1}
+  }
+  @media (prefers-reduced-motion:no-preference){
+    @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+    .hero h1,.hero .lead,.hero .actions{animation:rise .45s cubic-bezier(.23,1,.32,1) both}
+    .hero .lead{animation-delay:.08s}.hero .actions{animation-delay:.16s}
+  }
+</style>
+</head>
+<body>
+
+<header class="sign">
+  <div class="wrap">
+    <div class="wordmark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+        <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.4"/>
+        <path d="M12 3v6.6M12 14.4V21M3 12h6.6M14.4 12H21M5.6 5.6l4.7 4.7M13.7 13.7l4.7 4.7M18.4 5.6l-4.7 4.7M10.3 13.7l-4.7 4.7"/>
+      </svg>
+      Spoke &amp; Sprocket
+    </div>
+    <p class="hours-inline"><strong>Tue–Fri 9–18 · Sat 10–16</strong> · closed Mon &amp; Sun · corner of Mill St</p>
+    <a class="btn" href="#book">Book a repair</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <h1>Out the door <em>same day</em> — or we tell you why not.</h1>
+    <p class="lead">A two-mechanic workshop on a corner lot. Tune-ups while you wait, honest diagnostics when it's bigger than a tune-up.</p>
+    <div class="actions">
+      <a class="btn" href="#book">Book a repair</a>
+      <a class="link-quiet" href="#prices">See prices first</a>
+    </div>
+  </section>
+
+  <section class="section" id="prices">
+    <h2>What the work costs</h2>
+    <table class="ledger">
+      <thead>
+        <tr><th scope="col">Service</th><th scope="col">What's included</th><th scope="col">Time</th><th scope="col" style="text-align:right">Price</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="svc">Full tune-up<span class="tag-most">Most booked</span></td>
+          <td class="incl">Gears indexed, brakes adjusted, wheel true, chain checked, safety bolt-torque pass</td>
+          <td class="incl">while you wait</td>
+          <td class="price">€49</td>
+        </tr>
+        <tr>
+          <td class="svc">Brake service</td>
+          <td class="incl">Pads, cable tension, rotor truing, lever reach set to your hand</td>
+          <td class="incl">~45 min</td>
+          <td class="price">€29</td>
+        </tr>
+        <tr>
+          <td class="svc">Wheel true</td>
+          <td class="incl">Lateral &amp; radial truing, tension check, worn-spoke flags</td>
+          <td class="incl">~30 min</td>
+          <td class="price">€20</td>
+        </tr>
+        <tr>
+          <td class="svc">E-bike diagnostic</td>
+          <td class="incl">Motor, battery health read-out, firmware check, written estimate before any work</td>
+          <td class="incl">~1 hr</td>
+          <td class="price">€39</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="ledger-note">Parts extra and quoted before fitting. Every repair leaves with a free 30-day check.</p>
+  </section>
+
+  <section class="section symptoms">
+    <h2>What's it doing? What we check.</h2>
+    <dl class="symptom-grid">
+      <div class="symptom"><dt>Brakes squeal or feel soft</dt><dd>Pad wear, cable tension, rotor true — <strong>usually the €29 fix</strong></dd></div>
+      <div class="symptom"><dt>Gears skip under load</dt><dd>Indexing, cable fray, chain stretch — <strong>covered in the €49 tune-up</strong></dd></div>
+      <div class="symptom"><dt>A rub every wheel turn</dt><dd>Truing check, cone tension, mudguard clearance — <strong>from €20</strong></dd></div>
+      <div class="symptom"><dt>Motor cuts out</dt><dd>Error-code read-out, battery health, firmware — <strong>€39 diagnostic, estimate first</strong></dd></div>
+      <div class="symptom"><dt>Clicks you can't place</dt><dd>Bottom bracket, pedals, seatpost torque — <strong>located free, fixed at the board price</strong></dd></div>
+      <div class="symptom"><dt>Something's clearly broken</dt><dd>Bring it in — we quote in writing before touching a spanner</dd></div>
+    </dl>
+  </section>
+
+  <section class="section">
+    <h2>Who's holding the spanners</h2>
+    <div class="mechs">
+      <div class="mech">
+        <h3>[OWNER NAME]</h3>
+        <p class="role">Founder · wheels &amp; drivetrains</p>
+        <p>Twenty years at the bench. Will tell you when a wheel is worth truing and when it's worth retiring.</p>
+        <p class="bench-note">[PLACEHOLDER: one-line bio or a sentence in the owner's own words]</p>
+      </div>
+      <div class="mech">
+        <h3>[MECHANIC NAME]</h3>
+        <p class="role">E-bikes · diagnostics</p>
+        <p>Speaks fluent motor-controller. Prints the battery health read-out so you can see it too.</p>
+        <p class="bench-note">[PLACEHOLDER: one-line bio or a sentence in the mechanic's own words]</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="visit">
+    <h2>Corner of Mill Street</h2>
+    <div class="visit-grid">
+      <table class="hours" aria-label="Opening hours">
+        <tbody>
+          <tr><td>Mon</td><td>CLOSED</td></tr>
+          <tr><td>Tue–Fri</td><td>09:00 – 18:00</td></tr>
+          <tr><td>Sat</td><td>10:00 – 16:00</td></tr>
+          <tr><td>Sun</td><td>CLOSED</td></tr>
+        </tbody>
+      </table>
+      <p class="address">
+        <strong>Spoke &amp; Sprocket</strong><br>
+        [STREET ADDRESS], Mill Street district<br>
+        Bike parking at the door · tea while you wait
+        <a class="map-link link-quiet" href="[PLACEHOLDER: map link]">Open in maps</a>
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<section class="book-band" id="book">
+  <div class="wrap">
+    <h2>Book a repair</h2>
+    <form action="[PLACEHOLDER: booking endpoint]" method="post">
+      <label>Name <input type="text" name="name" autocomplete="name" required></label>
+      <label>Phone <input type="tel" name="phone" autocomplete="tel" required></label>
+      <label>What needs fixing
+        <select name="service">
+          <option>Full tune-up (€49)</option>
+          <option>Brake service (€29)</option>
+          <option>Wheel true (€20)</option>
+          <option>E-bike diagnostic (€39)</option>
+          <option>Not sure — diagnose it</option>
+        </select>
+      </label>
+      <label>Preferred day <input type="date" name="day"></label>
+      <div class="form-actions">
+        <button class="btn" type="submit">Book a repair</button>
+        <a class="tel" href="tel:[PLACEHOLDER: phone number]">or call [PLACEHOLDER: phone number]</a>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Spoke &amp; Sprocket · corner of Mill Street · closed Mondays</p>
+    <p>Free 30-day check with every repair</p>
+  </div>
+</footer>
+
+<div class="book-bar">
+  <a class="btn" href="#book">Book a repair</a>
+</div>
+
+</body>
+</html>
