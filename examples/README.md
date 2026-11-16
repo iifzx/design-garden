@@ -2,12 +2,14 @@
 
 Every piece here was produced by **design-garden running its own workflow** (PARSE → ROUTE → BRIEF → DEAL → EXECUTE → GATE → DELIVER → LEARN) against the eval briefs in [`evals/tasks/`](../evals/tasks/). They are not hand-polished portfolio pieces — they are what the skill actually ships, including visible `[PLACEHOLDER]` markers where inventing facts would have been the slop move.
 
-| Example | Eval brief | Images | Source |
-|---|---|---|---|
-| Bike repair shop landing page | `ui-web-01` | [hero](images/bike-shop-hero.png) · [mobile 375px](images/bike-shop-mobile.png) · [full page](images/bike-shop-full.png) | [landing.html](bike-shop-landing/landing.html) |
-| Jazz café opening poster (1080×1350) | `poster-banner-01` | [poster](images/jazz-poster.png) | [late-set-1080x1350.html](jazz-cafe-poster/late-set-1080x1350.html) |
-| Plant-care app icon set (8 glyphs) | `icon-01` | [verification sheet](images/icon-sheet.png) | [icon-sheet.html](plant-icons/icon-sheet.html) + [svg/](plant-icons/svg/) |
-| Social preview (1280×640) | repo promo | [preview](images/social-preview.png) | [preview-1280x640.html](social-preview/preview-1280x640.html) |
+**Model attribution is part of the record.** Output quality comes from the model and the skill together, so every example states the model that produced it. Running the same brief on a different model? PR your result with the model named — cross-model results are exactly what the evals want to compare.
+
+| Example | Eval brief | Model | Images | Source |
+|---|---|---|---|---|
+| Bike repair shop landing page | `ui-web-01` | **GLM-5.3-Flash** | [hero](images/bike-shop-hero.png) · [mobile 375px](images/bike-shop-mobile.png) · [full page](images/bike-shop-full.png) | [landing.html](bike-shop-landing/landing.html) |
+| Jazz café opening poster (1080×1350) | `poster-banner-01` | **GLM-5.3-Flash** | [poster](images/jazz-poster.png) | [late-set-1080x1350.html](jazz-cafe-poster/late-set-1080x1350.html) |
+| Plant-care app icon set (8 glyphs) | `icon-01` | **GLM-5.3-Flash** | [verification sheet](images/icon-sheet.png) | [icon-sheet.html](plant-icons/icon-sheet.html) + [svg/](plant-icons/svg/) |
+| Social preview (1280×640) | repo promo | **GLM-5.3-Flash** | [preview](images/social-preview.png) | [preview-1280x640.html](social-preview/preview-1280x640.html) |
 
 ## What the critique gate caught in these very outputs
 

@@ -18,6 +18,8 @@ English | **简体中文**
 | <img src="examples/images/bike-shop-hero.png" width="270" alt="自行车店落地页首屏"> | <img src="examples/images/jazz-poster.png" width="270" alt="爵士咖啡店开业海报"> | <img src="examples/images/icon-sheet.png" width="270" alt="植物养护图标集校验页"> |
 | 落地页（[移动端 375px](examples/images/bike-shop-mobile.png) · [全页](examples/images/bike-shop-full.png)） | 开业海报 1080×1350 | 图标集，16/24/48 导出阶梯 |
 
+*由 **GLM-5.3-Flash** 生成——每个示例的模型署名见 [examples/README.md](README.md)。欢迎用别的模型跑同一 brief 并提 PR 对比。*
+
 大多数 agent"设计 skill"是冻结的 prompt 包：第一天很强，第三十天就过时，而且永远只是一个人的品味。**design-garden 是被设计来"被喂养"的**——被你的日常设计工作喂养，被社区喂养。它不只是执行设计任务；它**从自己跑过的每个任务中学习**。
 
 ---

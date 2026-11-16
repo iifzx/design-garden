@@ -18,6 +18,8 @@ Real outputs from the skill running its own eval briefs — every piece below we
 | <img src="examples/images/bike-shop-hero.png" width="270" alt="Bike repair shop landing page hero"> | <img src="examples/images/jazz-poster.png" width="270" alt="Jazz cafe opening night poster"> | <img src="examples/images/icon-sheet.png" width="270" alt="Plant-care icon set verification sheet"> |
 | Landing page — [mobile 375px](examples/images/bike-shop-mobile.png) · [full](examples/images/bike-shop-full.png) | Opening-night poster, 1080×1350 | Icon set with 16/24/48 export ladder |
 
+*Generated with **GLM-5.3-Flash** — per-example model attribution in [examples/README.md](examples/README.md). Run the same brief on another model and PR your result.*
+
 Most agent "design skills" are frozen prompt packs: strong on day one, stale on day thirty, and always one author's taste. **design-garden is built to be fed** — by your daily design work, and by the community. It doesn't just execute design tasks; it *learns from every task it runs*.
 
 ---

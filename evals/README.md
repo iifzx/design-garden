@@ -11,7 +11,7 @@ Growth without measurement becomes bloat. This directory holds the measurement: 
 ## The blind A/B procedure
 
 1. Pick a task from `evals/tasks/` matching the knowledge domain (or write a new one — tasks are contributions too).
-2. Run the task **twice** with the same agent and prompt: variant **A** without the candidate knowledge, variant **B** with it. Render both to PNG (or screenshot the HTML at the deliverable's stated sizes).
+2. Run the task **twice** with the same agent and prompt: variant **A** without the candidate knowledge, variant **B** with it. Render both to PNG (or screenshot the HTML at the deliverable's stated sizes). **Record the model** that produced each variant — attribution is part of the record, and A/B pairs are only apples-to-apples within one model. Cross-model runs are welcome as separate comparisons.
 3. Build the blind comparison page:
    ```
    node scripts/ab_harness.mjs --pair variantA.png variantB.png --out eval.html
