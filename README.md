@@ -2,7 +2,7 @@
 
 **The design skill that grows.** A universal, self-improving design skill for AI coding agents — covering anything aesthetic: UI, posters, banners, icons, logos, brand identity, slides, data visualization, video & motion, illustration, typography, and design critique.
 
-![CI](https://github.com/YOUR_USERNAME/design-garden/actions/workflows/validate.yml/badge.svg)
+![CI](https://github.com/iifzx/design-garden/actions/workflows/validate.yml/badge.svg)
 ![knowledge](https://img.shields.io/badge/knowledge-core%206%20%C2%B7%20domains%209%20%C2%B7%20styles%2018-2E7D32)
 
 Most agent "design skills" are frozen prompt packs: strong on day one, stale on day thirty, and always one author's taste. **design-garden is built to be fed** — by your daily design work, and by the community. It doesn't just execute design tasks; it *learns from every task it runs*.
@@ -64,10 +64,10 @@ Works with any agent that supports the SKILL.md convention (ZCode, Claude Code, 
 
 ```bash
 # user-level (all projects)
-git clone https://github.com/YOUR_USERNAME/design-garden.git ~/.agents/skills/design-garden
+git clone https://github.com/iifzx/design-garden.git ~/.agents/skills/design-garden
 
 # or project-level
-git clone https://github.com/YOUR_USERNAME/design-garden.git <your-project>/.zcode/skills/design-garden
+git clone https://github.com/iifzx/design-garden.git <your-project>/.zcode/skills/design-garden
 ```
 
 No build step, no dependencies — it's markdown plus two optional Node scripts (stdlib only).
