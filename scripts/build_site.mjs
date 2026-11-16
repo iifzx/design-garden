@@ -164,13 +164,13 @@ const stripTags = (html) => html.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").t
 const KIND_LABEL = { core: "Core", domain: "Domains", style: "Styles", case: "Case studies", learning: "Learnings" };
 const pages = [];
 
-function addPage(file, category, summary) {
+function addPage(file, category, summary, lang = "en", pair = "", titleOverride = "") {
   const md = readFileSync(file, "utf-8");
   const fmMatch = md.match(/^---\r?\n([\s\S]*?)\r?\n---/);
   const fm = {};
   if (fmMatch) for (const m of fmMatch[1].matchAll(/^(\w[\w-]*):\s*(.*)$/gm)) fm[m[1]] = m[2].trim().replace(/^['"]|['"]$/g, "");
   const titleMatch = md.match(/^#\s+(.+)$/m);
-  const title = titleMatch ? titleMatch[1].replace(/<!--.*?-->/g, "").trim() : path.basename(file, ".md");
+  const title = titleOverride || (titleMatch ? titleMatch[1].replace(/<!--.*?-->/g, "").trim() : path.basename(file, ".md"));
   const body = md.match(/^#\s+.+$\n?/m) ? md.replace(/^#\s+.+$\n?/m, "") : md;
   const html = render(body);
   pages.push({
@@ -180,6 +180,8 @@ function addPage(file, category, summary) {
     kind: fm.kind || "",
     status: fm.status || "",
     updated: fm.updated || "",
+    lang,
+    pair,
     title,
     summary: summary || "",
     html,
@@ -202,9 +204,10 @@ for (const line of indexText.split(/\r?\n/)) {
 for (const row of indexRows) {
   const f = path.join(ROOT, "knowledge", row.file);
   if (!existsSync(f) || path.basename(f) === "_TEMPLATE.md") continue;
-  const kind = row.file.split(path.sep)[0] === "core" ? "core"
-    : row.file.startsWith("domains") ? "domain"
-    : row.file.startsWith("styles") ? "style" : "case";
+  const norm = row.file.replace(/\\/g, "/");
+  const kind = norm.startsWith("core/") ? "core"
+    : norm.startsWith("domains/") ? "domain"
+    : norm.startsWith("styles/") ? "style" : "case";
   addPage(f, KIND_LABEL[kind], row.summary + (row.when ? ` · load: ${row.when}` : ""));
 }
 
@@ -216,18 +219,20 @@ if (existsSync(learnDir)) {
   }
 }
 
-// guides & community docs
+// guides & community docs (lang-tagged; zh variants replace en in zh mode)
 const guideFiles = [
-  ["docs/start-here.md", "Beginner guide (EN) — install, use, help out with zero code"],
-  ["docs/start-here.zh-CN.md", "Beginner guide (中文) — 零代码安装、使用与贡献"],
-  ["CONTRIBUTING.md", "The growth protocol: schemas, quality bar, promotion, security rules"],
-  ["ROADMAP.md", "Where the garden grows next"],
-  ["CHANGELOG.md", "What the garden learned, per version"],
-  ["SOURCES.md", "What the garden was planted from"],
+  ["README.md", "Project overview — what it is and how it grows", "en", "readme", "design-garden (README)"],
+  ["README.zh-CN.md", "项目总览（中文）——是什么、怎么成长", "zh", "readme", "design-garden（中文版）"],
+  ["docs/start-here.md", "Beginner guide (EN) — install, use, help out with zero code", "en", "start-here", "Start Here — beginner guide"],
+  ["docs/start-here.zh-CN.md", "Beginner guide (中文) — 零代码安装、使用与贡献", "zh", "start-here", "新手指南（中文）"],
+  ["CONTRIBUTING.md", "The growth protocol: schemas, quality bar, promotion, security rules", "en", "contributing", "CONTRIBUTING"],
+  ["ROADMAP.md", "Where the garden grows next", "en", "roadmap", "ROADMAP"],
+  ["CHANGELOG.md", "What the garden learned, per version", "en", "changelog", "CHANGELOG"],
+  ["SOURCES.md", "What the garden was planted from", "en", "sources", "SOURCES"],
 ];
-for (const [f, sum] of guideFiles) {
+for (const [f, sum, lang, pair, tOverride] of guideFiles) {
   const p = path.join(ROOT, f);
-  if (existsSync(p)) addPage(p, "Guides", sum);
+  if (existsSync(p)) addPage(p, "Guides", sum, lang, pair, tOverride);
 }
 
 // stats
@@ -249,20 +254,21 @@ const navItems = groups
   .map((g) => {
     const items = pages
       .filter((p) => p.category === g)
-      .map(
-        (p) => `<div class="nav-item" data-id="${p.id}" data-text="${esc((p.title + " " + p.summary + " " + p.text).slice(0, 3000))}">
+      .map((p) => {
+        const enChip = p.category === "Guides" && p.lang === "en" ? `<span class="chip s-lang">EN</span>` : "";
+        return `<div class="nav-item" data-id="${p.id}" data-lang="${p.lang}"${p.pair ? ` data-pair="${p.pair}"` : ""} data-text="${esc((p.title + " " + p.summary + " " + p.text).slice(0, 3000))}">
   <button onclick="show('${p.id}')">${esc(p.title)}</button>
-  ${p.status ? `<span class="chip ${STATUS_CLASS[p.status] || ""}">${p.status}</span>` : ""}
-</div>`,
-      )
+  ${p.status ? `<span class="chip ${STATUS_CLASS[p.status] || ""}">${p.status}</span>` : ""}${enChip}
+</div>`;
+      })
       .join("\n");
-    return `<h3 class="nav-group">${g}</h3>${items}`;
+    return `<h3 class="nav-group" data-group="${g}">${g}</h3>${items}`;
   })
   .join("\n");
 
 const pageData = {};
 for (const p of pages) {
-  pageData[p.id] = { title: esc(p.title), status: p.status, updated: p.updated, file: p.file, html: p.html };
+  pageData[p.id] = { title: esc(p.title), status: p.status, updated: p.updated, file: p.file, html: p.html, lang: p.lang, category: p.category };
 }
 
 const html = `<!doctype html>
@@ -282,6 +288,12 @@ const html = `<!doctype html>
   header .brand{font-weight:900;font-size:18px;letter-spacing:.01em;text-decoration:none;color:var(--paper)}
   header .brand span{color:var(--brass)}
   header .repo{margin-left:auto;font-size:13px;color:var(--paper);opacity:.9}
+  #lang{all:unset;cursor:pointer;font-size:13px;border:1px solid rgba(246,243,234,.45);
+    padding:6px 14px;border-radius:6px;color:var(--paper)}
+  #lang:hover{background:rgba(246,243,234,.14)}
+  .lang-note{display:none;background:rgba(169,138,61,.16);color:#7A5F1D;
+    padding:8px 20px;font-size:13px;border-bottom:1px solid var(--hairline)}
+  .s-lang{color:var(--muted);border-color:var(--hairline)}
   #q{flex:0 1 320px;min-height:36px;padding:6px 12px;border:1px solid rgba(246,243,234,.4);
     border-radius:6px;background:rgba(246,243,234,.12);color:var(--paper);font:inherit}
   #q::placeholder{color:rgba(246,243,234,.6)}
@@ -332,42 +344,71 @@ const html = `<!doctype html>
 </style></head><body>
 <header>
   <a class="brand" href="#">design<span>-garden</span> 🌱</a>
-  <input id="q" type="search" placeholder="Search the knowledge base… (标题/正文均可)" oninput="filter()">
+  <input id="q" type="search" placeholder="Search the knowledge base…" oninput="filter()">
+  <button id="lang" onclick="toggleLang()" title="切换语言 / switch language">中文</button>
   <a class="repo" href="https://github.com/iifzx/design-garden">GitHub ↗</a>
 </header>
+<div id="note" class="lang-note"></div>
 <div class="layout">
   <nav id="nav">${navItems}</nav>
   <main id="main"></main>
 </div>
 <script>
 const PAGES=${JSON.stringify(pageData)};
-const GROUPS=${JSON.stringify(groups)};
+const UI={
+ en:{search:"Search the knowledge base…",groups:{Router:"Router",Core:"Core",Domains:"Domains",Styles:"Styles","Case studies":"Case studies",Learnings:"Learnings",Guides:"Guides"},toggle:"中文",note:""},
+ zh:{search:"搜索知识库…（标题/正文均可）",groups:{Router:"路由器",Core:"核心",Domains:"领域",Styles:"风格","Case studies":"案例",Learnings:"经验",Guides:"指南"},toggle:"English",note:"🌱 知识内容刻意保持英文（保证模型触发稳定性）；中文版新手指南与项目总览在下方「指南」区。"}
+};
+let LANG=localStorage.getItem("dg-lang");
+if(!LANG){LANG=(navigator.language||"en").toLowerCase().indexOf("zh")===0?"zh":"en";}
+function chipsFor(p){
+  let c="";
+  if(p.status) c+='<span class="chip '+(p.status==="core"?"s-core":p.status==="proven"?"s-proven":p.status==="experimental"?"s-exp":"s-local")+'">'+p.status+"</span>";
+  if(p.category==="Guides"&&p.lang==="en") c+='<span class="chip s-lang">EN</span>';
+  return c;
+}
 function show(id){
   const p=PAGES[id]; if(!p) return;
-  const chips=p.status?\`<span class="chip \${p.status==="core"?"s-core":p.status==="proven"?"s-proven":p.status==="experimental"?"s-exp":"s-local"}">\${p.status}</span>\`:"";
   document.getElementById("main").innerHTML=
-    \`<div class="page-head"><h1>\${p.title}</h1>
-     <div class="meta">\${chips}<span>\${p.file}</span>\${p.updated?\`<span>updated \${p.updated}</span>\`:""}
-     <a href="https://github.com/iifzx/design-garden/blob/main/\${p.file}">view source ↗</a></div></div>\`
-    + p.html
-    + \`<footer>design-garden knowledge base · generated \${new Date().toISOString().slice(0,10)} · <a href="https://github.com/iifzx/design-garden">github.com/iifzx/design-garden</a></footer>\`;
+    '<div class="page-head"><h1>'+p.title+'</h1><div class="meta">'+chipsFor(p)+
+    '<span>'+p.file+'</span>'+(p.updated?'<span>updated '+p.updated+'</span>':"")+
+    '<a href="https://github.com/iifzx/design-garden/blob/main/'+p.file+'">view source ↗</a></div></div>'
+    + p.html +
+    '<footer>design-garden knowledge base · <a href="https://github.com/iifzx/design-garden">github.com/iifzx/design-garden</a></footer>';
   window.scrollTo(0,0);
 }
-function filter(){
-  const q=document.getElementById("q").value.trim().toLowerCase();
+function langOk(el){
+  const lang=el.dataset.lang||"en", pair=el.dataset.pair;
+  if(LANG!=="zh") return lang!=="zh";
+  if(lang==="en"&&pair){ return !document.querySelector('.nav-item[data-pair="'+pair+'"][data-lang="zh"]'); }
+  return true;
+}
+function updateNav(){
+  const q=(document.getElementById("q").value||"").trim().toLowerCase();
   let any=false;
   document.querySelectorAll(".nav-item").forEach(el=>{
-    const hit=!q||el.dataset.text.includes(q);
-    el.classList.toggle("hidden",!hit); if(hit) any=true;
+    const visible=langOk(el)&&(!q||el.dataset.text.indexOf(q)>=0);
+    el.classList.toggle("hidden",!visible); if(visible)any=true;
   });
-  document.querySelectorAll(".nav-group").forEach(el=>{
-    el.style.display=any?"":"none";
-  });
+  document.querySelectorAll(".nav-group").forEach(el=>{el.style.display=any?"":"none";});
   let empty=document.getElementById("no-match");
   if(!any){ if(!empty){empty=document.createElement("p");empty.id="no-match";empty.className="no-match";
-    empty.textContent="No knowledge matches — try fewer words.";document.getElementById("nav").appendChild(empty);} }
+    empty.textContent=LANG==="zh"?"没有匹配的知识——换个更短的词试试。":"No knowledge matches — try fewer words.";
+    document.getElementById("nav").appendChild(empty);} }
   else if(empty) empty.remove();
 }
+function filter(){updateNav();}
+function applyLang(){
+  const t=UI[LANG];
+  document.getElementById("q").placeholder=t.search;
+  document.getElementById("lang").textContent=t.toggle;
+  document.getElementById("note").textContent=t.note;
+  document.getElementById("note").style.display=t.note?"block":"none";
+  document.querySelectorAll(".nav-group").forEach(el=>{el.textContent=t.groups[el.dataset.group]||el.textContent;});
+  localStorage.setItem("dg-lang",LANG);
+}
+function toggleLang(){LANG=LANG==="zh"?"en":"zh";applyLang();updateNav();}
+applyLang();updateNav();
 show(${JSON.stringify(pages[0]?.id ?? "")});
 </script>
 </body></html>`;
