@@ -13,6 +13,9 @@ Every piece here was produced by **design-garden running its own workflow** (PAR
 The two jazz posters are the DEAL output in the flesh: same subject world (ink black, brass, cream), structurally different compositions (a void with one spotlight vs a cropped record where type is the image). See [case-studies/poster-dealing.md](../knowledge/case-studies/poster-dealing.md) for why directions must differ in structure, not palette.
 | Plant-care app icon set (8 glyphs) | `icon-01` | **GLM-5.3-Flash** | [verification sheet](images/icon-sheet.png) | [icon-sheet.html](plant-icons/icon-sheet.html) + [svg/](plant-icons/svg/) |
 | Social preview (1280×640) | repo promo | **GLM-5.3-Flash** | [preview](images/social-preview.png) | [preview-1280x640.html](social-preview/preview-1280x640.html) |
+| Flower-shop anniversary poster (朋友圈 1080×1350) | independent QA run of the installed skill (fresh agent session) | **GLM-5.3-Flash** | [poster](images/flower-poster.png) | [poster.html](../selftest/flower-shop/poster.html) |
+
+The flower poster is the first output from a **fresh agent session running the installed skill** — it dealt 3 directions (vertical market board / paper-cut wreath / seed-packet label), executed the wreath, and its GATE caught the SVG wreath falling off-canvas plus a broken type-scale chain before delivery. The visible `[店名]`/`[促销主打]` slots are the no-invented-facts rule in action.
 
 ## What the critique gate caught in these very outputs
 

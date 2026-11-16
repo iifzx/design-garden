@@ -34,17 +34,18 @@ Read `knowledge/INDEX.md` (paths are relative to the directory containing this f
 
 | Load | When |
 |---|---|
-| `learnings/<domain>.md` | Always if it exists — the most specific knowledge lives here |
+| `learnings/<domain>.md` | Always if it exists — the most specific knowledge lives here (small; exempt from the cap) |
 | `knowledge/domains/<domain>.md` | Always — the domain's craft rules + critique checklist |
 | `knowledge/core/anti-slop.md` | Always, every task |
 | `knowledge/core/principles.md` | Any composition/layout work |
+| `knowledge/core/layout.md` | Any screen/canvas composition work |
 | `knowledge/core/color.md` | When palette isn't fully fixed |
 | `knowledge/core/typography.md` | When type isn't fully fixed |
 | `knowledge/core/motion.md` | When anything moves or responds |
-| `knowledge/core/critique.md` | Review/improve tasks — how to deliver damage-ranked critique |
+| `knowledge/core/critique.md` | Review/improve tasks — damage-ranked critique protocol |
 | `knowledge/styles/<style>.md` × 1–2 | Matching the mood (chosen in DEAL) |
 
-Hard cap: **≤6 knowledge files per task.** If a file is missing, continue without it. Files with `status: experimental` in the index load only when the user explicitly names that style or topic.
+Budget arithmetic: **≤7 knowledge files per task, learnings exempt** (entries are six lines each). Mandatory: domain file + anti-slop. The supporting core modules (principles / layout / color / typography / motion / critique) load **as needed, at most 3 of them** — if palette and type are pinned, skip those; for simple compositions, principles may stand alone. Styles take the remaining slots. If a file is missing, continue without it. Case studies are reference reading outside the cap — consult when studying dealing or critique in depth. Files with `status: experimental` in the index load only when the user explicitly names that style or topic.
 
 ### 3 · BRIEF
 
@@ -60,7 +61,7 @@ For anything above component scale (a page, poster, deck, brand, illustration se
 - One "form" rule: adjacent pieces never share the same layout form; a landing page uses 5–6 distinct section forms.
 - **If the user pinned a style or brand: skip DEAL** and follow the brief exactly.
 
-For big deliverables, present the directions (name + one-line essence + tiny spec: palette/type/layout) and **stop for the user to pick**. For small tasks (single icon, component, chart), pick the strongest, state the choice and the alternative in two lines, and proceed.
+For **multi-canvas or multi-page deliverables** (deck, landing page, brand system, series), present the directions (name + one-line essence + tiny spec: palette/type/layout) and **stop for the user to pick**. For **single-canvas pieces** (one poster, one icon set, one chart), pick the strongest, show all directions briefly, note the alternatives in the deliverable, and proceed. When the user says "pick yourself," they skipped choosing — not seeing: still present the directions before proceeding.
 
 ### 5 · EXECUTE
 
@@ -100,7 +101,7 @@ Before delivery, run the **universal checklist** plus the **Critique checklist**
 
 Then:
 - Fix **only the 3 most damaging issues** per round; iterate ≥2 rounds for final deliverables.
-- Grade each item PASS / FIX / WAIVED (waivers state a reason — never game a check).
+- Grade each item PASS / FIX / WAIVED (waivers state a reason — never game a check) and record the grades in the deliverable rationale, not just in your head.
 - If a rendering or screenshot tool exists, render and verify visually; otherwise re-read the code/spec adversarially.
 - If a screen is irredeemably mediocre, rebuild it around a stronger idea rather than nudging pixels.
 
@@ -110,7 +111,7 @@ Deliver files plus a ≤5-line rationale: direction chosen, key decisions, where
 
 ### 8 · LEARN — never skip, never block
 
-After every task (including reviews), append **one entry** to `learnings/<domain>.md` (create it from `learnings/_TEMPLATE.md` if missing; multi-domain tasks pick the primary domain):
+After every task (including reviews), insert **one entry** into `learnings/<domain>.md` — newest-first, per the file's convention (create it from `learnings/_TEMPLATE.md` if missing; multi-domain tasks pick the primary domain):
 
 ```markdown
 ### 2026-11-16 | <one-line situation>
@@ -167,7 +168,7 @@ These read as AI-generated on sight. The full catalog with fixes lives in `knowl
 
 ## Working with your environment
 
-- **Browser/screenshot available**: render and verify at real sizes; iterate visually through the GATE. This is the strongest upgrade — use it.
+- **Browser/screenshot available**: render and verify at real sizes; iterate visually through the GATE. This is the strongest upgrade — use it. Recipe that works: set the viewport to the deliverable's exact pixel size, wait for webfonts, capture `fullPage`; serve files over a local HTTP server (browsers can't navigate `file:` URLs); if a capture flakes, reopen the tab instead of retrying blind.
 - **Image generation available**: brief it text-free (add copy in code afterward); specify subject, composition, light, palette; reject outputs with baked-in text.
 - **No rendering tools**: degraded mode — deliver code/spec + rationale and run the GATE against the code adversarially; state what you could not verify.
 - **Domain-specific skills installed** (e.g. a dedicated slides or frontend skill): you may defer execution details to them, but still run DEAL, GATE, and LEARN — they are what keeps output quality and growth consistent.

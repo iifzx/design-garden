@@ -64,6 +64,10 @@ Structural elements (rules, numbers, dividers, color fields) must encode content
 - On dark themes, elevation is expressed by lightness steps (+3% per level), not shadows.
 - Depth supports meaning: modal dims-to-focus; parallel panels offset without scrim; never translucent-on-translucent where text must be read.
 
+## Unknown client facts
+
+Briefs often arrive without the shop name, dates, prices, or offer — and inventing any of them is a hard fail (no fake brands, no plausible-looking discounts). Design the unknowns as **first-class visible slots**: a bracketed `[店名]`, `[X月X日 — X月X日]`, `[促销主打]` set at the layout's real hierarchy, styled as actual copy at actual size. Never hide the slot in small muted type — if the piece needs that information, the slot sits where the eye lands. The layout must feel finished; the client fills the blanks.
+
 ## Restraint
 
 - Quality floor is unannounced: accessibility, responsiveness, and polish are not features to mention — they're assumed.

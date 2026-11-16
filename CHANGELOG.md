@@ -2,6 +2,20 @@
 
 Each entry records what design-garden *learned* in that version, not just what changed. Growth is the product.
 
+## v0.1.4 — First independent QA run (2026-11-17)
+
+A fresh agent session ran the installed skill on a real brief (flower-shop anniversary poster, WeChat Moments) with a mandate to QA the skill itself. It completed the full workflow — dealt 3 directions, its GATE caught an SVG wreath falling off-canvas and a broken type-scale chain — and found **9 issues in the skill**, all fixed:
+
+- **Routing arithmetic was contradictory** (HIGH): the mandatory files exhausted the ≤6 cap before style recipes could ever load. Now: cap 7, learnings exempt, supporting core modules ≤3 as-needed — styles finally reachable.
+- `core/layout.md` was orphaned (in INDEX, missing from SKILL.md routing) — wired in.
+- WeChat Moments (朋友圈) had no spec despite being the most common Chinese placement — 1080×1350 3:4 added with phone-legibility floors.
+- Designing with unknown client facts had no guidance — new principles rule: visible first-class bracketed slots, never fake brands, never hide the slot in small type.
+- DEAL's big-vs-small boundary was undefined (is one poster "big"?) — now: multi-canvas stops, single-canvas proceeds with directions shown.
+- "Append" contradicted learnings' newest-first convention — wording fixed.
+- Print-only checklist items now scoped; thumbnail test (~200px) added; PASS/FIX/WAIVED grades must be recorded in the rationale; case studies marked reference reading outside the cap; browser verification recipe documented (exact-size viewport, HTTP serving, flaky-capture fallback).
+
+The QA run's own learning entry (placeholder slots as first-class copy) was distilled into `core/principles.md`.
+
 ## v0.1.3 — The missing capability: critique (2026-11-17)
 
 **Learned — a capability the skill promised but never taught**

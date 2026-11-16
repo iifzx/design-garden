@@ -38,6 +38,6 @@ The router's catalog. Load **≤6 files per task**, in the priority order given 
 | styles/retro-futurism.md | proven | Space-age orbits, starbursts, optimistic scientism | Style match: retro-futurism |
 | styles/handcrafted-organic.md | proven | Paper grain, irregular edges, earthy palette | Style match: organic/handmade |
 | styles/high-contrast-editorial.md | proven | Extreme type scale jumps, stark crops, newsroom clarity | Style match: bold-editorial |
-| case-studies/landing-page-defaults.md | proven | Derivation beats decoration — slop kit → designed page | ui-web + anti-slop study |
-| case-studies/icon-set-optical.md | proven | Optics beat geometry in icon sets | icon study |
-| case-studies/poster-dealing.md | proven | How three-direction dealing produces systems | poster-banner + DEAL study |
+| case-studies/landing-page-defaults.md | proven | Derivation beats decoration — slop kit → designed page | Reference reading (outside the load cap): slop→designed |
+| case-studies/icon-set-optical.md | proven | Optics beat geometry in icon sets | Reference reading (outside the load cap): icon craft |
+| case-studies/poster-dealing.md | proven | How three-direction dealing produces systems | Reference reading (outside the load cap): DEAL study |

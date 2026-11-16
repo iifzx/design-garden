@@ -22,6 +22,7 @@ updated: 2026-11-16
 | YouTube thumbnail | 1280×720 |
 | Pinterest pin | 1000×1500 |
 | Web hero | 1920×600 to 1920×1080 |
+| WeChat Moments (朋友圈) | 1080×1350 (3:4, feed-safe); long promo image 800×2000 — body ≥36px at 1080w |
 
 Google Display kit: 300×250 (highest CTR — build it first), 336×280,
 728×90, 300×600, 160×600, 970×250, 320×50, 320×100. One art direction,
@@ -110,13 +111,14 @@ rationale tied to the brief:
 - [ ] No copy line over 7 words; ≤3 lines on ads
 - [ ] Headline ≥32px, body ≥16px, contrast ≥4.5:1 (web-scale)
 - [ ] No more than 2 typefaces
-- [ ] Print exports carry 3–5mm bleed at 300 DPI (150 for large format)
-- [ ] Large dark areas use rich black, not flat K100
+- [ ] Print exports carry 3–5mm bleed at 300 DPI (150 for large format) *(print only)*
+- [ ] Large dark areas use rich black, not flat K100 *(print only)*
 - [ ] 2–3 art directions presented side-by-side with stated rationale
 - [ ] One dominant element — the layout is not evenly balanced
 - [ ] Type placement strategy (scrim / band / knockout) decided before
       photo choice
 - [ ] Generated imagery contains no baked-in text
 - [ ] What / when / where survive the squint test on event posters
+- [ ] Thumbnail test at ~200px wide: the focal element and key facts still read (a layout that reads at 1080×1350 can collapse in the feed)
 - [ ] Final verified at exact target pixel size
 - [ ] File named `{style}-{width}x{height}.png` in a dated campaign folder
