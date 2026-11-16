@@ -2,7 +2,7 @@
 
 **会成长的设计 skill。** 一个面向 AI 编程 agent 的、自我改进的通用设计 skill——覆盖一切与审美相关的工作：UI、海报横幅、图标、logo 品牌、幻灯片、数据图表、视频动效、插画、字体排印与设计评审。
 
-English | **简体中文**
+[English](README.md) | **简体中文** | [繁體中文](README.zh-TW.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [Español](README.es.md) | [Português](README.pt-BR.md) | [Français](README.fr.md) | [Deutsch](README.de.md) | [Русский](README.ru.md)
 
 ![CI](https://github.com/iifzx/design-garden/actions/workflows/validate.yml/badge.svg)
 ![styles](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fiifzx.github.io%2Fdesign-garden%2Fstats.json&query=%24.styles&label=%E9%A3%8E%E6%A0%BC%E9%85%8D%E6%96%B9&color=2E7D32)
@@ -105,9 +105,12 @@ git clone https://github.com/iifzx/design-garden.git <你的项目>/.zcode/skill
 
 英文是主版本（知识文件与触发词对模型最稳）。翻译随行：
 
-- 简体中文：[README.zh-CN.md](README.zh-CN.md)（本文件）
+- 简体中文：[README.zh-CN.md](README.zh-CN.md)（本文件）· 繁體中文：[README.zh-TW.md](README.zh-TW.md)
+- 日本語：[README.ja.md](README.ja.md) · 한국어：[README.ko.md](README.ko.md)
+- Español：[README.es.md](README.es.md) · Português：[README.pt-BR.md](README.pt-BR.md)
+- Français：[README.fr.md](README.fr.md) · Deutsch：[README.de.md](README.de.md) · Русский：[README.ru.md](README.ru.md)
 
-想新增语言？见 [CONTRIBUTING.md](CONTRIBUTING.md) 的 "Translations" 一节——加一个 `README.<语言代码>.md` 并在两份 README 的语言条中互相链接即可。
+v0.1.5 的翻译由 GLM-5.3-Flash 起草——母语者的润色非常欢迎（见 [CONTRIBUTING.md](CONTRIBUTING.md#translations)）。想新增语言？见 CONTRIBUTING 的 "Translations" 一节。
 
 ## 许可与致谢
 

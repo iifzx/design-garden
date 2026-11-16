@@ -2,6 +2,14 @@
 
 Each entry records what design-garden *learned* in that version, not just what changed. Growth is the product.
 
+## v0.1.5 — Ten languages (2026-11-17)
+
+**Learned — about reaching everyone**
+- README now ships in 10 languages: English, 简体中文, 繁體中文, 日本語, 한국어, Español, Português (BR), Français, Deutsch, Русский — each with the full growth-loops story, gallery, install and contribution paths, and a complete language switcher
+- The new translations were drafted by GLM-5.3-Flash and say so themselves; native-speaker polish PRs are explicitly invited (the Translations section in CONTRIBUTING marks this batch)
+- Example prompts in each README are localized to culturally natural briefs — the skill triggers on design requests in any language
+- Knowledge content stays English by design; the docs-layer translation convention (CONTRIBUTING → Translations) now tracks ten files
+
 ## v0.1.4 — First independent QA run (2026-11-17)
 
 A fresh agent session ran the installed skill on a real brief (flower-shop anniversary poster, WeChat Moments) with a mandate to QA the skill itself. It completed the full workflow — dealt 3 directions, its GATE caught an SVG wreath falling off-canvas and a broken type-scale chain — and found **9 issues in the skill**, all fixed:

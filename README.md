@@ -1,6 +1,6 @@
 # 🌱 design-garden
 
-English | **[简体中文](README.zh-CN.md)**
+English | **[简体中文](README.zh-CN.md)** | [繁體中文](README.zh-TW.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [Español](README.es.md) | [Português](README.pt-BR.md) | [Français](README.fr.md) | [Deutsch](README.de.md) | [Русский](README.ru.md)
 
 **The design skill that grows.** A universal, self-improving design skill for AI coding agents — covering anything aesthetic: UI, posters, banners, icons, logos, brand identity, slides, data visualization, video & motion, illustration, typography, and design critique.
 
@@ -129,9 +129,12 @@ Community knowledge starts `experimental` (loads only on explicit match) and bec
 
 English is the primary version — the skill content (SKILL.md, knowledge files) and trigger vocabulary stay English for model reliability. Community translations of the README live alongside it:
 
-- 简体中文: [README.zh-CN.md](README.zh-CN.md)
+- 简体中文: [README.zh-CN.md](README.zh-CN.md) · 繁體中文: [README.zh-TW.md](README.zh-TW.md)
+- 日本語: [README.ja.md](README.ja.md) · 한국어: [README.ko.md](README.ko.md)
+- Español: [README.es.md](README.es.md) · Português: [README.pt-BR.md](README.pt-BR.md)
+- Français: [README.fr.md](README.fr.md) · Deutsch: [README.de.md](README.de.md) · Русский: [README.ru.md](README.ru.md)
 
-To add a language, see the [Translations](CONTRIBUTING.md#translations) section in CONTRIBUTING.md.
+The v0.1.5 translations were drafted by GLM-5.3-Flash — improvements from native speakers are very welcome (see [CONTRIBUTING.md](CONTRIBUTING.md#translations)).
 
 ## License & credits
 
