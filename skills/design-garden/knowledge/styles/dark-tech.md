@@ -68,3 +68,9 @@ updated: 2026-11-16
 - restrained sci-fi
 - elevation by lightness
 - terminal aesthetic readable
+
+## Field QA (v0.2.0 gallery run)
+
+- Add a muted-text token: text at 62% alpha (~6.3:1 on the base) — hairline color as text is 1.43:1, unusable.
+- The 1.25 scale tops at 34px (dashboard-tuned): heroes add +1–2 ratio steps (53px+).
+- "Accent ≤3%" vs "one glow on the key datum" vs status rows: keep every accent use either the CTA, the glowing datum, or a genuine alert — never decoration.

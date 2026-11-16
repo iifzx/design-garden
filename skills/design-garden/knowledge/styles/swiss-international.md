@@ -68,3 +68,9 @@ updated: 2026-11-16
 - objective documentary photography
 - Müller-Brockmann style
 - generative grid layout
+
+## Field QA (v0.2.0 gallery run)
+
+- Steel gray #8B8B85 fails 4.5:1 on paper at small sizes — restrict it to the numeral, rules, and non-text drafting marks; all reading text stays ink.
+- The signature red word is 4.23:1: legal only as display-size text (large-text ≥3:1) — never body. The one-red-dot move is the safe default.
+- The scale tops at ~49px: heroes add +1–2 ratio steps (61px+).

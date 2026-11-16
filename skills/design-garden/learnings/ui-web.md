@@ -11,6 +11,12 @@ Field notes recorded while working on web UI tasks. Newest first. See `learnings
 
 ## Entries
 
+### 2026-11-17 | neo-brutalist sticker painted over by an animated card
+- Situation: entrance animations create stacking contexts — a shadowed card with a load animation silently painted over a rotated sticker that had no z-index
+- Move: explicit z-index on every rotated/offset decorative element whenever siblings animate; verified painting order at full opacity end-state
+- Pitfall: animations create stacking contexts even after the transform settles (fill-mode keeps properties applied) — painting order is not source order
+- Confidence: repeated
+
 ### 2026-11-17 | emphasized span broke across lines on mobile headline
 - Situation: `<em>` accent ("same day") wrapped mid-phrase on 375px — the underline ran across the break and read as two separate accents
 - Move: `white-space: nowrap` on the accent span makes the phrase wrap as a unit; `text-wrap: balance` on the h1 alone was NOT enough — balance evens line lengths but never keeps an inline span intact

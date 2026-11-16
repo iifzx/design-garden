@@ -20,6 +20,7 @@ updated: 2026-11-16
 
 - Modular scale by drama: 1.2 (dense dashboards) / 1.25 (general product) / 1.333 (editorial) / 1.5 (posters). Base 16px web; deck base ≥24px.
 - Reference scale at 1440: hero 84 / section 52 / title 25 / lead 21 / body 16 / label 14. Section heads under 40px at 1440 read as unfinished.
+- Style-recipe scales are body→section ladders — a hero display takes +1–2 more ratio steps above the recipe's top.
 - Each level ≥1.3× the next smaller level; steps smaller than that read as accidents.
 - Hierarchy is a set: weight + size + leading move together. Weight-contrast is the CJK display weapon (CJK has no italics — use weight or size jumps instead).
 - 3 weights max, picked at extremes (300 + 400 + 800, not 400 + 500 + 600). Buttons 600, links 500, body 400.
