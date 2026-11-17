@@ -51,8 +51,8 @@ design-garden 的进化单元是**设计知识文件**（不是 SKILL.md 路由�
 
 ## 4 · 不学什么（边界）
 
-- **不把 SKILL.md 变成自动进化的对象**。darwin 进化的是 skill 文档本身（Phase 3 循环 + git 棘轮 + 3 评委）；garden 的 SKILL.md 是路由器，进化单元是知识文件与 learnings——后者已有 promotion 门。引入全自动进化循环（每个假设 5 次子 agent）成本高、收益落在文档措辞上，darwin 自己的反例 5 就是「为凑分加章节」。
-- **不移植 darwin.py**（Python，400 行）。pair/tally 若要自动化，进 v0.3 的 Node harness（stdlib 约束不变）。
+- **不建 SKILL.md 的全自动进化循环，但行为层改动同样要走证据门。** SKILL.md 不只是路由器，还是工作流引擎（DEAL / GATE / LEARN 的行为逻辑都在里面），所以它恰恰最需要 darwin 那种「读评只诊断、实跑才裁决」的纪律。不搬的是**自动循环**，三个理由：①爆炸半径——知识文件改坏只影响匹配到的域（experimental 还只在显式命名时加载），SKILL.md 改坏每一条任务都遭殃；②成本不对称——验证一个 SKILL.md 假设 = N 条 brief × 两版 × 完整工作流含渲染，约为一次知识文件 A/B 的 10 倍开销，而它每月才改一两次，常设循环摊不平；③证据通道已经有了——QA 实跑（v0.1.4 一次抓 9 条）、learnings、CHANGELOG。**学的是纪律**：SKILL.md 行为层改动（步骤、预算、路由）落地前附一次 before/after brief 实跑记录；description 只走触发测试通道（§2 条目 5）。升级触发条件：等 community 开始 PR 工作流改动、维护者判断成为瓶颈时，再把这套协议升级为常设工具。
+- **不搬 darwin.py 的代码，搬它的协议。** ①语言是硬约束：scripts/ 全 Node stdlib（本机 Python 已废；skill 用户不保证有 python3；单文件零依赖是可移植性卖点）。②工作单元不同：darwin.py 管的是「skill 快照 s0/s1 + runs + blind 目录」，我们的单元是「知识文件 × eval brief × 渲染产出」，目录布局、redact 对象、裁决规则（六维计票 vs 九维换算）都不同——搬过去要重写大半，那不是移植，是按它的协议重实现，而这本来就是 ROADMAP v0.3 挂账的 eval automation harness。值得逐条抄的是协议里容易做错的细节：逐评委逐测试随机 A/B 顺序（位置偏好）、抹掉执行记录与产出里的路径（盲评完整性）、评委不可见的 A/B 对照 key 文件、票数接近且评委有分歧时重跑、事实性指控先验证再计票。
 - **不导入 9 维 rubric 权重**。它评的是 skill 文档质量（结构 59 分），我们评的是设计产出（六维）；对象不同，硬套会双输。
 - **不为「看起来完备」往 SKILL.md 加机制章节**——双方证据一致：读起来更像好 skill ≠ 干活更好。
 
