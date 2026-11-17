@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>design-garden · launch card 1600×900</title>
+<style>
+  :root{
+    --paper:#F1F0E4; --paper2:#E7E6D6; --ink:#1B2620; --forest:#24402F;
+    --sage:#8EA289; --brass:#B98A2E; --brass-light:#D6B36A; --rule:#CBC8B4; --muted:#5E6A5F;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1600px;height:900px;overflow:hidden;background:var(--paper);color:var(--ink);
+    font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .split{display:grid;grid-template-columns:1012px 588px;width:1600px;height:900px}
+  .left{padding:76px 82px 72px;display:flex;flex-direction:column}
+  .eyebrow{font-size:15px;letter-spacing:.2em;color:var(--muted);display:flex;align-items:center;gap:12px}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--brass)}
+  .mark{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-size:112px;line-height:1;
+    letter-spacing:-.025em;margin-top:58px}
+  .lede{margin-top:44px;font-size:41px;line-height:1.34;font-weight:600;max-width:760px}
+  .quote{margin-top:50px;border-left:3px solid var(--brass);padding-left:24px;max-width:700px;
+    font-size:27px;line-height:1.46;color:#3B4B40}
+  .workflow{margin-top:auto}
+  .wlabel{font-family:Consolas,"Courier New",monospace;font-size:12px;letter-spacing:.18em;color:var(--brass-ink)}
+  .wline{margin-top:10px;font-family:Consolas,"Courier New",monospace;font-size:16px;letter-spacing:.02em;color:#3B4B40}
+  .stats{display:flex;gap:44px;margin-top:34px;padding-top:28px;border-top:1px solid var(--rule)}
+  .stat .n{font-family:Georgia,serif;font-size:42px;line-height:1}
+  .stat .l{font-size:14px;letter-spacing:.1em;color:var(--muted);margin-top:8px}
+  .right{background:var(--forest);color:var(--paper);padding:0 54px;display:flex;flex-direction:column;justify-content:center}
+  .row{padding:34px 0;border-bottom:1px solid rgba(241,240,228,.2)}
+  .row:first-child{border-top:1px solid rgba(241,240,228,.2)}
+  .rlabel{font-family:Consolas,"Courier New",monospace;font-size:14px;letter-spacing:.18em;color:var(--brass-light)}
+  .rtext{margin-top:14px;font-size:26px;line-height:1.42}
+  .foot{padding-top:30px;font-size:15px;letter-spacing:.1em;color:#A9BB9F}
+</style>
+</head>
+<body>
+<div class="split">
+  <div class="left">
+    <div class="eyebrow"><span class="dot"></span>AN OPEN-SOURCE SKILL &nbsp;FOR AI AGENTS</div>
+    <div class="mark">design-garden</div>
+    <div class="lede">A design skill that writes down what worked — so the next task starts ahead.</div>
+    <div class="quote">It doesn't make the model more creative.<br>It gives it a process.</div>
+    <div class="workflow">
+      <div class="wlabel">THE WORKFLOW</div>
+      <div class="wline">parse → route → brief → deal → execute → gate → deliver → learn</div>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="n">9</div><div class="l">DOMAINS</div></div>
+      <div class="stat"><div class="n">18</div><div class="l">STYLE RECIPES</div></div>
+      <div class="stat"><div class="n">4</div><div class="l">GROWTH LOOPS</div></div>
+      <div class="stat"><div class="n">0</div><div class="l">DEPENDENCIES</div></div>
+    </div>
+  </div>
+  <div class="right">
+    <div class="row">
+      <div class="rlabel">01 &nbsp;DEAL</div>
+      <div class="rtext">2–3 structurally different directions before drawing</div>
+    </div>
+    <div class="row">
+      <div class="rlabel">02 &nbsp;GATE</div>
+      <div class="rtext">fix only the 3 most damaging issues, then run again</div>
+    </div>
+    <div class="row">
+      <div class="rlabel">03 &nbsp;LEARN</div>
+      <div class="rtext">one note per task, read before the next one</div>
+    </div>
+    <div class="foot">MIT · ZERO DEPS · GITHUB.COM/IIFZX/DESIGN-GARDEN</div>
+  </div>
+</div>
+</body>
+</html>

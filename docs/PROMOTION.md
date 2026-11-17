@@ -2,6 +2,8 @@
 
 Maintainer-facing copy for listing design-garden in aggregators and social channels. Everything below is paste-ready; update the star count / learned counts before posting. After a listing lands, add the link here so we keep track of where the garden is planted.
 
+Social-platform copy lives separately: [social-kit/](social-kit/README.md) — 10 China platforms + 9 global ones, each with its own voice, specs and a Chinese/English pair.
+
 ## Awesome lists (open a PR against each)
 
 ### 1. [VoltAgent/awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills) — suggested entry under Design/UI category

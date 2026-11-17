@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>design-garden · Product Hunt gallery 1270×760</title>
+<style>
+  :root{
+    --paper:#F1F0E4; --paper2:#E7E6D6; --ink:#1B2620; --forest:#24402F;
+    --sage:#8EA289; --brass:#B98A2E; --brass-ink:#6E5015; --rule:#CBC8B4; --muted:#5E6A5F;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1270px;height:760px;overflow:hidden;background:var(--paper);color:var(--ink);
+    font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1270px;height:760px;padding:64px 76px;display:flex;flex-direction:column}
+  .eyebrow{font-size:13px;letter-spacing:.2em;color:var(--muted);display:flex;align-items:center;gap:10px}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--brass)}
+  h1{margin-top:30px;font-family:Georgia,"Times New Roman",serif;font-style:italic;
+    font-size:78px;line-height:1.06;letter-spacing:-.02em}
+  h1 span{color:var(--forest)}
+  .rule{margin-top:34px;width:100%;height:1px;background:var(--rule)}
+  .thumbs{margin-top:34px;display:flex;gap:28px}
+  .thumb{width:352px}
+  .mini{width:352px;height:150px;background:var(--paper2);position:relative;border:1px solid var(--rule)}
+  .cap{margin-top:13px;font-family:Consolas,"Courier New",monospace;font-size:12px;letter-spacing:.14em;color:var(--muted)}
+  .cap b{color:var(--brass-ink);font-weight:400}
+  .note{margin-top:22px;font-size:15px;color:var(--muted)}
+  /* three structurally different compositions */
+  .mini.a::before{content:"";position:absolute;left:96px;top:18px;width:160px;height:62px;background:var(--forest)}
+  .mini.a::after{content:"";position:absolute;left:96px;top:92px;width:72px;height:40px;background:var(--sage)}
+  .mini.a i{position:absolute;left:184px;top:92px;width:72px;height:40px;background:var(--sage)}
+  .mini.b::before{content:"";position:absolute;left:0;top:0;width:118px;height:150px;background:var(--forest)}
+  .mini.b::after{content:"";position:absolute;left:140px;top:20px;width:190px;height:44px;background:var(--sage)}
+  .mini.b i{position:absolute;left:140px;top:80px;width:190px;height:44px;background:var(--sage)}
+  .mini.c::before{content:"";position:absolute;left:0;top:0;width:352px;height:44px;background:var(--forest)}
+  .mini.c::after{content:"";position:absolute;left:120px;top:86px;width:112px;height:12px;background:var(--brass)}
+  .bottom{margin-top:auto;display:flex;align-items:flex-end;justify-content:space-between}
+  .stats{display:flex;gap:40px}
+  .stat .n{font-family:Georgia,serif;font-size:34px;line-height:1}
+  .stat .l{font-size:12px;letter-spacing:.1em;color:var(--muted);margin-top:7px}
+  .url{text-align:right;font-family:Consolas,"Courier New",monospace;font-size:13px;color:var(--muted);
+    letter-spacing:.04em;line-height:1.7}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="eyebrow"><span class="dot"></span>PRODUCT&nbsp;HUNT&nbsp;·&nbsp;DESIGN&nbsp;GARDEN</div>
+  <h1>Three directions<br><span>before a single pixel.</span></h1>
+  <div class="rule"></div>
+  <div class="thumbs">
+    <div class="thumb"><div class="mini a"><i></i></div><div class="cap"><b>A</b> &nbsp;STACKED</div></div>
+    <div class="thumb"><div class="mini b"><i></i></div><div class="cap"><b>B</b> &nbsp;SPLIT</div></div>
+    <div class="thumb"><div class="mini c"></div><div class="cap"><b>C</b> &nbsp;FULL-BLEED</div></div>
+  </div>
+  <div class="note">Three structurally different directions — not three recolors.</div>
+  <div class="bottom">
+    <div class="stats">
+      <div class="stat"><div class="n">9</div><div class="l">DOMAINS</div></div>
+      <div class="stat"><div class="n">18</div><div class="l">STYLES</div></div>
+      <div class="stat"><div class="n">0</div><div class="l">DEPS</div></div>
+      <div class="stat"><div class="n">MIT</div><div class="l">LICENSE</div></div>
+    </div>
+    <div class="url">github.com/iifzx/design-garden<br>iifzx.github.io/design-garden</div>
+  </div>
+</div>
+</body>
+</html>

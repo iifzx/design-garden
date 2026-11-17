@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>design-garden · 小红书封面 B · 深色大字 1080×1440</title>
+<style>
+  :root{
+    --paper:#F1F0E4; --ink:#1B2620; --forest:#24402F; --brass:#B98A2E;
+    --brass-light:#D6B36A; --muted:#5E6A5F;
+    --sans-black:"Noto Sans SC Black","Noto Sans SC","Microsoft YaHei UI",sans-serif;
+    --sans-light:"Noto Sans SC Light","Noto Sans SC",sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1080px;height:1440px;overflow:hidden;background:var(--forest);color:var(--paper);
+    font-family:var(--sans-light);-webkit-font-smoothing:antialiased}
+  .wrap{width:1080px;height:1440px;padding:80px 72px;display:flex;flex-direction:column}
+  .eyebrow{display:flex;align-items:center;gap:13px}
+  .dot{width:9px;height:9px;border-radius:50%;background:var(--brass)}
+  .latin{font-family:Consolas,"Courier New",monospace;font-size:14px;letter-spacing:.24em;color:#C9D3C3}
+  .cn{font-size:14px;letter-spacing:.05em;color:#A9BB9F}
+  h1{margin-top:94px;font-family:var(--sans-black);font-size:170px;line-height:1.14;letter-spacing:-.025em}
+  h1 em{font-style:normal;color:var(--brass-light)}
+  .rule{margin-top:50px;height:1px;background:rgba(241,240,228,.34)}
+  .support{margin-top:34px;font-size:36px;line-height:1.5;letter-spacing:.02em;color:#DDE5DA}
+  .trio{margin-top:58px;display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+  .trio .no{font-family:Consolas,"Courier New",monospace;font-size:11px;letter-spacing:.18em;color:var(--brass-light)}
+  .trio .tx{margin-top:10px;font-size:22px;line-height:1.6;color:#DDE5DA;letter-spacing:.02em}
+  .stats{margin-top:66px;padding-top:26px;border-top:1px solid rgba(241,240,228,.22);display:flex;gap:58px}
+  .stat .n{font-family:Georgia,"Times New Roman",serif;font-size:46px;line-height:1}
+  .stat .l{margin-top:9px;font-size:12px;letter-spacing:.14em;color:#A9BB9F}
+  .url{margin-top:auto;padding-top:30px;font-family:Consolas,"Courier New",monospace;font-size:13px;letter-spacing:.1em;color:#A9BB9F}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">
+    <span class="dot"></span>
+    <span class="latin">DESIGN&nbsp;GARDEN</span>
+    <span class="cn">给 AI 编程助手的设计 skill</span>
+  </div>
+  <h1>AI 做的图<br>为什么<br><em>一眼假</em></h1>
+  <div class="rule"></div>
+  <div class="support">因为它没有改稿的规矩。</div>
+  <div class="trio">
+    <div><div class="no">01</div><div class="tx">先出 2–3 个方向</div></div>
+    <div><div class="no">02</div><div class="tx">只改最伤的 3 个问题</div></div>
+    <div><div class="no">03</div><div class="tx">每次任务记一条笔记</div></div>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="n">9</div><div class="l">设计域</div></div>
+    <div class="stat"><div class="n">18</div><div class="l">风格配方</div></div>
+    <div class="stat"><div class="n">4</div><div class="l">成长回路</div></div>
+    <div class="stat"><div class="n">0</div><div class="l">依赖</div></div>
+  </div>
+  <div class="url">MIT 开源 · github.com/iifzx/design-garden</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>design-garden · 小红书封面 1080×1440</title>
+<style>
+  :root{
+    --paper:#F1F0E4; --paper2:#E7E6D6; --ink:#1B2620; --forest:#24402F;
+    --sage:#8EA289; --brass:#B98A2E; --brass-ink:#6E5015; --rule:#CBC8B4; --muted:#5E6A5F;
+    --serif-black:"Noto Serif SC Black","Noto Serif SC","Source Han Serif SC Heavy",serif;
+    --serif:"Noto Serif SC","Source Han Serif SC",serif;
+    --serif-light:"Noto Serif SC Light","Noto Serif SC",serif;
+    --sans:"Noto Sans SC","Microsoft YaHei UI",sans-serif;
+    --sans-mid:"Noto Sans SC Medium","Noto Sans SC",sans-serif;
+    --sans-light:"Noto Sans SC Light","Noto Sans SC",sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1080px;height:1440px;overflow:hidden;background:var(--paper);color:var(--ink);
+    font-family:var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  .canvas{width:1080px;height:1440px;display:flex;flex-direction:column}
+  .top{flex:1;padding:92px 88px 0;display:flex;flex-direction:column}
+  .eyebrow{display:flex;align-items:center;gap:12px}
+  .dot{width:9px;height:9px;border-radius:50%;background:var(--brass);position:relative;top:-1px}
+  .latin{font-family:Consolas,"Courier New",monospace;font-size:15px;letter-spacing:.22em;color:var(--muted)}
+  .cn{font-family:var(--sans-light);font-size:15px;letter-spacing:.04em;color:var(--muted)}
+  .sep{width:1px;height:13px;background:var(--sage);opacity:.75}
+  h1{margin-top:66px;font-family:var(--serif-black);font-size:110px;line-height:1.3;font-weight:400;letter-spacing:-.012em}
+  h1 em{font-style:normal;color:var(--forest)}
+  .sub{margin-top:34px;font-family:var(--sans-mid);font-size:37px;line-height:1.5;color:var(--forest);letter-spacing:.015em}
+  .brass-rule{margin-top:46px;width:132px;height:2px;background:var(--brass)}
+  .list{margin-top:42px;list-style:none}
+  .list li{display:flex;gap:16px;margin-bottom:19px;font-family:var(--sans-light);
+    font-size:27px;line-height:1.62;color:#3B4B40;letter-spacing:.01em}
+  .num{font-family:Consolas,"Courier New",monospace;font-size:22px;color:var(--brass-ink);padding-top:4px;letter-spacing:.04em}
+  .kicker{margin-top:46px;font-family:var(--serif-light);font-size:21px;color:var(--muted);letter-spacing:.05em}
+  .kicker b{font-weight:400;color:var(--forest)}
+  .band{margin-top:auto;height:356px;background:var(--forest);color:var(--paper);padding:52px 88px;
+    display:flex;flex-direction:column}
+  .stats{display:flex;gap:60px}
+  .stat .n{font-family:Georgia,"Times New Roman",serif;font-size:64px;line-height:1}
+  .stat .l{margin-top:11px;font-family:var(--sans-light);font-size:16px;letter-spacing:.12em;color:#A9BB9F}
+  .bandfoot{margin-top:auto;padding-top:26px;border-top:1px solid rgba(241,240,228,.22);
+    font-family:Consolas,"Courier New",monospace;font-size:15px;letter-spacing:.1em;color:#A9BB9F}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="top">
+    <div class="eyebrow">
+      <span class="dot"></span>
+      <span class="latin">DESIGN&nbsp;GARDEN</span>
+      <span class="sep"></span>
+      <span class="cn">给 AI 编程助手的设计 skill</span>
+    </div>
+    <h1>AI 做的图<br>为什么<em>一眼假</em></h1>
+    <div class="sub">因为它没有改稿的规矩。</div>
+    <div class="brass-rule"></div>
+    <ul class="list">
+      <li><span class="num">01</span><span>动手前，先出 2–3 个结构不同的方向</span></li>
+      <li><span class="num">02</span><span>交付前，只改最伤的 3 个问题，改两轮</span></li>
+      <li><span class="num">03</span><span>每次任务写一条笔记，下次先读</span></li>
+    </ul>
+    <div class="kicker">写给<b>已经在用 AI 做设计</b>的人</div>
+  </div>
+  <div class="band">
+    <div class="stats">
+      <div class="stat"><div class="n">9</div><div class="l">设计域</div></div>
+      <div class="stat"><div class="n">18</div><div class="l">风格配方</div></div>
+      <div class="stat"><div class="n">4</div><div class="l">成长回路</div></div>
+      <div class="stat"><div class="n">0</div><div class="l">依赖</div></div>
+    </div>
+    <div class="bandfoot">MIT 开源 · github.com/iifzx/design-garden</div>
+  </div>
+</div>
+</body>
+</html>

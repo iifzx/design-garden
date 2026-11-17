@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>design-garden · 小红书封面 C · 杂志版式 1080×1440</title>
+<style>
+  :root{
+    --paper:#F1F0E4; --ink:#1B2620; --forest:#24402F;
+    --brass:#B98A2E; --brass-ink:#6E5015; --rule:#CBC8B4; --muted:#5E6A5F;
+    --serif-black:"Noto Serif SC Black","Noto Serif SC","Source Han Serif SC Heavy",serif;
+    --serif-mid:"Noto Serif SC Medium","Noto Serif SC",serif;
+    --serif-light:"Noto Serif SC Light","Noto Serif SC",serif;
+    --sans-light:"Noto Sans SC Light","Noto Sans SC",sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1080px;height:1440px;overflow:hidden;background:var(--paper);color:var(--ink);
+    font-family:var(--sans-light);-webkit-font-smoothing:antialiased}
+  .page{width:1080px;height:1440px;padding:66px 76px 54px;display:flex;flex-direction:column}
+  .mast{display:flex;justify-content:space-between;align-items:baseline;
+    padding-bottom:13px;border-bottom:1px solid var(--forest)}
+  .mast span{font-family:Consolas,"Courier New",monospace;font-size:12px;letter-spacing:.2em;color:var(--muted)}
+  h1{margin-top:70px;font-family:var(--serif-black);font-size:150px;line-height:1.36;letter-spacing:-.014em}
+  h1 em{font-style:normal;color:var(--forest)}
+  .lead{margin-top:42px;font-family:var(--serif-light);font-size:27px;line-height:1.7;
+    color:#3B4B40;max-width:860px;letter-spacing:.02em}
+  .lead b{font-weight:400;color:var(--forest)}
+  .toc{margin-top:92px;border-top:1px solid var(--forest)}
+  .row{display:grid;grid-template-columns:56px 206px 1fr;align-items:baseline;
+    padding:24px 0;border-bottom:1px solid var(--rule)}
+  .rno{font-family:Consolas,"Courier New",monospace;font-size:11px;letter-spacing:.18em;color:var(--brass-ink)}
+  .rt{font-family:var(--serif-mid);font-size:28px;line-height:1.3}
+  .rd{font-size:16px;line-height:1.65;color:var(--muted)}
+  .folio{margin-top:auto;padding-top:14px;border-top:1px solid var(--forest);
+    display:flex;justify-content:space-between;align-items:baseline}
+  .folio .l{font-family:Consolas,"Courier New",monospace;font-size:12px;letter-spacing:.1em;color:var(--muted)}
+  .folio .r{font-family:var(--serif-light);font-size:15px;color:var(--forest)}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="mast">
+    <span>DESIGN&nbsp;GARDEN</span>
+    <span>创刊号 NO.01 — 2026</span>
+  </div>
+  <h1>AI 做的图<br>为什么<br><em>一眼假</em></h1>
+  <div class="lead">不是它不会画。是流程里少了三段：<b>方向、评审、笔记</b>。</div>
+  <div class="toc">
+    <div class="row">
+      <span class="rno">01</span>
+      <span class="rt">先出方向</span>
+      <span class="rd">动手前给 2–3 个方案，版式、字体关系、构图都要不同。</span>
+    </div>
+    <div class="row">
+      <span class="rno">02</span>
+      <span class="rt">再跑评审</span>
+      <span class="rd">每轮只改最伤的 3 个问题，改完再跑一轮。</span>
+    </div>
+    <div class="row">
+      <span class="rno">03</span>
+      <span class="rt">最后记笔记</span>
+      <span class="rd">每次任务写一条，下次同类任务先读。</span>
+    </div>
+  </div>
+  <div class="folio">
+    <span class="l">9 设计域 · 18 风格 · 0 依赖 · MIT</span>
+    <span class="r">github.com/iifzx/design-garden</span>
+  </div>
+</div>
+</body>
+</html>
