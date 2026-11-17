@@ -1,5 +1,8 @@
 # 🌱 design-garden
 
+> **New here? [Open the beginner site →](https://iifzx.github.io/design-garden/start/)**  
+> Download the skill / DSH plugin, learn every GitHub button, browse the gallery, submit work, and vote — no code needed.
+
 English | **[简体中文](README.zh-CN.md)** | [繁體中文](README.zh-TW.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [Español](README.es.md) | [Português](README.pt-BR.md) | [Français](README.fr.md) | [Deutsch](README.de.md) | [Русский](README.ru.md)
 
 **The design skill that grows.** A universal, self-improving design skill for AI coding agents — covering anything aesthetic: UI, posters, banners, icons, logos, brand identity, slides, data visualization, video & motion, illustration, typography, and design critique.

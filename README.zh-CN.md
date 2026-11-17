@@ -1,5 +1,8 @@
 # 🌱 design-garden
 
+> **第一次打开 GitHub？[直接进新手站 →](https://iifzx.github.io/design-garden/start/)**  
+> 下载 skill / DSH 插件、认全每个按钮、逛作品馆、投稿和投票——全程不用写代码。
+
 **会成长的设计 skill。** 一个面向 AI 编程 agent 的、自我改进的通用设计 skill——覆盖一切与审美相关的工作：UI、海报横幅、图标、logo 品牌、幻灯片、数据图表、视频动效、插画、字体排印与设计评审。
 
 [English](README.md) | **简体中文** | [繁體中文](README.zh-TW.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [Español](README.es.md) | [Português](README.pt-BR.md) | [Français](README.fr.md) | [Deutsch](README.de.md) | [Русский](README.ru.md)
