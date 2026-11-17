@@ -2,6 +2,14 @@
 
 Each entry records what design-garden *learned* in that version, not just what changed. Growth is the product.
 
+## Unreleased — the rules became tools (2026-11-17)
+
+**Learned — about making rules executable**
+- Judgment was never the bottleneck; mechanical compliance is. A rule that only lives in prose gets skipped under deadline, so the GATE's floors became three scripts: `shoot.mjs` (exact-size renders + contact sheet), `lint.mjs` (RED floors / YELLOW decoration by line), `ledger.mjs` (local appearance memory).
+- Screenshot truth beats CSS intuition: headless Chrome has a ~500px minimum window and `--window-size` is not `innerWidth` (about 22px of frame), so exact 375px, full-page and per-screen need the DevTools Protocol. Playwright stays an optional first renderer; a local Chrome/Edge is the fallback, never a required dependency.
+- The Never list is now half-automatic: contrast, 12px floors, `transition: all`, animated layout properties, `prefers-reduced-motion`, `:focus-visible`, alt text, meta-string clichés. First runs on our own examples caught a 11.5px label and five font weights — the tools audit the garden, not only the user.
+- A local ledger closes the repetition loop across sessions without spending a knowledge-file slot: last six looks, palette/font/layout repeats, and the user's taste in their own words.
+
 ## v0.2.1 — DeepSeek Harness support (2026-11-17)
 
 **Learned — about the DSH ecosystem**

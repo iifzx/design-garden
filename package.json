@@ -12,7 +12,16 @@
     "learnings/",
     "scripts/install.js",
     "scripts/validate_knowledge.mjs",
+    "scripts/shoot.mjs",
+    "scripts/lint.mjs",
+    "scripts/ledger.mjs",
     "README.md"
   ],
+  "scripts": {
+    "validate": "node scripts/validate_knowledge.mjs",
+    "shoot": "node scripts/shoot.mjs",
+    "design:lint": "node scripts/lint.mjs",
+    "ledger": "node scripts/ledger.mjs"
+  },
   "keywords": ["design", "ui", "ai-agents", "skills", "claude", "zcode"]
 }

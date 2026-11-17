@@ -63,7 +63,7 @@ The default skill root is the copy shipped at `skills/` inside this package. Ove
 |---|---|
 | `index.js` | Cordis plugin: registers one skill provider |
 | `cordis.patch.yml` | Bundle patch that inserts the plugin row |
-| `skills/design-garden/` | Packaged copy of `SKILL.md`, `knowledge/`, `learnings/`, `VERSION` |
+| `skills/design-garden/` | Packaged copy of `SKILL.md`, `knowledge/`, `learnings/`, `scripts/`, `VERSION` |
 | `index.json` | dsh plugin index (format 1) for the Discover tab |
 | `icon.svg` | Index icon |
 | `build-index.mjs` | Rebuilds `index.json` from a Git commit |

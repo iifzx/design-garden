@@ -34,7 +34,7 @@ Honest caption: glassmorphism's vivid gradient is the style's own signature (opt
 
 Real fixes the GATE round made before delivery — evidence the quality loop works:
 
-- **Landing**: brass text at 3.0:1 contrast demoted to borders; 4 font weights trimmed to 3; uniform section gaps re-rhythmed to 96/144; a static "Open today" claim (which would lie every Monday) replaced with real hour ranges; the mobile headline accent re-wrapped as a unit (`white-space: nowrap` on the span — `text-wrap: balance` alone was not enough).
+- **Landing**: brass text at 3.0:1 contrast demoted to borders; five font-weight roles, now flagged yellow by the lint; uniform section gaps re-rhythmed to 96/144; a static "Open today" claim (which would lie every Monday) replaced with real hour ranges; the mobile headline accent re-wrapped as a unit (`white-space: nowrap` on the span — `text-wrap: balance` alone was not enough).
 - **Poster**: webfont link missing (would silently fall back to Georgia); the "where" line failed the squint test at 90% ink strength — smallest line kept its size, restored to full strength.
 - **Icons**: gear glyph rejected for metaphor-density drift (sliders instead); 16px exports re-drawn with detail ladders rather than scaled.
 

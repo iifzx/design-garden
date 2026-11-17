@@ -96,7 +96,7 @@ DeepSeek Harness 说明：dsh 读取同一套 Agent Skills 标准（SKILL.md 目
 
 > ZCode 桌面版：**插件市场 → 添加 → 粘贴 `https://github.com/iifzx/design-garden`**。市场布局遵循 Claude Code 插件约定；如果你的 CLI 加载器要求不同的嵌套结构，git clone 路径永远可用——也请提 issue 让我们支持你的加载器。
 
-无构建步骤、无依赖——就是 markdown 加两个可选的 Node 脚本（仅标准库）。
+无构建步骤、无依赖——markdown 加可选的 Node 脚本（仅标准库）；整页截图可选 Playwright，缺了也能用本机 Chrome/Edge。
 
 ## 用起来
 

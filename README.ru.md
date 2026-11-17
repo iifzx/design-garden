@@ -71,7 +71,7 @@ git clone https://github.com/iifzx/design-garden.git ~/.agents/skills/design-gar
 git clone https://github.com/iifzx/design-garden.git <ваш-проект>/.zcode/skills/design-garden
 ```
 
-Без сборки и зависимостей — markdown плюс два опциональных Node-скрипта (только стандартная библиотека).
+Без сборки и зависимостей — markdown плюс опциональные Node-скрипты (только стандартная библиотека). Playwright опционален для скриншотов всей страницы.
 
 ## Использование
 

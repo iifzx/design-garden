@@ -86,9 +86,12 @@ knowledge/
 learnings/                the skill's field notes — starts seeded, grows with every task
 evals/                    benchmark briefs with deliberate traps + rubric + blind A/B harness
 scripts/                  validate_knowledge.mjs (CI gate) · ab_harness.mjs (blind eval pages)
+                          shoot.mjs · lint.mjs · ledger.mjs (delivery tools)
 ```
 
 Every knowledge file carries frontmatter (`id / kind / applies / status / source / updated`). `experimental` knowledge loads only on explicit match; `proven` loads by default. The router reads `knowledge/INDEX.md` and never loads more than ~6 files per task — **growing without bloating**.
+
+Three delivery tools ship in `scripts/`: `shoot.mjs` renders at exact sizes and builds a contact sheet, `lint.mjs` runs the mechanical half of the GATE (contrast, floors, `transition: all`, motion escapes, the Never list), and `ledger.mjs` remembers the look of your last deliveries so the next one does not repeat it. None of them blocks: Playwright is used when installed, a local Chrome/Edge over the DevTools Protocol otherwise, and when neither exists the script exits 2 and says what it could not verify.
 
 The workflow itself is a distillation of the strongest process ideas in agent design practice: a **three-direction deal** (2–3 structurally distinct art directions before executing), the **five form questions**, a **critique gate** that fixes only the 3 most damaging issues per round, and a canonical **anti-slop list** merged from three independently-convergent sources. See [SOURCES.md](SOURCES.md).
 
@@ -118,7 +121,7 @@ DeepSeek Harness note: dsh reads the same Agent Skills standard (SKILL.md dirs, 
 
 > ZCode desktop: **Plugin Marketplace → Add → paste `https://github.com/iifzx/design-garden`**. The marketplace layout follows the Claude Code plugin convention; if your CLI's loader expects different nesting, the git-clone path always works — report it as an issue so we can support your loader too.
 
-No build step, no dependencies — it's markdown plus two optional Node scripts (stdlib only).
+No build step. The scripts are Node with stdlib only; `shoot.mjs` gets full-page and per-screen support from Playwright when it is installed, and otherwise drives a local Chrome/Edge over the DevTools Protocol. Nothing is required beyond Node.
 
 ## Use it
 
@@ -128,6 +131,8 @@ Just design. The skill triggers on anything aesthetic:
 - "Design an icon set for a plant-care app" → keyline grids, optical corrections, silhouette tests
 - "This poster looks off — review it" → critique-first mode, runs the domain checklist, gives fixes ranked by damage
 - "品牌海报 + 一套 PPT 模板" → routes both domains, learns both
+
+After a delivery, the three tools close the loop: `shoot.mjs` shows the page at 1440 and 375, `lint.mjs` lists floor violations with line numbers, `ledger.mjs add` records the look so the next project starts somewhere else.
 
 ## For contributors
 

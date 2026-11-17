@@ -71,7 +71,7 @@ git clone https://github.com/iifzx/design-garden.git ~/.agents/skills/design-gar
 git clone https://github.com/iifzx/design-garden.git <project>/.zcode/skills/design-garden
 ```
 
-ビルド不要・依存ゼロ — markdown と 2 つのオプションの Node スクリプト（標準ライブラリのみ）。
+ビルド不要・依存ゼロ — markdown とオプションの Node スクリプト（標準ライブラリのみ）。全ページのスクリーンショットには Playwright があると便利です（任意）。
 
 ## 使い方
 

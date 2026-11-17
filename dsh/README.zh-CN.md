@@ -63,7 +63,7 @@ dsh 在同一层内按 rank 解决同名技能：项目根（`.dsh/skills` = 100
 |---|---|
 | `index.js` | Cordis 插件入口：注册一个技能提供方 |
 | `cordis.patch.yml` | 组合包补丁，把插件行插入配置树 |
-| `skills/design-garden/` | 打包副本：`SKILL.md`、`knowledge/`、`learnings/`、`VERSION` |
+| `skills/design-garden/` | 打包副本：`SKILL.md`、`knowledge/`、`learnings/`、`scripts/`、`VERSION` |
 | `index.json` | dsh 插件索引（format 1），供「发现」页使用 |
 | `icon.svg` | 索引图标 |
 | `build-index.mjs` | 按 Git 提交重建 `index.json` |

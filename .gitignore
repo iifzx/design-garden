@@ -4,6 +4,10 @@ selftest/
 renders/
 site/
 
+# design-garden runtime output
+shots/
+.design-garden/
+
 # agent-internal files
 .zcode/
 

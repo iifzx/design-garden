@@ -71,7 +71,7 @@ git clone https://github.com/iifzx/design-garden.git ~/.agents/skills/design-gar
 git clone https://github.com/iifzx/design-garden.git <votre-projet>/.zcode/skills/design-garden
 ```
 
-Sans build, sans dépendances — du markdown plus deux scripts Node optionnels (stdlib uniquement).
+Sans build, sans dépendances — du markdown plus des scripts Node optionnels (stdlib uniquement). Playwright est optionnel pour les captures pleine page.
 
 ## Utilisation
 

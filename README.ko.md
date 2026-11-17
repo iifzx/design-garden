@@ -71,7 +71,7 @@ git clone https://github.com/iifzx/design-garden.git ~/.agents/skills/design-gar
 git clone https://github.com/iifzx/design-garden.git <project>/.zcode/skills/design-garden
 ```
 
-빌드 불필요, 의존성 없음 — markdown과 선택적인 Node 스크립트 2개(표준 라이브러리만)가 전부입니다.
+빌드 불필요, 의존성 없음 — markdown과 선택적인 Node 스크립트(표준 라이브러리만). 전체 페이지 스크린샷에는 Playwright를 선택적으로 사용할 수 있습니다.
 
 ## 사용법
 

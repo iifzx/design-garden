@@ -48,6 +48,8 @@ Read `knowledge/INDEX.md` (paths are relative to the directory containing this f
 
 Budget arithmetic: **≤7 knowledge files per task, learnings exempt** (entries are six lines each). Mandatory: domain file + anti-slop. The supporting core modules (principles / layout / color / typography / motion / critique) load **as needed, at most 3 of them** — if palette and type are pinned, skip those; for simple compositions, principles may stand alone. Styles take the remaining slots. If a file is missing, continue without it. Case studies are reference reading outside the cap — consult when studying dealing or critique in depth. Files with `status: experimental` in the index load only when the user explicitly names that style or topic.
 
+Before DEAL, run `node scripts/ledger.mjs check` (paths are relative to this file). The last six deliveries are the looks not to repeat; the ledger is a script, not a knowledge file, so it does not count against the cap.
+
 ### 3 · BRIEF
 
 Write one paragraph before designing: audience, emotion to evoke, platform/format, and what "great" looks like as an observable outcome. This paragraph is the judge at the GATE — design against it, not against taste.
@@ -103,12 +105,12 @@ Before delivery, run the **universal checklist** plus the **Critique checklist**
 Then:
 - Fix **only the 3 most damaging issues** per round; iterate ≥2 rounds for final deliverables.
 - Grade each item PASS / FIX / WAIVED (waivers state a reason — never game a check) and record the grades in the deliverable rationale, not just in your head.
-- If a rendering or screenshot tool exists, render and verify visually; otherwise re-read the code/spec adversarially.
+- Render and look: `node scripts/shoot.mjs <file> --domain <domain>`, open `shots/sheet.png`, list the 3 most damaging issues, fix, reshoot — ≥2 rounds for final deliverables. Run `node scripts/lint.mjs <file> --domain <domain>`: every RED blocks delivery; YELLOW is decoration to delete or justify. Exit 2 means no renderer — audit the code adversarially and state what you could not verify.
 - If a screen is irredeemably mediocre, rebuild it around a stronger idea rather than nudging pixels.
 
 ### 7 · DELIVER
 
-Deliver files plus a ≤5-line rationale: direction chosen, key decisions, where to look. Summarize as caveats + next steps only — never restate the brief. Show, don't describe: render when possible, present options side-by-side.
+Deliver files plus a ≤5-line rationale: direction chosen, key decisions, where to look. Summarize as caveats + next steps only — never restate the brief. Show, don't describe: attach `shots/sheet.png` when a renderer exists; present options side-by-side.
 
 ### 8 · LEARN — never skip, never block
 
@@ -125,6 +127,7 @@ After every task (including reviews), insert **one entry** into `learnings/<doma
 Rules:
 - ≤6 lines per entry. Only generalizable learnings — never client secrets or private data.
 - User taste statements are recorded verbatim in quotes ("user said: 'too corporate, we're not a bank'").
+- Before writing the entry, record the look: `node scripts/ledger.mjs add <delivered file> --project <name>`; taste statements go in verbatim via `node scripts/ledger.mjs quote "<their words>" --scope <domain|all>` (local, `~/.design-garden/`).
 - If the write fails or is denied, skip silently — the LEARN step must never burden the user or block delivery.
 - When 3+ entries in one file repeat the same Move, it's a promotion candidate: fold it into the domain file and submit upstream (see `CONTRIBUTING.md`).
 
@@ -169,11 +172,21 @@ These read as AI-generated on sight. The full catalog with fixes lives in `knowl
 
 ## Working with your environment
 
-- **Browser/screenshot available**: render and verify at real sizes; iterate visually through the GATE. This is the strongest upgrade — use it. Recipe that works: set the viewport to the deliverable's exact pixel size, wait for webfonts, capture `fullPage`; serve files over a local HTTP server (browsers can't navigate `file:` URLs); if a capture flakes, reopen the tab instead of retrying blind.
+- **Renderer available** (`scripts/shoot.mjs`): render at the deliverable's exact sizes, look at the sheet, iterate through the GATE. Playwright is used when installed; otherwise a local Chrome/Edge is driven over the DevTools Protocol, so 375px, full-page and per-screen all work without npm. If a capture flakes, rerun once, then audit the code.
 - **Image generation available**: brief it text-free (add copy in code afterward); specify subject, composition, light, palette; reject outputs with baked-in text.
-- **No rendering tools**: degraded mode — deliver code/spec + rationale and run the GATE against the code adversarially; state what you could not verify.
+- **No renderer at all**: degraded mode — deliver code/spec + rationale and run the GATE against the code adversarially; state what you could not verify.
 - **Domain-specific skills installed** (e.g. a dedicated slides or frontend skill): you may defer execution details to them, but still run DEAL, GATE, and LEARN — they are what keeps output quality and growth consistent.
-- **Repetition guard**: before designing, check `learnings/` and any project design log for the user's taste history; a returning user must not get the same look twice.
+- **Repetition guard**: run `node scripts/ledger.mjs check` before dealing; `learnings/` holds the prose record, the ledger holds the machine-readable one. A returning user must not get the same look twice.
+
+### The three runtime tools
+
+| Command | Gives you | Missing dependency |
+|---|---|---|
+| `node scripts/shoot.mjs <file> --domain <d>` | exact-size PNGs + `shots/sheet.png`; `--full`, `--screens`, `--json` | no Playwright → local Chrome/Edge over CDP; neither → exit 2, degraded mode |
+| `node scripts/lint.mjs <file> --domain <d>` | RED floor violations + YELLOW decoration, with line numbers; `--json`, `--strict` | none, always runs |
+| `node scripts/ledger.mjs add <file> --project <p>` · `check` · `quote` | local appearance ledger, repeat risk, verbatim taste notes | none, always runs |
+
+All three are non-blocking: a missing renderer or an empty ledger prints what it could not do and lets the task continue.
 
 ## Growing this skill
 

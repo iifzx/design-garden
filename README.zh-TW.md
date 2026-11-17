@@ -71,7 +71,7 @@ git clone https://github.com/iifzx/design-garden.git ~/.agents/skills/design-gar
 git clone https://github.com/iifzx/design-garden.git <你的專案>/.zcode/skills/design-garden
 ```
 
-無建置步驟、無依賴——就是 markdown 加兩個選用的 Node 腳本（僅標準庫）。
+無建置步驟、無依賴——markdown 加選用的 Node 腳本（僅標準庫）；整頁截圖可選 Playwright，沒有也能用本機 Chrome/Edge。
 
 ## 用起來
 
