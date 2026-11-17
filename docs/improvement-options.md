@@ -2,6 +2,7 @@
 
 > 内部决策稿：每条都写清「改哪里、产出什么、成本、会不会让仓库变胖」。
 > 参考对象：`github.com/alchaincyf/huashu-design`（29.7k stars，121 commits，3.x）。
+> 姊妹篇：同一作者的进化循环 [darwin-skill](https://github.com/alchaincyf/darwin-skill) 的对标见 [darwin-benchmark.md](darwin-benchmark.md)。
 
 ## 0 · 先说结论
 
