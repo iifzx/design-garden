@@ -30,7 +30,7 @@ Every task in `tasks/` carries `split: dev` or `split: holdout`, plus a `doc-der
 
 Promotion requires winning on both: the dev win justifies the attempt, the holdout win proves the change isn't overfit to the tasks that motivated it. A doc-derived task can never be the sole holdout — testing a document with its own documentation finds only what the document already admits. Where a holdout set mixes tasks, at least one must be non-doc-derived.
 
-Audit note (2026-11-18): all 18 existing tasks are doc-derived — their traps and "strong output" criteria quote `knowledge/` checklists nearly verbatim — so every one is assigned `split: dev` and none is holdout-eligible. New holdout tasks must come from real briefs that never touched `knowledge/` (community briefs are a good source) and stay sealed until their first acceptance run.
+Audit note (2026-11-18): all 18 existing tasks are doc-derived — their traps and "strong output" criteria quote `knowledge/` checklists nearly verbatim — so every one is assigned `split: dev` and none is holdout-eligible. New holdout tasks must come from briefs that never touched `knowledge/`: real user briefs (community briefs are a good source) or invented user-style briefs labeled `source: user-style brief (invented, never used in knowledge work)`. What disqualifies a holdout is provenance leakage, not the absence of a human author — the candidate knowledge must never have been written against the task. Holdouts stay sealed until their first acceptance run.
 
 Pick tasks that discriminate: a task where the knowledge domain doesn't apply proves nothing, and a task the bare model already aces measures nothing.
 
