@@ -1,5 +1,7 @@
 # design-garden for DeepSeek Harness（dsh）
 
+[English](README.md) | **简体中文**
+
 这是一个 dsh **组合包（bundle）插件**，把 [design-garden](../SKILL.md) 技能接入 dsh 原生技能目录。装好后，模型会通过 `skill` 工具发现它，并在 UI、海报、图标、Logo、幻灯片、图表、视频分镜、插画等视觉任务中按需加载。
 
 - **包名：** `dsh-design-garden`
@@ -88,4 +90,4 @@ node dsh/build-index.mjs      # 固定到最近一次改动 dsh/package.json 的
 - 卸载：`dsh plugin --profile web remove dsh-design-garden`。
 - 许可：MIT，见 [LICENSE](LICENSE)。技能内容来源见 [SOURCES.md](../SOURCES.md)。
 
-[English](README.md) · [项目 README](../README.zh-CN.md) · [知识索引](../knowledge/INDEX.md)
+[项目 README](../README.zh-CN.md) · [知识索引](../knowledge/INDEX.md)

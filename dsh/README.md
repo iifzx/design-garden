@@ -1,5 +1,7 @@
 # design-garden for DeepSeek Harness (dsh)
 
+**English** | [简体中文](README.zh-CN.md)
+
 A dsh **bundle plugin** that puts the [design-garden](../SKILL.md) skill into dsh's native skill catalog. Once installed, the model discovers it through the `skill` tool and loads it on demand for UI, posters, icons, logos, slides, charts, video storyboards and illustration work.
 
 - **Package:** `dsh-design-garden`
@@ -88,4 +90,4 @@ Commit the bundle first, then the regenerated index — the index pins the earli
 - Uninstall with `dsh plugin --profile web remove dsh-design-garden`.
 - License: MIT — see [LICENSE](LICENSE). Skill content credits live in [SOURCES.md](../SOURCES.md).
 
-[中文说明](README.zh-CN.md) · [Project README](../README.md) · [Knowledge index](../knowledge/INDEX.md)
+[Project README](../README.md) · [Knowledge index](../knowledge/INDEX.md)
