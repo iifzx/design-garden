@@ -4,7 +4,7 @@ design-garden v0.1 was seeded by distilling knowledge from existing design skill
 
 | Source skill | Distilled into |
 |---|---|
-| huashu-design | Three-direction gate, form five questions, polish loop, learning-loop concept, color derivation protocol, typography decision order, CJK rules, readability floors, style-library methodology |
+| huashu-design | Three-direction gate, form five questions, polish loop, learning-loop concept, color derivation protocol, typography decision order, CJK rules, readability floors, style-library methodology, verify-first fact step (product-facts.md), social-carousel domain scope, long-infographic domain scope |
 | hallmark | Layered gate governance (Floor/Reflex/Finish), slop-gate catalog, craft numbers (spacing/type scales, OKLCH layers), surface ladder, imagery priority, dark-mode parity recipe |
 | design-taste-frontend | Deal-don't-choose philosophy, copy-tells catalog, one-section-per-screen metrics, equal-edges grid grammar, gate-as-process thinking |
 | frontend-design (Anthropic) | AI-default cluster calibration, two-pass self-review, brief-wins rule, restraint principles |

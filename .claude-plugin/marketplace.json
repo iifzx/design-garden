@@ -8,7 +8,7 @@
     {
       "name": "design-garden",
       "source": "./skills/design-garden",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "description": "The design skill that grows — universal, self-improving design for AI agents: UI, posters, icons, logos, slides, data-viz, video, illustration.",
       "displayName": "Design Garden",
       "displayName_i18n": {

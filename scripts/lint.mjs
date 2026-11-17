@@ -22,6 +22,8 @@ const DOMAIN_FLOORS = {
   "ui-web": { body: 16, label: 12 },
   "ui-mobile": { body: 16, label: 11 },
   "poster-banner": { body: 14, label: 10 },
+  "social-carousel": { body: 28, label: 24 },
+  "infographic-long": { body: 24, label: 18 },
   slides: { body: 24, label: 16 },
   icon: { body: 0, label: 0 },
   "data-viz": { body: 14, label: 11 },

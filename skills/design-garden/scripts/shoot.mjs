@@ -36,6 +36,8 @@ const PRESETS = {
   "ui-web": [[1440, 900], [375, 812]],
   "ui-mobile": [[390, 844]],
   "poster-banner": [[1080, 1350]],
+  "social-carousel": [[1080, 1440]],
+  "infographic-long": [[750, 1334]],
   slides: [[1920, 1080]],
   icon: [[512, 512]],
   "data-viz": [[1200, 800]],

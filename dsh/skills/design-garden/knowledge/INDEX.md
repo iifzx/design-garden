@@ -11,6 +11,7 @@ The router's catalog. Load **≤6 files per task**, in the priority order given 
 | core/motion.md | core | Motion decision framework, easing/duration/spring tables, choreography | Anything moves or responds |
 | core/anti-slop.md | core | The canonical AI-tell catalog with fixes | Always, every task |
 | core/critique.md | core | Reviewing others' work: damage-ranked, evidence-based critique protocol | Review or improve tasks |
+| core/facts.md | core | Fact-verification pre-step: `product-facts.md` log, visible `[PLACEHOLDER: …]` convention | Brief states real products, brands, versions, numbers, dates, or events — before BRIEF |
 | domains/ui-web.md | core | Web UI craft: floors, tokens, 708px screen map, audit ladder + checklist | ui-web |
 | domains/ui-mobile.md | core | Mobile app craft: touch physics, safe areas, Dynamic Type + checklist | ui-mobile |
 | domains/poster-banner.md | core | Platform sizes, safe zones, 3-zone hierarchy, print specs + checklist | poster-banner |
@@ -20,6 +21,8 @@ The router's catalog. Load **≤6 files per task**, in the priority order given 
 | domains/data-viz.md | core | Chart selection matrix, annotation practice, honest axes + checklist | data-viz |
 | domains/video-motion.md | core | Storyboard grammar, pacing, gen-AI video prompting, tool pipelines + checklist | video-motion |
 | domains/illustration-art.md | core | Philosophy-first method, seeded randomness, medium matrix + checklist | illustration-art |
+| domains/social-carousel.md | experimental | 3:4 multi-image posts: cover formula, page rhythm, font floors (72/48/28/24 @1080w), slice/export, safe zones + checklist | social-carousel |
+| domains/infographic-long.md | experimental | Long-scroll narrative: scan path, seam anchors, font floors (@750w), stat rhythm, CTA + checklist | infographic-long |
 | styles/swiss-international.md | proven | Grid discipline, grotesk type, mathematical layout | Style match: swiss/international/grid |
 | styles/bauhaus.md | proven | Primary geometry + primary colors, form follows function | Style match: bauhaus/geometric |
 | styles/neo-brutalism.md | proven | Raw borders, hard offset shadows, clashing blocks | Style match: brutalist/raw |

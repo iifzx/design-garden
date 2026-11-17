@@ -1,6 +1,6 @@
 ---
 name: design-garden
-description: Use for ANY design or aesthetic work — UI/web/mobile interfaces, landing pages, dashboards, posters, banners, social graphics, ads, icons, logos, brand identity, typography, color palettes, slides/decks/PPT, charts and data visualization, video storyboards and motion design, illustration and generative art, or any "make it look better / review this design" request. Triggers on design, 设计, beautiful, aesthetics, poster, banner, icon, logo, brand, UI, dashboard, landing page, hero, slides, deck, PPT, presentation, chart, infographic, illustration, palette, font pairing, redesign, make it pop/professional/clean — even if the user doesn't say "design" but asks for anything visual to be made or judged. Produces differentiated art directions instead of AI-slop defaults, executes with craft rules distilled from top design skills, runs a critique gate before delivery, and records structured learnings after every task so it keeps improving.
+description: Use for ANY design or aesthetic work — UI/web/mobile interfaces, landing pages, dashboards, posters, banners, social graphics, ads, icons, logos, brand identity, typography, color palettes, slides/decks/PPT, charts and data visualization, video storyboards and motion design, illustration and generative art, or any "make it look better / review this design" request. Triggers on design, 设计, beautiful, aesthetics, poster, banner, icon, logo, brand, UI, dashboard, landing page, hero, slides, deck, PPT, presentation, chart, infographic, illustration, palette, font pairing, redesign, make it pop/professional/clean — even if the user doesn't say "design" but asks for anything visual to be made or judged. Produces differentiated art directions instead of AI-slop defaults, executes with craft rules distilled from top design skills, runs a critique gate before delivery, and records structured learnings after every task so it keeps improving. Not for production web apps or backend systems.
 whenToUse: Use whenever the task involves creating, reviewing, or improving anything visual or aesthetic — UI, landing pages, posters, banners, icons, logos, brand identity, slides, charts, video storyboards, illustration, typography, or design critique. Skip for purely functional, non-visual engineering tasks.
 ---
 
@@ -23,7 +23,7 @@ A universal design skill that grows. Everything aesthetic routes through here: U
 
 Classify before touching anything:
 - **Task type**: create / review / improve / extend an existing design.
-- **Domain(s)**: `ui-web`, `ui-mobile`, `poster-banner`, `icon`, `logo-brand`, `slides`, `data-viz`, `video-motion`, `illustration-art`. Multi-domain tasks load one file per domain, not everything.
+- **Domain(s)**: `ui-web`, `ui-mobile`, `poster-banner`, `social-carousel`, `icon`, `logo-brand`, `slides`, `data-viz`, `infographic-long`, `video-motion`, `illustration-art`. Multi-domain tasks load one file per domain, not everything.
 - **Constraints**: brand assets, platform, format/size, tech stack, tool availability.
 - **Pinned vs open**: what the user fixed (brand colors, style name, layout) and what they left free.
 
@@ -44,9 +44,10 @@ Read `knowledge/INDEX.md` (paths are relative to the directory containing this f
 | `knowledge/core/typography.md` | When type isn't fully fixed |
 | `knowledge/core/motion.md` | When anything moves or responds |
 | `knowledge/core/critique.md` | Review/improve tasks — damage-ranked critique protocol |
+| `knowledge/core/facts.md` | The brief states real products, brands, versions, numbers, dates, or events — run before BRIEF; verified facts go to `<output-dir>/product-facts.md`, unverified ones become visible `[PLACEHOLDER: …]` |
 | `knowledge/styles/<style>.md` × 1–2 | Matching the mood (chosen in DEAL) |
 
-Budget arithmetic: **≤7 knowledge files per task, learnings exempt** (entries are six lines each). Mandatory: domain file + anti-slop. The supporting core modules (principles / layout / color / typography / motion / critique) load **as needed, at most 3 of them** — if palette and type are pinned, skip those; for simple compositions, principles may stand alone. Styles take the remaining slots. If a file is missing, continue without it. Case studies are reference reading outside the cap — consult when studying dealing or critique in depth. Files with `status: experimental` in the index load only when the user explicitly names that style or topic.
+Budget arithmetic: **≤7 knowledge files per task, learnings exempt** (entries are six lines each). Mandatory: domain file + anti-slop. The supporting core modules (principles / layout / color / typography / motion / critique / facts) load **as needed, at most 3 of them** — if palette and type are pinned, skip those; for simple compositions, principles may stand alone. Styles take the remaining slots. If a file is missing, continue without it. Case studies are reference reading outside the cap — consult when studying dealing or critique in depth. Files with `status: experimental` in the index load only when the user explicitly names that style or topic.
 
 Before DEAL, run `node scripts/ledger.mjs check` (paths are relative to this file). The last six deliveries are the looks not to repeat; the ledger is a script, not a knowledge file, so it does not count against the cap.
 

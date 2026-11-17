@@ -16,6 +16,14 @@ Each entry records what design-garden *learned* in that version, not just what c
 - Attribution is part of the record: the twelve new specimens are `Doubao · 2026-11-17`; the original six are `v0.2.0 gallery batch` because their model was never recorded — no invented model names.
 - The new specimens went through the same `lint.mjs` floor: two real REDs (handcrafted CTA hover 3.3:1, playful nav 2.6:1) were fixed, plus a yellow pure-black display face and a 14px footer were cleaned before the gallery was accepted.
 
+**Learned — about coverage gaps and honesty**
+- `domains/social-carousel.md` (experimental): 3:4 multi-image posts are one argument split across swipes — the cover buys the swipe, each page spends one beat, the last page cashes out. Floors at 1080×1440: cover title ≥72px (any cover text ≥36px), inner headline ≥48px, body ≥28px, captions ≥24px; one HTML sliced into zero-padded PNGs at exact canvas; footers clear the bottom ~170px of platform chrome.
+- `domains/infographic-long.md` (experimental): vertical narrative for 750×N long-scrolls — numbered section signatures repeated at seams, a progress anchor so mid-scroll entrants orient in one glance, one hero stat per screen (number ≥88px + source ≥18px), CTA ≥88px tall with a midpoint repeat on >6 sections.
+- Both land as `experimental` per the state machine: they load only when the task explicitly matches, and promotion to proven waits for eval scores, not enthusiasm.
+- `core/facts.md` (core): verify before you design — every real product, version, price, date, or quote a design will state gets verified and logged to `product-facts.md` (one line per fact: fact + source + date checked); anything unverified becomes a visible `[PLACEHOLDER: …]` at real size in the real hierarchy. Plausible-looking invented values get shipped; placeholders cannot be.
+- The GATE tools grew with the domains: `shoot.mjs` gained 1080×1440 and 750×1334 presets, `lint.mjs` gained the 28/24 and 24/18 body/label floors — `--domain social-carousel` now flags a 20px body that ui-web would pass.
+- Housekeeping: package.json, both mirror VERSION files, and the plugin manifests aligned at 0.2.1 with the latest tag (three spots had drifted); the router description now states its boundary — not for production web apps or backend systems.
+
 ## v0.2.1 — DeepSeek Harness support (2026-11-17)
 
 **Learned — about the DSH ecosystem**
