@@ -69,6 +69,7 @@ updated: 2026-11-16
 3. **Checkable, not aspirational.** Every rule must be something an agent can verify in its own output.
 4. **Fresh wording.** We distill ideas, not sentences — never copy text from other skills, books, or sites. Credit ideas via the `source:` field and `SOURCES.md`.
 5. **One test per rule**: would an agent reading only this file and its INDEX row know when to apply it? If not, sharpen the INDEX one-liner.
+6. **Growth needs evidence.** A PR that grows any knowledge file by more than 10% must cite the failed check item or the real learning entry it fixes; without that citation the edit may only delete or refine. Lines are a budget — additions earn their way in, they don't apply for it.
 
 ## The promotion lifecycle (how experimental becomes proven)
 

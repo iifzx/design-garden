@@ -11,6 +11,8 @@ Each entry records what design-garden *learned* in that version, not just what c
 - `evals/results.tsv` records every promotion, demotion, retest and trigger run — reverted hypotheses included, so dead ideas stay dead.
 - Honest-eval rules grew from 4 to 8: variant output directories invisible to each other, built-in-skill contamination labeled, provenance stripped before judging, one hypothesis per eval.
 - Cost is now stated, not discovered: a promotion eval ≈ 2 runs × dev tasks + 2 × holdout tasks + a render per run + 12 scores per task per voter.
+- The router is now testable: `scripts/trigger_test.mjs` (check / kit / tally) runs the description against 11 queries — 3 of the should-trigger queries contain **zero** of the description's 85 extracted trigger words (a 404 screen people smile at, a one-glance board handout, "what would someone with taste change?"), so the description must fire on outcomes, not vocabulary. Verdict: hit <80% or any misfire = needs-work; after a description edit, only the holdout half judges — keep when hit rises or misfire falls without the other worsening, otherwise revert.
+- The growth ratchet: a PR that grows any knowledge file by more than 10% must cite the failed check or the real learning entry it fixes — without one, the edit may only delete or refine.
 
 **Learned — about making rules executable**
 - Judgment was never the bottleneck; mechanical compliance is. A rule that only lives in prose gets skipped under deadline, so the GATE's floors became three scripts: `shoot.mjs` (exact-size renders + contact sheet), `lint.mjs` (RED floors / YELLOW decoration by line), `ledger.mjs` (local appearance memory).

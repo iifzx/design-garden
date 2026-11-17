@@ -1,0 +1,91 @@
+{
+  "schema": "trigger-tests/1",
+  "target": "design-garden",
+  "updated": "2026-11-18",
+  "comment": "Does the SKILL.md description attract the requests it should and repel the ones it shouldn't? Protocol: docs/darwin-benchmark.md item 5. dev queries probe; holdout queries judge a description change (re-test judged on holdout only).",
+  "queries": [
+    {
+      "id": "poster-festival",
+      "split": "dev",
+      "should_trigger": true,
+      "query": "Design a poster for our campus music festival — A2 print, loud colors, huge headline.",
+      "note": "Sanity attractor: names the craft and the deliverable outright."
+    },
+    {
+      "id": "review-landing-hero",
+      "split": "holdout",
+      "should_trigger": true,
+      "query": "Review this design — our landing page hero feels off and I can't tell why.",
+      "note": "The 'review this design' phrasing the description explicitly claims."
+    },
+    {
+      "id": "notfound-screen-smile",
+      "split": "dev",
+      "should_trigger": true,
+      "query": "Give me three options for a 404 screen that people actually smile at.",
+      "note": "Keyword-clean attractor: a UI deliverable described with none of the description's trigger words."
+    },
+    {
+      "id": "quarterly-handout",
+      "split": "dev",
+      "should_trigger": true,
+      "query": "Our quarterly numbers read like a wall of text — I need a one-glance handout the board can absorb in five minutes.",
+      "note": "Keyword-clean attractor: data made visual, without saying chart, dashboard, or infographic."
+    },
+    {
+      "id": "onboarding-clunky",
+      "split": "holdout",
+      "should_trigger": true,
+      "query": "The onboarding screens in my fitness app feel clunky — what would someone with taste change?",
+      "note": "Keyword-clean attractor: an improvement request for mobile UI phrased as taste, not design."
+    },
+    {
+      "id": "backend-rest-api",
+      "split": "holdout",
+      "should_trigger": false,
+      "reason": "backend-system",
+      "query": "Build a production web app for order management — Node, Postgres, JWT auth, and a REST API for the mobile client.",
+      "note": "The description's own negative boundary (not for production web apps or backend systems); it uses the boundary's words on purpose and must still repel."
+    },
+    {
+      "id": "etl-refactor",
+      "split": "dev",
+      "should_trigger": false,
+      "reason": "data-pipeline",
+      "query": "Refactor our ETL pipeline — split the ingest job, add retries, move the transforms into dbt models.",
+      "note": "Non-visual engineering; nothing here produces an artifact to judge."
+    },
+    {
+      "id": "pr-code-review",
+      "split": "dev",
+      "should_trigger": false,
+      "reason": "code-review",
+      "query": "Code-review this PR: the retry logic in the payments service leaks connections.",
+      "note": "A 'review this' ask with nothing visual in it — the word review alone must not attract."
+    },
+    {
+      "id": "launch-email-copy",
+      "split": "holdout",
+      "should_trigger": false,
+      "reason": "copywriting",
+      "query": "Write the launch email — three subject lines, body copy, and CTA text.",
+      "note": "Copy is the deliverable itself; the skill supports copy tone only as part of visual work."
+    },
+    {
+      "id": "go-cli-exif",
+      "split": "dev",
+      "should_trigger": false,
+      "reason": "cli-tool",
+      "query": "Write a Go CLI that batch-renames photo files by their EXIF date.",
+      "note": "Purely functional tooling; photos are the input, not the deliverable."
+    },
+    {
+      "id": "translate-manual",
+      "split": "holdout",
+      "should_trigger": false,
+      "reason": "document-translation",
+      "query": "Translate our 12-page user manual from English to Japanese, keep the tone.",
+      "note": "A documents job other skills own; 'page' appears here and must not be enough to trigger."
+    }
+  ]
+}

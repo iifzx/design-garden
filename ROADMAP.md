@@ -13,7 +13,8 @@ The garden's direction, in order of priority. Anything here is up for grabs — 
 
 - [ ] **Eval automation harness**: script that runs A/B variants through a local agent CLI and produces the blind page + rubric form automatically
 - [ ] LLM-as-judge calibration study (judge scores vs human scores on 20+ pairs) — decide if automated judging can gate promotions
-- [ ] Trigger tests: verify SKILL.md description fires on the phrasings it claims (a tiny eval suite for the router itself)
+- [x] **Trigger tests**: verify SKILL.md description fires on the phrasings it claims (a tiny eval suite for the router itself) — shipped as [scripts/trigger_test.mjs](scripts/trigger_test.mjs) + [evals/trigger-tests.json](evals/trigger-tests.json) (`check` / `kit` / `tally`; verdict rows land in evals/results.tsv)
+- [ ] **Retest protocol**: on base-model upgrades, re-run the stored eval tasks for `proven` knowledge and demote anything whose blind-A/B gain disappeared (protocol in [docs/darwin-benchmark.md](docs/darwin-benchmark.md) #7; needs the eval automation harness first)
 
 ## v0.4 — distribution
 

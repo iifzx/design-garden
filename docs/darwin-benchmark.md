@@ -40,6 +40,8 @@ design-garden 的进化单元是**设计知识文件**（不是 SKILL.md 路由�
 | 8 | **增长棘轮**：知识文件单次增长 >10% 时，PR 必须引用它要修的失败检查项或真实 learning 条目；没有证据就只许删改，不许加 | CONTRIBUTING 提交规则 | XS |
 | 9 | **成本明账**：evals/README 标注一次 promotion A/B 的实际开销（跑几次任务、几位评委）；没有子 agent 环境时的降级路径：只做 E0+人工盲投票，报告标「缺实跑」 | evals/README | XS |
 
+> 落地状态（2026-11-18）：1、2、3、4、6、9 已落地（commit 585a4f8；附带发现：现有 18 个 eval 任务全部 doc-derived，promotion 在真实 brief 铸出 holdout 前保持封印）；5 已落地（`scripts/trigger_test.mjs` + `evals/trigger-tests.json`，ROADMAP v0.3 对应项已勾）；8 已落地（CONTRIBUTING quality bar 第 6 条）；7 已在 ROADMAP 立账，等评测自动化 harness。
+
 ## 3 · 建议打包与顺序
 
 | 包 | 内容 | 理由 |

@@ -23,3 +23,6 @@ desktop.ini
 *.swp
 .idea/
 .vscode/
+
+# trigger-test kit output (regenerable via scripts/trigger_test.mjs kit)
+evals/trigger-kit/
