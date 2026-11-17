@@ -26,3 +26,6 @@ desktop.ini
 
 # trigger-test kit output (regenerable via scripts/trigger_test.mjs kit)
 evals/trigger-kit/
+
+# eval harness run dirs (regenerable artifacts)
+evals/runs/

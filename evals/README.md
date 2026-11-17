@@ -51,6 +51,16 @@ Pick tasks that discriminate: a task where the knowledge domain doesn't apply pr
    - **A tie is a fail** — knowledge must earn its lines. One exception: a tie on a candidate file **shorter** than the incumbent promotes (equal output for fewer loaded tokens); a tie on a longer file reverts.
 6. Keep the evidence: `eval.html` and per-dimension scores in the PR, plus one row appended to `results.tsv`.
 
+## The harness — running the procedure end-to-end
+
+`scripts/eval_harness.mjs` mechanizes the procedure above:
+
+- **`plan`** — declare the one hypothesis, the dev set and the holdout; it refuses a holdout that sits inside the dev set or carries a `- doc-derived:` line, then builds the s0/s1 variant skill dirs (without/with the candidate) and per-task briefs under `evals/runs/<run>/`.
+- **`collect`** — runs each variant × task cell through your agent CLI via `--exec` (placeholders `{brief}` `{out}` `{skill_dir}`; hard timeout, non-interactive; cells that fail are listed, never fatal) or prints manual paste instructions. Renders deliverables and builds per-judge blind pages with judge-invisible key files.
+- **`tally`** — reads each judge's filled `scores.json`, applies the verdict rules exactly as written above (including the tie-shorter-file exception), prints the verdict and the `evals/results.tsv` row. Unverified factual accusations from a judge block the verdict until `--facts-verified`.
+
+Run dirs are regenerable artifacts and stay unversioned; the durable records are the declaration in the PR and the `results.tsv` row.
+
 ## Rules that keep evals honest
 
 - Same model, same prompt, same task for both variants — the knowledge is the only variable.
