@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Design Garden">
+  <rect width="64" height="64" rx="14" fill="#12241A"/>
+  <path d="M32 50V27" fill="none" stroke="#E8EFE4" stroke-width="2.4" stroke-linecap="round"/>
+  <path d="M32 32c0-7.2 5.2-11.4 12.4-11.4C44.4 27.8 39.2 32 32 32Z" fill="#79B96A"/>
+  <path d="M32 40c0-6.2-4.6-9.8-10.8-9.8C21.2 36.4 25.8 40 32 40Z" fill="#B9D9A1"/>
+  <circle cx="32" cy="17" r="3.4" fill="#E8B15C"/>
+  <path d="M22 50h20" stroke="#3C5A45" stroke-width="2.4" stroke-linecap="round"/>
+</svg>

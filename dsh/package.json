@@ -1,0 +1,52 @@
+{
+  "name": "dsh-design-garden",
+  "version": "0.1.0",
+  "description": "Design Garden for the DeepSeek Harness (dsh) — bundles the design-garden skill (UI, posters, icons, logos, slides, data-viz, video, illustration) into dsh's native skill catalog.",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "cordis.patch.yml",
+    "skills",
+    "VERSION",
+    "README.md",
+    "README.zh-CN.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "design",
+    "design-skill",
+    "ui",
+    "poster",
+    "logo",
+    "slides",
+    "data-viz",
+    "illustration"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "iifzx",
+    "url": "https://github.com/iifzx"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iifzx/design-garden.git",
+    "directory": "dsh"
+  },
+  "homepage": "https://github.com/iifzx/design-garden/tree/main/dsh",
+  "bugs": "https://github.com/iifzx/design-garden/issues",
+  "engines": {
+    "node": ">=18"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

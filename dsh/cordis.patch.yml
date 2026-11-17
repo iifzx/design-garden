@@ -1,0 +1,6 @@
+# design-garden bundle patch — inserts the skill-provider plugin into the
+# composition. `name` is this package's npm name, resolved from the profile's
+# node_modules after `dsh plugin add`.
+- insert:
+    - id: design-garden-skills
+      name: dsh-design-garden
