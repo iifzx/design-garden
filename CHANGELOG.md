@@ -4,6 +4,14 @@ Each entry records what design-garden *learned* in that version, not just what c
 
 ## Unreleased — the rules became tools (2026-11-17)
 
+**Learned — about proving the garden actually grows** (ideas distilled from darwin-skill, see [docs/darwin-benchmark.md](docs/darwin-benchmark.md))
+- Verdicts are tallies, not averages: a candidate wins a task by taking strictly more rubric dimensions than it loses with no dimension dropping >0.5 — and a tie fails unless the candidate file is shorter (equal output for fewer loaded tokens). Average scores swing ±8 across judges; win counts do not.
+- The evidence ladder (e0 script audit → e1 read review → e2 blind run → e3 real environment) is now explicit: read reviews diagnose and order, only e2 decides keep/revert, and anything that skipped e2 is "unmeasured — not comparable", unquotable as a gain.
+- Eval tasks now carry `split: dev` and `doc-derived:` provenance. The honest audit: all 18 existing tasks are doc-derived (their traps quote our own knowledge files), so none can serve as a sole holdout — promotion stays blocked until holdouts are minted from real briefs that never touched knowledge/.
+- `evals/results.tsv` records every promotion, demotion, retest and trigger run — reverted hypotheses included, so dead ideas stay dead.
+- Honest-eval rules grew from 4 to 8: variant output directories invisible to each other, built-in-skill contamination labeled, provenance stripped before judging, one hypothesis per eval.
+- Cost is now stated, not discovered: a promotion eval ≈ 2 runs × dev tasks + 2 × holdout tasks + a render per run + 12 scores per task per voter.
+
 **Learned — about making rules executable**
 - Judgment was never the bottleneck; mechanical compliance is. A rule that only lives in prose gets skipped under deadline, so the GATE's floors became three scripts: `shoot.mjs` (exact-size renders + contact sheet), `lint.mjs` (RED floors / YELLOW decoration by line), `ledger.mjs` (local appearance memory).
 - Screenshot truth beats CSS intuition: headless Chrome has a ~500px minimum window and `--window-size` is not `innerWidth` (about 22px of frame), so exact 375px, full-page and per-screen need the DevTools Protocol. Playwright stays an optional first renderer; a local Chrome/Edge is the fallback, never a required dependency.

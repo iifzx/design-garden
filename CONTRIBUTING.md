@@ -23,7 +23,7 @@ You don't need to write code or design professionally to matter here — the "so
 The zero-skill ladder, easiest first:
 
 1. ⭐ **Star & share** — helps the garden find more feeders.
-2. 🗳️ **Blind vote** — open the latest vote post in Discussions, look at the two anonymous designs, and reply **1** or **2**. Votes are community advisory signal for evals; rubric scores still decide promotions (see `evals/README.md`).
+2. 🗳️ **Blind vote** — open the latest vote post in Discussions, look at the two anonymous designs, and reply **1** or **2**. Votes are community advisory signal for evals; the blind e2 tally still decides promotions (see `evals/README.md`).
 3. 🌻 **First bloom report** — file the "🌻 小白报告 · First bloom" issue and answer 3 plain-language questions. Every report gets distilled into the knowledge base.
 4. 📋 **Post a real design need** — "I need a lost-cat flyer" is valuable: good real briefs become eval tasks (maintainers convert and credit you).
 
@@ -38,7 +38,7 @@ When you're comfortable, the professional paths below are waiting.
 | 🎨 Style recipe | `knowledge/styles/<slug>.md` — follow the style schema | ~1 hour |
 | 🔧 Domain technique | PR a section into an existing `knowledge/domains/<domain>.md` | ~1 hour |
 | 📕 Case study | `knowledge/case-studies/<slug>.md` — before/after with reasoning | ~1 hour |
-| 🧪 Eval task | `evals/tasks/<domain>-<NN>.md` — brief + deliberate traps | ~30 min |
+| 🧪 Eval task | `evals/tasks/<domain>-<NN>.md` — brief + deliberate traps + a `split:` line | ~30 min |
 | 🐛 Knowledge bug | open an issue; fixes may demote a rule to `experimental` or reword it | minutes |
 
 Before writing: check `knowledge/INDEX.md` for overlap. One idea, one file — we merge duplicates rather than accumulate them.
@@ -72,12 +72,14 @@ updated: 2026-11-16
 
 ## The promotion lifecycle (how experimental becomes proven)
 
-1. Land your contribution as `status: experimental` + an INDEX row saying when it loads.
-2. Pick or write an eval task in `evals/tasks/` that discriminates (has traps your knowledge specifically addresses).
-3. Run the blind A/B procedure in `evals/README.md` (with/without your knowledge; `scripts/ab_harness.py` builds the blind page).
-4. Candidate **wins** = strictly higher average on the rubric AND no dimension dropping >0.5. Attach per-dimension scores to the PR.
-5. A maintainer flips status to `proven` and updates CHANGELOG ("what the garden learned").
-6. Promotion can run in reverse: a `knowledge-bug` issue with evidence demotes a rule back to `experimental` or removes it. The garden prunes.
+Each step names its evidence level — the ladder lives in `evals/README.md`: e0 script audit → e1 read review → e2 blind run → e3 real environment.
+
+1. Land your contribution as `status: experimental` + an INDEX row saying when it loads. **e0**: `scripts/validate_knowledge.mjs` must pass.
+2. Pick a discriminating dev task in `evals/tasks/` (traps your knowledge specifically addresses — a task the bare model already aces measures nothing) and declare the dev set, the holdout task, and the one hypothesis in the PR before any run.
+3. Run the blind A/B procedure in `evals/README.md` (**e2**: with/without your knowledge; `scripts/ab_harness.mjs` builds the blind page). A read review (**e1**) may diagnose the draft first, but no keep/revert call ever comes from reading documents.
+4. Verdict by tally: the candidate **wins a task** when it wins strictly more rubric dimensions than it loses AND no dimension drops >0.5; **promotion** needs a majority of voters winning every declared dev task plus the holdout. A tie is a fail — unless the candidate file is shorter than the incumbent (equal output for fewer loaded tokens); a tie on a longer file reverts. Attach per-dimension scores to the PR.
+5. A maintainer flips status to `proven`, updates CHANGELOG ("what the garden learned"), and appends a row to `evals/results.tsv`.
+6. Demotion runs the same ladder in reverse: a `knowledge-bug` issue backed by e2 evidence demotes a rule back to `experimental` or removes it, and gets a `results.tsv` row of its own. The garden prunes.
 
 ## Security & safety rules (non-negotiable)
 
@@ -96,7 +98,7 @@ Knowledge files are instructions agents will follow. Therefore:
 - [ ] No overlap with existing knowledge (or existing file improved instead)
 - [ ] Rules are numeric/checkable; reasons stated
 - [ ] Injection scan clean; no external runtime fetches
-- [ ] Promotion claims backed by attached eval scores
+- [ ] Promotion claims backed by attached eval scores and a `results.tsv` row
 
 ## Local workflow
 

@@ -1,6 +1,8 @@
 # Eval task: bike-shop-landing
 
 - domain: ui-web
+- split: dev
+- doc-derived: cream+serif+terracotta and eyebrow-tell criteria quote knowledge/core/anti-slop.md — never holdout
 - deliverable: single-file HTML landing page for a neighborhood bike repair shop; verify layout at 1440 and 375 widths
 
 ## Brief

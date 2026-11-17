@@ -1,6 +1,8 @@
 # Eval task: water-nonprofit-annual-figures
 
 - domain: data-viz
+- split: dev
+- doc-derived: "4–8% ink" gridline and takeaway-title criteria quote knowledge/domains/data-viz.md — never holdout
 - deliverable: single-file HTML annual-report figures page, light editorial theme, 4–6 annotated figures, print-width layout
 
 ## Brief

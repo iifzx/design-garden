@@ -1,6 +1,8 @@
 # Eval task: battery-recycling-seed-deck
 
 - domain: slides
+- split: dev
+- doc-derived: the rgba(255,255,255,0.05) chart criterion quotes knowledge/domains/slides.md — never holdout
 - deliverable: multi-file HTML seed deck, 10–12 slides + overview wall, 16:9 letterbox, keyboard navigation, Chart.js figures
 
 ## Brief

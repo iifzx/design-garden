@@ -1,6 +1,8 @@
 # Eval task: saas-qbr-deck
 
 - domain: slides
+- split: dev
+- doc-derived: titles 60–120px / body ≥24px criteria quote knowledge/domains/slides.md — never holdout
 - deliverable: multi-file HTML QBR deck, 15–18 slides + overview wall, dark theme, Chart.js figures, keyboard nav
 
 ## Brief

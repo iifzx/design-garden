@@ -1,6 +1,8 @@
 # Eval task: city-transit-dashboard
 
 - domain: data-viz
+- split: dev
+- doc-derived: gridline and tabular-nums criteria quote knowledge/domains/data-viz.md — never holdout
 - deliverable: single-file HTML dashboard with Chart.js, 6–8 tiles, dark theme; glanceable at 3m, mobile horizontal scroll
 
 ## Brief

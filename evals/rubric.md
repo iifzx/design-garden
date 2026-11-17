@@ -14,6 +14,6 @@ Score each dimension independently, then average. Judge what is **observable in 
 ## Scoring rules
 
 - Score dimensions independently — a beautiful but inaccessible design is not a 4.5 average, it's a fail on dimension 5.
-- For blind A/B: candidate **wins** only if its average is strictly higher AND no dimension drops more than 0.5 vs the baseline.
-- Record per-dimension scores, not just the average — the losing dimension tells contributors what to fix.
+- For blind A/B, the verdict is a tally, not an average: the candidate **wins a task** if it takes strictly more of the 6 dimensions than it loses AND no dimension drops more than 0.5 vs the baseline. Full promotion/close-call/tie rules live in [README.md](README.md) step 5 — this file only scores, it never rules alone.
+- Record per-dimension scores, not just the winner — the losing dimensions tell contributors what to fix.
 - When judging your own output, score adversarially: assume it's wrong until each floor is verified.

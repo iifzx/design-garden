@@ -1,5 +1,7 @@
 # Eval task: poster-banner-02
 - domain: poster-banner
+- split: dev
+- doc-derived: size-table and safe-area criteria quote knowledge/domains/poster-banner.md — never holdout
 - deliverable: Banner set of 3: Google Display 300x250, skyscraper 160x600, web
   hero 1920x700 — one campaign, exact pixel dimensions
 

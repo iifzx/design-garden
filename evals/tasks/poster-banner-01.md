@@ -1,5 +1,7 @@
 # Eval task: poster-banner-01
 - domain: poster-banner
+- split: dev
+- doc-derived: bleed/DPI and central-safe-area criteria quote knowledge/domains/poster-banner.md — never holdout
 - deliverable: Print poster (A2, 300 DPI, 3mm bleed) + IG story 1080x1920 variant,
   two art directions presented side-by-side
 

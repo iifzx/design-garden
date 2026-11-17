@@ -1,6 +1,8 @@
 # Eval task: budgeting-app-onboarding
 
 - domain: ui-mobile
+- split: dev
+- doc-derived: damping, scale(0) and purple-gradient criteria quote knowledge/domains/ui-mobile.md, core/motion.md, core/anti-slop.md — never holdout
 - deliverable: 4–5 onboarding screens as a single-file HTML prototype in a 375px frame, tap-through, landscape check
 
 ## Brief

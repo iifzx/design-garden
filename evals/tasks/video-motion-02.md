@@ -1,5 +1,7 @@
 # Eval task: video-motion-02
 - domain: video-motion
+- split: dev
+- doc-derived: 100–160ms / 200–500ms / 60–75% bands quote knowledge/core/motion.md and domains/video-motion.md — never holdout
 - deliverable: Motion spec doc: per-transition duration/easing/spring values +
   choreography rules + reduced-motion fallbacks
 

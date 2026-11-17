@@ -1,5 +1,7 @@
 # Eval task: illustration-art-01
 - domain: illustration-art
+- split: dev
+- doc-derived: movement + 4–6-paragraph manifesto and 2–5-color criteria quote knowledge/domains/illustration-art.md — never holdout
 - deliverable: Series of 3 generative posters (1080x1350, p5.js/canvas) + named
   movement + manifesto + seed navigation sheet
 

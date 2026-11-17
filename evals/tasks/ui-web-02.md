@@ -1,6 +1,8 @@
 # Eval task: sleep-study-recruitment
 
 - domain: ui-web
+- split: dev
+- doc-derived: error-summary, paste, 44px and gray-on-gray criteria quote knowledge/domains/ui-web.md — never holdout
 - deliverable: single-file HTML recruitment page with an eligibility self-check form; verify at 1440 and 375, keyboard-operable
 
 ## Brief

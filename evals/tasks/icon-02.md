@@ -1,5 +1,7 @@
 # Eval task: icon-02
 - domain: icon
+- split: dev
+- doc-derived: optical-centering criteria quote knowledge/domains/icon.md and case-studies/icon-set-optical.md — never holdout
 - deliverable: 6 outlined SVG icons (24px grid, 1.5px stroke) + accessibility
   naming table + pair-test sheet at 16px
 

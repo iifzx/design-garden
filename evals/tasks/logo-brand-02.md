@@ -1,5 +1,7 @@
 # Eval task: logo-brand-02
 - domain: logo-brand
+- split: dev
+- doc-derived: 7-type-matrix and 16×16-favicon criteria quote knowledge/domains/logo-brand.md — never holdout
 - deliverable: Logo system (4 variants × 4 colorways) + color rationale + voice
   traits + messaging ladder with honest placeholders
 

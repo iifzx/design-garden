@@ -1,5 +1,7 @@
 # Eval task: illustration-art-02
 - domain: illustration-art
+- split: dev
+- doc-derived: manifesto-first and 2–5-color criteria quote knowledge/domains/illustration-art.md — never holdout
 - deliverable: Illustrated poster with real text layer (1080x1500 print +
   1080x1080 social) + 2 alternate art directions side-by-side
 

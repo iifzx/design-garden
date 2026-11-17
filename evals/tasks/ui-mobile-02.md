@@ -1,6 +1,8 @@
 # Eval task: senior-medication-reminder
 
 - domain: ui-mobile
+- split: dev
+- doc-derived: 200% Dynamic Type rem/em criteria quote knowledge/domains/ui-mobile.md — never holdout
 - deliverable: single-file HTML prototype (today's doses, dose confirmation, refill request) built to survive 200% Dynamic Type and reduced motion
 
 ## Brief

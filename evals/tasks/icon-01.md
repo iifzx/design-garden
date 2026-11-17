@@ -1,5 +1,7 @@
 # Eval task: icon-01
 - domain: icon
+- split: dev
+- doc-derived: 24px-grid, 20px-live-area and stroke-hold criteria quote knowledge/domains/icon.md — never holdout
 - deliverable: 8 SVG icons on a 24px grid (outlined card + filled nav variants) +
   one icon exported at 16/24/32/48
 

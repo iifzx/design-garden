@@ -1,5 +1,7 @@
 # Eval task: logo-brand-01
 - domain: logo-brand
+- split: dev
+- doc-derived: "X, not Y" voice and 60–70/20–30/5–10 ratio criteria quote knowledge/domains/logo-brand.md — never holdout
 - deliverable: Logo system (4 variants × 4 colorways) + one-page mini brand guide
   (palette, voice, positioning)
 

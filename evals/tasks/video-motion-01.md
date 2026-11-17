@@ -1,5 +1,7 @@
 # Eval task: video-motion-01
 - domain: video-motion
+- split: dev
+- doc-derived: transition-grammar, ducking and fallback-frame criteria quote knowledge/domains/video-motion.md — never holdout
 - deliverable: Storyboard (8-12 shots with durations) + director script with VO +
   audio plan + static reduced-motion fallback frame
 
