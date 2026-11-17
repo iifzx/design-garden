@@ -1,0 +1,43 @@
+{
+  "format": 1,
+  "title": {
+    "en": "Design Garden",
+    "zh": "设计花园"
+  },
+  "description": {
+    "en": "design-garden — a self-improving design skill for DeepSeek Harness: UI, posters, icons, logos, slides, data-viz, video and illustration.",
+    "zh": "design-garden — 会成长的设计技能，覆盖 UI、海报、图标、Logo、幻灯片、图表、视频与插画。"
+  },
+  "plugins": [
+    {
+      "name": "dsh-design-garden",
+      "title": {
+        "en": "Design Garden — design skill for dsh",
+        "zh": "设计花园 — DSH 设计技能"
+      },
+      "description": {
+        "en": "Bundles the design-garden skill into dsh's native skill catalog: art direction, craft rules and a critique gate for any visual task.",
+        "zh": "把 design-garden 技能装进 dsh 原生技能目录：为任何视觉任务提供艺术指导、工艺规则与交付前的评审关卡。"
+      },
+      "icon": "icon.svg",
+      "author": "iifzx",
+      "homepage": "https://github.com/iifzx/design-garden",
+      "repository": {
+        "url": "https://github.com/iifzx/design-garden",
+        "directory": "dsh"
+      },
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishTimestamp": 1794899195,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/iifzx/design-garden",
+            "commit": "af66da5a4c6633a9393b0615ceff2532f387db20",
+            "path": "dsh"
+          }
+        }
+      ]
+    }
+  ]
+}
