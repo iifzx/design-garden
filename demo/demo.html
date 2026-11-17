@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="description" content="The 60-second loop: design-garden's real workflow narrated with real repository artifacts — brief, three directions, build, gate, fixes, learning note.">
+<title>design-garden — the 60-second loop</title>
+<style>
+  /* Garden palette (same family as the knowledge-base site). Brass is decoration-only:
+     the garden's own learned rule — warm golds fail 4.5:1 as small text. */
+  :root{
+    --paper:#F6F3EA; --well:#EFEADC; --green:#2E4B3C; --green-deep:#22382D;
+    --brass:#A98A3D; --ink:#1E241F; --muted:#5D655B; --hairline:#D9D4C2;
+    --red:#B33A2B; --pass:#1F5C4D; --warn-bg:#E9DCB2; --warn-ink:#5B4A16;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,"Cascadia Mono","SF Mono",Consolas,"Liberation Mono",monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans)}
+  .page{max-width:1920px;margin:0 auto;padding:14px}
+  #viewport{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;
+    background:var(--paper);border:1px solid var(--hairline);border-radius:10px}
+  #stage{position:absolute;top:0;left:0;width:1920px;height:1080px;transform-origin:0 0;background:var(--paper)}
+
+  /* ---------- fixed chrome ---------- */
+  #topbar{position:absolute;top:0;left:0;right:0;height:92px;padding:0 30px;
+    display:flex;align-items:center;gap:18px;border-bottom:1px solid var(--hairline)}
+  #topbar .mark{font-weight:800;font-size:27px;letter-spacing:-.01em}
+  #topbar .mark span{color:var(--green)}
+  #topbar .tag{font-size:24px;color:var(--muted)}
+  #topbar .spacer{flex:1}
+  .chip{border:1px solid var(--hairline);border-radius:8px;padding:7px 14px;
+    font-size:22px;font-weight:600;color:var(--green);background:var(--well);white-space:nowrap}
+  .chip.step{background:var(--green-deep);border-color:var(--green-deep);color:var(--paper);
+    font-family:var(--mono);font-weight:700;letter-spacing:.06em}
+  #rmhint{display:none;border-color:var(--brass);color:var(--green-deep);font-weight:600}
+
+  #rail{position:absolute;left:0;right:0;bottom:0;height:112px;padding:0 30px;
+    display:flex;align-items:center;gap:16px;border-top:1px solid var(--hairline);background:var(--paper)}
+  #rail button{width:56px;height:56px;border-radius:10px;border:1px solid var(--hairline);
+    background:var(--well);cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0}
+  #rail button:hover{border-color:var(--green)}
+  #rail button:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+  #rail svg{width:22px;height:22px;fill:var(--ink);stroke:var(--ink)}
+  #segs{flex:1;display:flex;gap:8px;height:64px;align-items:flex-end}
+  .seg{flex:1;min-width:0;background:none;border:0;padding:0;cursor:pointer;font-family:var(--sans)}
+  .seg .bar{height:12px;border-radius:6px;background:var(--well);border:1px solid var(--hairline);overflow:hidden}
+  .seg .fill{height:100%;width:0;background:var(--brass)}
+  .seg .lbl{display:block;margin-top:6px;font-size:17px;font-weight:700;letter-spacing:.13em;
+    text-transform:uppercase;color:var(--muted);text-align:left;white-space:nowrap;overflow:hidden}
+  .seg.on .lbl{color:var(--green-deep)}
+  .seg:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+  #clock{font-family:var(--mono);font-size:24px;color:var(--muted);min-width:168px;text-align:right}
+
+  /* ---------- scenes ---------- */
+  .scene{position:absolute;left:0;right:0;top:92px;bottom:112px;padding:0 64px;
+    display:flex;flex-direction:column;justify-content:center;opacity:0;visibility:hidden}
+  .kicker{font-size:25px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--green)}
+  .h1{font-size:76px;line-height:1.06;font-weight:800;letter-spacing:-.015em;margin:14px 0 0}
+  .h2{font-size:52px;line-height:1.08;font-weight:800;letter-spacing:-.015em;margin:12px 0 0}
+  .sub{font-size:30px;line-height:1.4;color:var(--muted);margin:14px 0 0}
+  .mono{font-family:var(--mono)}
+  .hair{border:0;border-top:1px solid var(--hairline);margin:22px 0}
+  .imgbox{position:relative;border:1px solid var(--hairline);border-radius:8px;background:var(--well);overflow:hidden}
+  .imgbox img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover}
+  .imgfallback{position:absolute;inset:0;display:none;align-items:center;justify-content:center;
+    font-size:24px;color:var(--muted);text-align:center;padding:20px}
+  .corner{position:absolute;top:12px;left:12px;background:var(--paper);border:1px solid var(--hairline);
+    border-radius:6px;font-family:var(--mono);font-size:19px;color:var(--green-deep);padding:4px 10px}
+  .shot{position:relative}
+  .stamp{position:absolute;right:-14px;top:-16px;background:var(--paper);border-radius:10px;
+    padding:14px 20px;box-shadow:0 6px 22px rgba(30,36,31,.14);max-width:360px;z-index:2}
+  .stamp .sev{display:inline-block;font-size:21px;font-weight:800;letter-spacing:.1em;
+    border-radius:6px;padding:4px 12px;color:var(--paper)}
+  .stamp .sev.red{background:var(--red)} .stamp .sev.pass{background:var(--pass)}
+  .stamp .t{font-size:28px;font-weight:800;margin-top:8px}
+  .stamp .m{font-family:var(--mono);font-size:22px;color:var(--muted);margin-top:4px}
+
+  /* brief */
+  #sc-brief .card{width:1150px;margin:0 auto;background:var(--paper);border:1px solid var(--ink);
+    border-left:10px solid var(--brass);border-radius:12px;padding:46px 56px 40px}
+  .facts{display:flex;gap:22px;margin-top:30px}
+  .fact{flex:1;border:1px solid var(--hairline);border-radius:10px;background:var(--well);padding:18px 22px}
+  .fact b{display:block;font-size:22px;letter-spacing:.14em;text-transform:uppercase;color:var(--green)}
+  .fact span{display:block;font-size:24px;line-height:1.35;margin-top:6px}
+  .src{font-family:var(--mono);font-size:21px;color:var(--muted);margin-top:26px}
+
+  /* deal */
+  .dealrow{display:flex;gap:36px;margin-top:30px}
+  .dealcard{flex:1;min-width:0}
+  .dealcard .name{font-size:29px;font-weight:800;margin-top:14px}
+  .dealcard .tok{font-size:21px;color:var(--muted);margin-top:4px}
+
+  /* two-column scenes */
+  .cols{display:flex;gap:44px;align-items:center}
+  .col-text{display:flex;flex-direction:column;justify-content:center}
+  .list{margin:26px 0 0;padding:0;list-style:none}
+  .list li{display:flex;gap:14px;align-items:flex-start;margin-top:16px}
+  .sev{flex:none;font-size:19px;font-weight:800;letter-spacing:.08em;border-radius:6px;
+    padding:5px 12px;margin-top:2px;color:var(--paper)}
+  .sev.red{background:var(--red)} .sev.yellow{background:var(--warn-bg);color:var(--warn-ink)}
+  .sev.ok{background:var(--pass)}
+  .list .what{font-size:27px;line-height:1.3;font-weight:600}
+  .list .src2{font-family:var(--mono);font-size:20px;color:var(--muted);margin-top:4px}
+  .palrow{display:flex;align-items:center;gap:14px;margin-top:14px}
+  .sw{width:26px;height:26px;border-radius:50%;border:1px solid rgba(30,36,31,.25);flex:none}
+  .palrow .hex{font-family:var(--mono);font-size:21px}
+  .palrow .nm{font-size:21px;color:var(--muted)}
+  .note{font-family:var(--mono);font-size:21px;line-height:1.5;color:var(--muted);margin-top:24px}
+  .picked{position:absolute;left:14px;bottom:14px;background:var(--pass);color:var(--paper);
+    font-size:22px;font-weight:800;letter-spacing:.1em;border-radius:8px;padding:8px 16px}
+
+  /* learn */
+  #sc-learn .card{width:1250px;margin:0 auto;border:1px solid var(--ink);border-radius:12px;
+    background:var(--paper);padding:40px 52px 34px;position:relative}
+  #sc-learn .file{display:flex;align-items:center;gap:16px}
+  #sc-learn .file .chip{font-family:var(--mono);font-weight:700}
+  #sc-learn .file .when{font-size:22px;color:var(--muted)}
+  .lrow{display:flex;gap:22px;margin-top:20px}
+  .lrow .k{flex:none;width:150px;font-family:var(--mono);font-size:20px;color:var(--muted);
+    text-transform:uppercase;letter-spacing:.08em;padding-top:5px}
+  .lrow .v{font-size:27px;line-height:1.35}
+  .closing{display:flex;align-items:center;gap:18px;margin-top:30px;border-top:1px solid var(--hairline);padding-top:22px}
+  .closing .big{font-size:31px;font-weight:800}
+  .closing .chip{flex:none}
+
+  .pagecaption{max-width:1200px;margin:14px auto 26px;font-size:15px;line-height:1.5;color:var(--muted);text-align:center}
+  .pagecaption a{color:var(--green)}
+  noscript div{max-width:900px;margin:30px auto;font-size:16px;text-align:center;color:var(--red)}
+</style>
+</head>
+<body>
+<main class="page">
+  <div id="viewport">
+    <div id="stage" aria-label="60-second walkthrough of design-garden's workflow, built from real repository artifacts">
+
+      <div id="topbar">
+        <div class="mark">design<span>-garden</span></div>
+        <div class="tag">· the 60-second loop</div>
+        <div class="spacer"></div>
+        <div class="chip" id="rmhint">reduced motion — stepped mode, use the arrows</div>
+        <div class="chip step" id="stepchip">STEP 03 · BRIEF</div>
+      </div>
+
+      <!-- 1 · BRIEF -->
+      <section class="scene" id="sc-brief" aria-label="Scene: the brief">
+        <div class="card">
+          <div class="kicker anim">Step 03 · Brief</div>
+          <h1 class="h1 anim">Fern — plant-care subscription app</h1>
+          <p class="sub anim">Landing hero, 1440×900. Copy locked, facts bracketed — and no full build before three real directions are shown.</p>
+          <div class="facts">
+            <div class="fact anim"><b>One brief</b><span>The same product, copy and canvas behind all 18 style specimens.</span></div>
+            <div class="fact anim"><b>Real first screens</b><span>Directions are dealt as rendered pages, not written menus.</span></div>
+            <div class="fact anim"><b>A closing note</b><span>The task ends when the learning is written back.</span></div>
+          </div>
+          <div class="src anim">artifact: examples/styles/ — the gallery brief · every frame in this loop is a real file from the repository</div>
+        </div>
+      </section>
+
+      <!-- 2 · DEAL -->
+      <section class="scene" id="sc-deal" aria-label="Scene: three directions dealt">
+        <div class="kicker anim">Step 04 · Deal</div>
+        <h2 class="h2 anim">Three directions, dealt — not described.</h2>
+        <p class="sub anim">Same brief, same copy. Structure, palette and type all change.</p>
+        <div class="dealrow">
+          <figure class="dealcard anim" style="margin:0">
+            <div class="imgbox"><img alt="Swiss International direction — Fern landing hero first screen" data-img="swiss-international"><span class="imgfallback">specimen unavailable in this context</span><span class="corner">1440×900</span><span class="imgfallback">specimen unavailable in this context</span></div>
+            <figcaption><div class="name">01 · Swiss International</div><div class="tok">12-col grid · hairlines · one red dot</div></figcaption>
+          </figure>
+          <figure class="dealcard anim" style="margin:0">
+            <div class="imgbox"><img alt="Handcrafted Organic direction — Fern landing hero first screen" data-img="handcrafted-organic"><span class="imgfallback">specimen unavailable in this context</span><span class="corner">1440×900</span><span class="imgfallback">specimen unavailable in this context</span></div>
+            <figcaption><div class="name">12 · Handcrafted Organic</div><div class="tok">wobble frame · grain · rubber stamp</div></figcaption>
+          </figure>
+          <figure class="dealcard anim" style="margin:0">
+            <div class="imgbox"><img alt="Playful Toy direction — Fern landing hero first screen" data-img="playful-toy"><span class="imgfallback">specimen unavailable in this context</span><span class="corner">1440×900</span><span class="imgfallback">specimen unavailable in this context</span></div>
+            <figcaption><div class="name">17 · Playful Toy</div><div class="tok">sticker outlines · spring CTA · toy pot</div></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- 3 · PICK -->
+      <section class="scene" id="sc-pick" aria-label="Scene: the pick">
+        <div class="cols">
+          <div class="imgbox anim" style="width:960px;flex:none"><img alt="Handcrafted Organic first screen, selected" data-img="handcrafted-organic"><span class="picked">PICKED →</span></div>
+          <div class="col-text anim" style="flex:1">
+            <div class="kicker">Step 04 · The pick</div>
+            <h2 class="h2">One direction proceeds.</h2>
+            <p class="sub">Handcrafted Organic carries the brief: cream paper, sage and ochre accents, a wobble frame, a hand-inked fern. The other two directions stay in the record — nothing is dropped silently.</p>
+            <div class="note" style="color:var(--green-deep)">picked → step 05 · execute</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4 · BUILD -->
+      <section class="scene" id="sc-build" aria-label="Scene: the build">
+        <div class="cols">
+          <div class="col-text" style="width:470px;flex:none">
+            <div class="kicker anim">Step 05 · Execute</div>
+            <h2 class="h2 anim">The chosen direction, built.</h2>
+            <div class="palrow anim" style="margin-top:26px"><span class="sw" style="background:#F2EDE3"></span><span class="hex">cream&nbsp;#F2EDE3</span><span class="nm">~55%</span></div>
+            <div class="palrow anim" style="margin-top:14px"><span class="sw" style="background:#33291F"></span><span class="hex">ink&nbsp;#33291F</span><span class="nm">text · 11.9:1</span></div>
+            <div class="palrow anim" style="margin-top:14px"><span class="sw" style="background:#7C8B5E"></span><span class="hex">sage&nbsp;#7C8B5E</span><span class="nm">stamp only</span></div>
+            <div class="palrow anim" style="margin-top:14px"><span class="sw" style="background:#C9982F"></span><span class="hex">ochre&nbsp;#C9982F</span><span class="nm">decor only</span></div>
+            <div class="note anim">type: Young Serif 400 + Work Sans 400/500 — three weights<br><br>rendered by shoot.mjs at exactly 1440×900</div>
+          </div>
+          <div class="imgbox anim" style="flex:1"><img alt="Handcrafted Organic Fern hero — full build at 1440×900" data-img="handcrafted-organic"></div>
+        </div>
+      </section>
+
+      <!-- 5 · GATE -->
+      <section class="scene" id="sc-gate" aria-label="Scene: the gate catches">
+        <div class="cols">
+          <div class="shot anim" style="width:1060px;flex:none">
+            <div class="imgbox"><img alt="Handcrafted Organic first screen, dimmed for lint review" data-img="handcrafted-organic" id="gatedimg"><span class="imgfallback">specimen unavailable in this context</span></div>
+            <div class="stamp"><span class="sev red">RED</span><div class="t">CTA hover contrast</div><div class="m">measured 3.3 : 1 — floor is 4.5 : 1</div></div>
+          </div>
+          <div class="col-text" style="flex:1">
+            <div class="kicker anim">Step 06 · Gate</div>
+            <h2 class="h2 anim">lint.mjs reads every line.</h2>
+            <ul class="list">
+              <li class="anim"><span class="sev red">RED</span><span><span class="what">CTA hover 3.3:1</span><span class="src2" style="display:block">handcrafted-organic specimen</span></span></li>
+              <li class="anim"><span class="sev red">RED</span><span><span class="what">nav links 2.6:1</span><span class="src2" style="display:block">playful-toy specimen</span></span></li>
+              <li class="anim"><span class="sev red">RED</span><span><span class="what">11.5px label, under the 12px floor</span><span class="src2" style="display:block">the garden's own examples</span></span></li>
+              <li class="anim"><span class="sev yellow">YELLOW</span><span><span class="what">five font weights on one screen</span><span class="src2" style="display:block">landing example</span></span></li>
+              <li class="anim"><span class="sev yellow">YELLOW</span><span><span class="what">14px footer text</span><span class="src2" style="display:block">specimen batch</span></span></li>
+            </ul>
+            <div class="note anim">real catches, quoted from CHANGELOG — the tools audit the garden, too</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6 · FIX -->
+      <section class="scene" id="sc-fix" aria-label="Scene: fixes applied">
+        <div class="cols">
+          <div class="col-text" style="width:640px;flex:none">
+            <div class="kicker anim">Step 06 · Gate — round 2</div>
+            <h2 class="h2 anim">Fix the most damaging, then re-run.</h2>
+            <ul class="list">
+              <li class="anim"><span class="sev ok">FIX</span><span class="what" style="font-size:27px">hover state lifted to pass 4.5:1</span></li>
+              <li class="anim"><span class="sev ok">FIX</span><span class="what" style="font-size:27px">playful nav text pulled out of the red</span></li>
+              <li class="anim"><span class="sev ok">FIX</span><span class="what" style="font-size:27px">14px footer cleaned · pure-black display face swapped</span></li>
+            </ul>
+            <div class="note anim">rule: only the 3 most damaging issues per round · ≥2 rounds before delivery</div>
+          </div>
+          <div class="shot anim" style="flex:1">
+            <div class="imgbox"><img alt="Handcrafted Organic Fern hero — accepted specimen after the gate rounds" data-img="handcrafted-organic"><span class="imgfallback">specimen unavailable in this context</span></div>
+            <div class="stamp"><span class="sev pass">PASS</span><div class="t">Accepted</div><div class="m">the fixed specimen joins the gallery</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7 · DELIVER / RECORD -->
+      <section class="scene" id="sc-record" aria-label="Scene: the delivery record">
+        <div class="cols">
+          <div class="imgbox anim" style="width:1290px;flex:none"><img alt="Labeled 18-style wall — every specimen with mode, palette, type and producer" data-img="overview"></div>
+          <div class="col-text" style="flex:1">
+            <div class="kicker anim">Step 07 · Deliver</div>
+            <h2 class="h2 anim">The record ships with it.</h2>
+            <p class="sub anim">Every tile names its mode, palette, type and the session that made it — a record, not a mood board.</p>
+            <div class="note anim">18 styles · one brief · examples/styles/overview.png (2400×1500)<br>gallery.mjs rebuilds the wall from specimens.json</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8 · LEARN -->
+      <section class="scene" id="sc-learn" aria-label="Scene: the learning note">
+        <div class="card">
+          <div class="file anim"><span class="chip">learnings/ui-web.md</span><span class="when">appended after the task — newest first</span></div>
+          <h2 class="h2 anim" style="margin-top:18px">metallic accent colors as small text</h2>
+          <div class="lrow anim"><span class="k">situation</span><span class="v">brass #A98A3D used for 13px role labels on warm paper — looked fine, measured 3.0:1</span></div>
+          <div class="lrow anim"><span class="k">move</span><span class="v">gold-family colors demoted to borders, tags and rules; small-text roles switch to the green ink family</span></div>
+          <div class="lrow anim"><span class="k">pitfall</span><span class="v">warm golds pass the eye test and fail 4.5:1 — always measure small text, don't trust the palette's harmony</span></div>
+          <div class="closing anim"><span class="big">Every task ends with a note. That is how the garden grows.</span><span class="chip" style="font-weight:800">⟲ loop</span></div>
+        </div>
+      </section>
+
+      <div id="rail">
+        <button id="b-prev" aria-label="Previous scene" title="Previous scene">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 5 8 12l10 7z"/><rect x="5" y="5" width="2.6" height="14" rx="1"/></svg>
+        </button>
+        <button id="b-play" aria-label="Pause" title="Play / pause">
+          <svg viewBox="0 0 24 24" aria-hidden="true" id="ic-play" style="display:none"><path d="M8 5.5 19 12 8 18.5z"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true" id="ic-pause"><rect x="6.5" y="5" width="3.6" height="14" rx="1"/><rect x="13.9" y="5" width="3.6" height="14" rx="1"/></svg>
+        </button>
+        <button id="b-next" aria-label="Next scene" title="Next scene">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5l10 7-10 7z"/><rect x="16.4" y="5" width="2.6" height="14" rx="1"/></svg>
+        </button>
+        <div id="segs" role="group" aria-label="Timeline"></div>
+        <div id="clock" aria-hidden="true">00:00 / 01:00</div>
+      </div>
+
+    </div>
+  </div>
+  <p class="pagecaption">A narrated walkthrough, not a screen recording: specimens from <em>examples/styles/</em>, gate catches quoted from the CHANGELOG, note from <em>learnings/ui-web.md</em>. Loop runs 60&nbsp;seconds; press pause or step with the arrows. Reduced-motion visitors get stepped controls instead of auto-advance.</p>
+  <noscript><div>This demo needs JavaScript to run its timeline. The static story it tells: brief → three real directions → pick → build → gate catches → fixes → record → learning note.</div></noscript>
+</main>
+
+<script>
+(function(){
+  "use strict";
+  var DUR = 60;
+  var SCENES = [
+    { id:"sc-brief",  seg:"Brief",   step:"STEP 03 · BRIEF",   start:0,  end:6  },
+    { id:"sc-deal",   seg:"Deal",    step:"STEP 04 · DEAL",    start:6,  end:16 },
+    { id:"sc-pick",   seg:"Pick",    step:"STEP 04 · DEAL",    start:16, end:22 },
+    { id:"sc-build",  seg:"Build",   step:"STEP 05 · EXECUTE", start:22, end:30 },
+    { id:"sc-gate",   seg:"Gate",    step:"STEP 06 · GATE",    start:30, end:41 },
+    { id:"sc-fix",    seg:"Fix",     step:"STEP 06 · GATE",    start:41, end:49 },
+    { id:"sc-record", seg:"Ship",    step:"STEP 07 · DELIVER", start:49, end:55 },
+    { id:"sc-learn",  seg:"Learn",   step:"STEP 08 · LEARN",   start:55, end:60 }
+  ];
+
+  var RM = false;
+  try { RM = window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch(e){}
+
+  /* ---- boot state: ?t=<seconds> freezes the timeline (for exact screenshots) ---- */
+  var t = 0, playing = true, dirty = true;
+  var tq = parseFloat(new URLSearchParams(location.search).get("t"));
+  if (Number.isFinite(tq)) { t = Math.min(DUR, Math.max(0, tq)); playing = false; }
+  if (RM) { playing = false; }
+
+  /* ---- deterministic image resolution: Pages layout first, repo layouts as fallback ---- */
+  var BASES = ["assets/", "../examples/styles/", "examples/styles/"];
+  var imgs = document.querySelectorAll("img[data-img]");
+  for (var i = 0; i < imgs.length; i++) {
+    (function(img){
+      var k = 0;
+      var box = img.parentNode.querySelector(".imgfallback");
+      img.onerror = function(){
+        if (k < BASES.length) { img.src = BASES[k++] + img.getAttribute("data-img") + ".png"; }
+        else { img.style.display = "none"; if (box) box.style.display = "flex"; }
+      };
+      img.src = BASES[k++] + img.getAttribute("data-img") + ".png";
+    })(imgs[i]);
+  }
+
+  /* ---- stage scaling: fixed 1920×1080 coordinate space, scaled to fit ---- */
+  var viewport = document.getElementById("viewport");
+  var stage = document.getElementById("stage");
+  function fit(){
+    var s = viewport.clientWidth / 1920;
+    stage.style.transform = "scale(" + s + ")";
+  }
+  if (window.ResizeObserver) { new ResizeObserver(fit).observe(viewport); }
+  window.addEventListener("resize", fit);
+  fit();
+
+  /* ---- animation helpers (pure functions of time → seekable, screenshot-safe) ---- */
+  function clamp01(x){ return x < 0 ? 0 : x > 1 ? 1 : x; }
+  function ease(p){
+    if (RM) return p >= 0.4 ? 1 : 0;               /* stepped, no motion */
+    p = clamp01(p);
+    return p * p * (3 - 2 * p);                    /* smoothstep */
+  }
+  function anim(el, lt, delay, dur, dy){
+    if (!el) return;
+    var e = ease((lt - delay) / (dur || 0.5));
+    el.style.opacity = e;
+    el.style.transform = "translateY(" + ((1 - e) * (dy || 26)) + "px)";
+  }
+
+  var els = {};
+  $all(".scene").forEach(function(sc){ els[sc.id] = { root: sc, anims: $all(".anim", sc) }; });
+  function $all(sel, r){ return Array.prototype.slice.call((r || document).querySelectorAll(sel)); }
+
+  var stepchip = document.getElementById("stepchip");
+  var clock = document.getElementById("clock");
+  var icPlay = document.getElementById("ic-play"), icPause = document.getElementById("ic-pause");
+  var gatedimg = document.getElementById("gatedimg");
+
+  /* per-scene choreography — each is a pure function of local time (seconds) */
+  var R = {
+    "sc-brief": function(lt){ anim(els["sc-brief"].anims[0],lt,0.1); anim(els["sc-brief"].anims[1],lt,0.25); anim(els["sc-brief"].anims[2],lt,0.45);
+      anim(els["sc-brief"].anims[3],lt,0.75); anim(els["sc-brief"].anims[4],lt,1.0); },
+    "sc-deal": function(lt){ var a=els["sc-deal"].anims;
+      anim(a[0],lt,0.05); anim(a[1],lt,0.2); anim(a[2],lt,0.35);
+      anim(a[3],lt,0.7,0.55,40); anim(a[4],lt,1.6,0.55,40); anim(a[5],lt,2.5,0.55,40); },
+    "sc-pick": function(lt){ var a=els["sc-pick"].anims;
+      anim(a[0],lt,0.05,0.6,40); anim(a[1],lt,0.55); },
+    "sc-build": function(lt){ var a=els["sc-build"].anims;
+      anim(a[0],lt,0.05); anim(a[1],lt,0.2);
+      for (var i=2;i<a.length;i++) anim(a[i],lt,0.45+(i-2)*0.16); },
+    "sc-gate": function(lt){ var a=els["sc-gate"].anims;
+      anim(a[0],lt,0.05,0.6,40); anim(a[1],lt,0.25); anim(a[2],lt,0.4);
+      for (var i=3;i<a.length;i++) anim(a[i],lt,0.8+(i-3)*0.5);
+      gatedimg.style.filter = "brightness(" + (1 - 0.38*ease((lt-0.1)/0.5)) + ") saturate(.75)";
+      gatedimg.style.opacity = 1; },
+    "sc-fix": function(lt){ var a=els["sc-fix"].anims;
+      anim(a[0],lt,0.05); anim(a[1],lt,0.2);
+      for (var i=2;i<a.length-1;i++) anim(a[i],lt,0.5+(i-2)*0.4);
+      anim(a[a.length-1],lt,1.9,0.6,40); },
+    "sc-record": function(lt){ var a=els["sc-record"].anims;
+      anim(a[0],lt,0.05,0.6,40); anim(a[1],lt,0.3); anim(a[2],lt,0.55); anim(a[3],lt,0.8); },
+    "sc-learn": function(lt){ var a=els["sc-learn"].anims;
+      anim(a[0],lt,0.05); anim(a[1],lt,0.3);
+      for (var i=2;i<a.length;i++) anim(a[i],lt,0.6+(i-2)*0.4); }
+  };
+
+  function sceneAlpha(sc, tt){
+    var lt = tt - sc.start, dur = sc.end - sc.start;
+    var fi = ease(lt / 0.45), fo = ease((dur - lt) / 0.35);
+    return Math.min(fi, fo);
+  }
+
+  function fmt(s){ s = Math.floor(s); var m = Math.floor(s/60), r = s%60; return (m<10?"0":"")+m+":"+(r<10?"0":"")+r; }
+
+  /* ---- chaptered progress bar ---- */
+  var segsBox = document.getElementById("segs");
+  var segEls = SCENES.map(function(sc, idx){
+    var b = document.createElement("button");
+    b.className = "seg";
+    b.style.flexGrow = String(sc.end - sc.start);
+    b.setAttribute("aria-label", "Jump to " + sc.seg + " (" + fmt(sc.start) + ")");
+    b.innerHTML = '<span class="bar"><span class="fill"></span></span><span class="lbl"></span>';
+    b.querySelector(".lbl").textContent = sc.seg;
+    b.addEventListener("click", function(){ seek(sc.start); });
+    segsBox.appendChild(b);
+    return b;
+  });
+
+  function render(tt){
+    var active = SCENES[SCENES.length - 1];
+    for (var i = 0; i < SCENES.length; i++){
+      var sc = SCENES[i];
+      if (tt < sc.end) { active = sc; break; }
+    }
+    for (var j = 0; j < SCENES.length; j++){
+      var s = SCENES[j], box = els[s.id], al = sceneAlpha(s, tt);
+      var on = al > 0.001;
+      box.root.style.visibility = on ? "visible" : "hidden";
+      box.root.style.opacity = on ? String(al) : "0";
+      box.root.style.pointerEvents = on && s === active ? "auto" : "none";
+      if (on && R[s.id]) R[s.id](Math.min(tt - s.start, s.end - s.start));
+    }
+    stepchip.textContent = active.step;
+    for (var k = 0; k < SCENES.length; k++){
+      var sc2 = SCENES[k], fill = segEls[k].querySelector(".fill");
+      var f = tt <= sc2.start ? 0 : tt >= sc2.end ? 1 : (tt - sc2.start) / (sc2.end - sc2.start);
+      fill.style.width = (f * 100).toFixed(2) + "%";
+      segEls[k].classList.toggle("on", SCENES[k] === active);
+    }
+    clock.textContent = fmt(tt) + " / " + fmt(DUR);
+  }
+
+  /* ---- transport ---- */
+  var bPlay = document.getElementById("b-play");
+  function setPlaying(p){
+    playing = p;
+    icPlay.style.display = p ? "none" : "block";
+    icPause.style.display = p ? "block" : "none";
+    bPlay.setAttribute("aria-label", p ? "Pause" : "Play");
+  }
+  function seek(nt){
+    t = Math.min(DUR - 0.001, Math.max(0, nt));
+    dirty = true;
+  }
+  function stepScene(dir){
+    var i;
+    if (dir > 0){
+      for (i = 0; i < SCENES.length; i++){
+        if (SCENES[i].start > t + 0.01) { seek(SCENES[i].start); return; }
+      }
+      seek(DUR - 0.001);
+    } else {
+      var prev = 0;
+      for (i = 0; i < SCENES.length; i++){
+        if (SCENES[i].start < t - 1.2) prev = SCENES[i].start;
+      }
+      seek(prev);
+    }
+  }
+  bPlay.addEventListener("click", function(){ setPlaying(!playing); dirty = true; });
+  document.getElementById("b-prev").addEventListener("click", function(){ stepScene(-1); });
+  document.getElementById("b-next").addEventListener("click", function(){ stepScene(1); });
+  window.addEventListener("keydown", function(e){
+    if (e.key === " " || e.code === "Space") { e.preventDefault(); setPlaying(!playing); dirty = true; }
+    else if (e.key === "ArrowRight") { stepScene(1); }
+    else if (e.key === "ArrowLeft") { stepScene(-1); }
+  });
+
+  if (RM) document.getElementById("rmhint").style.display = "inline-block";
+  setPlaying(playing);
+  render(t);
+
+  var last = performance.now();
+  function frame(now){
+    var dt = Math.min(0.1, (now - last) / 1000);
+    last = now;
+    if (playing || dirty){
+      if (playing){ t += dt; if (t >= DUR) t -= DUR; }
+      render(t);
+      dirty = false;
+    }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

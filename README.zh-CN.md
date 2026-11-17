@@ -12,6 +12,8 @@
 ![domains](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fiifzx.github.io%2Fdesign-garden%2Fstats.json&query=%24.domains&label=%E9%A2%86%E5%9F%9F&color=2E7D32)
 ![learnings](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fiifzx.github.io%2Fdesign-garden%2Fstats.json&query=%24.learnings&label=%E7%BB%8F%E9%AA%8C%E5%BA%93&color=A98A3D)
 
+> ▶ **看 60 秒完整循环**——整个工作流（brief → 三个真实方向 → 构建 → 评审门 → 修复 → 学习笔记）用仓库里的真实产物旁白讲述，不是屏幕录制：**[iifzx.github.io/design-garden/demo](https://iifzx.github.io/design-garden/demo/)** · 克隆仓库也可直接打开 [demo/demo.html](demo/demo.html)
+>
 > 📚 **在线浏览全部知识库**——每份领域手册和风格配方都可搜索：**[iifzx.github.io/design-garden](https://iifzx.github.io/design-garden/)**
 >
 > 🌻 **完全没接触过 AI 工具？** 不用写代码就能安装、使用、甚至帮上忙：**[新手指南](docs/start-here.zh-CN.md)**（English: [Start Here](docs/start-here.md)）
@@ -20,7 +22,9 @@
 
 ## 它能做出什么
 
-以下是 skill 跑自己评测任务产出的真实作品——每一件都走完了完整工作流（含评审门）。更多见 [examples/](README.md)（含评审门抓到的问题清单）。
+**▶ [看 60 秒完整循环](https://iifzx.github.io/design-garden/demo/)**——一次真实任务的全程旁白：brief、三方向 DEAL、评审门真实抓到的 RED（CTA hover 3.3:1、导航 2.6:1、11.5px 标签）、修复，以及写回的学习笔记。每一帧都来自本仓库的文件。
+
+静帧同样是 skill 跑自己评测任务产出的真实作品——每一件都走完了完整工作流（含评审门）。更多见 [examples/](README.md)（含评审门抓到的问题清单）。
 
 | | | |
 |---|---|---|

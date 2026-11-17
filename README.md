@@ -12,6 +12,8 @@ English | **[简体中文](README.zh-CN.md)** | [繁體中文](README.zh-TW.md) 
 ![domains](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fiifzx.github.io%2Fdesign-garden%2Fstats.json&query=%24.domains&label=domains&color=2E7D32)
 ![learnings](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fiifzx.github.io%2Fdesign-garden%2Fstats.json&query=%24.learnings&label=learnings%20files&color=A98A3D)
 
+> ▶ **Watch the 60-second loop** — the whole workflow (brief → three real directions → build → gate → fixes → learning note) narrated with real repo artifacts, no screen recording: **[iifzx.github.io/design-garden/demo](https://iifzx.github.io/design-garden/demo/)** · or open [demo/demo.html](demo/demo.html) from a clone
+>
 > 📚 **Browse the whole knowledge base online** — every playbook and style recipe, searchable: **[iifzx.github.io/design-garden](https://iifzx.github.io/design-garden/)**
 >
 > 🌱 **New to AI tools?** No-code install, plain-language usage, and zero-skill ways to help: **[Start Here](docs/start-here.md)** (中文：[新手指南](docs/start-here.zh-CN.md))
@@ -20,7 +22,9 @@ English | **[简体中文](README.zh-CN.md)** | [繁體中文](README.zh-TW.md) 
 
 ## What it makes
 
-Real outputs from the skill running its own eval briefs — every piece below went through the full workflow, critique gate included. More in [examples/](examples/README.md), with the fixes the gate caught.
+**▶ [Watch the 60-second loop](https://iifzx.github.io/design-garden/demo/)** — one real run narrated start to finish: the brief, the three-direction deal, the gate's actual RED catches (CTA hover at 3.3:1, nav at 2.6:1, an 11.5px label), the fixes, and the learning note written back. Every frame is a file from this repo.
+
+The stills are real outputs from the skill running its own eval briefs — every piece below went through the full workflow, critique gate included. More in [examples/](examples/README.md), with the fixes the gate caught.
 
 | | | |
 |---|---|---|

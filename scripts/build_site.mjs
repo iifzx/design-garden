@@ -6,7 +6,7 @@
  *
  * Usage: node scripts/build_site.mjs [--root PATH]
  */
-import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync, copyFileSync } from "node:fs";
 import path from "node:path";
 
 const argRoot = process.argv.indexOf("--root");
@@ -349,6 +349,7 @@ const html = `<!doctype html>
   <a class="brand" href="#">design<span>-garden</span> 🌱</a>
   <input id="q" type="search" placeholder="Search the knowledge base…" oninput="filter()">
   <button id="lang" onclick="toggleLang()" title="切换语言 / switch language">中文</button>
+  <a class="start" href="./demo/" title="The 60-second loop — narrated walkthrough with real artifacts">▶ 60s demo</a>
   <a class="start" href="./start/" title="新手站 / beginner site">新手站 →</a>
   <a class="repo" href="https://github.com/iifzx/design-garden">GitHub ↗</a>
 </header>
@@ -420,5 +421,28 @@ show(${JSON.stringify(pages[0]?.id ?? "")});
 mkdirSync(OUT, { recursive: true });
 writeFileSync(path.join(OUT, "index.html"), html);
 writeFileSync(path.join(OUT, "stats.json"), JSON.stringify(stats, null, 2));
+
+// 60-second demo (item 12): the Pages artifact is only site/, so the demo and the
+// specimen PNGs it narrates must be copied here — demo/ alone is never deployed.
+const demoSrc = path.join(ROOT, "demo", "demo.html");
+const stylesDir = path.join(ROOT, "examples", "styles");
+if (existsSync(demoSrc)) {
+  const demoOut = path.join(OUT, "demo");
+  mkdirSync(demoOut, { recursive: true });
+  copyFileSync(demoSrc, path.join(demoOut, "index.html"));
+  if (existsSync(stylesDir)) {
+    const assetsDir = path.join(demoOut, "assets");
+    mkdirSync(assetsDir, { recursive: true });
+    const referenced = new Set();
+    for (const m of readFileSync(demoSrc, "utf-8").matchAll(/data-img="([^"]+)"/g)) referenced.add(`${m[1]}.png`);
+    for (const name of referenced) {
+      const src = path.join(stylesDir, name);
+      if (existsSync(src)) copyFileSync(src, path.join(assetsDir, name));
+      else console.warn(`demo asset missing: examples/styles/${name}`);
+    }
+  }
+  console.log(`demo built: ${path.join(OUT, "demo", "index.html")} (+assets)`);
+}
+
 console.log(`site built: ${pages.length} pages → ${path.join(OUT, "index.html")}`);
 console.log(`stats: ${JSON.stringify(stats)}`);
