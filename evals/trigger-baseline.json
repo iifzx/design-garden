@@ -1,0 +1,19 @@
+{
+  "saved": "2026-11-17T16:55:20.189Z",
+  "target": "design-garden",
+  "eval_mode": "trigger",
+  "overall": {
+    "hit_rate": 1,
+    "hits": 5,
+    "should_trigger_parsed": 5,
+    "misfires": 0,
+    "should_not_parsed": 6
+  },
+  "holdout": {
+    "hit_rate": 1,
+    "hits": 2,
+    "should_trigger_parsed": 2,
+    "misfires": 0,
+    "should_not_parsed": 3
+  }
+}

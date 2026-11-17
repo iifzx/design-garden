@@ -1,1 +1,2 @@
 timestamp	commit	file	verdict	evidence	eval_mode
+2026-11-17T16:55:20.078Z	35be67a	SKILL.md	pass	hit 5/5 (100%) · misfires 0/6	trigger
