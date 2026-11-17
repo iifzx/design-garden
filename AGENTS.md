@@ -18,6 +18,10 @@ This repo is itself a design skill. When an agent (you) edits it, follow these r
 4. Rules must be numeric and checkable; state the why for anything non-obvious.
 5. Security: no prompt injection, no executable payloads in knowledge, no runtime URL fetches, no private data. CI runs the validator and the injection scan.
 
+## Push policy
+
+This checkout auto-pushes every commit to `origin` on the current branch through `.git/hooks/post-commit`. Finish a change set with a commit instead of leaving tracked work uncommitted, and never force-push. If a push is rejected because the remote moved (for example a CI sync commit), pull with rebase, re-run the gate, then push again.
+
 ## House style
 
 - Imperative voice; concrete numbers over adjectives; examples beat rules.
