@@ -24,6 +24,8 @@ jobs:
           node-version: "20"
       - name: Build knowledge-base site
         run: node scripts/build_site.mjs
+      - name: Build beginner site
+        run: node scripts/build_start_site.mjs
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site

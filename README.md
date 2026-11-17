@@ -12,6 +12,8 @@ English | **[简体中文](README.zh-CN.md)** | [繁體中文](README.zh-TW.md) 
 > 📚 **Browse the whole knowledge base online** — every playbook and style recipe, searchable: **[iifzx.github.io/design-garden](https://iifzx.github.io/design-garden/)**
 >
 > 🌱 **New to AI tools?** No-code install, plain-language usage, and zero-skill ways to help: **[Start Here](docs/start-here.md)** (中文：[新手指南](docs/start-here.zh-CN.md))
+>
+> 🧭 **First time on GitHub?** The beginner site explains every button, maps the repository, and collects the downloads, gallery, submission form and vote in one place: **[Beginner site](https://iifzx.github.io/design-garden/start/)**
 
 ## What it makes
 

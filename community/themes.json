@@ -1,0 +1,23 @@
+{
+  "current": {
+    "id": "2026-11",
+    "title": "给日常生活做一张设计",
+    "titleEn": "One design for everyday life",
+    "prompt": "菜市场、社区活动、家庭小店——选一个你身边的真实场景，做一张海报、图标或一页界面。",
+    "promptEn": "A market stall, a community event, a family shop — pick a real scene near you and make a poster, an icon, or a page.",
+    "deadline": "2026-11-30",
+    "status": "open"
+  },
+  "rules": [
+    "一人一票：用 GitHub 账号在作品 issue 上点 👍；一个账号只算一票，可改票。",
+    "网站只展示结果，不直接写票；票数由 GitHub Actions 定时同步。",
+    "可以给自己的作品拉票，但不能买票、刷号或批量账号投票。",
+    "维护者只剔除违规票，不按审美改票。"
+  ],
+  "rulesEn": [
+    "One person, one vote: tap 👍 on a work's GitHub issue. One account counts once; you can change your reaction.",
+    "The site displays results only. Counts are synced from GitHub reactions by a scheduled Action.",
+    "You can ask friends to vote for your work, but bought, automated, or bulk-account votes are removed.",
+    "Maintainers remove invalid votes; they do not edit votes for taste."
+  ]
+}

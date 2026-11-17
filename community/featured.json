@@ -1,0 +1,81 @@
+{
+  "updated": "2026-11-17",
+  "note": "Curated project outputs. These are real examples produced by design-garden's own workflow; they are gallery exhibits, not community submissions and not votes.",
+  "items": [
+    {
+      "id": "bike-shop",
+      "title": "修车铺落地页",
+      "titleEn": "Bike repair shop landing page",
+      "type": "网页",
+      "typeEn": "Web page",
+      "tags": ["editorial", "local business"],
+      "image": "examples/images/bike-shop-hero.png",
+      "width": 1440,
+      "height": 900,
+      "source": "examples/bike-shop-landing/landing.html",
+      "credit": "GLM-5.3-Flash",
+      "note": "用真实营业时间替掉“Open today”的谎。",
+      "noteEn": "Real weekly hours replaced a static “Open today” claim that would lie every Monday."
+    },
+    {
+      "id": "jazz-poster",
+      "title": "爵士咖啡馆开业海报",
+      "titleEn": "Jazz café late-set poster",
+      "type": "海报",
+      "typeEn": "Poster",
+      "tags": ["poster", "ink & brass"],
+      "image": "examples/images/jazz-poster.png",
+      "width": 1080,
+      "height": 1350,
+      "source": "examples/jazz-cafe-poster/late-set-1080x1350.html",
+      "credit": "GLM-5.3-Flash",
+      "note": "同一主题的两套结构：一束聚光，一张被裁切的唱片。",
+      "noteEn": "Two structures for one subject: a single spotlight, and a cropped record where type becomes the image."
+    },
+    {
+      "id": "plant-icons",
+      "title": "植物养护图标 8 枚",
+      "titleEn": "Plant-care icon set, 8 glyphs",
+      "type": "图标",
+      "typeEn": "Icons",
+      "tags": ["icon", "optical"],
+      "image": "examples/images/icon-sheet.png",
+      "width": 1440,
+      "height": 900,
+      "source": "examples/plant-icons/icon-sheet.html",
+      "credit": "GLM-5.3-Flash",
+      "note": "16px 版本重新画，不是把 64px 缩小。",
+      "noteEn": "The 16px exports were redrawn, not scaled down from 64px."
+    },
+    {
+      "id": "flower-poster",
+      "title": "花店周年海报",
+      "titleEn": "Flower-shop anniversary poster",
+      "type": "海报",
+      "typeEn": "Poster",
+      "tags": ["poster", "paper cut"],
+      "image": "examples/images/flower-poster.png",
+      "width": 1080,
+      "height": 1350,
+      "source": "examples/flower-shop/poster.html",
+      "credit": "GLM-5.3-Flash",
+      "note": "画面里留着 [店名] 占位——不知道的事实不编。",
+      "noteEn": "The [shop name] slot stays visible: an unknown fact is not invented."
+    },
+    {
+      "id": "social-preview",
+      "title": "仓库社交预览图",
+      "titleEn": "Repository social preview",
+      "type": "品牌",
+      "typeEn": "Brand",
+      "tags": ["social", "1280×640"],
+      "image": "examples/images/social-preview.png",
+      "width": 1280,
+      "height": 640,
+      "source": "examples/social-preview/preview-1280x640.html",
+      "credit": "GLM-5.3-Flash",
+      "note": "一张图说清“会生长的设计技能”，没有堆功能列表。",
+      "noteEn": "One image says “a design skill that grows”, without a feature list."
+    }
+  ]
+}

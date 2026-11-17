@@ -12,6 +12,8 @@
 > 📚 **在线浏览全部知识库**——每份领域手册和风格配方都可搜索：**[iifzx.github.io/design-garden](https://iifzx.github.io/design-garden/)**
 >
 > 🌻 **完全没接触过 AI 工具？** 不用写代码就能安装、使用、甚至帮上忙：**[新手指南](docs/start-here.zh-CN.md)**（English: [Start Here](docs/start-here.md)）
+>
+> 🧭 **第一次打开 GitHub？** 新手站把每个按钮、仓库地图、下载、作品馆、投稿和投票放在一页：**[新手站](https://iifzx.github.io/design-garden/start/)**
 
 ## 它能做出什么
 

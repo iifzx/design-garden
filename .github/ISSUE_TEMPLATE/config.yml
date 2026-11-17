@@ -1,5 +1,8 @@
 blank_issues_enabled: false
 contact_links:
+  - name: "新手站 / Beginner site"
+    url: "https://iifzx.github.io/design-garden/start/"
+    about: "First time here? Buttons, repo map, install, gallery, submission and voting in one place."
   - name: "Discussions"
     url: "https://github.com/iifzx/design-garden/discussions"
     about: "Design questions, ideas, and showing off what the garden grew"

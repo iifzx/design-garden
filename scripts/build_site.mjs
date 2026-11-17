@@ -288,6 +288,9 @@ const html = `<!doctype html>
   header .brand{font-weight:900;font-size:18px;letter-spacing:.01em;text-decoration:none;color:var(--paper)}
   header .brand span{color:var(--brass)}
   header .repo{margin-left:auto;font-size:13px;color:var(--paper);opacity:.9}
+  header .start{font-size:13px;color:var(--paper);border:1px solid rgba(246,243,234,.45);
+    padding:6px 12px;border-radius:6px;text-decoration:none;white-space:nowrap}
+  header .start:hover{background:rgba(246,243,234,.14)}
   #lang{all:unset;cursor:pointer;font-size:13px;border:1px solid rgba(246,243,234,.45);
     padding:6px 14px;border-radius:6px;color:var(--paper)}
   #lang:hover{background:rgba(246,243,234,.14)}
@@ -346,6 +349,7 @@ const html = `<!doctype html>
   <a class="brand" href="#">design<span>-garden</span> 🌱</a>
   <input id="q" type="search" placeholder="Search the knowledge base…" oninput="filter()">
   <button id="lang" onclick="toggleLang()" title="切换语言 / switch language">中文</button>
+  <a class="start" href="./start/" title="新手站 / beginner site">新手站 →</a>
   <a class="repo" href="https://github.com/iifzx/design-garden">GitHub ↗</a>
 </header>
 <div id="note" class="lang-note"></div>
