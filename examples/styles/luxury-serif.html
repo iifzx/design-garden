@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fern — landing hero · Luxury Serif</title>
+<meta name="description" content="Style-recipe demo: Fern plant-care hero in the Luxury Serif recipe.">
+<!--
+  RECIPE: knowledge/styles/luxury-serif.md
+  MODE: Luxury Serif (style recipe) — same brief and copy as the other 17 specimens.
+  MADE BY: Doubao agent session, 2026-11-17. HTML/CSS composed here; rendered by
+           scripts/shoot.mjs with a local Chrome over CDP. No AI-generated imagery.
+  Palette: ivory #F5F0E6 ~70% / charcoal #1E1A15 ~22% / deep emerald #153F38 ~5% /
+           gold foil #B99656 ≤3% (one hairline only) / warm gray #9B948A metadata.
+  Contrast: charcoal on ivory 14.9:1; emerald on ivory 10.4:1; gold on ivory 2.8:1
+            (hairline rule only, never text); warm gray on ivory 3.2:1 (metadata ≥19px).
+  Type: Bodoni Moda 400 + Inter 300/400 — three weights. Display 96–150px; body 16/1.65;
+        caps labels +0.2em. No bold body; hierarchy by size and spacing.
+  Layout: margins 140px; firm left axis; one restrained line drawing; numerals as design
+          details; never busy, never three-column.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#F5F0E6;
+    --charcoal:#1E1A15;
+    --emerald:#153F38;
+    --gold:#B99656;
+    --gray:#9B948A;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;overflow-x:clip}
+  body{background:var(--ivory);color:var(--charcoal);font:300 16px/1.65 "Inter",system-ui,sans-serif}
+  h1,p{margin:0}
+  a{color:inherit;text-decoration:none}
+  :focus-visible{outline:1px solid var(--emerald);outline-offset:4px}
+
+  .page{min-height:100vh;display:flex;flex-direction:column;padding:34px 132px 24px}
+
+  header{display:flex;align-items:flex-start;justify-content:space-between;padding-bottom:14px}
+  .brand{font:500 18px/1 "Bodoni Moda",Georgia,serif;letter-spacing:.44em}
+  .house{font:300 10px/1.5 "Inter",sans-serif;letter-spacing:.26em;text-transform:uppercase;color:var(--gray);text-align:right}
+  .masthead-rule{height:1px;background:var(--charcoal);opacity:.55}
+
+  main{flex:1;display:grid;grid-template-columns:1fr 380px;align-items:center;padding:30px 0 20px;position:relative}
+
+  .copy{padding-right:56px}
+  .eyebrow{display:flex;align-items:center;gap:14px;font:400 11px/1 "Inter",sans-serif;letter-spacing:.26em;text-transform:uppercase;color:var(--emerald);margin-bottom:34px}
+  .eyebrow .no{font:500 13px/1 "Bodoni Moda",serif;letter-spacing:.08em}
+  .eyebrow .rule{width:56px;height:1px;background:var(--gold)}
+  h1{
+    font:400 96px/1.02 "Bodoni Moda",Georgia,serif;letter-spacing:-.015em;
+    max-width:10ch;text-wrap:balance;
+  }
+  h1 em{font-style:normal;color:var(--emerald)}
+  .lead{font:300 16px/1.7 "Inter",sans-serif;max-width:40ch;margin-top:30px;color:#2A251E;text-wrap:pretty}
+  .cta{
+    display:inline-flex;align-items:center;gap:16px;margin-top:38px;padding-bottom:9px;
+    border-bottom:1px solid var(--charcoal);
+    font:400 12px/1 "Inter",sans-serif;letter-spacing:.22em;text-transform:uppercase;
+    transition:color 400ms ease-out,border-color 400ms ease-out;
+  }
+  .cta:hover,.cta:focus-visible{color:var(--emerald);border-color:var(--emerald)}
+  .cta svg{width:26px;height:8px}
+
+  .ordinal{justify-self:end;text-align:right;position:relative;padding-top:8px}
+  .ordinal .k{font:400 11px/1 "Inter",sans-serif;letter-spacing:.26em;text-transform:uppercase;color:var(--gray)}
+  .ordinal .n{font:400 150px/.9 "Bodoni Moda",Georgia,serif;letter-spacing:-.04em;color:var(--emerald);font-variant-numeric:tabular-nums;margin-top:8px}
+  .ordinal .line{width:100%;height:1px;background:var(--gold);margin:18px 0 14px}
+  .ordinal .note{position:relative;z-index:1;background:var(--paper);font:300 13px/1.6 "Inter",sans-serif;color:var(--gray);letter-spacing:.04em;max-width:24ch;margin-left:auto;padding:2px 0 2px 6px}
+
+  .botanical{position:absolute;right:40px;bottom:-8px;width:300px;height:420px;opacity:.42;pointer-events:none}
+  .botanical svg{width:100%;height:100%}
+
+  footer{display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(30,26,21,.5);padding-top:12px;font:400 10px/1 "Inter",sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#4A443B}
+  footer .folio{font-variant-numeric:tabular-nums}
+
+  @keyframes longfade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  h1{animation:longfade 700ms cubic-bezier(.22,.61,.36,1) both}
+  .lead,.cta{animation:longfade 700ms cubic-bezier(.22,.61,.36,1) 160ms both}
+  @media (prefers-reduced-motion: reduce){h1,.lead,.cta{animation:none}.cta{transition:none}}
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <a class="brand" href="#">F E R N</a>
+    <div class="house">Maison de plantes<br>Paris · Est. 2026</div>
+  </header>
+  <div class="masthead-rule" aria-hidden="true"></div>
+
+  <main>
+    <div class="copy">
+      <p class="eyebrow"><span class="no">N° 01</span><span class="rule"></span>The everyday luxury</p>
+      <h1>Plant care that runs <em>itself</em>.</h1>
+      <p class="lead">Care reminders, plant identification, and expert help in one app. Quietly precise, so the fern needs nothing from you but a glance.</p>
+      <a class="cta" href="#">Start your free week
+        <svg viewBox="0 0 26 8" aria-hidden="true"><path d="M0 4h24M20 1l4 3-4 3" fill="none" stroke="currentColor" stroke-width="1"/></svg>
+      </a>
+    </div>
+
+    <aside class="ordinal">
+      <p class="k">The collection</p>
+      <p class="n">01</p>
+      <div class="line" aria-hidden="true"></div>
+      <p class="note">One plant, one page, one instruction at a time.</p>
+    </aside>
+
+    <div class="botanical" aria-hidden="true">
+      <svg viewBox="0 0 300 420">
+        <g fill="none" stroke="#153F38" stroke-width="1">
+          <path d="M150 400c-2-96 2-170 8-244"/>
+          <path d="M156 200c-36 8-62 26-78 54"/>
+          <path d="M156 200c36 8 62 26 78 54"/>
+          <path d="M154 250c-46 2-78 18-96 44"/>
+          <path d="M154 250c46 2 78 18 96 44"/>
+          <path d="M142 300c-56 4-92 22-110 50"/>
+          <path d="M142 300c56 4 92 22 110 50"/>
+          <path d="M150 400c-28 4-46 12-58 24"/>
+          <path d="M150 400c28 4 46 12 58 24"/>
+          <path d="M128 176c-20-4-34-14-42-30M128 176c12-14 18-28 18-44"/>
+          <path d="M182 176c20-4 34-14 42-30M182 176c-12-14-18-28-18-44"/>
+        </g>
+      </svg>
+    </div>
+  </main>
+
+  <footer>
+    <span>Fern — plant-care subscription</span>
+    <span class="folio">14 / 18</span>
+  </footer>
+</div>
+</body>
+</html>

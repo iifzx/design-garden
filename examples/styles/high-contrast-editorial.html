@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fern — landing hero · High-Contrast Editorial</title>
+<meta name="description" content="Style-recipe demo: Fern plant-care hero in the High-Contrast Editorial recipe.">
+<!--
+  RECIPE: knowledge/styles/high-contrast-editorial.md
+  MODE: High-Contrast Editorial (style recipe) — same brief and copy as the other 17 specimens.
+  MADE BY: Doubao agent session, 2026-11-17. HTML/CSS composed here; rendered by
+           scripts/shoot.mjs with a local Chrome over CDP. No AI-generated imagery.
+  Palette: near-white #F4F3EF ~55% / near-black #111114 ~38% / signal red #E8322C ~5% /
+           mid gray #85837E ~2%. Ground-to-ink contrast 16.2:1.
+  Contrast: ink on paper 16.2:1; paper on ink 16.2:1; red on paper 4.3:1 — used for ONE
+            120px word and one rule, never small text; gray used for metadata at 3.4:1
+            only where it is non-essential.
+  Type: Archivo 400/800/900 — one grotesk, two voices, extreme 2–3x scale jumps (16/40/120).
+  Layout: type blocks ARE the layout; full-width 1px rules; one inverted band; aggressive
+          voids against dense caption stacks.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4F3EF;
+    --ink:#111114;
+    --red:#E8322C;
+    --gray:#85837E;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;overflow-x:clip}
+  body{background:var(--paper);color:var(--ink);font:400 16px/1.5 "Archivo",system-ui,sans-serif}
+  h1,p{margin:0}
+  a{color:inherit;text-decoration:none}
+  :focus-visible{outline:2px solid var(--red);outline-offset:3px}
+
+  .page{min-height:100vh;display:flex;flex-direction:column;padding:22px 56px 0;position:relative;overflow:hidden}
+
+  .top-rule{height:1px;background:var(--ink)}
+  header{display:flex;align-items:baseline;justify-content:space-between;padding:14px 0 12px;border-bottom:1px solid var(--ink)}
+  .brand{font:900 22px/1 "Archivo",sans-serif;letter-spacing:-.02em;text-transform:uppercase}
+  .issue{font:800 11px/1 "Archivo",sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--gray)}
+  .issue strong{color:var(--ink)}
+
+  .hero{position:relative;flex:1;padding-top:18px}
+  .huge-index{
+    position:absolute;right:-14px;top:4px;
+    font:900 190px/.8 "Archivo",sans-serif;letter-spacing:-.05em;color:var(--paper);
+    -webkit-text-stroke:2px var(--gray);opacity:.55;font-variant-numeric:tabular-nums;
+  }
+  .kicker{display:flex;align-items:center;gap:12px;font:800 11px/1 "Archivo",sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);margin-bottom:14px}
+  .kicker::before{content:"";width:10px;height:10px;background:var(--red)}
+
+  h1{
+    font:900 122px/.86 "Archivo",system-ui,sans-serif;letter-spacing:-.045em;text-transform:uppercase;
+    max-width:11ch;position:relative;z-index:1;
+  }
+  h1 span{display:block}
+  h1 .accent{color:var(--red);display:inline}
+  h1 .last{white-space:nowrap}
+
+  .caption{
+    position:absolute;right:0;bottom:96px;width:326px;z-index:1;
+    font:400 16px/1.55 "Archivo",sans-serif;color:var(--ink);text-wrap:pretty;
+  }
+  .caption strong{font-weight:800}
+  .caption .rule{height:1px;background:var(--ink);margin-bottom:14px}
+  .caption .small{font:400 11px/1.5 "Archivo",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);margin-top:14px}
+  .caption .cta{
+    display:inline-block;margin-top:18px;font:800 13px/1 "Archivo",sans-serif;letter-spacing:.14em;
+    text-transform:uppercase;border-bottom:3px solid var(--red);padding-bottom:7px;
+  }
+  .caption .cta:hover{color:var(--red)}
+
+  .ticker{
+    position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;
+    border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+    padding:9px 0;font:800 10px/1 "Archivo",sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);
+  }
+  .ticker .left{display:flex;align-items:center;gap:12px}
+  .ticker .dot{width:7px;height:7px;background:var(--red);border-radius:50%}
+  .ticker .right{color:var(--gray)}
+
+  .band{
+    margin:0 -56px;background:var(--ink);color:var(--paper);
+    display:flex;align-items:center;justify-content:space-between;gap:40px;
+    padding:0 56px;height:104px;
+  }
+  .band .wordmark{font:900 18px/1 "Archivo",sans-serif;letter-spacing:.18em;text-transform:uppercase}
+  .band .promise{font:400 14px/1.45 "Archivo",sans-serif;color:#CFCFCA;max-width:34ch}
+  .band .cta{
+    font:800 22px/1 "Archivo",sans-serif;letter-spacing:.04em;text-transform:uppercase;
+    border-bottom:2px solid var(--paper);padding-bottom:8px;white-space:nowrap;
+    transition:color 160ms ease-out,border-color 160ms ease-out;
+  }
+  .band .cta:hover{color:var(--red);border-color:var(--red)}
+  .band .folio{font:400 12px/1 "Archivo",sans-serif;letter-spacing:.16em;color:#9A9994;font-variant-numeric:tabular-nums}
+
+  @keyframes slam{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  h1{animation:slam 380ms cubic-bezier(.2,.8,.2,1) both}
+  .caption{animation:slam 380ms cubic-bezier(.2,.8,.2,1) 100ms both}
+  @media (prefers-reduced-motion: reduce){h1,.caption{animation:none}.band .cta,.caption .cta{transition:none}}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="top-rule" aria-hidden="true"></div>
+  <header>
+    <a class="brand" href="#">Fern</a>
+    <div class="issue"><strong>Issue 01</strong> — Plant care, without the guesswork</div>
+  </header>
+
+  <main class="hero">
+    <p class="kicker">The one thing worth doing this week</p>
+    <p class="huge-index" aria-hidden="true">01</p>
+    <h1><span>Plant</span><span>care</span><span>that <em class="accent">runs</em></span><span class="last">itself.</span></h1>
+
+    <aside class="caption">
+      <div class="rule" aria-hidden="true"></div>
+      <p><strong>Care reminders, plant identification, and expert help in one app.</strong> It reads the season, the window and the pot — then asks for ten seconds, not your attention all week.</p>
+      <p class="small">No hardware · No card for seven days</p>
+      <a class="cta" href="#">Start your free week</a>
+    </aside>
+
+    <div class="ticker">
+      <div class="left"><span class="dot" aria-hidden="true"></span><span>Reminders</span><span>—</span><span>Plant ID</span><span>—</span><span>Experts</span></div>
+      <div class="right">A fern, kept alive</div>
+    </div>
+  </main>
+
+  <footer class="band">
+    <div>
+      <div class="wordmark">Fern — plant-care subscription</div>
+      <p class="promise" style="margin-top:8px">Seven days free. Cancel from the same screen you started on.</p>
+    </div>
+    <a class="cta" href="#">Start your free week</a>
+    <span class="folio">13 / 18</span>
+  </footer>
+</div>
+</body>
+</html>

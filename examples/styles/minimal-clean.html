@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fern — landing hero · Minimal Clean</title>
+<meta name="description" content="Style-recipe demo: Fern plant-care hero in the Minimal Clean recipe.">
+<!--
+  RECIPE: knowledge/styles/minimal-clean.md
+  MODE: Minimal Clean (style recipe) — same brief and copy as the other 17 specimens.
+  MADE BY: Doubao agent session, 2026-11-17. HTML/CSS composed here; rendered by
+           scripts/shoot.mjs with a local Chrome over CDP. No AI-generated imagery.
+  Palette: canvas #FAFAF8 ~65% / surface #FDFDFC ~15% / ink #1C1C1E ~12% /
+           muted #75757D ~6% / hairline #E6E6E2 / indigo #4F46E5 ≤3% (actions only).
+  Contrast: ink on canvas 15.7:1; muted on canvas 4.7:1; white on indigo 5.8:1.
+  Type: Inter 400/500/600 — one family, three weights. Scale 1.25; display -1.5%;
+        body 16/1.6; tabular numerals for all data.
+  Layout: 1120px content column centered; 8px spacing; 96px+ section gaps; hairline
+          dividers instead of cards; accent only on the primary action.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --canvas:#FAFAF8;
+    --surface:#FDFDFC;
+    --ink:#1C1C1E;
+    --muted:#75757D;
+    --hairline:#E6E6E2;
+    --accent:#4F46E5;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;overflow-x:clip}
+  body{background:var(--canvas);color:var(--ink);font:400 16px/1.6 "Inter",system-ui,sans-serif;font-feature-settings:"cv11","ss01"}
+  h1,p{margin:0}
+  a{color:inherit;text-decoration:none}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+  .page{min-height:100vh;display:flex;flex-direction:column}
+  .wrap{width:1120px;max-width:calc(100% - 128px);margin:0 auto}
+
+  header{height:88px;display:flex;align-items:center}
+  .nav{display:flex;align-items:center;justify-content:space-between;width:100%}
+  .brand{display:flex;align-items:center;gap:9px;font:600 18px/1 "Inter",sans-serif;letter-spacing:-.02em}
+  .brand svg{width:19px;height:19px}
+  .links{display:flex;align-items:center;gap:32px;font:400 14px/1 "Inter",sans-serif;color:var(--muted)}
+  .links a{padding-block:6px}
+  .links a:hover{color:var(--ink)}
+  .top-cta{font:500 14px/1 "Inter",sans-serif;color:var(--ink);border:1px solid var(--hairline);border-radius:6px;padding:10px 14px;background:var(--surface)}
+  .top-cta:hover{border-color:#D5D5CF}
+
+  main{flex:1;display:flex;flex-direction:column;justify-content:center;padding:44px 0 24px}
+  .hero{text-align:center;display:flex;flex-direction:column;align-items:center}
+  .eyebrow{font:500 12px/1 "Inter",sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:22px}
+  h1{font:600 64px/1.08 "Inter",system-ui,sans-serif;letter-spacing:-.025em;max-width:18ch;text-wrap:balance}
+  .lead{font:400 16px/1.65 "Inter",sans-serif;color:var(--muted);max-width:48ch;margin-top:20px;text-wrap:pretty}
+  .actions{display:flex;align-items:center;gap:22px;margin-top:32px}
+  .cta{
+    display:inline-flex;align-items:center;justify-content:center;height:48px;padding:0 22px;
+    background:var(--accent);color:#fff;border-radius:6px;
+    font:500 15px/1 "Inter",sans-serif;letter-spacing:-.01em;
+    transition:background-color 150ms ease-out;
+  }
+  .cta:hover{background:#4338CA}
+  .ghost{font:500 15px/1 "Inter",sans-serif;color:var(--ink);border-bottom:1px solid var(--hairline);padding-bottom:5px}
+  .ghost:hover{border-color:var(--ink)}
+
+  .stats{width:100%;max-width:880px;margin:64px auto 0;border-top:1px solid var(--hairline);display:grid;grid-template-columns:repeat(3,1fr)}
+  .stat{padding:22px 28px 0;text-align:left}
+  .stat+.stat{border-left:1px solid var(--hairline)}
+  .stat .k{font:500 12px/1 "Inter",sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .stat .v{font:600 30px/1.05 "Inter",sans-serif;letter-spacing:-.03em;margin-top:10px;font-variant-numeric:tabular-nums}
+  .stat .n{font:400 14px/1.45 "Inter",sans-serif;color:var(--muted);margin-top:6px}
+
+  .kbd-row{display:flex;justify-content:center;gap:10px;margin-top:52px;color:var(--muted);font:400 13px/1 "Inter",sans-serif}
+  .kbd{display:inline-flex;align-items:center;gap:6px;padding:6px 9px;border:1px solid var(--hairline);border-radius:5px;background:var(--surface);font:500 12px/1 "Inter",sans-serif;color:var(--ink)}
+  .kbd span{color:var(--muted)}
+
+  footer{border-top:1px solid var(--hairline)}
+  .foot{height:60px;display:flex;align-items:center;justify-content:space-between;font:400 13px/1 "Inter",sans-serif;color:var(--muted)}
+  .foot .folio{font-variant-numeric:tabular-nums}
+
+  @keyframes quiet{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h1,.lead,.actions{animation:quiet 260ms ease-out both}
+  @media (prefers-reduced-motion: reduce){h1,.lead,.actions{animation:none}.cta{transition:none}}
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V10" stroke="#1C1C1E" stroke-width="2" stroke-linecap="round"/><path d="M12 13c-4 0-6-2-6-5 4 0 6 2 6 5Z" fill="#1C1C1E"/><path d="M12 10c4 0 6-2 6-5-4 0-6 2-6 5Z" fill="#1C1C1E" opacity=".55"/></svg>
+        Fern
+      </a>
+      <div class="links">
+        <a href="#">Reminders</a>
+        <a href="#">Plant ID</a>
+        <a href="#">Experts</a>
+        <a class="top-cta" href="#">Start free</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <p class="eyebrow">Plant care, simplified</p>
+      <h1>Plant care that runs itself.</h1>
+      <p class="lead">Care reminders, plant identification, and expert help in one app. The fern gets what it needs; you get your Sunday back.</p>
+      <div class="actions">
+        <a class="cta" href="#">Start your free week</a>
+        <a class="ghost" href="#">See how it works</a>
+      </div>
+
+      <div class="stats" aria-label="Product facts">
+        <div class="stat"><div class="k">Waterings logged</div><div class="v">14 / 14</div><div class="n">This week, on schedule</div></div>
+        <div class="stat"><div class="k">Plants identified</div><div class="v">1.2 s</div><div class="n">Median camera-to-name time</div></div>
+        <div class="stat"><div class="k">Experts online</div><div class="v">24 / 7</div><div class="n">Horticulturists, not bots</div></div>
+      </div>
+
+      <div class="kbd-row" aria-hidden="true">
+        <span class="kbd">⌘K <span>search</span></span>
+        <span class="kbd">R <span>reminders</span></span>
+        <span class="kbd">P <span>plant ID</span></span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <span>Fern — plant-care subscription app</span>
+      <span class="folio">16 / 18</span>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

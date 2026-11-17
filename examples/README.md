@@ -17,18 +17,26 @@ The two jazz posters are the DEAL output in the flesh: same subject world (ink b
 
 The flower poster is the first output from a **fresh agent session running the installed skill** — it dealt 3 directions (vertical market board / paper-cut wreath / seed-packet label), executed the wreath, and its GATE caught the SVG wreath falling off-canvas plus a broken type-scale chain before delivery. The visible `[店名]`/`[促销主打]` slots are the no-invented-facts rule in action.
 
-## Style gallery — one brief, six styles
+## Style gallery — one brief, eighteen styles
 
-Same product ("Fern", plant-care subscription), same copy, six style recipes — **the only variable is the style system**. Built by a fresh agent run treating the recipes as authority; the run's recipe QA findings were folded back into the recipes themselves (see each file's `Field QA` section).
+Same product ("Fern", plant-care subscription), same copy, eighteen style recipes — **the only variable is the style system**. Every specimen is labeled twice: **Mode** names the style recipe that produced it; **Made by** names the session/model that rendered the specimen. The twelve new ones were made in this repo on 2026-11-17 by a Doubao agent session; the original six are the v0.2.0 gallery batch, whose model was not recorded and is not guessed.
 
-| | | |
+![Eighteen styles, one brief](styles/overview.png)
+
+Open [styles/index.html](styles/index.html) for the labeled 18-tile wall (mode, palette, type, tokens, recipe path, producer), or open any specimen's `.html` to read its top-of-file `RECIPE / MODE / MADE BY` block.
+
+| Mode · Style | Mode · Style | Mode · Style |
 |---|---|---|
-| <img src="styles/swiss-international.png" width="180" alt="Swiss International hero"> | <img src="styles/neo-brutalism.png" width="180" alt="Neo-brutalism hero"> | <img src="styles/dark-tech.png" width="180" alt="Dark tech hero"> |
-| [swiss-international](styles/swiss-international.png) · [html](styles/swiss-international.html) | [neo-brutalism](styles/neo-brutalism.png) · [html](styles/neo-brutalism.html) | [dark-tech](styles/dark-tech.png) · [html](styles/dark-tech.html) |
-| <img src="styles/glassmorphism.png" width="180" alt="Glassmorphism hero"> | <img src="styles/y2k-retro.png" width="180" alt="Y2K retro hero"> | <img src="styles/japandi.png" width="180" alt="Japandi hero"> |
-| [glassmorphism](styles/glassmorphism.png) · [html](styles/glassmorphism.html) | [y2k-retro](styles/y2k-retro.png) · [html](styles/y2k-retro.html) | [japandi](styles/japandi.png) · [html](styles/japandi.html) |
+| **01 · Swiss International**<br>[png](styles/swiss-international.png) · [html](styles/swiss-international.html)<br><sub>v0.2.0 batch · model not recorded</sub> | **02 · Neo-Brutalism**<br>[png](styles/neo-brutalism.png) · [html](styles/neo-brutalism.html)<br><sub>v0.2.0 batch · model not recorded</sub> | **03 · Dark Tech**<br>[png](styles/dark-tech.png) · [html](styles/dark-tech.html)<br><sub>v0.2.0 batch · model not recorded</sub> |
+| **04 · Glassmorphism**<br>[png](styles/glassmorphism.png) · [html](styles/glassmorphism.html)<br><sub>v0.2.0 batch · model not recorded</sub> | **05 · Y2K Retro**<br>[png](styles/y2k-retro.png) · [html](styles/y2k-retro.html)<br><sub>v0.2.0 batch · model not recorded</sub> | **06 · Japandi**<br>[png](styles/japandi.png) · [html](styles/japandi.html)<br><sub>v0.2.0 batch · model not recorded</sub> |
+| **07 · Art Deco**<br>[png](styles/art-deco.png) · [html](styles/art-deco.html)<br><sub>Doubao · 2026-11-17</sub> | **08 · Bauhaus**<br>[png](styles/bauhaus.png) · [html](styles/bauhaus.html)<br><sub>Doubao · 2026-11-17</sub> | **09 · Claymorphism**<br>[png](styles/claymorphism.png) · [html](styles/claymorphism.html)<br><sub>Doubao · 2026-11-17</sub> |
+| **10 · Corporate Flat**<br>[png](styles/corporate-flat.png) · [html](styles/corporate-flat.html)<br><sub>Doubao · 2026-11-17</sub> | **11 · Editorial Magazine**<br>[png](styles/editorial-magazine.png) · [html](styles/editorial-magazine.html)<br><sub>Doubao · 2026-11-17</sub> | **12 · Handcrafted Organic**<br>[png](styles/handcrafted-organic.png) · [html](styles/handcrafted-organic.html)<br><sub>Doubao · 2026-11-17</sub> |
+| **13 · High-Contrast Editorial**<br>[png](styles/high-contrast-editorial.png) · [html](styles/high-contrast-editorial.html)<br><sub>Doubao · 2026-11-17</sub> | **14 · Luxury Serif**<br>[png](styles/luxury-serif.png) · [html](styles/luxury-serif.html)<br><sub>Doubao · 2026-11-17</sub> | **15 · Memphis**<br>[png](styles/memphis.png) · [html](styles/memphis.html)<br><sub>Doubao · 2026-11-17</sub> |
+| **16 · Minimal Clean**<br>[png](styles/minimal-clean.png) · [html](styles/minimal-clean.html)<br><sub>Doubao · 2026-11-17</sub> | **17 · Playful Toy**<br>[png](styles/playful-toy.png) · [html](styles/playful-toy.html)<br><sub>Doubao · 2026-11-17</sub> | **18 · Retro-Futurism**<br>[png](styles/retro-futurism.png) · [html](styles/retro-futurism.html)<br><sub>Doubao · 2026-11-17</sub> |
 
-Honest caption: glassmorphism's vivid gradient is the style's own signature (opted in by choosing the recipe) — outside a glassmorphism brief, that gradient sits on our Never list. Twelve more styles await rendering: claim them in [issue #2](https://github.com/iifzx/design-garden/issues/2).
+All PNGs are 1440×900; every tile's Mode label is authoritative (the folio `NN / 18` inside most specimens matches it). Rebuild the wall with `node scripts/gallery.mjs` (renders all 18, then writes `styles/index.html` and `styles/overview.png`); `--skip-render` rebuilds the tiles and overview from existing PNGs.
+
+Honest caption: glassmorphism's vivid gradient is the style's own signature (opted in by choosing the recipe) — outside a glassmorphism brief, that gradient sits on our Never list.
 
 ## What the critique gate caught in these very outputs
 

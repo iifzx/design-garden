@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * Mirror the runtime skill (SKILL.md + knowledge/ + learnings/ + the three delivery
- * scripts) into dsh/skills/design-garden/, so the dsh bundle is self-contained when
+ * Mirror the runtime skill (SKILL.md + knowledge/ + learnings/ + the runtime
+ * delivery scripts) into dsh/skills/design-garden/, so the dsh bundle is self-contained when
  * installed from Git or npm. The repo root keeps the flat layout used by plain
  * git-clone installs; this script owns the packaged copy only.
  *
@@ -15,7 +15,7 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(HERE, "..");
 const DEST = join(HERE, "skills", "design-garden");
 const MIRROR = ["SKILL.md", "knowledge", "learnings"];
-const RUNTIME_SCRIPTS = ["shoot.mjs", "lint.mjs", "ledger.mjs"];
+const RUNTIME_SCRIPTS = ["shoot.mjs", "lint.mjs", "ledger.mjs", "directions.mjs"];
 
 rmSync(DEST, { recursive: true, force: true });
 mkdirSync(DEST, { recursive: true });

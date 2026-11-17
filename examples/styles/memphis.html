@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fern — landing hero · Memphis</title>
+<meta name="description" content="Style-recipe demo: Fern plant-care hero in the Memphis recipe.">
+<!--
+  RECIPE: knowledge/styles/memphis.md
+  MODE: Memphis (style recipe) — same brief and copy as the other 17 specimens.
+  MADE BY: Doubao agent session, 2026-11-17. HTML/CSS and SVG confetti composed here;
+           rendered by scripts/shoot.mjs with a local Chrome over CDP. No AI-generated imagery.
+  Palette: cream #F4EDDE ~55% / bubblegum #F58FB7 / lemon #FFD23E / azure #2E5BE6 /
+           teal #3EC1AD ~40% combined / ink #23201B ~5%. Flat fills only.
+  Contrast: ink on cream 13.1:1; ink on lemon 11.2:1; ink on bubblegum 7.3:1;
+            ink on teal 6.1:1; white on azure 5.4:1 (nav pill only).
+  Type: Archivo Black + Poppins 400/600 — three weights. Words rotate ±2°; type sits on
+        clean ground, never over confetti without a panel.
+  Layout: disciplined anti-grid: calm focal left, confetti 15–25% right, 2.5px ink outlines
+          on every shape, one zigzag strip trimming a single edge.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F4EDDE;
+    --ink:#23201B;
+    --pink:#F58FB7;
+    --lemon:#FFD23E;
+    --azure:#2E5BE6;
+    --teal:#3EC1AD;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;overflow-x:clip}
+  body{background:var(--cream);color:var(--ink);font:400 16px/1.55 "Poppins",system-ui,sans-serif}
+  h1,p{margin:0}
+  a{color:inherit;text-decoration:none}
+  :focus-visible{outline:3px solid var(--azure);outline-offset:3px}
+
+  .page{min-height:100vh;display:flex;flex-direction:column;padding:26px 56px 0;position:relative;overflow:hidden}
+
+  header{display:flex;align-items:flex-start;justify-content:space-between;position:relative;z-index:3}
+  .brand{
+    display:inline-block;padding:12px 18px;background:#fff;border:3px solid var(--ink);
+    box-shadow:7px 7px 0 var(--ink);transform:rotate(-1.5deg);
+    font:400 26px/1 "Archivo Black",system-ui,sans-serif;letter-spacing:-.02em;
+  }
+  nav{display:flex;gap:10px;padding-top:4px}
+  nav a{
+    padding:9px 15px;border:2.5px solid var(--ink);border-radius:999px;
+    font:600 13px/1 "Poppins",sans-serif;box-shadow:4px 4px 0 var(--ink);
+  }
+  nav a:nth-child(1){background:var(--pink);transform:rotate(2deg)}
+  nav a:nth-child(2){background:var(--lemon);transform:rotate(-1.2deg)}
+  nav a:nth-child(3){background:var(--teal);transform:rotate(1.6deg)}
+  nav a:hover{transform:translate(-1px,-1px) rotate(0)}
+
+  main{flex:1;display:grid;grid-template-columns:1.15fr .85fr;gap:24px;align-items:center;padding:8px 0 6px}
+
+  .copy{position:relative;z-index:2;padding-right:20px}
+  .sticker{
+    display:inline-block;padding:8px 14px;background:var(--lemon);border:2.5px solid var(--ink);
+    border-radius:6px;box-shadow:4px 4px 0 var(--ink);transform:rotate(-2.2deg);
+    font:600 11px/1 "Poppins",sans-serif;letter-spacing:.18em;text-transform:uppercase;margin-bottom:20px;
+  }
+  h1{
+    font:400 66px/1.02 "Archivo Black",system-ui,sans-serif;letter-spacing:-.035em;
+    max-width:11ch;
+  }
+  h1 span{display:inline-block}
+  .tilt-a{transform:rotate(-2deg)}
+  .tilt-b{transform:rotate(1.4deg)}
+  .tilt-c{transform:rotate(-1deg)}
+  .under{position:relative;display:inline-block}
+  .under::after{content:"";position:absolute;left:4%;right:2%;bottom:-6px;height:8px;background:var(--teal);transform:rotate(-1.2deg);z-index:-1}
+  .lead{font:400 17px/1.6 "Poppins",sans-serif;max-width:40ch;margin-top:22px}
+  .cta{
+    display:inline-flex;align-items:center;justify-content:center;min-height:58px;margin-top:28px;padding:0 28px;
+    background:var(--lemon);border:3px solid var(--ink);border-radius:999px;
+    box-shadow:6px 6px 0 var(--ink);transform:rotate(-1deg);
+    font:600 15px/1 "Poppins",sans-serif;
+    transition:transform 120ms ease-out,box-shadow 120ms ease-out;
+  }
+  .cta:hover{transform:translate(-2px,-2px) rotate(-1deg);box-shadow:8px 8px 0 var(--ink)}
+  .cta:active{transform:translate(4px,4px) rotate(-1deg);box-shadow:2px 2px 0 var(--ink)}
+  .fine{display:inline-block;margin-left:14px;font:600 12px/1 "Poppins",sans-serif;letter-spacing:.12em;text-transform:uppercase;transform:rotate(1.5deg)}
+
+  .confetti{position:relative;height:620px}
+  .shape{position:absolute;border:2.5px solid var(--ink)}
+  .big-pink{width:330px;height:330px;border-radius:50%;background:var(--pink);right:-40px;top:20px}
+  .half-teal{width:280px;height:140px;border-radius:0 0 280px 280px;background:var(--teal);right:40px;bottom:20px;border-top:0}
+  .dot-grid{width:190px;height:150px;right:250px;bottom:110px;background:#fff;border-radius:8px;overflow:hidden}
+  .dot-grid .dots{width:100%;height:100%;background-image:radial-gradient(var(--azure) 2.2px,transparent 2.3px);background-size:20px 20px;opacity:.9}
+  .strip{width:110px;height:300px;left:-42px;top:120px;background:var(--pink);transform:rotate(-8deg);border-radius:8px}
+  .zig{position:absolute;right:200px;top:96px;z-index:1}
+  .squiggle{position:absolute;right:0;top:360px;z-index:1}
+  .terrazzo{position:absolute;right:110px;bottom:20px;width:120px;height:90px;z-index:2}
+
+  .confetti-label{
+    position:absolute;left:10px;bottom:36px;z-index:2;padding:7px 12px;background:#fff;border:2.5px solid var(--ink);
+    border-radius:6px;transform:rotate(2deg);font:600 11px/1 "Poppins",sans-serif;letter-spacing:.16em;text-transform:uppercase;
+  }
+
+  footer{position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;padding:16px 0 18px;font:600 12px/1 "Poppins",sans-serif;letter-spacing:.16em;text-transform:uppercase}
+  footer .zigline{position:absolute;left:0;right:0;top:0;height:12px;transform:scaleX(1.111);transform-origin:left center}
+  footer .folio{font-variant-numeric:tabular-nums}
+
+  @keyframes pop{from{opacity:0;transform:translateY(16px) rotate(-1deg)}to{opacity:1;transform:none}}
+  h1{animation:pop 380ms cubic-bezier(.2,.8,.3,1) both}
+  .confetti{animation:pop 420ms cubic-bezier(.2,.8,.3,1) 120ms both}
+  @media (prefers-reduced-motion: reduce){
+    h1,.confetti{animation:none}
+    .cta,nav a{transition:none}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <a class="brand" href="#">FERN!</a>
+    <nav aria-label="Product areas">
+      <a href="#">Reminders</a>
+      <a href="#">Plant ID</a>
+      <a href="#">Experts</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="copy">
+      <span class="sticker">Plant care, but fun</span>
+      <h1><span class="tilt-a">Plant</span> <span class="tilt-b">care</span><br><span class="tilt-c">that</span> <span class="under">runs</span><br><span class="tilt-b">itself.</span></h1>
+      <p class="lead">Care reminders, plant identification, and expert help in one app. Less guessing, more growing — and a nudge when the fern gets dramatic.</p>
+      <a class="cta" href="#">Start your free week</a>
+      <span class="fine">7 days · no card</span>
+    </section>
+
+    <section class="confetti" aria-hidden="true">
+      <div class="shape strip"></div>
+      <div class="shape big-pink"></div>
+      <div class="shape half-teal"></div>
+      <div class="shape dot-grid"><div class="dots"></div></div>
+
+      <svg class="zig" width="170" height="90" viewBox="0 0 170 90">
+        <path d="M4 70L28 22l24 48 24-48 24 48 24-48 24 48" fill="none" stroke="#23201B" stroke-width="3" stroke-linejoin="miter"/>
+        <path d="M4 84L28 36l24 48 24-48 24 48 24-48 24 48" fill="none" stroke="#2E5BE6" stroke-width="3"/>
+      </svg>
+
+      <svg class="squiggle" width="250" height="90" viewBox="0 0 250 90">
+        <path d="M4 48c18-44 36 44 54 0s36 44 54 0 36 44 54 0 36 44 54 0" fill="none" stroke="#23201B" stroke-width="4" stroke-linecap="round"/>
+        <path d="M4 48c18-44 36 44 54 0s36 44 54 0 36 44 54 0 36 44 54 0" fill="none" stroke="#F58FB7" stroke-width="2" stroke-linecap="round" opacity=".8"/>
+      </svg>
+
+      <svg class="terrazzo" viewBox="0 0 120 90">
+        <rect x="1" y="1" width="118" height="88" fill="#fff" stroke="#23201B" stroke-width="2.5" rx="6"/>
+        <path d="M14 52l16-9 10 17-18 7z" fill="#FFD23E" stroke="#23201B" stroke-width="1.4"/>
+        <circle cx="70" cy="28" r="9" fill="#3EC1AD" stroke="#23201B" stroke-width="1.4"/>
+        <path d="M82 64l20-6 4 16-22 2z" fill="#2E5BE6" stroke="#23201B" stroke-width="1.4"/>
+        <circle cx="38" cy="22" r="5" fill="#F58FB7" stroke="#23201B" stroke-width="1.4"/>
+      </svg>
+
+      <span class="confetti-label">Grow something</span>
+    </section>
+  </main>
+
+  <footer>
+    <svg class="zigline" viewBox="0 0 1440 12" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 6l24-6 24 6 24-6 24 6 24-6 24 6 24-6 24 6 24-6 24 6 24-6 24 6 24-6 24 6 24-6 24 6 24-6 24 6 24-6 24 6 24-6 24 6 24-6 24 6 24-6 24 6 24-6 24 6 24-6 24 6 24-6 24 6 24-6 24 6 24-6 24 6 24-6 24 6 24-6 24 6 24-6 24 6 24-6 24 6 24-6 24 6 24-6 24 6 24-6 24 6 24-6 24 6" fill="none" stroke="#23201B" stroke-width="2"/>
+    </svg>
+    <span>Fern — plant-care subscription</span>
+    <span class="folio">15 / 18</span>
+  </footer>
+</div>
+</body>
+</html>

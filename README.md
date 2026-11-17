@@ -86,14 +86,15 @@ knowledge/
 learnings/                the skill's field notes — starts seeded, grows with every task
 evals/                    benchmark briefs with deliberate traps + rubric + blind A/B harness
 scripts/                  validate_knowledge.mjs (CI gate) · ab_harness.mjs (blind eval pages)
-                          shoot.mjs · lint.mjs · ledger.mjs (delivery tools)
+                          shoot.mjs · lint.mjs · ledger.mjs · directions.mjs (delivery tools)
+                          gallery.mjs (18-style gallery builder, repo maintenance)
 ```
 
 Every knowledge file carries frontmatter (`id / kind / applies / status / source / updated`). `experimental` knowledge loads only on explicit match; `proven` loads by default. The router reads `knowledge/INDEX.md` and never loads more than ~6 files per task — **growing without bloating**.
 
-Three delivery tools ship in `scripts/`: `shoot.mjs` renders at exact sizes and builds a contact sheet, `lint.mjs` runs the mechanical half of the GATE (contrast, floors, `transition: all`, motion escapes, the Never list), and `ledger.mjs` remembers the look of your last deliveries so the next one does not repeat it. None of them blocks: Playwright is used when installed, a local Chrome/Edge over the DevTools Protocol otherwise, and when neither exists the script exits 2 and says what it could not verify.
+Four delivery tools ship in `scripts/`: `shoot.mjs` renders at exact sizes and builds a contact sheet, `lint.mjs` runs the mechanical half of the GATE (contrast, floors, `transition: all`, motion escapes, the Never list), `ledger.mjs` remembers the look of your last deliveries so the next one does not repeat it, and `directions.mjs` renders 2–3 real 1440×900 first screens and composes the DEAL sheet. None of them blocks: Playwright is used when installed, a local Chrome/Edge over the DevTools Protocol otherwise, and when neither exists the script exits 2 and says what it could not verify. `gallery.mjs` is repo maintenance — it re-renders the 18 style specimens and writes `examples/styles/index.html` + `overview.png`.
 
-The workflow itself is a distillation of the strongest process ideas in agent design practice: a **three-direction deal** (2–3 structurally distinct art directions before executing), the **five form questions**, a **critique gate** that fixes only the 3 most damaging issues per round, and a canonical **anti-slop list** merged from three independently-convergent sources. See [SOURCES.md](SOURCES.md).
+The workflow itself is a distillation of the strongest process ideas in agent design practice: a **three-direction deal** (2–3 structurally distinct art directions, each shown as a real 1440×900 first screen before the full build), the **five form questions**, a **critique gate** that fixes only the 3 most damaging issues per round, and a canonical **anti-slop list** merged from three independently-convergent sources. See [SOURCES.md](SOURCES.md).
 
 ## Install
 
@@ -132,7 +133,7 @@ Just design. The skill triggers on anything aesthetic:
 - "This poster looks off — review it" → critique-first mode, runs the domain checklist, gives fixes ranked by damage
 - "品牌海报 + 一套 PPT 模板" → routes both domains, learns both
 
-After a delivery, the three tools close the loop: `shoot.mjs` shows the page at 1440 and 375, `lint.mjs` lists floor violations with line numbers, `ledger.mjs add` records the look so the next project starts somewhere else.
+Before a multi-canvas build, `directions.mjs` turns 2–3 directions into one labeled first-screen sheet; after delivery, the three tools close the loop: `shoot.mjs` shows the page at 1440 and 375, `lint.mjs` lists floor violations with line numbers, `ledger.mjs add` records the look so the next project starts somewhere else.
 
 ## For contributors
 

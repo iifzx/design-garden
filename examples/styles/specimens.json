@@ -1,0 +1,272 @@
+[
+  {
+    "mode": 1,
+    "name": "Swiss International",
+    "file": "swiss-international",
+    "recipe": "swiss-international",
+    "palette": [
+      "#F7F6F2",
+      "#141414",
+      "#E32919",
+      "#8B8B85"
+    ],
+    "type": "Inter 400/500/700",
+    "tokens": "12-col grid · hairlines · one red dot",
+    "producer": "v0.2.0 gallery batch"
+  },
+  {
+    "mode": 2,
+    "name": "Neo-Brutalism",
+    "file": "neo-brutalism",
+    "recipe": "neo-brutalism",
+    "palette": [
+      "#F5F1E6",
+      "#FFD23F",
+      "#4E7CFF",
+      "#FF6FA5"
+    ],
+    "type": "Archivo Black · Space Mono",
+    "tokens": "Bone ground · hard shadow · clashing blocks",
+    "producer": "v0.2.0 gallery batch"
+  },
+  {
+    "mode": 3,
+    "name": "Dark Tech",
+    "file": "dark-tech",
+    "recipe": "dark-tech",
+    "palette": [
+      "#14161C",
+      "#1B1E26",
+      "#3FDE7C",
+      "#E9EBF2"
+    ],
+    "type": "IBM Plex Sans · Plex Mono",
+    "tokens": "Blue-black ground · signal green · mono data",
+    "producer": "v0.2.0 gallery batch"
+  },
+  {
+    "mode": 4,
+    "name": "Glassmorphism",
+    "file": "glassmorphism",
+    "recipe": "glassmorphism",
+    "palette": [
+      "#4F46E5",
+      "#9333EA",
+      "#EC4899",
+      "#F2F3FA"
+    ],
+    "type": "Space Grotesk · Inter",
+    "tokens": "Vivid gradient · frosted panel · rim light",
+    "producer": "v0.2.0 gallery batch"
+  },
+  {
+    "mode": 5,
+    "name": "Y2K Retro",
+    "file": "y2k-retro",
+    "recipe": "y2k-retro",
+    "palette": [
+      "#191D3A",
+      "#B8FF2E",
+      "#FF3EA5",
+      "#3FE0C5"
+    ],
+    "type": "Michroma · VT323",
+    "tokens": "Chrome ramp · cyber lime · pixel labels",
+    "producer": "v0.2.0 gallery batch"
+  },
+  {
+    "mode": 6,
+    "name": "Japandi",
+    "file": "japandi",
+    "recipe": "japandi",
+    "palette": [
+      "#F1EBDF",
+      "#2B2620",
+      "#7C8B66",
+      "#A8917A"
+    ],
+    "type": "EB Garamond · Karla",
+    "tokens": "Unbleached paper · matcha accent · quiet frame",
+    "producer": "v0.2.0 gallery batch"
+  },
+  {
+    "mode": 7,
+    "name": "Art Deco",
+    "file": "art-deco",
+    "recipe": "art-deco",
+    "palette": [
+      "#171310",
+      "#C9A227",
+      "#0F5C4E",
+      "#F3ECDC"
+    ],
+    "type": "Cinzel · Josefin Sans",
+    "tokens": "Stepped frame · sunburst · gold foil",
+    "producer": "Doubao · 2026-11-17"
+  },
+  {
+    "mode": 8,
+    "name": "Bauhaus",
+    "file": "bauhaus",
+    "recipe": "bauhaus",
+    "palette": [
+      "#F2EFE8",
+      "#D2372C",
+      "#F2B807",
+      "#1D53C4"
+    ],
+    "type": "Jost 400/500/700",
+    "tokens": "45° axis · triad · canvas bleed",
+    "producer": "Doubao · 2026-11-17"
+  },
+  {
+    "mode": 9,
+    "name": "Claymorphism",
+    "file": "claymorphism",
+    "recipe": "claymorphism",
+    "palette": [
+      "#E9EFFB",
+      "#F7F9FF",
+      "#5B8DEF",
+      "#FFB35C"
+    ],
+    "type": "Baloo 2 · Nunito",
+    "tokens": "Double shadow · puffy pills · clay pot",
+    "producer": "Doubao · 2026-11-17"
+  },
+  {
+    "mode": 10,
+    "name": "Corporate Flat",
+    "file": "corporate-flat",
+    "recipe": "corporate-flat",
+    "palette": [
+      "#F6F7F9",
+      "#1E2430",
+      "#1E5AE8",
+      "#177E4D"
+    ],
+    "type": "Source Sans 3",
+    "tokens": "8px rhythm · data card · one blue",
+    "producer": "Doubao · 2026-11-17"
+  },
+  {
+    "mode": 11,
+    "name": "Editorial Magazine",
+    "file": "editorial-magazine",
+    "recipe": "editorial-magazine",
+    "palette": [
+      "#F7F4EE",
+      "#1C1B18",
+      "#B33A2B",
+      "#8A857C"
+    ],
+    "type": "Instrument Serif · Work Sans",
+    "tokens": "Drop cap · asymmetric grid · plate caption",
+    "producer": "Doubao · 2026-11-17"
+  },
+  {
+    "mode": 12,
+    "name": "Handcrafted Organic",
+    "file": "handcrafted-organic",
+    "recipe": "handcrafted-organic",
+    "palette": [
+      "#F2EDE3",
+      "#33291F",
+      "#7C8B5E",
+      "#C9982F"
+    ],
+    "type": "Young Serif · Work Sans",
+    "tokens": "Wobble frame · grain · rubber stamp",
+    "producer": "Doubao · 2026-11-17"
+  },
+  {
+    "mode": 13,
+    "name": "High-Contrast Editorial",
+    "file": "high-contrast-editorial",
+    "recipe": "high-contrast-editorial",
+    "palette": [
+      "#F4F3EF",
+      "#111114",
+      "#E8322C",
+      "#85837E"
+    ],
+    "type": "Archivo 400/800/900",
+    "tokens": "Type as layout · one red word · inverted band",
+    "producer": "Doubao · 2026-11-17"
+  },
+  {
+    "mode": 14,
+    "name": "Luxury Serif",
+    "file": "luxury-serif",
+    "recipe": "luxury-serif",
+    "palette": [
+      "#F5F0E6",
+      "#1E1A15",
+      "#153F38",
+      "#B99656"
+    ],
+    "type": "Bodoni Moda · Inter",
+    "tokens": "Vast margins · didone · ordinal 01",
+    "producer": "Doubao · 2026-11-17"
+  },
+  {
+    "mode": 15,
+    "name": "Memphis",
+    "file": "memphis",
+    "recipe": "memphis",
+    "palette": [
+      "#F4EDDE",
+      "#F58FB7",
+      "#FFD23E",
+      "#2E5BE6"
+    ],
+    "type": "Archivo Black · Poppins",
+    "tokens": "Confetti · 2.5px outlines · zigzag edge",
+    "producer": "Doubao · 2026-11-17"
+  },
+  {
+    "mode": 16,
+    "name": "Minimal Clean",
+    "file": "minimal-clean",
+    "recipe": "minimal-clean",
+    "palette": [
+      "#FAFAF8",
+      "#1C1C1E",
+      "#75757D",
+      "#4F46E5"
+    ],
+    "type": "Inter 400/500/600",
+    "tokens": "Hairlines · one accent · whitespace",
+    "producer": "Doubao · 2026-11-17"
+  },
+  {
+    "mode": 17,
+    "name": "Playful Toy",
+    "file": "playful-toy",
+    "recipe": "playful-toy",
+    "palette": [
+      "#FFF6E9",
+      "#FF5D5D",
+      "#FFC531",
+      "#41A7F5"
+    ],
+    "type": "Fredoka · Nunito",
+    "tokens": "Sticker outlines · spring CTA · toy pot",
+    "producer": "Doubao · 2026-11-17"
+  },
+  {
+    "mode": 18,
+    "name": "Retro-Futurism",
+    "file": "retro-futurism",
+    "recipe": "retro-futurism",
+    "palette": [
+      "#F3EAD8",
+      "#F0632F",
+      "#2A8F9B",
+      "#232D3F"
+    ],
+    "type": "Jost · Space Mono",
+    "tokens": "Orbits · starburst · chrome badge",
+    "producer": "Doubao · 2026-11-17"
+  }
+]

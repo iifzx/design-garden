@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fern — landing hero · Editorial Magazine</title>
+<meta name="description" content="Style-recipe demo: Fern plant-care hero in the Editorial Magazine recipe.">
+<!--
+  RECIPE: knowledge/styles/editorial-magazine.md
+  MODE: Editorial Magazine (style recipe) — same brief and copy as the other 17 specimens.
+  MADE BY: Doubao agent session, 2026-11-17. HTML/CSS composed here; rendered by
+           scripts/shoot.mjs with a local Chrome over CDP. No AI-generated imagery.
+  Palette: paper #F7F4EE ~70% / ink #1C1B18 ~20% / editorial red #B33A2B ~4% /
+           warm gray #8A857C ~6%. The illustration is ink-on-paper, warm-graded.
+  Contrast: ink on paper 13.4:1; red on paper 5.6:1; warm gray on paper 3.5:1
+            (captions at 13px fail 4.5 — captions use ink at 70% instead).
+  Type: Instrument Serif 400 + Work Sans 400/500 — three weights.
+        Display scale 1.333: 16 / 21 / 28 / 38 / 51 / 68; body 16/26.
+  Layout: asymmetric 12-col; headline spans into the image column; 3-line drop cap;
+          kicker + short rule; captions sit on the image with hairline leaders.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F4EE;
+    --ink:#1C1B18;
+    --red:#B33A2B;
+    --gray:#8A857C;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;overflow-x:clip}
+  body{background:var(--paper);color:var(--ink);font:400 16px/26px "Work Sans",system-ui,sans-serif}
+  h1,p{margin:0}
+  a{color:inherit;text-decoration:none}
+  :focus-visible{outline:2px solid var(--red);outline-offset:3px}
+
+  .page{min-height:100vh;display:flex;flex-direction:column;padding:34px 72px 22px}
+
+  .masthead{display:flex;align-items:flex-end;justify-content:space-between;padding-bottom:14px}
+  .brand{font:400 46px/.9 "Instrument Serif",Georgia,serif;letter-spacing:.01em}
+  .issue{text-align:right;font:500 12px/1.5 "Work Sans",sans-serif;letter-spacing:.14em;text-transform:uppercase}
+  .issue .date{color:var(--red)}
+  .rule{height:2px;background:var(--ink)}
+
+  main{flex:1;display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;padding-top:26px;align-content:start}
+
+  .kicker{grid-column:1/8;display:flex;align-items:center;gap:12px;font:500 13px/1 "Work Sans",sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:18px}
+  .kicker .short{width:46px;height:1px;background:var(--red)}
+
+  h1{
+    grid-column:1/9;grid-row:2;
+    font:400 68px/.98 "Instrument Serif",Georgia,serif;letter-spacing:-.01em;
+    max-width:12ch;text-wrap:balance;
+  }
+
+  .standfirst{
+    grid-column:1/7;grid-row:3;
+    font:500 17px/1.55 "Work Sans",sans-serif;color:var(--ink);
+    margin-top:22px;max-width:52ch;
+  }
+
+  .lead{
+    grid-column:1/7;grid-row:4;
+    font:400 16px/26px "Work Sans",sans-serif;color:var(--ink);
+    margin-top:16px;max-width:58ch;text-wrap:pretty;
+  }
+  .lead::first-letter{
+    float:left;font:400 66px/.78 "Instrument Serif",Georgia,serif;
+    padding:8px 10px 0 0;color:var(--red);
+  }
+
+  .byline{grid-column:1/7;grid-row:5;display:flex;align-items:center;gap:14px;margin-top:24px}
+  .byline .cta{
+    display:inline-flex;align-items:center;justify-content:center;height:48px;padding:0 22px;
+    background:var(--ink);color:var(--paper);font:500 13px/1 "Work Sans",sans-serif;
+    letter-spacing:.1em;text-transform:uppercase;
+    transition:background-color 200ms ease-out;
+  }
+  .byline .cta:hover{background:var(--red)}
+  .byline .meta{font:400 13px/1.4 "Work Sans",sans-serif;color:var(--ink);opacity:.7}
+
+  .plate{grid-column:8/13;grid-row:1/6;margin:0;align-self:start}
+  .plate .frame{position:relative;background:#EFE9DF;overflow:hidden}
+  .plate svg{display:block;width:100%;height:auto}
+  .plate figcaption{
+    display:flex;align-items:baseline;gap:10px;margin-top:10px;
+    font:400 13px/1.4 "Work Sans",sans-serif;color:var(--ink);
+  }
+  .plate figcaption .fig{font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--red)}
+  .plate figcaption .leader{flex:1;height:1px;background:var(--ink);opacity:.3}
+  .plate figcaption .src{opacity:.65}
+
+  .side-note{
+    grid-column:8/13;grid-row:6;margin-top:8px;padding-top:12px;border-top:1px solid rgba(28,27,24,.25);
+    font:400 13px/1.5 "Work Sans",sans-serif;color:var(--ink);opacity:.72;
+  }
+
+  footer{margin-top:auto;border-top:1px solid var(--ink);padding-top:12px;display:flex;justify-content:space-between;align-items:center;font:500 12px/1 "Work Sans",sans-serif;letter-spacing:.14em;text-transform:uppercase}
+  footer .folio{color:var(--red);font-variant-numeric:tabular-nums}
+
+  @keyframes ink{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  h1{animation:ink 420ms ease-out both}
+  .plate{animation:ink 420ms ease-out 120ms both}
+  @media (prefers-reduced-motion: reduce){h1,.plate{animation:none}.byline .cta{transition:none}}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="masthead">
+    <a class="brand" href="#">Fern</a>
+    <div class="issue">A journal of plant care<br><span class="date">Vol. 01 · November 2026</span></div>
+  </header>
+  <div class="rule" aria-hidden="true"></div>
+
+  <main>
+    <p class="kicker"><span class="short"></span>The quiet revolution</p>
+    <h1>Plant care that runs itself.</h1>
+
+    <p class="standfirst">The fern was never difficult. We were simply guessing — about water, about light, about when to leave it alone.</p>
+
+    <p class="lead">Care reminders, plant identification, and expert help in one app. It reads the season, the window and the pot, then says the one thing worth doing this week. No dashboards to interpret, no schedule to keep in your head.</p>
+
+    <div class="byline">
+      <a class="cta" href="#">Start your free week</a>
+      <span class="meta">Seven days, no card. Written by people who keep plants alive.</span>
+    </div>
+
+    <figure class="plate">
+      <div class="frame">
+        <svg viewBox="0 0 440 540" role="img" aria-label="Ink illustration of a fern rising from a paper vase, drawn on warm paper">
+          <rect width="440" height="540" fill="#EFE9DF"/>
+          <g stroke="#1C1B18" fill="none" stroke-linecap="round">
+            <!-- vase -->
+            <path d="M176 356c-8 18-12 44-10 66 2 28 18 44 54 44s52-16 54-44c2-22-2-48-10-66" stroke-width="2.4"/>
+            <ellipse cx="220" cy="356" rx="44" ry="10" stroke-width="2.4"/>
+            <path d="M190 404c18 8 42 8 60 0" stroke-width="1.2" opacity=".55"/>
+            <!-- fronds -->
+            <path d="M220 356c-2-70 2-130 6-190" stroke-width="2.6"/>
+            <path d="M224 178c-34 22-58 52-70 92" stroke-width="1.5"/>
+            <path d="M224 178c34 22 58 52 70 92" stroke-width="1.5"/>
+            <path d="M222 216c-42 4-76 24-96 56" stroke-width="1.3"/>
+            <path d="M222 216c42 4 76 24 96 56" stroke-width="1.3"/>
+            <path d="M222 260c-48 0-84 16-104 42" stroke-width="1.1"/>
+            <path d="M222 260c48 0 84 16 104 42" stroke-width="1.1"/>
+            <!-- leaflets -->
+            <g stroke-width="1.1">
+              <path d="M218 300c-18-2-32-10-40-24M218 300c18-2 32-10 40-24"/>
+              <path d="M220 326c-22-2-38-12-48-28M220 326c22-2 38-12 48-28"/>
+              <path d="M206 200c-24-6-40-20-48-40M206 200c24-6 40-20 48-40"/>
+              <path d="M200 236c-30-4-50-18-60-42M200 236c30-4 50-18 60-42"/>
+              <path d="M240 200c14-10 24-24 28-40M240 200c14 10 24 24 28 40"/>
+            </g>
+          </g>
+          <!-- one red editorial mark, not part of the drawing -->
+          <circle cx="220" cy="468" r="3" fill="#B33A2B"/>
+          <text x="232" y="472" font-family="Work Sans, sans-serif" font-size="11" letter-spacing="2" fill="#1C1B18" opacity=".7">PLATE 01</text>
+        </svg>
+      </div>
+      <figcaption><span class="fig">Fig. 1</span><span>The fern, at rest.</span><span class="leader"></span><span class="src">Ink on warm paper</span></figcaption>
+    </figure>
+
+    <p class="side-note">No sensor, no subscription hardware — the phone in your pocket and a care model built from how these plants actually live.</p>
+  </main>
+
+  <footer>
+    <span>Fern — plant-care subscription app</span>
+    <span class="folio">01 — Field Notes — 11 / 18</span>
+  </footer>
+
+</div>
+</body>
+</html>

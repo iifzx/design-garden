@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * Mirror the runtime skill (SKILL.md + knowledge/ + learnings/ + the three delivery
- * scripts) into skills/design-garden/ so plugin marketplaces get the nested layout
+ * Mirror the runtime skill (SKILL.md + knowledge/ + learnings/ + the runtime
+ * delivery scripts) into skills/design-garden/ so plugin marketplaces get the nested layout
  * (skills/<name>/SKILL.md) that Claude Code / ZCode plugin loaders expect, while the
  * repo root keeps the flat layout that plain `git clone` installs use.
  *
@@ -14,7 +14,7 @@ import path from "node:path";
 const ROOT = path.resolve(import.meta.dirname, "..");
 const DEST = path.join(ROOT, "skills", "design-garden");
 const MIRROR = ["SKILL.md", "knowledge", "learnings"];
-const RUNTIME_SCRIPTS = ["shoot.mjs", "lint.mjs", "ledger.mjs"];
+const RUNTIME_SCRIPTS = ["shoot.mjs", "lint.mjs", "ledger.mjs", "directions.mjs"];
 const PRESERVE = new Set([".zcode-plugin", ".claude-plugin"]);
 
 mkdirSync(DEST, { recursive: true });

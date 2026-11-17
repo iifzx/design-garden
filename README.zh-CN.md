@@ -64,11 +64,15 @@ knowledge/
 learnings/                skill 的田野笔记——有种子起步，随每个任务生长
 evals/                    带陷阱的基准任务 + 评分标准 + 盲评 A/B 工具
 scripts/                  validate_knowledge.mjs（CI 门禁）· ab_harness.mjs（盲评页）
+                          shoot.mjs · lint.mjs · ledger.mjs · directions.mjs（交付工具）
+                          gallery.mjs（18 风格样张构建器，仓库维护用）
 ```
 
 每个知识文件都带 frontmatter（`id / kind / applies / status / source / updated`）。`experimental` 知识仅在显式匹配时加载；`proven` 默认加载。路由器读 `knowledge/INDEX.md`，每个任务**最多加载约 6 个文件**——**成长而不膨胀**。
 
-工作流本身蒸馏自 agent 设计实践中最强的过程模式：**三方向发牌**（执行前先出 2–3 个结构性差异的艺术方向）、**形式五问**、每轮只修最伤 3 个问题的**评审门**，以及三源独立收敛合并出的权威 **anti-slop 清单**。详见 [SOURCES.md](SOURCES.md)。
+工作流本身蒸馏自 agent 设计实践中最强的过程模式：**三方向发牌**（执行前先出 2–3 个结构性差异的艺术方向，每个方向先给 1 张真实 1440×900 首屏）、**形式五问**、每轮只修最伤 3 个问题的**评审门**，以及三源独立收敛合并出的权威 **anti-slop 清单**。详见 [SOURCES.md](SOURCES.md)。
+
+四件交付工具在 `scripts/`：`shoot.mjs` 按精确尺寸截图并拼版；`lint.mjs` 跑 GATE 的机械半场（对比度、字号下限、`transition: all`、动效逃逸、Never list）；`ledger.mjs` 记住最近交付的外观，避免下一次重复；`directions.mjs` 把 2–3 个真实 1440×900 首屏拼成 DEAL 决策板，选定方向后才展开完整稿。它们都不阻塞：装了 Playwright 就用，否则走本机 Chrome/Edge 的 DevTools Protocol，两者都没有时 exit 2 并说明未能验证什么。`gallery.mjs` 是仓库维护工具：重渲 18 张风格样张并生成 `examples/styles/index.html` + `overview.png`。
 
 ## 安装
 
@@ -96,7 +100,7 @@ DeepSeek Harness 说明：dsh 读取同一套 Agent Skills 标准（SKILL.md 目
 
 > ZCode 桌面版：**插件市场 → 添加 → 粘贴 `https://github.com/iifzx/design-garden`**。市场布局遵循 Claude Code 插件约定；如果你的 CLI 加载器要求不同的嵌套结构，git clone 路径永远可用——也请提 issue 让我们支持你的加载器。
 
-无构建步骤、无依赖——markdown 加可选的 Node 脚本（仅标准库）；整页截图可选 Playwright，缺了也能用本机 Chrome/Edge。
+无构建步骤；Node 标准库是唯一必需依赖，整页截图可用可选的 Playwright，缺了也能用本机 Chrome/Edge。
 
 ## 用起来
 

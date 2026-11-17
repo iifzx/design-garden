@@ -28,7 +28,7 @@ design-garden 领先的是**架构**：模块化知识 + 行数预算 + ≤7 文
 
 ## 2 · 十二个选项
 
-> 状态（2026-11-17）：**1 截图环、2 机械红线、3 外观账本已落地**——`scripts/shoot.mjs` · `lint.mjs` · `ledger.mjs`。依赖策略按选定方案执行：Playwright 可选，缺了走本机 Chrome/Edge 的 DevTools Protocol。
+> 状态（2026-11-17）：**1 截图环、2 机械红线、3 外观账本、4 三方向缩略图门、5 18 个 style 样张已落地**——`scripts/shoot.mjs` · `lint.mjs` · `ledger.mjs` · `directions.mjs` · `gallery.mjs`。依赖策略按选定方案执行：Playwright 可选，缺了走本机 Chrome/Edge 的 DevTools Protocol。
 
 | # | 选项 | 成本 | 影响 | 依赖 |
 |---|---|---|---|---|
@@ -74,12 +74,14 @@ design-garden 领先的是**架构**：模块化知识 + 行数预算 + ≤7 文
 - 做什么：DEAL 改为每个方向先出 1 张真实首屏（PNG，真标题真配色），三张并排；选定后才展开完整稿。**保留**「用户钉死风格就跳过 DEAL」——garden 比 huashu 省 token，这条不改。
 - 成本：M（依赖 1）。
 - 影响：SKILL.md DEAL 段改 8–10 行。
+- 已落地（2026-11-17）：`scripts/directions.mjs` 接收 2–3 个 HTML，逐个渲染 1440×900，再合成一张深色标签页（Direction 01/02/03）；SKILL.md DEAL 已改成「每方向先出一张真实首屏，三张并排，选定才展开完整稿」，并保留「钉死风格跳过 DEAL」。
 
 **5 · 18 个 style 的样张补齐**
 - 解决：18 条配方只有 6 张图；选风格时模型读的是形容词，容易「读起来对、做出来不像」。
 - 做什么：一个 `specimen.html` 模板（同一 brief、同一文案），批量渲染剩下 12 张 + 一张 18 格总览图；每张标配方名与关键 token。
 - 成本：M–L（渲染 + 逐张过门）。
 - 影响：`examples/` 增加约 2MB；知识文件不动。
+- 已落地（2026-11-17）：18 张 1440×900 样张全部补齐（同一 Fern brief、同一文案），每张 HTML 顶部写 `RECIPE / MODE / MADE BY`；`examples/styles/specimens.json` 存 18 条 mode/配色/字体/token/producer，`scripts/gallery.mjs` 批渲并生成 `index.html` + `overview.png`。原 6 张标 `v0.2.0 gallery batch`（未记录模型，不臆造），新 12 张标 `Doubao · 2026-11-17`。
 
 ### C · 内容补位
 

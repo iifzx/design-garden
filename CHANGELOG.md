@@ -10,6 +10,12 @@ Each entry records what design-garden *learned* in that version, not just what c
 - The Never list is now half-automatic: contrast, 12px floors, `transition: all`, animated layout properties, `prefers-reduced-motion`, `:focus-visible`, alt text, meta-string clichés. First runs on our own examples caught a 11.5px label and five font weights — the tools audit the garden, not only the user.
 - A local ledger closes the repetition loop across sessions without spending a knowledge-file slot: last six looks, palette/font/layout repeats, and the user's taste in their own words.
 
+**Learned — about showing directions instead of describing them**
+- A written direction spec is still a menu. The DEAL gate now renders **one real 1440×900 first screen per direction**, composes 2–3 of them side by side with `directions.mjs`, and stops for a pick; the full build starts only after that. Real headline, real palette, real motif — no gray boxes. Pinned-style briefs still skip DEAL.
+- The style gallery only teaches when the model can **see** the recipe. All 18 style recipes now have a specimen on the same Fern brief and the same copy, at 1440×900; each HTML states `RECIPE` (style mode), `MODE` (recipe name/number) and `MADE BY` (session/model), and `gallery.mjs` rebuilds the 18-tile index + overview from `specimens.json`.
+- Attribution is part of the record: the twelve new specimens are `Doubao · 2026-11-17`; the original six are `v0.2.0 gallery batch` because their model was never recorded — no invented model names.
+- The new specimens went through the same `lint.mjs` floor: two real REDs (handcrafted CTA hover 3.3:1, playful nav 2.6:1) were fixed, plus a yellow pure-black display face and a 14px footer were cleaned before the gallery was accepted.
+
 ## v0.2.1 — DeepSeek Harness support (2026-11-17)
 
 **Learned — about the DSH ecosystem**

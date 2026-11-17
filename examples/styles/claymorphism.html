@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fern — landing hero · Claymorphism</title>
+<meta name="description" content="Style-recipe demo: Fern plant-care hero in the Claymorphism recipe.">
+<!--
+  RECIPE: knowledge/styles/claymorphism.md
+  MODE: Claymorphism (style recipe) — same brief and copy as the other 17 specimens.
+  MADE BY: Doubao agent session, 2026-11-17. HTML/CSS composed here; rendered by
+           scripts/shoot.mjs with a local Chrome over CDP. No AI-generated imagery.
+  Palette: sky wash #E9EFFB ~55% / puff #F7F9FF ~25% / ink #3A3D56 ~10% /
+           juicy blue #5B8DEF ~7% (shadows, leaf) / warm pop #FFB35C ~3% (pot).
+           Every shadow is hue-tinted (#A9B4DD), never neutral gray.
+  Contrast: ink on puff 10.5:1; white on CTA #3F6FD8 4.7:1; ink on warm pop 6.4:1.
+  Type: Baloo 2 700 + Nunito 500/700 — three weights, rounded terminals only.
+  Layout: radius 16–32px everywhere; double shadow (white inner top + colored ambient);
+          one focal puff per screen; airy 24–48px gaps.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&family=Nunito:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sky:#E9EFFB;
+    --puff:#F7F9FF;
+    --ink:#3A3D56;
+    --blue:#5B8DEF;
+    --blue-deep:#3F6FD8;
+    --pop:#FFB35C;
+    --shadow:#A9B4DD;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;overflow-x:clip}
+  body{background:var(--sky);color:var(--ink);font:500 16px/1.55 "Nunito",system-ui,sans-serif}
+  h1,p{margin:0}
+  a{color:inherit;text-decoration:none}
+  :focus-visible{outline:3px solid var(--blue-deep);outline-offset:4px}
+
+  .page{min-height:100vh;display:flex;flex-direction:column;padding:26px 48px 24px;position:relative;overflow:hidden}
+
+  /* tinted air, not white */
+  .blob{position:absolute;border-radius:50%;z-index:0}
+  .b1{width:520px;height:520px;background:#DCE6FA;left:-160px;top:110px}
+  .b2{width:360px;height:360px;background:#FFE7CC;right:-80px;bottom:40px}
+  .b3{width:180px;height:180px;background:#E4E0FB;right:280px;top:60px}
+
+  .top{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:12px}
+  .mark{width:44px;height:44px;border-radius:50%;background:var(--puff);box-shadow:inset 0 2px 0 rgba(255,255,255,.9),0 8px 18px rgba(169,180,221,.5);display:grid;place-items:center}
+  .mark svg{width:24px;height:24px}
+  .wordmark{font:700 26px/1 "Baloo 2",system-ui,sans-serif;letter-spacing:.01em}
+  nav{display:flex;gap:10px}
+  nav a{
+    padding:11px 20px;border-radius:999px;background:var(--puff);
+    box-shadow:inset 0 2px 0 rgba(255,255,255,.85),0 8px 16px rgba(169,180,221,.35);
+    font:700 14px/1 "Nunito",sans-serif;
+    transition:transform 160ms ease-out,background-color 160ms ease-out;
+  }
+  nav a:hover,nav a:focus-visible{transform:translateY(-2px);background:#fff}
+
+  .stage{position:relative;z-index:1;flex:1;display:grid;place-items:center;padding:18px 0 10px}
+  .card{
+    width:1180px;max-width:100%;display:grid;grid-template-columns:1.02fr .98fr;gap:40px;
+    padding:54px 56px 50px;border-radius:44px;background:var(--puff);
+    box-shadow:inset 0 3px 0 rgba(255,255,255,.95),0 28px 56px rgba(169,180,221,.45);
+  }
+
+  .copy{align-self:center}
+  .pill{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;background:#E7EEFF;color:#2F55B4;font:700 12px/1 "Nunito",sans-serif;letter-spacing:.14em;text-transform:uppercase;box-shadow:inset 0 1px 0 rgba(255,255,255,.8)}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--blue)}
+  h1{font:700 48px/1.12 "Baloo 2",system-ui,sans-serif;letter-spacing:-.01em;margin:22px 0 18px;max-width:12ch;text-wrap:balance}
+  .lead{font:500 17px/1.6 "Nunito",sans-serif;color:#54587A;max-width:38ch;text-wrap:pretty}
+  .cta{
+    display:inline-flex;align-items:center;justify-content:center;min-height:58px;margin-top:30px;padding:0 30px;
+    border-radius:999px;background:var(--blue-deep);color:#fff;
+    box-shadow:inset 0 3px 0 rgba(255,255,255,.42),0 12px 22px rgba(63,111,216,.34);
+    font:700 16px/1 "Nunito",sans-serif;transition:transform 120ms ease-out,box-shadow 120ms ease-out;
+  }
+  .cta:hover{transform:translateY(-2px);box-shadow:inset 0 3px 0 rgba(255,255,255,.42),0 16px 26px rgba(63,111,216,.38)}
+  .cta:active{transform:scale(.96);box-shadow:inset 0 3px 0 rgba(255,255,255,.42),0 6px 12px rgba(63,111,216,.28)}
+  .fine{margin-top:16px;font:500 16px/1.4 "Nunito",sans-serif;color:#6B6F8E}
+
+  .art{position:relative;display:grid;place-items:center;min-height:470px}
+  .puff-stage{position:absolute;width:420px;height:420px;border-radius:50%;background:#EDF2FF;box-shadow:inset 0 4px 0 rgba(255,255,255,.9),0 18px 34px rgba(169,180,221,.35)}
+  .pot{position:relative;z-index:2;width:100%;max-width:430px}
+  .pot svg{display:block;width:100%;height:auto;filter:drop-shadow(0 16px 22px rgba(169,180,221,.45))}
+
+  .tag{
+    position:absolute;z-index:3;display:flex;align-items:center;gap:8px;padding:11px 16px;border-radius:999px;
+    background:var(--puff);font:700 13px/1 "Nunito",sans-serif;color:#3A3D56;
+    box-shadow:inset 0 2px 0 rgba(255,255,255,.9),0 10px 18px rgba(169,180,221,.4);
+  }
+  .tag.water{left:0;top:64px;transform:rotate(-3deg)}
+  .tag.sun{right:-6px;bottom:86px;transform:rotate(2deg)}
+  .tag .ico{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:#E7EEFF}
+  .tag .ico svg{width:13px;height:13px}
+
+  footer{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;padding:10px 8px 0;font:700 13px/1 "Nunito",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#6B6F8E}
+  footer .folio{font-variant-numeric:tabular-nums}
+
+  @keyframes puffin{from{opacity:0;transform:translateY(18px) scale(.985)}to{opacity:1;transform:none}}
+  .card{animation:puffin 420ms cubic-bezier(.2,.8,.3,1) both}
+  @media (prefers-reduced-motion: reduce){
+    .card{animation:none}
+    nav a,.cta{transition:none}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="blob b1" aria-hidden="true"></div>
+  <div class="blob b2" aria-hidden="true"></div>
+  <div class="blob b3" aria-hidden="true"></div>
+
+  <header class="top">
+    <div class="brand">
+      <span class="mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M12 21V9" stroke="#5B8DEF" stroke-width="3" stroke-linecap="round"/><path d="M12 12c-4 0-6-2-6-5 4 0 6 2 6 5Z" fill="#7BA6F2"/><path d="M12 9c4 0 6-2 6-5-4 0-6 2-6 5Z" fill="#5B8DEF"/></svg>
+      </span>
+      <span class="wordmark">Fern</span>
+    </div>
+    <nav aria-label="Product areas">
+      <a href="#">Reminders</a>
+      <a href="#">Plant ID</a>
+      <a href="#">Experts</a>
+    </nav>
+  </header>
+
+  <main class="stage">
+    <section class="card">
+      <div class="copy">
+        <span class="pill"><span class="dot" aria-hidden="true"></span>Gentle plant care</span>
+        <h1>Plant care that runs itself.</h1>
+        <p class="lead">Care reminders, plant identification, and expert help in one app.</p>
+        <a class="cta" href="#">Start your free week</a>
+        <p class="fine">7 days free · cancel anytime</p>
+      </div>
+
+      <div class="art">
+        <div class="puff-stage" aria-hidden="true"></div>
+        <div class="pot">
+          <svg viewBox="0 0 420 470" role="img" aria-label="A soft clay pot with three rounded fern leaves and a friendly face">
+            <!-- leaves: same inflation physics as the UI -->
+            <g>
+              <path d="M210 318c-28-70-24-156 4-206 30 52 34 136 4 206Z" fill="#7BA6F2"/>
+              <path d="M212 320c-66-40-104-108-92-162 58 22 96 90 92 162Z" fill="#5B8DEF"/>
+              <path d="M208 320c66-40 104-108 92-162-58 22-96 90-92 162Z" fill="#9DBCF6"/>
+              <ellipse cx="150" cy="196" rx="26" ry="14" fill="#AFC9F9" transform="rotate(-28 150 196)"/>
+              <ellipse cx="272" cy="214" rx="24" ry="13" fill="#C7D9FB" transform="rotate(26 272 214)"/>
+              <circle cx="222" cy="128" r="10" fill="#FFFFFF" opacity=".72"/>
+            </g>
+            <!-- pot -->
+            <rect x="106" y="304" width="208" height="140" rx="42" fill="#FFB35C"/>
+            <rect x="106" y="304" width="208" height="26" rx="13" fill="#FFC987"/>
+            <ellipse cx="168" cy="330" rx="34" ry="10" fill="#FFFFFF" opacity=".55"/>
+            <circle cx="176" cy="372" r="6" fill="#3A3D56"/>
+            <circle cx="244" cy="372" r="6" fill="#3A3D56"/>
+            <path d="M196 390c10 12 24 12 34 0" fill="none" stroke="#3A3D56" stroke-width="5" stroke-linecap="round"/>
+            <circle cx="158" cy="384" r="9" fill="#FF8E8E" opacity=".55"/>
+            <circle cx="262" cy="384" r="9" fill="#FF8E8E" opacity=".55"/>
+            <!-- tiny specular dots -->
+            <circle cx="134" cy="424" r="5" fill="#FFFFFF" opacity=".4"/>
+          </svg>
+        </div>
+        <div class="tag water"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3c4 6 7 10 7 13a7 7 0 1 1-14 0c0-3 3-7 7-13Z" fill="#5B8DEF"/></svg></span>Water · today</div>
+        <div class="tag sun"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" fill="#FFB35C"/><path d="M12 1v3M12 20v3M1 12h3M20 12h3M4 4l2 2M18 18l2 2M20 4l-2 2M6 18l-2 2" stroke="#FFB35C" stroke-width="2"/></svg></span>Sun · 6h</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Fern — plant-care subscription</span>
+    <span class="folio">09 / 18</span>
+  </footer>
+</div>
+</body>
+</html>

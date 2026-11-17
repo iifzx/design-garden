@@ -15,12 +15,14 @@
     "scripts/shoot.mjs",
     "scripts/lint.mjs",
     "scripts/ledger.mjs",
+    "scripts/directions.mjs",
     "README.md"
   ],
   "scripts": {
     "validate": "node scripts/validate_knowledge.mjs",
     "shoot": "node scripts/shoot.mjs",
     "design:lint": "node scripts/lint.mjs",
+    "directions": "node scripts/directions.mjs",
     "ledger": "node scripts/ledger.mjs"
   },
   "keywords": ["design", "ui", "ai-agents", "skills", "claude", "zcode"]

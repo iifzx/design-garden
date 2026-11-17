@@ -64,7 +64,13 @@ For anything above component scale (a page, poster, deck, brand, illustration se
 - One "form" rule: adjacent pieces never share the same layout form; a landing page uses 5–6 distinct section forms.
 - **If the user pinned a style or brand: skip DEAL** and follow the brief exactly.
 
-For **multi-canvas or multi-page deliverables** (deck, landing page, brand system, series), present the directions (name + one-line essence + tiny spec: palette/type/layout) and **stop for the user to pick**. For **single-canvas pieces** (one poster, one icon set, one chart), pick the strongest, show all directions briefly, note the alternatives in the deliverable, and proceed. When the user says "pick yourself," they skipped choosing — not seeing: still present the directions before proceeding.
+For **multi-canvas or multi-page deliverables** (deck, landing page, brand system, series), the deal is **two or three first screens, not a menu**:
+
+1. Build one **1440×900 first screen per direction** — real headline, real palette, real type, one real motif. No gray placeholder boxes, no written-only specs.
+2. Put them side by side with `node scripts/directions.mjs a.html b.html [c.html] --labels "Quiet grid,Editorial,Brutal" --out shots/directions.png`. It renders each at 1440×900 and composes one labeled sheet.
+3. Show that sheet and **stop for the user to pick**. The full build starts only after one direction is chosen; two directions are acceptable when the brief already narrows the field, never fewer.
+
+For **single-canvas pieces** (one poster, one icon set, one chart), pick the strongest, show all directions briefly, note the alternatives in the deliverable, and proceed. When the user says "pick yourself," they skipped choosing — not seeing: still present the directions before proceeding.
 
 ### 5 · EXECUTE
 
@@ -178,19 +184,21 @@ These read as AI-generated on sight. The full catalog with fixes lives in `knowl
 - **Domain-specific skills installed** (e.g. a dedicated slides or frontend skill): you may defer execution details to them, but still run DEAL, GATE, and LEARN — they are what keeps output quality and growth consistent.
 - **Repetition guard**: run `node scripts/ledger.mjs check` before dealing; `learnings/` holds the prose record, the ledger holds the machine-readable one. A returning user must not get the same look twice.
 
-### The three runtime tools
+### The runtime tools
 
 | Command | Gives you | Missing dependency |
 |---|---|---|
 | `node scripts/shoot.mjs <file> --domain <d>` | exact-size PNGs + `shots/sheet.png`; `--full`, `--screens`, `--json` | no Playwright → local Chrome/Edge over CDP; neither → exit 2, degraded mode |
 | `node scripts/lint.mjs <file> --domain <d>` | RED floor violations + YELLOW decoration, with line numbers; `--json`, `--strict` | none, always runs |
 | `node scripts/ledger.mjs add <file> --project <p>` · `check` · `quote` | local appearance ledger, repeat risk, verbatim taste notes | none, always runs |
+| `node scripts/directions.mjs <a> <b> [c] --labels "A,B,C"` | one labeled sheet of 2–3 real 1440×900 first screens for the DEAL gate | renderer via `shoot.mjs`; none → exit 2, degrade to code review |
+| `node scripts/gallery.mjs` | re-renders all 18 style specimens, then writes `examples/styles/index.html` + `overview.png`; `--skip-render`, `--only <file>` | renderer via `shoot.mjs`; maintainer tool, not per-task |
 
-All three are non-blocking: a missing renderer or an empty ledger prints what it could not do and lets the task continue.
+`shoot`, `lint`, `ledger` and `directions` are non-blocking: a missing renderer or an empty ledger prints what it could not do and lets the task continue. `gallery` is repo maintenance and may fail hard — fix the specimen, not the gallery.
 
 ## Growing this skill
 
 - `learnings/` is your private field notebook — generalizable entries can be PR'd upstream so everyone benefits.
 - New knowledge from the community lands as `status: experimental` and only auto-loads on explicit match; it becomes `proven` after passing an eval (see `evals/README.md`).
 - `CHANGELOG.md` records what the garden learned in each version.
-- To add a style recipe, domain technique, or case study, read `CONTRIBUTING.md` — contribution = one small file that follows the schema.
+- To add a style recipe, domain technique, or case study, read `CONTRIBUTING.md` — contribution = one small file that follows the schema. A new style also needs a specimen HTML, one row in `examples/styles/specimens.json`, and `node scripts/gallery.mjs` to re-render the wall.

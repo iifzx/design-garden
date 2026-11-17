@@ -7,6 +7,9 @@ site/
 # design-garden runtime output
 shots/
 .design-garden/
+.tmp-preview/
+.tmp-gallery/
+.tmp-directions/
 
 # agent-internal files
 .zcode/
