@@ -86,9 +86,9 @@ Also relevant: [dsh-skills-bridge](https://github.com/deepseek-ai/deepseek-harne
 
 | Channel | Status | Link |
 |---|---|---|
-| VoltAgent/awesome-agent-skills | not submitted | — |
-| ComposioHQ/awesome-claude-skills | not submitted | — |
-| bergside/awesome-design-skills | not submitted | — |
-| awesome-deepseek-harness (DSH ecosystem) | not submitted | — |
-| Show HN | not posted | — |
-| 即刻/V2EX (中文) | not posted | — |
+| VoltAgent/awesome-agent-skills | PR opened 2026-11-17 (new "Design and Media" community subcategory) | https://github.com/VoltAgent/awesome-agent-skills/pull/1439 |
+| ComposioHQ/awesome-claude-skills | prepared 2026-11-17 — API refuses PR creation for this account (REST 404 / GraphQL FORBIDDEN; likely interaction limits); branch `add-design-garden` is committed on the fork, open it manually | https://github.com/ComposioHQ/awesome-claude-skills/compare/master...iifzx:awesome-claude-skills:add-design-garden |
+| bergside/awesome-design-skills | deferred — their registry requires a `skills/<slug>/` folder with SKILL.md + DESIGN.md + `index.json` entry in their schema, not a one-line entry; needs a format-conversion session | — |
+| awesome-deepseek-harness (DSH ecosystem) | posted 2026-11-17 in "Show Your Plugins!" | https://github.com/deepseek-ai/deepseek-harness/discussions/13620 |
+| Show HN | not posted (manual — draft above) | — |
+| 即刻/V2EX (中文) | not posted (manual — copy in social-kit) | — |
