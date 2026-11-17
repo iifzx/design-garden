@@ -1,0 +1,23 @@
+{
+  "skillName": "design-garden",
+  "frontmatter": {
+    "display_name": "Design Garden",
+    "display_name_en": "Design Garden",
+    "description_zh": "通用设计技能，覆盖 UI 网页与移动端界面、落地页、仪表盘、海报横幅、社媒图、图标与 Logo、品牌视觉、排版与配色、幻灯片、图表与数据可视化、视频分镜、插画与生成艺术。接到视觉类任务时先给 2–3 个差异化方向再动手，交付前跑一遍质检清单，并把每次任务的经验写回知识库，越用越准。",
+    "description_en": "A universal, self-improving design skill covering UI and web screens, mobile interfaces, landing pages, dashboards, posters and banners, social graphics, icons and logos, brand identity, typography and palettes, slides, charts and data visualization, video storyboards, illustration and generative art. It proposes 2-3 genuinely different directions before building, runs a critique gate before delivery, and records each task's learnings back into its knowledge files.",
+    "examples_zh": [
+      "给我的咖啡品牌做一套 VI 和门店海报",
+      "把这个仪表盘重新设计得专业一点",
+      "给产品发布做 10 页 PPT，风格要克制"
+    ],
+    "examples_en": [
+      "Build a visual identity and store posters for my coffee brand",
+      "Redesign this dashboard so it looks professional",
+      "Make a restrained 10-slide deck for a product launch"
+    ],
+    "author": "iifzx"
+  },
+  "runtimeScripts": ["shoot.mjs", "lint.mjs", "ledger.mjs", "directions.mjs"],
+  "extraFiles": ["LICENSE"],
+  "syncTarget": "~/.workbuddy/skills/design-garden"
+}
