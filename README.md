@@ -1,28 +1,35 @@
-# 🌱 design-garden
+<sub>🌐 English · **[简体中文](README.zh-CN.md)** · [繁體中文](README.zh-TW.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Español](README.es.md) · [Português](README.pt-BR.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Русский](README.ru.md)</sub>
 
-> **New here? [Open the beginner site →](https://iifzx.github.io/design-garden/start/)**  
-> Download the skill / DSH plugin, learn every GitHub button, browse the gallery, submit work, and vote — no code needed.
+<div align="center">
+  <img src="assets/banner.svg" width="100%" alt="design-garden — the design skill that grows · 会成长的设计技能">
 
-English | **[简体中文](README.zh-CN.md)** | [繁體中文](README.zh-TW.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [Español](README.es.md) | [Português](README.pt-BR.md) | [Français](README.fr.md) | [Deutsch](README.de.md) | [Русский](README.ru.md)
+  # 🌱 design-garden
 
-**The design skill that grows.** A universal, self-improving design skill for AI coding agents — covering anything aesthetic: UI, posters, banners, icons, logos, brand identity, slides, data visualization, video & motion, illustration, typography, and design critique.
+  > *Plant a design skill. Watch it grow.*
+  > *「种下一个设计技能，然后看着它长大。」*
 
-![CI](https://github.com/iifzx/design-garden/actions/workflows/validate.yml/badge.svg)
-![styles](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fiifzx.github.io%2Fdesign-garden%2Fstats.json&query=%24.styles&label=style%20recipes&color=2E7D32)
-![domains](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fiifzx.github.io%2Fdesign-garden%2Fstats.json&query=%24.domains&label=domains&color=2E7D32)
-![learnings](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fiifzx.github.io%2Fdesign-garden%2Fstats.json&query=%24.learnings&label=learnings%20files&color=A98A3D)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+  [![GitHub stars](https://img.shields.io/github/stars/iifzx/design-garden?style=social)](https://github.com/iifzx/design-garden/stargazers)
+  ![CI](https://github.com/iifzx/design-garden/actions/workflows/validate.yml/badge.svg)
+  ![styles](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fiifzx.github.io%2Fdesign-garden%2Fstats.json&query=%24.styles&label=style%20recipes&color=2E7D32)
+  ![domains](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fiifzx.github.io%2Fdesign-garden%2Fstats.json&query=%24.domains&label=domains&color=2E7D32)
+  ![learnings](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fiifzx.github.io%2Fdesign-garden%2Fstats.json&query=%24.learnings&label=learnings%20files&color=A98A3D)
 
-> ▶ **Watch the 60-second loop** — the whole workflow (brief → three real directions → build → gate → fixes → learning note) narrated with real repo artifacts, no screen recording: **[iifzx.github.io/design-garden/demo](https://iifzx.github.io/design-garden/demo/)** · or open [demo/demo.html](demo/demo.html) from a clone
->
-> 📚 **Browse the whole knowledge base online** — every playbook and style recipe, searchable: **[iifzx.github.io/design-garden](https://iifzx.github.io/design-garden/)**
->
-> 🌱 **New to AI tools?** No-code install, plain-language usage, and zero-skill ways to help: **[Start Here](docs/start-here.md)** (中文：[新手指南](docs/start-here.zh-CN.md))
->
-> 🧭 **First time on GitHub?** The beginner site explains every button, maps the repository, and collects the downloads, gallery, submission form and vote in one place: **[Beginner site](https://iifzx.github.io/design-garden/start/)**
+  **A universal, self-improving design skill for AI coding agents** — covering anything aesthetic: UI, posters, banners, icons, logos, brand identity, slides, data visualization, video & motion, illustration, typography, and design critique.
+
+  [▶ 60-second demo](https://iifzx.github.io/design-garden/demo/) · [Knowledge base](https://iifzx.github.io/design-garden/) · [What it makes](#what-it-makes) · [Why it's different](#why-its-different) · [What's inside](#whats-inside) · [Install](#install) · [Contribute](#for-contributors)
+</div>
+
+> 🌱 **New to AI tools?** No-code install, plain-language usage, and zero-skill ways to help: **[Start Here](docs/start-here.md)** (中文：[新手指南](docs/start-here.zh-CN.md)) — and the [beginner site](https://iifzx.github.io/design-garden/start/) explains every GitHub button, no code needed.
 
 ## What it makes
 
-**▶ [Watch the 60-second loop](https://iifzx.github.io/design-garden/demo/)** — one real run narrated start to finish: the brief, the three-direction deal, the gate's actual RED catches (CTA hover at 3.3:1, nav at 2.6:1, an 11.5px label), the fixes, and the learning note written back. Every frame is a file from this repo.
+<p align="center">
+  <img src="examples/styles/overview.png" width="100%" alt="18 style specimens of the same fern-landing brief — 18 different skins on one skeleton">
+</p>
+<p align="center"><sub>▲ <b>18 style specimens on one brief</b> — same copy, same layout skeleton, 18 different skins. Every image in this README was made by the skill itself. <a href="examples/styles/">Browse the specimens</a></sub></p>
+
+**▶ [Watch the 60-second loop](https://iifzx.github.io/design-garden/demo/)** — one real run narrated start to finish: the brief, the three-direction deal, the gate's actual RED catches (CTA hover at 3.3:1, nav at 2.6:1, an 11.5px label), the fixes, and the learning note written back. Every frame is a file from this repo. Or open [demo/demo.html](demo/demo.html) from a clone.
 
 The stills are real outputs from the skill running its own eval briefs — every piece below went through the full workflow, critique gate included. More in [examples/](examples/README.md), with the fixes the gate caught.
 
@@ -49,33 +56,16 @@ Most agent "design skills" are frozen prompt packs: strong on day one, stale on 
 
 ### The four growth loops
 
-```
-            ┌──────────────────────────────────────────────┐
-            │  ① RUNTIME SELF-LEARNING                     │
-            │  Every task appends a structured entry to    │
-            │  learnings/<domain>.md — the skill gets      │
-            │  better for YOU with every use, no reinstall │
-            └──────────────────┬───────────────────────────┘
-                               ▼  (generalizable entries get PR'd upstream)
-            ┌──────────────────────────────────────────────┐
-            │  ② COMMUNITY CONTRIBUTIONS                   │
-            │  Knowledge = small modular files. One PR =   │
-            │  one new style recipe / technique / case     │
-            └──────────────────┬───────────────────────────┘
-                               ▼
-            ┌──────────────────────────────────────────────┐
-            │  ③ EVAL-GATED PROMOTION (anti-bloat)         │
-            │  New knowledge lands as `experimental`,      │
-            │  loads only on explicit match, and becomes   │
-            │  `proven` only after winning a blind A/B     │
-            │  eval against the baseline                   │
-            └──────────────────┬───────────────────────────┘
-                               ▼
-            ┌──────────────────────────────────────────────┐
-            │  ④ VERSIONED LEARNING                        │
-            │  Every release's CHANGELOG says what the     │
-            │  garden LEARNED — growth you can read        │
-            └──────────────────────────────────────────────┘
+```mermaid
+flowchart TB
+    A["① Runtime self-learning<br/>every task appends a structured entry to learnings/ —<br/>the skill gets better for YOU with every use, no reinstall"]
+    B["② Community contributions<br/>knowledge = small modular files.<br/>One PR = one new style recipe / technique / case"]
+    C["③ Eval-gated promotion (anti-bloat)<br/>new knowledge lands as experimental, loads only on explicit match,<br/>and becomes proven only after winning a blind A/B eval"]
+    D["④ Versioned learning<br/>every release's CHANGELOG says what the garden LEARNED"]
+    A -->|"generalizable entries get PR'd upstream"| B
+    B --> C
+    C --> D
+    D -.->|"feeds the next task"| A
 ```
 
 ## What's inside
@@ -173,6 +163,10 @@ This garden lives on contributions, recognized via [all-contributors](https://al
 <!-- all-contributors table end -->
 
 Feed it and add yourself: comment `@all-contributors please add @<you> for <contributions>` on any issue, or PR the table above.
+
+## Star history
+
+[![Star History Chart](https://api.star-history.com/svg?repos=iifzx/design-garden&type=Date)](https://star-history.com/#iifzx/design-garden)
 
 ## License & credits
 

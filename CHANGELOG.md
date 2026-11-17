@@ -17,6 +17,11 @@ Each entry records what design-garden *learned* in that version, not just what c
 - The eval is now a machine, not a memory test: `scripts/eval_harness.mjs` plans a run (declaration, s0/s1 variant skill dirs, briefs — refusing holdouts inside the dev set or leaking doc provenance), collects variant×task outputs through an agent CLI or manual paste, builds per-judge blind kits with judge-invisible keys, and tallies the verdict exactly as the README rules read — including blocking on unverified factual accusations. Four verdict cases fixture-tested; a hung test cell dies at a hard timeout instead of taking the run with it.
 - First trigger-test run passed at 100% (hit 5/5, misfires 0/6) against 11 real competing skills, with all three keyword-clean queries hitting — the description routes on outcomes, not vocabulary. Baseline saved for re-tests; verdict recorded in results.tsv.
 
+**Learned — about showing the garden** (pattern study: huashu-design and other high-star READMEs)
+- The README now opens the way 30k-star projects do: a centered hero block (SVG banner in the garden palette, a two-line tagline, license/star badges beside the dynamic ones, and an anchor nav line), then the strongest visual first — the 18-specimen overview at full width — before any prose.
+- The four growth loops render as a native Mermaid diagram instead of ASCII boxes; a star-history chart anchors the community section. assets/banner.svg is pure text (no binaries), contrast-checked by the repo's own render-and-look pass at 1200×280 before landing.
+- Self-demonstration is the argument: every image in the README was made by the skill itself, and the captions now say so explicitly.
+
 **Learned — about making rules executable**
 - Judgment was never the bottleneck; mechanical compliance is. A rule that only lives in prose gets skipped under deadline, so the GATE's floors became three scripts: `shoot.mjs` (exact-size renders + contact sheet), `lint.mjs` (RED floors / YELLOW decoration by line), `ledger.mjs` (local appearance memory).
 - Screenshot truth beats CSS intuition: headless Chrome has a ~500px minimum window and `--window-size` is not `innerWidth` (about 22px of frame), so exact 375px, full-page and per-screen need the DevTools Protocol. Playwright stays an optional first renderer; a local Chrome/Edge is the fallback, never a required dependency.

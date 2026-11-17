@@ -1,28 +1,35 @@
-# 🌱 design-garden
+<sub>🌐 [English](README.md) · **简体中文** · [繁體中文](README.zh-TW.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Español](README.es.md) · [Português](README.pt-BR.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Русский](README.ru.md)</sub>
 
-> **第一次打开 GitHub？[直接进新手站 →](https://iifzx.github.io/design-garden/start/)**  
-> 下载 skill / DSH 插件、认全每个按钮、逛作品馆、投稿和投票——全程不用写代码。
+<div align="center">
+  <img src="assets/banner.svg" width="100%" alt="design-garden — the design skill that grows · 会成长的设计技能">
 
-**会成长的设计 skill。** 一个面向 AI 编程 agent 的、自我改进的通用设计 skill——覆盖一切与审美相关的工作：UI、海报横幅、图标、logo 品牌、幻灯片、数据图表、视频动效、插画、字体排印与设计评审。
+  # 🌱 design-garden
 
-[English](README.md) | **简体中文** | [繁體中文](README.zh-TW.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [Español](README.es.md) | [Português](README.pt-BR.md) | [Français](README.fr.md) | [Deutsch](README.de.md) | [Русский](README.ru.md)
+  > *Plant a design skill. Watch it grow.*
+  > *「种下一个设计技能，然后看着它长大。」*
 
-![CI](https://github.com/iifzx/design-garden/actions/workflows/validate.yml/badge.svg)
-![styles](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fiifzx.github.io%2Fdesign-garden%2Fstats.json&query=%24.styles&label=%E9%A3%8E%E6%A0%BC%E9%85%8D%E6%96%B9&color=2E7D32)
-![domains](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fiifzx.github.io%2Fdesign-garden%2Fstats.json&query=%24.domains&label=%E9%A2%86%E5%9F%9F&color=2E7D32)
-![learnings](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fiifzx.github.io%2Fdesign-garden%2Fstats.json&query=%24.learnings&label=%E7%BB%8F%E9%AA%8C%E5%BA%93&color=A98A3D)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+  [![GitHub stars](https://img.shields.io/github/stars/iifzx/design-garden?style=social)](https://github.com/iifzx/design-garden/stargazers)
+  ![CI](https://github.com/iifzx/design-garden/actions/workflows/validate.yml/badge.svg)
+  ![styles](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fiifzx.github.io%2Fdesign-garden%2Fstats.json&query=%24.styles&label=%E9%A3%8E%E6%A0%BC%E9%85%8D%E6%96%B9&color=2E7D32)
+  ![domains](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fiifzx.github.io%2Fdesign-garden%2Fstats.json&query=%24.domains&label=%E9%A2%86%E5%9F%9F&color=2E7D32)
+  ![learnings](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fiifzx.github.io%2Fdesign-garden%2Fstats.json&query=%24.learnings&label=%E7%BB%8F%E9%AA%8C%E5%BA%93&color=A98A3D)
 
-> ▶ **看 60 秒完整循环**——整个工作流（brief → 三个真实方向 → 构建 → 评审门 → 修复 → 学习笔记）用仓库里的真实产物旁白讲述，不是屏幕录制：**[iifzx.github.io/design-garden/demo](https://iifzx.github.io/design-garden/demo/)** · 克隆仓库也可直接打开 [demo/demo.html](demo/demo.html)
->
-> 📚 **在线浏览全部知识库**——每份领域手册和风格配方都可搜索：**[iifzx.github.io/design-garden](https://iifzx.github.io/design-garden/)**
->
-> 🌻 **完全没接触过 AI 工具？** 不用写代码就能安装、使用、甚至帮上忙：**[新手指南](docs/start-here.zh-CN.md)**（English: [Start Here](docs/start-here.md)）
->
-> 🧭 **第一次打开 GitHub？** 新手站把每个按钮、仓库地图、下载、作品馆、投稿和投票放在一页：**[新手站](https://iifzx.github.io/design-garden/start/)**
+  **面向 AI 编程 agent 的、自我改进的通用设计 skill**——覆盖一切与审美相关的工作：UI、海报横幅、图标、logo 品牌、幻灯片、数据图表、视频动效、插画、字体排印与设计评审。
+
+  [▶ 60 秒 demo](https://iifzx.github.io/design-garden/demo/) · [知识库](https://iifzx.github.io/design-garden/) · [它能做出什么](#它能做出什么) · [为什么不同](#为什么不同四条成长循环) · [里面有什么](#里面有什么) · [安装](#安装) · [参与贡献](#参与贡献)
+</div>
+
+> 🌻 **完全没接触过 AI 工具？** 不用写代码就能安装、使用、甚至帮上忙：**[新手指南](docs/start-here.zh-CN.md)**（English: [Start Here](docs/start-here.md)）——[新手站](https://iifzx.github.io/design-garden/start/) 把每个 GitHub 按钮、仓库地图、下载、作品馆、投稿和投票放在一页，全程不用写代码。
 
 ## 它能做出什么
 
-**▶ [看 60 秒完整循环](https://iifzx.github.io/design-garden/demo/)**——一次真实任务的全程旁白：brief、三方向 DEAL、评审门真实抓到的 RED（CTA hover 3.3:1、导航 2.6:1、11.5px 标签）、修复，以及写回的学习笔记。每一帧都来自本仓库的文件。
+<p align="center">
+  <img src="examples/styles/overview.png" width="100%" alt="同一份蕨类落地页 brief 的 18 张风格样张——同一副骨架，18 种皮肤">
+</p>
+<p align="center"><sub>▲ <b>同一份 brief 的 18 张风格样张</b>——同一份文案、同一副排版骨架，18 种不同皮肤。本 README 里的每一张图都是 skill 自己做的。<a href="examples/styles/">逛样张</a></sub></p>
+
+**▶ [看 60 秒完整循环](https://iifzx.github.io/design-garden/demo/)**——一次真实任务的全程旁白：brief、三方向 DEAL、评审门真实抓到的 RED（CTA hover 3.3:1、导航 2.6:1、11.5px 标签）、修复，以及写回的学习笔记。每一帧都来自本仓库的文件。克隆仓库也可直接打开 [demo/demo.html](demo/demo.html)。
 
 静帧同样是 skill 跑自己评测任务产出的真实作品——每一件都走完了完整工作流（含评审门）。更多见 [examples/](README.md)（含评审门抓到的问题清单）。
 
@@ -147,6 +154,10 @@ v0.1.5 的翻译由 GLM-5.3-Flash 起草——母语者的润色非常欢迎（�
 <!-- all-contributors table end -->
 
 喂它并加上自己：在任意 issue 里评论 `@all-contributors please add @<你> for <贡献类型>`，或直接 PR 上面的表格。
+
+## 星标历史
+
+[![Star History Chart](https://api.star-history.com/svg?repos=iifzx/design-garden&type=Date)](https://star-history.com/#iifzx/design-garden)
 
 ## 许可与致谢
 
