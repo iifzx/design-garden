@@ -24,21 +24,30 @@
 
 ## What it makes
 
+**The portfolio — 7 works across 6 craft domains.** Every piece was made by the skill running its own workflow: a three-direction DEAL before the build (evidence kept), `lint.mjs` + rendered GATE before delivery, and a learning note written back afterwards. Each work below is labeled with its domain, format, and the model that produced it.
+
+| | | |
+|---|---|---|
+| <img src="examples/images/bike-shop-hero.png" width="270" alt="Bike repair shop landing page hero"> | <img src="examples/images/deck-01-cover.png" width="270" alt="Apiary quarterly member report deck, cover slide"> | <img src="examples/images/bike-report-lead-line.png" width="270" alt="Bike-share monthly rider report, lead chart"> |
+| **Landing page** · ui-web · 1440 + 375<br>**GLM-5.3-Flash** · [source](examples/bike-shop-landing/landing.html) · [mobile](examples/images/bike-shop-mobile.png) · [full page](examples/images/bike-shop-full.png) | **Member-report deck** · slides · 7 × 1920×1080<br>**GLM-5.3-Flash** · [overview wall](examples/apiary-quarterly-deck/index.html) · [harvest chart](examples/images/deck-03-harvest.png) · [varroa chart](examples/images/deck-05-varroa.png) | **Rider report** · data-viz · 1200px data page<br>**GLM-5.3-Flash** · [source](examples/bike-share-report/report.html) · [full render](examples/images/bike-report-full.png) |
+| <img src="examples/images/jazz-poster.png" width="270" alt="Jazz cafe opening night poster"> | <img src="examples/images/night-run-01.png" width="270" alt="Night-running beginner carousel cover, Chinese"> | <img src="examples/images/icon-sheet.png" width="270" alt="Plant-care icon set verification sheet"> |
+| **Opening-night poster** · poster-banner · 1080×1350<br>**GLM-5.3-Flash** · [source](examples/jazz-cafe-poster/late-set-1080x1350.html) · [direction 2](examples/images/jazz-poster-cut-record.png) | **Night-run carousel** · social-carousel · 7 × 1080×1440, 中文<br>**GLM-5.3-Flash** · [source](examples/night-run-carousel/carousel.html) · [route page](examples/images/night-run-03.png) · [closing CTA](examples/images/night-run-07.png) | **Plant-care icon set** · icon · 8 glyphs, 16/24/48 ladder<br>**GLM-5.3-Flash** · [source](examples/plant-icons/icon-sheet.html) · [SVGs](examples/plant-icons/svg/) |
+
+<p align="center">
+  <img src="examples/images/deck-directions.png" width="100%" alt="DEAL sheet — three structurally different first screens for the deck brief, side by side">
+</p>
+<p align="center"><sub>▲ <b>The DEAL gate as a picture</b> — three structurally different first screens built and compared before the deck; the report dealt its lead figure and the carousel its cover the same way. Evidence and the gate's caught-and-fixed list: <a href="examples/README.md">examples/README.md</a>.</sub></p>
+
+**▶ [Watch the 60-second loop](https://iifzx.github.io/design-garden/demo/)** — one real run narrated start to finish: the brief, the three-direction deal, the gate's actual RED catches (CTA hover at 3.3:1, nav at 2.6:1, an 11.5px label), the fixes, and the learning note written back. Every frame is a file from this repo. Or open [demo/demo.html](demo/demo.html) from a clone.
+
+### One brief, eighteen styles — the style gallery
+
 <p align="center">
   <img src="examples/styles/overview.png" width="100%" alt="18 style specimens of the same fern-landing brief — 18 different skins on one skeleton">
 </p>
 <p align="center"><sub>▲ <b>18 style specimens on one brief</b> — same copy, same layout skeleton, 18 different skins. Every image in this README was made by the skill itself. <a href="examples/styles/">Browse the specimens</a></sub></p>
 
-**▶ [Watch the 60-second loop](https://iifzx.github.io/design-garden/demo/)** — one real run narrated start to finish: the brief, the three-direction deal, the gate's actual RED catches (CTA hover at 3.3:1, nav at 2.6:1, an 11.5px label), the fixes, and the learning note written back. Every frame is a file from this repo. Or open [demo/demo.html](demo/demo.html) from a clone.
-
-The stills are real outputs from the skill running its own eval briefs — every piece below went through the full workflow, critique gate included. More in [examples/](examples/README.md), with the fixes the gate caught.
-
-| | | |
-|---|---|---|
-| <img src="examples/images/bike-shop-hero.png" width="270" alt="Bike repair shop landing page hero"> | <img src="examples/images/jazz-poster.png" width="270" alt="Jazz cafe opening night poster"> | <img src="examples/images/icon-sheet.png" width="270" alt="Plant-care icon set verification sheet"> |
-| Landing page — [mobile 375px](examples/images/bike-shop-mobile.png) · [full](examples/images/bike-shop-full.png) | Opening-night poster, 1080×1350 | Icon set with 16/24/48 export ladder |
-
-*Generated with **GLM-5.3-Flash** — per-example model attribution in [examples/README.md](examples/README.md). Run the same brief on another model and PR your result.*
+The stills are real outputs — every piece went through the full workflow, critique gate included. *Generated with **GLM-5.3-Flash** — per-example model attribution in [examples/README.md](examples/README.md). Run the same brief on another model and PR your result.*
 
 Most agent "design skills" are frozen prompt packs: strong on day one, stale on day thirty, and always one author's taste. **design-garden is built to be fed** — by your daily design work, and by the community. It doesn't just execute design tasks; it *learns from every task it runs*.
 

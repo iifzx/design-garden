@@ -24,21 +24,30 @@
 
 ## 它能做出什么
 
+**作品集——7 件作品，6 个工艺域。** 每一件都由 skill 跑自己的完整工作流产出：动工前先出三方向 DEAL（证据留档），交付前过 `lint.mjs` + 渲染评审门，交付后写回学习笔记。每件作品都标注了所属域、尺寸规格与产出模型。
+
+| | | |
+|---|---|---|
+| <img src="examples/images/bike-shop-hero.png" width="270" alt="自行车店落地页首屏"> | <img src="examples/images/deck-01-cover.png" width="270" alt="天台蜂场季度会员报告封面页"> | <img src="examples/images/bike-report-lead-line.png" width="270" alt="共享单车月报主图"> |
+| **落地页** · ui-web · 1440 + 375<br>**GLM-5.3-Flash** · [源码](examples/bike-shop-landing/landing.html) · [移动端](examples/images/bike-shop-mobile.png) · [全页](examples/images/bike-shop-full.png) | **会员报告 deck** · slides · 7 页 1920×1080<br>**GLM-5.3-Flash** · [总览墙](examples/apiary-quarterly-deck/index.html) · [产量图](examples/images/deck-03-harvest.png) · [蜂螨图](examples/images/deck-05-varroa.png) | **骑行月报** · data-viz · 1200px 数据页<br>**GLM-5.3-Flash** · [源码](examples/bike-share-report/report.html) · [整页渲染](examples/images/bike-report-full.png) |
+| <img src="examples/images/jazz-poster.png" width="270" alt="爵士咖啡店开业海报"> | <img src="examples/images/night-run-01.png" width="270" alt="城市夜跑轮播封面（中文）"> | <img src="examples/images/icon-sheet.png" width="270" alt="植物养护图标集校验页"> |
+| **开业海报** · poster-banner · 1080×1350<br>**GLM-5.3-Flash** · [源码](examples/jazz-cafe-poster/late-set-1080x1350.html) · [方向二](examples/images/jazz-poster-cut-record.png) | **夜跑轮播** · social-carousel · 7 页 1080×1440，中文<br>**GLM-5.3-Flash** · [源码](examples/night-run-carousel/carousel.html) · [路线页](examples/images/night-run-03.png) · [收官页](examples/images/night-run-07.png) | **植物图标集** · icon · 8 枚，16/24/48 阶梯<br>**GLM-5.3-Flash** · [源码](examples/plant-icons/icon-sheet.html) · [SVG](examples/plant-icons/svg/) |
+
+<p align="center">
+  <img src="examples/images/deck-directions.png" width="100%" alt="DEAL 决策板——deck brief 的三个结构不同的首屏并排">
+</p>
+<p align="center"><sub>▲ <b>DEAL 门长这样</b>——deck 动工前先并排比较三个结构不同的真实首屏；月报对主图、轮播对封面做了同样的 DEAL。证据与评审门抓到并修复的问题清单：<a href="examples/README.md">examples/README.md</a>。</sub></p>
+
+**▶ [看 60 秒完整循环](https://iifzx.github.io/design-garden/demo/)**——一次真实任务的全程旁白：brief、三方向 DEAL、评审门真实抓到的 RED（CTA hover 3.3:1、导航 2.6:1、11.5px 标签）、修复，以及写回的学习笔记。每一帧都来自本仓库的文件。克隆仓库也可直接打开 [demo/demo.html](demo/demo.html)。
+
+### 同一份 brief，十八种风格——风格样张馆
+
 <p align="center">
   <img src="examples/styles/overview.png" width="100%" alt="同一份蕨类落地页 brief 的 18 张风格样张——同一副骨架，18 种皮肤">
 </p>
 <p align="center"><sub>▲ <b>同一份 brief 的 18 张风格样张</b>——同一份文案、同一副排版骨架，18 种不同皮肤。本 README 里的每一张图都是 skill 自己做的。<a href="examples/styles/">逛样张</a></sub></p>
 
-**▶ [看 60 秒完整循环](https://iifzx.github.io/design-garden/demo/)**——一次真实任务的全程旁白：brief、三方向 DEAL、评审门真实抓到的 RED（CTA hover 3.3:1、导航 2.6:1、11.5px 标签）、修复，以及写回的学习笔记。每一帧都来自本仓库的文件。克隆仓库也可直接打开 [demo/demo.html](demo/demo.html)。
-
-静帧同样是 skill 跑自己评测任务产出的真实作品——每一件都走完了完整工作流（含评审门）。更多见 [examples/](README.md)（含评审门抓到的问题清单）。
-
-| | | |
-|---|---|---|
-| <img src="examples/images/bike-shop-hero.png" width="270" alt="自行车店落地页首屏"> | <img src="examples/images/jazz-poster.png" width="270" alt="爵士咖啡店开业海报"> | <img src="examples/images/icon-sheet.png" width="270" alt="植物养护图标集校验页"> |
-| 落地页（[移动端 375px](examples/images/bike-shop-mobile.png) · [全页](examples/images/bike-shop-full.png)） | 开业海报 1080×1350 | 图标集，16/24/48 导出阶梯 |
-
-*由 **GLM-5.3-Flash** 生成——每个示例的模型署名见 [examples/README.md](README.md)。欢迎用别的模型跑同一 brief 并提 PR 对比。*
+静帧全部是真实产出——每一件都走完完整工作流（含评审门）。*由 **GLM-5.3-Flash** 生成——逐件署名与评审门抓到的问题清单见 [examples/README.md](examples/README.md)。欢迎用别的模型跑同一 brief 并提 PR 对比。*
 
 大多数 agent"设计 skill"是冻结的 prompt 包：第一天很强，第三十天就过时，而且永远只是一个人的品味。**design-garden 是被设计来"被喂养"的**——被你的日常设计工作喂养，被社区喂养。它不只是执行设计任务；它**从自己跑过的每个任务中学习**。
 
