@@ -19,8 +19,8 @@ The garden's direction, in order of priority. Anything here is up for grabs — 
 ## v0.4 — distribution
 
 - [x] Plugin/marketplace packaging — done in v0.2.0 (`.claude-plugin/marketplace.json` + CI-synced `skills/design-garden/` mirror + npm installer)
-- [ ] Submission & listing in the agent-skill registries and awesome lists (copy ready in [docs/PROMOTION.md](docs/PROMOTION.md))
-- [ ] Per-style example galleries (one rendered image per style recipe, grown from the evals) — first six shipped in examples/styles/ in v0.2.0, rest via community
+- [ ] Submission & listing in the agent-skill registries and awesome lists (copy ready in [docs/PROMOTION.md](docs/PROMOTION.md)). The [skills.sh](https://skills.sh) index picks up this repo automatically — `npx skills add iifzx/design-garden` verified working 2026-11-19 and now the headline install in the README; still to do: awesome-list PRs, Show HN, official marketplace application
+- [x] Per-style example galleries — all 18 shipped in examples/styles/ (gallery.mjs batch render, 2026-11-17); re-renders with new models welcome via the community flow. Benchmark notes for the next distribution steps: [docs/improvement-options2.md](docs/improvement-options2.md)
 - [ ] A public "what the garden learned" dashboard generated from `learnings/` + CHANGELOG
 
 ## Non-goals

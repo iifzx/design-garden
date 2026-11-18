@@ -92,10 +92,17 @@ The workflow itself is a distillation of the strongest process ideas in agent de
 
 ## Install
 
-Works with any agent that supports the SKILL.md convention (ZCode, Claude Code, and compatible CLIs):
+**One command, 20+ agents.** The [skills CLI](https://skills.sh) (the open agent-skills registry) installs design-garden into Claude Code, Codex, Cursor, Windsurf, Gemini CLI, OpenCode, ZCode and other SKILL.md loaders — it detects which agents you have and offers them as a picker:
 
 ```bash
-# one command via plugin marketplace (Claude Code)
+npx skills add iifzx/design-garden      # pick your agent interactively
+npx skills add iifzx/design-garden -g   # user-level, all projects
+```
+
+Other routes, same destination:
+
+```bash
+# plugin marketplace (Claude Code)
 /plugin marketplace add iifzx/design-garden
 /plugin install design-garden@design-garden
 
@@ -111,6 +118,8 @@ git clone https://github.com/iifzx/design-garden.git ~/.dsh/skills/design-garden
 # or project-level
 git clone https://github.com/iifzx/design-garden.git <your-project>/.zcode/skills/design-garden
 ```
+
+Every route serves the same vetted tree: CI runs the knowledge validator and an injection scan on every commit, and community knowledge stays `experimental` (loads only on explicit match) until it wins a blind A/B eval — the install never contains unreviewed load-by-default rules.
 
 DeepSeek Harness note: dsh reads the same Agent Skills standard (SKILL.md dirs, non-recursive discovery under `~/.dsh/skills` or `~/.agents/skills`). The skill declares `whenToUse` for dsh's trigger metadata.
 

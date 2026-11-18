@@ -87,7 +87,14 @@ scripts/                  validate_knowledge.mjs（CI 门禁）· ab_harness.mjs
 
 ## 安装
 
-适用于任何支持 SKILL.md 约定的 agent（ZCode、Claude Code 及兼容 CLI）：
+**一条命令，20+ 个 agent。** [skills CLI](https://skills.sh)（开放的 agent 技能注册表）会把 design-garden 装进 Claude Code、Codex、Cursor、Windsurf、Gemini CLI、OpenCode、ZCode 及其他支持 SKILL.md 约定的加载器——它自动检测你装了哪些 agent，交互式让你选：
+
+```bash
+npx skills add iifzx/design-garden      # 交互式选 agent
+npx skills add iifzx/design-garden -g   # 用户级，所有项目生效
+```
+
+其他安装路径，殊途同归：
 
 ```bash
 # 插件市场一条命令（Claude Code）
@@ -106,6 +113,8 @@ git clone https://github.com/iifzx/design-garden.git ~/.dsh/skills/design-garden
 # 或项目级
 git clone https://github.com/iifzx/design-garden.git <你的项目>/.zcode/skills/design-garden
 ```
+
+所有路径安装的是同一棵经过审查的树：CI 在每次提交上跑知识校验器 + 注入扫描，社区知识保持 `experimental`（仅显式匹配时加载）直到赢得盲测对比——安装包里永远不会出现未经评审就默认加载的规则。
 
 DeepSeek Harness 说明：dsh 读取同一套 Agent Skills 标准（SKILL.md 目录，`~/.dsh/skills` 或 `~/.agents/skills` 下非递归发现），本 skill 已声明 `whenToUse` 触发元数据。
 
