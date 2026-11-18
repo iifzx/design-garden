@@ -1,0 +1,33 @@
+/* Sixth Floor Apiary — member report deck · shared tokens (single source of truth)
+   Style: Swiss International (knowledge/styles/swiss-international.md, Field QA respected:
+   steel only for numerals/rules; ochre accent large-text-only; 4-value palette ceiling) */
+:root{
+  --paper:#F7F6F2;
+  --ink:#141414;
+  --ochre:#C77B2E;   /* accent — one use per view, display size only */
+  --steel:#8B8B85;   /* numerals, rules, drafting marks — never reading text */
+  --hairline:rgba(20,20,20,.16);
+  --gridline:rgba(20,20,20,.07);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body.slide{
+  width:1920px;height:1080px;overflow:hidden;background:var(--paper);color:var(--ink);
+  font-family:"Archivo",sans-serif;font-weight:400;position:relative;
+  padding:104px 152px 96px; /* 8px baseline grid */
+}
+.grotesk{font-family:"Archivo",sans-serif}
+.mono{font-family:"IBM Plex Mono",monospace}
+.folio{
+  position:absolute;left:152px;bottom:40px;
+  font-family:"IBM Plex Mono",monospace;font-size:18px;color:var(--ink);
+}
+.demo-note{
+  position:absolute;right:152px;bottom:40px;text-align:right;
+  font-family:"IBM Plex Mono",monospace;font-size:16px;color:var(--ink);
+}
+.hairline{background:var(--hairline);position:absolute}
+.accent-dot{width:20px;height:20px;border-radius:50%;background:var(--ochre);position:absolute}
+svg text{font-family:"IBM Plex Mono",monospace;fill:var(--ink)}
+svg .axis{stroke:var(--hairline)}
+svg .grid{stroke:var(--gridline)}

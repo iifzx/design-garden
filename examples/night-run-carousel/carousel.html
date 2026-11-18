@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>城市夜跑 7 件小事 — 3:4 社交轮播（小红书 / Instagram）</title>
+<style>
+  :root{
+    --night:#0F1B26; --chalk:#EFF3EA; --vis:#D6F54C; --plate:#16283A;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{background:var(--night)}
+  body{font-family:"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;color:var(--chalk);font-weight:400}
+  .page{
+    width:1080px;height:1440px;overflow:hidden;position:relative;
+    background:var(--night);page-break-after:always;
+  }
+  .rule{position:absolute;left:96px;right:96px;height:10px;background:var(--vis)}
+  .pagenum{position:absolute;left:96px;bottom:104px;font-size:26px;font-variant-numeric:tabular-nums}
+  .cue{position:absolute;right:96px;bottom:104px;font-size:26px;color:var(--vis);text-align:right}
+  .head{position:absolute;left:96px;top:140px;font-size:62px;font-weight:900;line-height:1.24;max-width:888px}
+  .head em{font-style:normal;color:var(--vis)}
+
+  /* 02 statement — 先被看见 */
+  .s02 .claim{position:absolute;left:96px;top:352px;font-size:58px;font-weight:900;line-height:1.42;max-width:888px}
+  .s02 .gear{position:absolute;left:96px;right:96px;top:860px;border-top:1px solid rgba(239,243,234,.28)}
+  .s02 .gear p{font-size:34px;line-height:1.6;padding:20px 0;border-bottom:1px solid rgba(239,243,234,.28);display:flex;justify-content:space-between}
+  .s02 .gear p b{font-weight:700;color:var(--vis)}
+
+  /* 03 list — 路线 */
+  .s03 .items{position:absolute;left:96px;right:96px;top:360px}
+  .s03 .item{display:flex;align-items:flex-start;gap:36px;padding:44px 0;border-bottom:1px solid rgba(239,243,234,.28)}
+  .s03 .item:last-child{border-bottom:0}
+  .s03 .n{font-size:96px;font-weight:900;color:var(--vis);line-height:1;font-variant-numeric:tabular-nums;width:110px;flex:none}
+  .s03 .item h3{font-size:40px;font-weight:700;line-height:1.4}
+  .s03 .item p{font-size:30px;line-height:1.55;margin-top:12px;color:var(--chalk)}
+
+  /* 04 figure — 三个窗口 */
+  .s04 .tl{position:absolute;left:96px;right:96px;top:420px}
+  .s04 .axis{position:relative;height:12px;background:var(--plate)}
+  .s04 .axis i{position:absolute;top:0;width:10px;height:12px;background:var(--vis)}
+  .s04 .wins{display:flex;gap:28px;margin-top:36px}
+  .s04 .win{flex:1;border-top:6px solid var(--vis);padding-top:22px}
+  .s04 .win b{font-size:38px;font-weight:900;display:block;line-height:1.35}
+  .s04 .win p{font-size:30px;line-height:1.55;margin-top:12px}
+  .s04 .lab{display:flex;justify-content:space-between;font-size:28px;margin-top:18px}
+  .s04 .note{position:absolute;left:96px;right:96px;top:1010px;font-size:32px;line-height:1.6}
+
+  /* 05 list — 热身 */
+  .s05 .moves{position:absolute;left:96px;right:96px;top:380px}
+  .s05 .move{display:flex;align-items:baseline;gap:40px;padding:52px 0;border-bottom:1px solid rgba(239,243,234,.28)}
+  .s05 .move:last-child{border-bottom:0}
+  .s05 .move h3{font-size:44px;font-weight:700}
+  .s05 .move p{font-size:34px;color:var(--vis);font-weight:700;margin-left:auto;white-space:nowrap}
+
+  /* 06 statement — 跑完一小时 */
+  .s06 .lines{position:absolute;left:96px;right:96px;top:400px}
+  .s06 .lines p{font-size:40px;font-weight:700;line-height:1.5;padding:36px 0;border-bottom:1px solid rgba(239,243,234,.28)}
+  .s06 .lines p:first-child{border-top:1px solid rgba(239,243,234,.28)}
+  .s06 .lines p b{color:var(--vis)}
+  .s06 .after{position:absolute;left:96px;right:96px;top:1000px;font-size:32px;line-height:1.6}
+
+  /* 07 CTA — 收官 */
+  .s07 .list7{position:absolute;left:96px;right:96px;top:340px;font-size:30px;line-height:1.5}
+  .s07 .list7 p{padding:16px 0;border-bottom:1px solid rgba(239,243,234,.28);display:flex;gap:24px}
+  .s07 .list7 p b{color:var(--vis);font-weight:700;flex:none}
+  .s07 .ask{position:absolute;left:96px;right:96px;bottom:204px;background:var(--vis);color:var(--night);
+    font-size:40px;font-weight:900;padding:44px 48px;line-height:1.4}
+</style>
+</head>
+<body>
+
+<section class="page s01">
+  <p style="position:absolute;left:96px;top:132px;font-size:44px;font-weight:700;line-height:1.4">第一次夜跑，别输给天黑</p>
+  <div style="position:absolute;right:72px;top:96px;font-size:420px;font-weight:900;line-height:.8;color:var(--vis);font-variant-numeric:tabular-nums">7</div>
+  <div style="position:absolute;left:96px;top:480px">
+    <div style="font-size:110px;font-weight:900;line-height:1.22">城市夜跑<br>7 件小事</div>
+    <div style="font-size:76px;font-weight:900;line-height:1.3;color:var(--vis);margin-top:8px">装备 · 路线 · 配速 · 补给</div>
+  </div>
+  <div style="position:absolute;left:96px;right:96px;top:868px;height:14px;background:var(--vis)"></div>
+  <div style="position:absolute;left:96px;right:96px;top:900px;height:14px;background:var(--vis);opacity:.35"></div>
+  <p style="position:absolute;left:96px;top:964px;font-size:40px;line-height:1.5;max-width:760px">从今天晚上的第一公里开始，把夜路跑成自己的主场。</p>
+  <p class="pagenum" style="bottom:112px">夜跑清单 — 第 1 页，共 7 页</p>
+</section>
+
+<section class="page s02">
+  <div class="rule" style="top:96px"></div>
+  <h2 class="head">第 1 件 · <em>先被看见</em>，再谈配速</h2>
+  <p class="claim">车灯找到你的前提，是你先让车灯找得到——反光材不发光，它只把光原路丢回去。</p>
+  <div class="gear">
+    <p><span>外层一件反光背心</span><b>必选</b></p>
+    <p><span>两只鞋跟各贴一条反光贴</span><b>必选</b></p>
+    <p><span>前灯白、尾灯红，别只带一边</span><b>必选</b></p>
+  </div>
+  <p class="pagenum">02 / 07</p>
+  <p class="cue">下一页：路线怎么挑</p>
+</section>
+
+<section class="page s03">
+  <div class="rule" style="top:96px"></div>
+  <h2 class="head">第 2 件 · 路线 <em>三选一</em>原则</h2>
+  <div class="items">
+    <div class="item"><div class="n">1</div><div><h3>有路灯的主干道优先</h3><p>路面平整、口子多，随时能下主路回家。</p></div></div>
+    <div class="item"><div class="n">2</div><div><h3>逆着车流方向跑</h3><p>让来车早早出现在你的视野里，而不是背后。</p></div></div>
+    <div class="item"><div class="n">3</div><div><h3>无灯的河堤公园，再美不跑</h3><p>夜里的野路属于熟到闭眼也能跑的人，第一周不是那个人。</p></div></div>
+  </div>
+  <p class="pagenum">03 / 07</p>
+  <p class="cue">下一页：几点出门最舒服</p>
+</section>
+
+<section class="page s04">
+  <div class="rule" style="top:96px"></div>
+  <h2 class="head">第 3 件 · 把夜跑放进 <em>傍晚三个窗口</em></h2>
+  <div class="tl">
+    <div class="axis"><i style="left:0"></i><i style="left:33%"></i><i style="left:66%"></i><i style="right:0"></i></div>
+    <div class="lab"><span>日落</span><span>蓝调时刻</span><span>路灯全亮</span><span>睡前 3 小时</span></div>
+    <div class="wins">
+      <div class="win"><b>晚饭前</b><p>路面还留白天余温，人最少，适合练节奏。</p></div>
+      <div class="win"><b>饭后一小时</b><p>多数人的默认窗口，注意别刚放下筷子就出门。</p></div>
+      <div class="win"><b>九点前收操</b><p>把心率降下来，别把夜跑跑成失眠的原因。</p></div>
+    </div>
+  </div>
+  <p class="note">窗口没有对错，只有跟晚饭和睡觉的相对位置——定好一个，固定它。</p>
+  <p class="pagenum">04 / 07</p>
+  <p class="cue">下一页：原地热身 3 个动作</p>
+</section>
+
+<section class="page s05">
+  <div class="rule" style="top:96px"></div>
+  <h2 class="head">第 4 件 · 热身 <em>3 个动作</em>，楼下就能做</h2>
+  <div class="moves">
+    <div class="move"><h3>靠墙提踵</h3><p>15 次 × 2 组</p></div>
+    <div class="move"><h3>原地高抬腿</h3><p>30 秒 × 2 组</p></div>
+    <div class="move"><h3>弓步转体</h3><p>每侧 8 次</p></div>
+  </div>
+  <p style="position:absolute;left:96px;right:96px;top:1000px;font-size:32px;line-height:1.6">夜里肌肉比白天「沉」，热身从下楼前开始，而不是起步那 400 米。</p>
+  <p class="pagenum">05 / 07</p>
+  <p class="cue">下一页：跑完怎么吃</p>
+</section>
+
+<section class="page s06">
+  <div class="rule" style="top:96px"></div>
+  <h2 class="head">第 5 件 · 跑完这一小时，<em>别亏待身体</em></h2>
+  <div class="lines">
+    <p>温水先于冰饮，<b>小口慢补</b></p>
+    <p>一点咸味食物，把汗带走的东西补回来</p>
+    <p>觉得累，当晚就<b>砍掉下一半计划</b>——夜跑的第一敌人是睡眠债</p>
+  </div>
+  <p class="after">补给不追求「专业」，追求第二天还想出门。</p>
+  <p class="pagenum">06 / 07</p>
+  <p class="cue">最后一页：一张清单</p>
+</section>
+
+<section class="page s07">
+  <div class="rule" style="top:96px"></div>
+  <h2 class="head">第 6-7 件，收在这张 <em>清单</em>里</h2>
+  <div class="list7">
+    <p><b>06</b><span>跑前一小时别吃太饱，胃里的东西比你先上路</span></p>
+    <p><b>07</b><span>固定路线 + 固定窗口，前两周只跑同一条</span></p>
+    <p><b>·</b><span>装备 / 路线 / 窗口 / 热身 / 补给——五件事各就各位，夜跑才刚开始</span></p>
+  </div>
+  <div class="ask">跑完回来告诉我：这 7 件里，哪件救了你？<br>收藏这份清单，下周见。</div>
+  <p class="pagenum">07 / 07 — 收藏不迷路</p>
+</section>
+
+</body>
+</html>

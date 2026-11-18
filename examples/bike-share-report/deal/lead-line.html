@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lead-figure direction 1 — one annotated line</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#F2F3F5;--ink:#1A222B;--orange:#E84B1C;--steel:#5E6B75;--band:rgba(26,34,43,.055);--grid:rgba(26,34,43,.10);--hair:rgba(26,34,43,.22)}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{width:1200px;height:800px;overflow:hidden;background:var(--paper);color:var(--ink);
+    font-family:"IBM Plex Sans",sans-serif;padding:72px 96px}
+  .kicker{font-family:"IBM Plex Mono",monospace;font-size:16px;letter-spacing:.08em;margin-bottom:20px}
+  h1{font-size:44px;font-weight:600;line-height:1.14;max-width:900px;margin-bottom:40px}
+  svg text{font-family:"IBM Plex Mono",monospace;fill:var(--ink);font-size:14px}
+  .grid{stroke:var(--grid)} .axis{stroke:var(--hair)}
+</style>
+</head>
+<body>
+  <p class="kicker">LEAD FIGURE · DIRECTION 1 — ONE ANNOTATED LINE</p>
+  <h1>Daily trips as one line: the weekend rhythm and the marathon spike in a single read.</h1>
+  <svg viewBox="0 0 1008 430" width="1008" height="430" role="img" aria-label="Daily trips, one annotated line">
+    <rect x="181" y="14" width="44" height="346" fill="var(--band)"/>
+    <rect x="403" y="14" width="44" height="346" fill="var(--band)"/>
+    <rect x="625" y="14" width="44" height="346" fill="var(--band)"/>
+    <rect x="847" y="14" width="44" height="346" fill="var(--band)"/>
+    <line class="grid" x1="60" y1="295" x2="980" y2="295"/>
+    <line class="grid" x1="60" y1="229" x2="980" y2="229"/>
+    <line class="grid" x1="60" y1="164" x2="980" y2="164"/>
+    <line class="grid" x1="60" y1="98"  x2="980" y2="98"/>
+    <line class="grid" x1="60" y1="33"  x2="980" y2="33"/>
+    <line class="axis" x1="60" y1="360" x2="980" y2="360" stroke-width="1.5"/>
+    <polyline fill="none" stroke="#1A222B" stroke-width="2.5" points="
+      60,214 92,206 123,232 155,224 187,161 219,101 250,218 282,210
+      314,228 346,221 377,156 409,83 441,220 472,214 504,231 536,225
+      568,165 599,93 631,210 663,23 695,219 726,212 758,227 790,219
+      821,219 853,149 885,72 917,211 948,206 980,197"/>
+    <circle cx="663" cy="23" r="6" fill="#E84B1C"/>
+    <text x="676" y="46" font-weight="500">Sep 20 — marathon, all-time high</text>
+  </svg>
+</body>
+</html>

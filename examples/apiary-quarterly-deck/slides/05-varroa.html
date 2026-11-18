@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>05 · Varroa — Sixth Floor Apiary member report</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+  h1{font-size:84px;font-weight:700;letter-spacing:-.02em;line-height:1.06;max-width:1420px;margin-bottom:64px}
+  .chart{width:1616px}
+  .anno{font-family:"IBM Plex Mono",monospace;font-size:20px;fill:var(--ink)}
+  .key{position:absolute;right:152px;top:392px;font-family:"IBM Plex Mono",monospace;font-size:20px;text-align:right}
+  .key .o{color:var(--ochre);font-weight:500}
+</style>
+</head>
+<body class="slide">
+  <h1>The August treatment held — every hive reads under threshold by September.</h1>
+  <div class="key">— <span class="o">H3 Fireweed · worst hive</span><br>— fleet median</div>
+  <svg class="chart" viewBox="0 0 1616 560" width="1616" height="560" role="img" aria-label="Varroa loads per 100 bees, June to September, worst hive vs fleet median">
+    <line class="grid" x1="96" y1="100"  x2="1440" y2="100"/>
+    <line class="grid" x1="96" y1="300"  x2="1440" y2="300"/>
+    <line class="grid" x1="96" y1="500"  x2="1440" y2="500"/>
+    <text class="axis" x="96" y="66" font-size="20">mites per 100 bees</text>
+    <text class="axis" x="64" y="106" font-size="20" text-anchor="end">6</text>
+    <text class="axis" x="64" y="306" font-size="20" text-anchor="end">3</text>
+    <text class="axis" x="64" y="506" font-size="20" text-anchor="end">0</text>
+    <line class="axis" x1="96" y1="500" x2="1440" y2="500" stroke-width="1.5"/>
+    <!-- threshold at 3.0 mites/100 bees -->
+    <line x1="96" y1="300" x2="1440" y2="300" stroke="#141414" stroke-width="1.5" stroke-dasharray="8 8" opacity=".35"/>
+    <text class="anno" x="1436" y="288" text-anchor="end">treatment threshold · 3.0</text>
+    <!-- H3 Fireweed: 3.1 / 4.8 / 5.6 / 1.2 — ochre, the one accent -->
+    <polyline points="200,273 560,148 920,88 1280,412" fill="none" stroke="#C77B2E" stroke-width="4"/>
+    <!-- fleet median: 2.2 / 2.9 / 3.4 / 0.8 -->
+    <polyline points="200,339 560,287 920,250 1280,441" fill="none" stroke="#141414" stroke-width="3"/>
+    <circle cx="920" cy="88" r="8" fill="#C77B2E"/>
+    <text class="anno" x="960" y="60">peak · Sep sample 14 days post-treatment</text>
+    <text x="200" y="556" font-size="20" text-anchor="middle">June</text>
+    <text x="560" y="556" font-size="20" text-anchor="middle">July</text>
+    <text x="920" y="556" font-size="20" text-anchor="middle">August</text>
+    <text x="1280" y="556" font-size="20" text-anchor="middle">September</text>
+  </svg>
+  <div class="demo-note">demo dataset — illustrative counts<br>for the example deck, not real records</div>
+  <div class="folio">05 / 07</div>
+</body>
+</html>

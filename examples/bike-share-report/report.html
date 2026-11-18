@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Northcycle — September rider report (demo)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F2F3F5; --ink:#1A222B; --orange:#E84B1C; --steel:#5E6B75;
+    --band:rgba(26,34,43,.055); --grid:rgba(26,34,43,.10); --hair:rgba(26,34,43,.22);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    width:1200px;background:var(--paper);color:var(--ink);
+    font-family:"IBM Plex Sans",sans-serif;padding:88px 96px 72px;
+  }
+  .kicker{font-family:"IBM Plex Mono",monospace;font-size:17px;letter-spacing:.08em;margin-bottom:22px}
+  h1{font-size:52px;font-weight:600;letter-spacing:-.01em;line-height:1.12;max-width:940px;margin-bottom:14px}
+  .sub{font-size:19px;color:var(--steel);margin-bottom:44px}
+  .kpis{display:flex;gap:0;border-top:1.5px solid var(--ink);border-bottom:1px solid var(--hair);margin-bottom:64px}
+  .kpi{flex:1;padding:22px 28px 24px;border-left:1px solid var(--hair)}
+  .kpi:first-child{border-left:0;padding-left:0}
+  .kpi b{display:block;font-family:"IBM Plex Mono",monospace;font-size:44px;font-weight:500;font-variant-numeric:tabular-nums;line-height:1}
+  .kpi span{display:block;font-size:16px;color:var(--steel);margin-top:10px}
+  section{margin-bottom:64px}
+  section h2{font-size:27px;font-weight:600;margin-bottom:6px}
+  section .ctx{font-size:16px;color:var(--steel);margin-bottom:20px}
+  svg text{font-family:"IBM Plex Mono",monospace;fill:var(--ink);font-size:14px}
+  svg .grid{stroke:var(--grid)}
+  svg .axis{stroke:var(--hair)}
+  .foot{
+    border-top:1.5px solid var(--ink);padding-top:20px;
+    font-family:"IBM Plex Mono",monospace;font-size:15px;color:var(--steel);
+    display:flex;justify-content:space-between;gap:32px;
+  }
+</style>
+</head>
+<body>
+  <p class="kicker">NORTHCYCLE BIKE SHARE — MONTHLY RIDER REPORT · SEPTEMBER 2026</p>
+  <h1>Weekends carried September — Sunday Sep 20 set the all-time daily record.</h1>
+  <p class="sub">34,210 trips across 41 stations · month-over-month context in the figures below.</p>
+
+  <div class="kpis">
+    <div class="kpi"><b>34,210</b><span>trips this month · +9% on August</span></div>
+    <div class="kpi"><b>6,842</b><span>active passes · 4,190 member / 2,652 casual</span></div>
+    <div class="kpi"><b>2.9 km</b><span>median trip distance · unchanged 6 months</span></div>
+  </div>
+
+  <section>
+    <h2>Every weekend beat the busiest weekday — and the marathon doubled it.</h2>
+    <p class="ctx">Daily trips, September 1–30 · shaded bands are weekends</p>
+    <svg viewBox="0 0 1008 430" width="1008" height="430" role="img" aria-label="Daily trips in September with weekends shaded">
+      <rect x="181" y="14" width="44" height="346" fill="var(--band)"/>
+      <rect x="403" y="14" width="44" height="346" fill="var(--band)"/>
+      <rect x="625" y="14" width="44" height="346" fill="var(--band)"/>
+      <rect x="847" y="14" width="44" height="346" fill="var(--band)"/>
+      <line class="grid" x1="60" y1="295" x2="980" y2="295"/>
+      <line class="grid" x1="60" y1="229" x2="980" y2="229"/>
+      <line class="grid" x1="60" y1="164" x2="980" y2="164"/>
+      <line class="grid" x1="60" y1="98"  x2="980" y2="98"/>
+      <line class="grid" x1="60" y1="33"  x2="980" y2="33"/>
+      <text x="50" y="300" text-anchor="end">500</text>
+      <text x="50" y="234" text-anchor="end">1,000</text>
+      <text x="50" y="169" text-anchor="end">1,500</text>
+      <text x="50" y="103" text-anchor="end">2,000</text>
+      <text x="50" y="38"  text-anchor="end">2,500</text>
+      <line class="axis" x1="60" y1="360" x2="980" y2="360" stroke-width="1.5"/>
+      <polyline fill="none" stroke="#1A222B" stroke-width="2.5" points="
+        60,214 92,206 123,232 155,224 187,161 219,101 250,218 282,210
+        314,228 346,221 377,156 409,83 441,220 472,214 504,231 536,225
+        568,165 599,93 631,210 663,23 695,219 726,212 758,227 790,219
+        821,219 853,149 885,72 917,211 948,206 980,197"/>
+      <circle cx="663" cy="23" r="6" fill="#E84B1C"/>
+      <text x="980" y="40" text-anchor="end" font-weight="500">Sep 20 — riverside marathon</text>
+      <text x="980" y="62" text-anchor="end">all-time high · 2,580 trips</text>
+      <text x="60"  y="388" text-anchor="middle">01</text>
+      <text x="187" y="388" text-anchor="middle">05</text>
+      <text x="314" y="388" text-anchor="middle">10</text>
+      <text x="441" y="388" text-anchor="middle">15</text>
+      <text x="568" y="388" text-anchor="middle">20</text>
+      <text x="695" y="388" text-anchor="middle">25</text>
+      <text x="980" y="388" text-anchor="end">30</text>
+      <text x="980" y="412" text-anchor="end">trips per day · axis starts at zero</text>
+    </svg>
+  </section>
+
+  <section>
+    <h2>One station — Riverside Gate — accounts for every top-trip day.</h2>
+    <p class="ctx">Top 5 stations by trips, sorted · labels at bar end</p>
+    <svg viewBox="0 0 1008 330" width="1008" height="330" role="img" aria-label="Top five stations by trips">
+      <line class="axis" x1="250" y1="12" x2="250" y2="300" stroke-width="1.5"/>
+      <text x="240" y="46"  text-anchor="end">Riverside Gate</text>
+      <text x="240" y="106" text-anchor="end">Market Square</text>
+      <text x="240" y="166" text-anchor="end">University North</text>
+      <text x="240" y="226" text-anchor="end">Central Station</text>
+      <text x="240" y="286" text-anchor="end">Old Docks</text>
+      <rect x="250" y="26"  width="700" height="32" fill="#E84B1C"/>
+      <rect x="250" y="86"  width="569" height="32" fill="#1A222B"/>
+      <rect x="250" y="146" width="505" height="32" fill="#1A222B"/>
+      <rect x="250" y="206" width="471" height="32" fill="#1A222B"/>
+      <rect x="250" y="266" width="404" height="32" fill="#1A222B"/>
+      <text x="960" y="47"  font-weight="500">2,840</text>
+      <text x="829" y="107">2,310</text>
+      <text x="765" y="167">2,050</text>
+      <text x="731" y="227">1,910</text>
+      <text x="664" y="287">1,640</text>
+      <text x="250" y="322">trips · bars start at zero</text>
+    </svg>
+  </section>
+
+  <section>
+    <h2>Members commute; casual riders own the afternoon.</h2>
+    <p class="ctx">Median trips by hour, weekday pattern · same scale on both panels</p>
+    <svg viewBox="0 0 1008 300" width="1008" height="300" role="img" aria-label="Hourly trip pattern, members versus casual riders">
+      <text x="118" y="24" font-weight="500">members</text>
+      <line class="grid" x1="40" y1="100" x2="480" y2="100"/>
+      <line class="grid" x1="40" y1="190" x2="480" y2="190"/>
+      <line class="axis" x1="40" y1="250" x2="480" y2="250" stroke-width="1.5"/>
+      <polyline fill="none" stroke="#1A222B" stroke-width="2.5"
+        points="40,242 98,238 135,80 192,196 250,212 308,196 365,66 422,220 480,244"/>
+      <text x="135" y="62" text-anchor="middle">08:00</text>
+      <text x="365" y="48" text-anchor="middle">18:00</text>
+      <text x="480" y="278" text-anchor="end">trips per hour</text>
+      <text x="588" y="24" font-weight="500">casual</text>
+      <line class="grid" x1="510" y1="100" x2="950" y2="100"/>
+      <line class="grid" x1="510" y1="190" x2="950" y2="190"/>
+      <line class="axis" x1="510" y1="250" x2="950" y2="250" stroke-width="1.5"/>
+      <polyline fill="none" stroke="#E84B1C" stroke-width="2.5"
+        points="510,238 568,190 625,120 683,92 740,104 798,150 855,196 912,226 950,236"/>
+      <text x="683" y="74" text-anchor="middle">15:00</text>
+      <text x="950" y="278" text-anchor="end">same scale as left panel</text>
+    </svg>
+  </section>
+
+  <div class="foot">
+    <span>demo dataset — 30 days of synthetic rides generated for this example, not real system data</span>
+    <span>Northcycle is a fictional network</span>
+  </div>
+</body>
+</html>

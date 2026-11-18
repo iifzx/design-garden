@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lead-figure direction 2 — weekly small multiples</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#F2F3F5;--ink:#1A222B;--orange:#E84B1C;--steel:#5E6B75;--grid:rgba(26,34,43,.10);--hair:rgba(26,34,43,.22)}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{width:1200px;height:800px;overflow:hidden;background:var(--paper);color:var(--ink);
+    font-family:"IBM Plex Sans",sans-serif;padding:72px 96px}
+  .kicker{font-family:"IBM Plex Mono",monospace;font-size:16px;letter-spacing:.08em;margin-bottom:20px}
+  h1{font-size:44px;font-weight:600;line-height:1.14;max-width:900px;margin-bottom:40px}
+  .row{display:flex;gap:36px}
+  .panel{flex:1}
+  .panel b{display:block;font-family:"IBM Plex Mono",monospace;font-size:16px;font-weight:500;margin-bottom:10px}
+  svg text{font-family:"IBM Plex Mono",monospace;fill:var(--ink);font-size:13px}
+  .grid{stroke:var(--grid)} .axis{stroke:var(--hair)}
+</style>
+</head>
+<body>
+  <p class="kicker">LEAD FIGURE · DIRECTION 2 — WEEKLY SMALL MULTIPLES</p>
+  <h1>The same month as four weeks: each week's shape compares against its neighbours directly.</h1>
+  <div class="row">
+    <div class="panel"><b>Week 1 · Sep 1–7</b>
+      <svg viewBox="0 0 230 160" width="230" height="160"><line class="axis" x1="10" y1="140" x2="220" y2="140" stroke-width="1.5"/><polyline fill="none" stroke="#1A222B" stroke-width="2" points="10,96 34,94 58,104 82,90 106,64 130,40 154,94 178,92 202,104 220,96"/></svg>
+    </div>
+    <div class="panel"><b>Week 2 · Sep 8–14</b>
+      <svg viewBox="0 0 230 160" width="230" height="160"><line class="axis" x1="10" y1="140" x2="220" y2="140" stroke-width="1.5"/><polyline fill="none" stroke="#1A222B" stroke-width="2" points="10,90 34,88 58,98 82,84 106,52 130,28 154,90 178,86 202,98 220,90"/></svg>
+    </div>
+    <div class="panel"><b>Week 3 · Sep 15–21</b>
+      <svg viewBox="0 0 230 160" width="230" height="160"><line class="axis" x1="10" y1="140" x2="220" y2="140" stroke-width="1.5"/><polyline fill="none" stroke="#1A222B" stroke-width="2" points="10,88 34,86 58,96 82,82 106,50 154,8 178,84 202,96 220,88"/><circle cx="154" cy="8" r="4" fill="#E84B1C"/></svg>
+    </div>
+    <div class="panel"><b>Week 4 · Sep 22–30</b>
+      <svg viewBox="0 0 230 160" width="230" height="160"><line class="axis" x1="10" y1="140" x2="220" y2="140" stroke-width="1.5"/><polyline fill="none" stroke="#1A222B" stroke-width="2" points="10,92 34,90 58,100 82,88 106,58 130,34 154,92 178,88 202,100 220,94"/></svg>
+    </div>
+  </div>
+  <p style="font-size:17px;color:var(--steel);margin-top:28px">Same y-scale on all four panels · weekend humps align vertically · the marathon spike lands in week 3.</p>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Direction 1 — Swiss ledger · Sixth Floor Apiary</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F6F2; --ink:#141414; --ochre:#C77B2E; --steel:#8B8B85;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    width:1440px;height:900px;overflow:hidden;background:var(--paper);color:var(--ink);
+    font-family:"Archivo",sans-serif;font-weight:400;
+    display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:1fr auto;
+    padding:96px 120px 64px;position:relative;
+  }
+  .hairline{position:absolute;background:var(--ink);opacity:.14}
+  .v1{left:120px;top:96px;bottom:64px;width:1px}
+  .h1{left:120px;right:120px;top:236px;height:1px}
+  .kicker{
+    grid-column:1/6;align-self:start;
+    font-size:25px;font-weight:500;letter-spacing:0;
+  }
+  .num{
+    grid-column:8/13;justify-self:end;align-self:start;
+    font-family:"IBM Plex Mono",monospace;font-size:220px;font-weight:500;
+    line-height:.82;color:var(--ink);
+  }
+  .num sup{font-size:44px;color:var(--ochre);font-weight:700;vertical-align:top}
+  .title{
+    grid-column:1/10;align-self:end;
+    font-size:96px;font-weight:700;line-height:1.02;letter-spacing:-.02em;
+  }
+  .title em{font-style:normal;color:var(--ochre)}
+  .meta{
+    grid-column:1/8;align-self:end;
+    font-family:"IBM Plex Mono",monospace;font-size:20px;color:var(--ink);
+    display:flex;gap:48px;padding-top:24px;
+  }
+  .meta span b{font-weight:500;color:var(--ink)}
+  .meta span{color:var(--steel)}
+  .dot{width:20px;height:20px;border-radius:50%;background:var(--ochre);position:absolute;right:120px;bottom:64px}
+  .folio{
+    position:absolute;left:120px;bottom:64px;
+    font-family:"IBM Plex Mono",monospace;font-size:18px;color:var(--steel);
+  }
+</style>
+</head>
+<body>
+  <div class="hairline v1"></div>
+  <div class="hairline h1"></div>
+  <div class="kicker">Sixth Floor Apiary<br>Member report — July to September</div>
+  <div class="num">Q3<sup>·26</sup></div>
+  <h1 class="title">The roof fed <em>214</em> jars this quarter.</h1>
+  <div class="meta">
+    <span>hives <b>06</b></span><span>harvests <b>11</b></span><span>members <b>214</b></span>
+  </div>
+  <div class="dot"></div>
+  <div class="folio">01 / 07 — direction 1 · swiss ledger</div>
+</body>
+</html>

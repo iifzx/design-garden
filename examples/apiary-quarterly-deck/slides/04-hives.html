@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>04 · Hives — Sixth Floor Apiary member report</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+  h1{font-size:88px;font-weight:700;letter-spacing:-.02em;line-height:1.06;max-width:1400px;margin-bottom:72px}
+  h1 em{font-style:normal;color:var(--ochre)}
+  table{width:1616px;border-collapse:collapse;font-size:31px}
+  th{font-family:"IBM Plex Mono",monospace;font-size:20px;font-weight:500;text-align:left;
+     padding:0 0 16px;border-bottom:1.5px solid var(--ink)}
+  td{padding:22px 0;border-bottom:1px solid var(--hairline)}
+  td.mono{font-family:"IBM Plex Mono",monospace;font-size:25px}
+  th.hive,td.hive{width:220px}
+  th.status,td.status{width:300px}
+  tr.requeen td.status::before{content:"";display:inline-block;width:16px;height:16px;border-radius:50%;
+     background:var(--ochre);margin-right:14px;vertical-align:baseline}
+  .why{margin-top:40px;font-size:25px;max-width:1200px;line-height:1.5}
+  .why b{font-weight:500}
+</style>
+</head>
+<body class="slide">
+  <h1>Six hives go into winter — five strong, one <em>requeened</em> in August.</h1>
+  <table>
+    <tr><th class="hive">hive</th><th>variety</th><th class="status">end-of-quarter status</th><th>note</th></tr>
+    <tr><td class="mono">H1</td><td>Marigold</td><td class="status">strong</td><td>drew 7 frames of winter stores</td></tr>
+    <tr><td class="mono">H2</td><td>Linden</td><td class="status">strong</td><td>peak harvest, week 33</td></tr>
+    <tr class="requeen"><td class="mono">H3</td><td>Fireweed</td><td class="status">requeened</td><td>old queen failing · replaced Aug 14</td></tr>
+    <tr><td class="mono">H4</td><td>Clover</td><td class="status">strong</td><td>calm on inspection</td></tr>
+    <tr><td class="mono">H5</td><td>Buckwheat</td><td class="status">watch</td><td>light stores — fed sugar syrup, Sep</td></tr>
+    <tr><td class="mono">H6</td><td>Aster</td><td class="status">strong</td><td>best brood pattern of the six</td></tr>
+  </table>
+  <p class="why">The watch row is the honest one: <b>H5 enters winter lighter than we'd like</b>, and syrup feeding is a patch, not a fix. Its spring split decision comes first in March.</p>
+  <div class="demo-note">demo dataset — illustrative records<br>for the example deck</div>
+  <div class="folio">04 / 07</div>
+</body>
+</html>

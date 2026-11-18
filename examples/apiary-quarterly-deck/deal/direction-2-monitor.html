@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Direction 2 — Hive monitor · Sixth Floor Apiary</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --night:#101820; --surface:#18232D; --amber:#E8A33D; --fog:#C7D1D6;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    width:1440px;height:900px;overflow:hidden;background:var(--night);color:var(--fog);
+    font-family:"Archivo",sans-serif;
+    padding:88px 104px;display:flex;flex-direction:column;justify-content:space-between;
+  }
+  .top{display:flex;justify-content:space-between;align-items:baseline}
+  .tag{font-family:"IBM Plex Mono",monospace;font-size:20px;color:var(--amber);letter-spacing:.06em}
+  .clock{font-family:"IBM Plex Mono",monospace;font-size:20px;color:var(--fog);opacity:.7}
+  .mid{display:flex;gap:72px;align-items:flex-end}
+  .readout{font-family:"IBM Plex Mono",monospace;font-size:200px;line-height:.85;color:var(--fog)}
+  .readout small{display:block;font-size:24px;color:var(--amber);margin-top:16px;letter-spacing:.04em}
+  .panel{
+    border:1px solid rgba(199,209,214,.18);border-radius:8px;padding:32px 36px;width:380px;
+  }
+  .panel h2{font-size:25px;font-weight:500;color:var(--fog);margin-bottom:20px}
+  .row{display:flex;justify-content:space-between;font-family:"IBM Plex Mono",monospace;font-size:20px;padding:10px 0;border-top:1px solid rgba(199,209,214,.12)}
+  .row b{color:var(--amber);font-weight:500}
+  .title{font-size:76px;font-weight:700;color:var(--fog);line-height:1.06;letter-spacing:-.015em;max-width:900px}
+  .title em{font-style:normal;color:var(--amber)}
+  .foot{display:flex;justify-content:space-between;font-family:"IBM Plex Mono",monospace;font-size:18px;color:var(--fog);opacity:.66}
+</style>
+</head>
+<body>
+  <div class="top">
+    <div class="tag">SIXTH FLOOR APIARY — LIVE BOARD</div>
+    <div class="clock">ROOF 06 · 47.6°N</div>
+  </div>
+  <div class="mid">
+    <div class="readout">34.2<small>°C brood-nest max · Sep 14</small></div>
+    <div class="panel">
+      <h2>Hive status — end of quarter</h2>
+      <div class="row"><span>H1 · Marigold</span><b>strong</b></div>
+      <div class="row"><span>H2 · Linden</span><b>strong</b></div>
+      <div class="row"><span>H3 · Fireweed</span><b>requeen</b></div>
+      <div class="row"><span>H4 · Clover</span><b>strong</b></div>
+      <div class="row"><span>H5 · Buckwheat</span><b>watch</b></div>
+      <div class="row"><span>H6 · Aster</span><b>strong</b></div>
+    </div>
+  </div>
+  <div>
+    <h1 class="title">One board, six hives, <em>zero</em> surprises.</h1>
+    <div class="foot" style="margin-top:28px"><span>Member report — July to September</span><span>02 / 07 — direction 2 · hive monitor</span></div>
+  </div>
+</body>
+</html>

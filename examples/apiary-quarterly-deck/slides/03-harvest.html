@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>03 · Harvest — Sixth Floor Apiary member report</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+  h1{font-size:88px;font-weight:700;letter-spacing:-.02em;line-height:1.06;max-width:1360px;margin-bottom:72px}
+  h1 em{font-style:normal;color:var(--ochre)}
+  .chart{width:1616px}
+  .anno{font-family:"IBM Plex Mono",monospace;font-size:20px;fill:var(--ink)}
+</style>
+</head>
+<body class="slide">
+  <h1>August carried the quarter — <em>42%</em> of all jars came off the linden flow.</h1>
+  <svg class="chart" viewBox="0 0 1616 560" width="1616" height="560" role="img" aria-label="Jars harvested per month, July to September">
+    <line class="grid" x1="96" y1="410" x2="1520" y2="410"/>
+    <line class="grid" x1="96" y1="300" x2="1520" y2="300"/>
+    <line class="grid" x1="96" y1="190" x2="1520" y2="190"/>
+    <line class="grid" x1="96" y1="80"  x2="1520" y2="80"/>
+    <text class="axis" x="64" y="416" font-size="20" text-anchor="end">25</text>
+    <text class="axis" x="64" y="306" font-size="20" text-anchor="end">50</text>
+    <text class="axis" x="64" y="196" font-size="20" text-anchor="end">75</text>
+    <text class="axis" x="64" y="86"  font-size="20" text-anchor="end">100</text>
+    <line class="axis" x1="96" y1="520" x2="1520" y2="520" stroke-width="1.5"/>
+    <!-- bars: Jul 58 · Aug 89 · Sep 67 — zero baseline, time order -->
+    <rect x="330" y="265" width="200" height="255" fill="#141414"/>
+    <rect x="710" y="128" width="200" height="392" fill="#C77B2E"/>
+    <rect x="1090" y="225" width="200" height="295" fill="#141414"/>
+    <text x="430" y="243" font-size="28" font-weight="500" text-anchor="middle">58</text>
+    <text x="810" y="106" font-size="28" font-weight="500" text-anchor="middle">89</text>
+    <text x="1190" y="203" font-size="28" font-weight="500" text-anchor="middle">67</text>
+    <text class="axis" x="430" y="556" font-size="20" text-anchor="middle">July</text>
+    <text class="axis" x="810" y="556" font-size="20" text-anchor="middle">August</text>
+    <text class="axis" x="1190" y="556" font-size="20" text-anchor="middle">September</text>
+    <text class="anno" x="1010" y="160">linden flow · week 33</text>
+    <text x="1520" y="556" font-size="20" text-anchor="end">jars drawn per month</text>
+  </svg>
+  <div class="demo-note">demo dataset — illustrative numbers<br>for the example deck, not real records</div>
+  <div class="folio">03 / 07</div>
+</body>
+</html>
