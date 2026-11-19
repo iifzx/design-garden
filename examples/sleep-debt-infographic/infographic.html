@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>睡债清算书 — 一张图的睡眠算术（示例作息）</title>
+<!--
+  睡债 — infographic-long example-set deliverable
+  Direction: "账本蓝 · 巨数封盘" (DEAL evidence in deal/, sheet: deal/deal-sheet.png)
+  口径：所有数字由页内标注的假设推导（基准 8.0h = 常见建议区间 7–9h 的中值，示例用途；
+  时长 = 起床 − 入睡；补觉偿还按 1:1 线性简化）。示例作息为演示数据，页内已标明。
+  Canvas 750 × ~9500。裁切检查：每 1334px 一屏（见 shots/）。
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EEF1F5; --well:#E4E9F0; --ink:#1B2430; --ink2:#5A6474;
+    --band:#3D5A80; --dawn:#E8863A; --red:#C0432C; --green:#3E7C4F;
+    --hair:rgba(27,36,48,.22); --hair2:rgba(27,36,48,.12);
+    --cjk:"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{width:750px;background:var(--paper);color:var(--ink);font-family:var(--cjk);font-size:24px;line-height:1.72}
+  .mono{font-family:"JetBrains Mono",monospace;font-variant-numeric:tabular-nums}
+  .rail{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--hair);
+        padding:18px 48px 0;margin-top:auto}
+  .rail b{font-size:20px;font-weight:400;color:var(--ink2)}
+  .rail span{font-family:"JetBrains Mono",monospace;font-size:18px;color:var(--ink2)}
+
+  /* ── 封面 ── */
+  .cover{height:1334px;display:flex;flex-direction:column}
+  .cover .head{background:var(--band);color:#F2F5F8;padding:78px 56px 56px}
+  .kicker{font-family:"JetBrains Mono",monospace;font-size:18px;letter-spacing:.3em;color:#BFD0E4}
+  h1{font-size:104px;font-weight:800;letter-spacing:.04em;line-height:1.14;margin-top:16px}
+  h1 span{color:#F4B87F}
+  .cover .lead{font-size:29px;line-height:1.68;margin-top:24px;color:#D8E1EC;max-width:30ch}
+  .cover .mid{flex:1;display:flex;flex-direction:column;justify-content:center;padding:0 56px 8px}
+  .stat-plate{text-align:center;margin-bottom:30px}
+  .stat-plate b{font-family:"JetBrains Mono",monospace;font-size:148px;font-weight:500;color:var(--red);letter-spacing:-.04em;line-height:1}
+  .stat-plate span{display:block;font-size:26px;color:var(--ink2);margin-top:12px}
+  .week{display:flex;gap:12px;justify-content:center;align-items:flex-end;height:170px}
+  .day{width:58px;display:flex;flex-direction:column;justify-content:flex-end}
+  .day i{display:block;background:var(--band);border-radius:5px 5px 0 0}
+  .day.miss i{background:var(--red)}
+  .day em{display:block;font-style:normal;text-align:center;font-size:19px;color:var(--ink2);margin-top:10px}
+  .baseline{margin:0 56px;border-top:2px dashed var(--hair);position:relative;top:-6px}
+  .baseline span{display:block;text-align:right;font-size:18px;color:var(--ink2);padding-top:8px}
+
+  /* ── 节的统一签名 ── */
+  .section{display:flex;flex-direction:column}
+  .sec-body{padding:88px 56px 0;flex:1;display:flex;flex-direction:column}
+  .sig{display:flex;align-items:center;gap:18px}
+  .sig .n{font-family:"JetBrains Mono",monospace;font-size:30px;font-weight:500;color:var(--dawn);
+          border:2px solid var(--dawn);border-radius:50%;width:58px;height:58px;flex:none;
+          display:flex;align-items:center;justify-content:center}
+  .sig h2{font-size:42px;font-weight:800;letter-spacing:.01em;line-height:1.25}
+  .sig .sub{font-size:24px;color:var(--ink2);margin-top:6px;font-weight:400}
+  .main{flex:1;display:flex;flex-direction:column;justify-content:center}
+
+  /* S1 口径 */
+  .defs{background:var(--well);border-radius:14px;padding:30px 30px 26px}
+  .defs .row{display:flex;gap:16px;padding:16px 0;border-top:1px solid var(--hair2);font-size:24px;line-height:1.66}
+  .defs .row:first-child{border-top:0;padding-top:0}
+  .defs .row b{flex:none;font-weight:800}
+  .defs .row span{color:var(--ink2)}
+  .defs .row span b{color:var(--ink)}
+  .sched-note{font-size:19px;color:var(--ink2);margin-top:22px;line-height:1.6}
+
+  /* S2 一周流水 — 横条（满格 10h，基准线 8h = 80%） */
+  .bars{margin-bottom:6px}
+  .brow{display:flex;align-items:center;gap:14px;margin-bottom:24px}
+  .brow b{width:64px;font-size:24px;font-weight:800;flex:none}
+  .track{position:relative;flex:1;height:42px;background:var(--well);border-radius:8px;overflow:hidden}
+  .track .base{position:absolute;top:0;bottom:0;right:20%;width:2px;background:var(--ink);opacity:.55}
+  .track .sleep{position:absolute;left:0;top:0;bottom:0;background:var(--band)}
+  .track .repay{position:absolute;left:80%;width:5%;top:0;bottom:0;background:var(--green)}
+  .brow .def{width:120px;flex:none;text-align:right;font-family:"JetBrains Mono",monospace;font-size:24px;color:var(--red)}
+  .brow.zero .def{color:var(--green)}
+  .brow .def small{font-size:18px;color:var(--ink2)}
+
+  /* S3 累计曲线 */
+  .cum-hero{display:flex;align-items:center;gap:20px;margin-bottom:24px}
+  .cum-hero b{font-family:"JetBrains Mono",monospace;font-size:92px;font-weight:500;color:var(--red);letter-spacing:-.03em;line-height:1;flex:none}
+  .cum-hero span{font-size:25px;color:var(--ink2);line-height:1.55}
+  .cumwrap{background:#FBF6EA;border-radius:14px;padding:18px 14px 4px}
+  svg text{font-family:"JetBrains Mono",monospace}
+
+  /* S4 还款 */
+  .ledger{border-top:2px solid var(--ink)}
+  .lrow{display:flex;justify-content:space-between;align-items:baseline;padding:22px 4px;border-bottom:1px solid var(--hair);font-size:25px}
+  .lrow .v{font-family:"JetBrains Mono",monospace;font-size:32px;font-weight:500}
+  .lrow.plus .v{color:var(--green)}
+  .lrow.big{padding:28px 4px}
+  .lrow.big .v{font-size:66px;color:var(--red)}
+  .lrow.big b{font-size:27px;font-weight:800}
+
+  /* S5 三件小事 */
+  .habits{display:flex;flex-direction:column}
+  .habit{display:flex;gap:22px;padding:30px 0;border-top:1px solid var(--hair)}
+  .habit:first-child{border-top:0;padding-top:4px}
+  .habit .n{font-family:"JetBrains Mono",monospace;font-size:40px;font-weight:500;color:var(--band);width:66px;flex:none;line-height:1.15}
+  .habit b{display:block;font-size:27px;font-weight:800;line-height:1.4}
+  .habit p{font-size:24px;color:var(--ink2);line-height:1.66;margin-top:8px;max-width:26ch}
+
+  /* 收尾 */
+  .close .takeaway{font-size:34px;font-weight:800;line-height:1.62;max-width:19ch;margin-top:6px}
+  .recap{display:flex;margin-top:40px;border-top:1.5px solid var(--ink);border-bottom:1px solid var(--hair)}
+  .recap div{flex:1;padding:20px 6px 18px;border-left:1px solid var(--hair2)}
+  .recap div:first-child{border-left:0}
+  .recap b{display:block;font-family:"JetBrains Mono",monospace;font-size:52px;font-weight:500;line-height:1}
+  .recap .r1 b{color:var(--red)} .recap .r2 b{color:var(--green)} .recap .r3 b{color:var(--ink)}
+  .recap span{display:block;font-size:20px;color:var(--ink2);margin-top:8px}
+  .cta{
+    margin-top:44px;background:var(--dawn);color:#20150A;border-radius:16px;
+    min-height:108px;display:flex;align-items:center;justify-content:center;
+    font-size:28px;font-weight:800;padding:20px 28px;line-height:1.5;text-align:center;
+  }
+  .cta-note{font-size:19px;color:var(--ink2);margin-top:16px;text-align:center;line-height:1.6}
+
+  /* 节间留白：120–200px 变化 */
+  .s1{margin-bottom:96px}.s2{margin-bottom:88px}.s3{margin-bottom:120px}.s4{margin-bottom:72px}.s5{margin-bottom:104px}
+</style>
+</head>
+<body>
+
+  <!-- ── 封面：第 1 屏 ── -->
+  <div class="cover">
+    <div class="head">
+      <div class="kicker">一张图的睡眠算术 · 示例作息</div>
+      <h1>睡债<span>，</span><br>清算书</h1>
+      <p class="lead">睡不够不是感觉，是一笔每天累计、周末也还不完的账。这一张，按一个示例作息，一笔一笔算给你看。</p>
+    </div>
+    <div class="mid">
+      <div class="stat-plate">
+        <b>−8.0h</b>
+        <span>到周五晚上，这一周已经少睡的总量（口径见第 1 节）</span>
+      </div>
+      <div class="week">
+        <div class="day miss"><i style="height:91px"></i><em>一</em></div>
+        <div class="day miss"><i style="height:91px"></i><em>二</em></div>
+        <div class="day miss"><i style="height:77px"></i><em>三</em></div>
+        <div class="day miss"><i style="height:98px"></i><em>四</em></div>
+        <div class="day miss"><i style="height:91px"></i><em>五</em></div>
+        <div class="day"><i style="height:119px"></i><em>六</em></div>
+        <div class="day"><i style="height:119px"></i><em>日</em></div>
+      </div>
+      <div class="baseline"><span>七根柱 = 七晚实睡 · 时长口径见第 1 节</span></div>
+    </div>
+    <div class="rail"><b>睡债 · 一张图系列</b><span>01 / 05</span></div>
+  </div>
+
+  <!-- ── S1 口径：怎么算 ── -->
+  <div class="section s1" style="min-height:1238px">
+    <div class="sec-body">
+      <div class="sig">
+        <div class="n">1</div>
+        <div><h2>先说清楚怎么算</h2><div class="sub">三条口径，后面每个数字都从它们推出来</div></div>
+      </div>
+      <div class="main">
+        <div class="defs">
+          <div class="row"><b>基准</b><span>每晚记 <b>8.0 小时</b>——常用建议区间 7–9 小时的中值，示例用途，个体需求不同。</span></div>
+          <div class="row"><b>时长</b><span>一晚的睡眠 = <b>起床时刻 − 入睡时刻</b>，不估「感觉睡了多久」。</span></div>
+          <div class="row"><b>欠账</b><span>睡债 = 每晚 <b>（实睡 − 8.0）</b> 的累加；周末多睡按 <b>1:1</b> 冲抵，简化口径。</span></div>
+        </div>
+        <p class="sched-note">下面用一份示例作息演算。把它换成你自己的时刻，这张图就是你的账。</p>
+      </div>
+    </div>
+    <div class="rail"><b>睡债 · 示例作息测算</b><span>01 / 05</span></div>
+  </div>
+
+  <!-- ── S2 一周流水 ── -->
+  <div class="section s2" style="min-height:1246px">
+    <div class="sec-body">
+      <div class="sig">
+        <div class="n">2</div>
+        <div><h2>一周流水：五短，两补</h2><div class="sub">横条是实睡时长，右端是当天欠（还）下的小时</div></div>
+      </div>
+      <div class="main">
+        <div class="bars">
+          <div class="brow"><b>周一</b><div class="track"><div class="sleep" style="width:65%"></div><div class="base"></div></div><div class="def">−1.5<small>h</small></div></div>
+          <div class="brow"><b>周二</b><div class="track"><div class="sleep" style="width:65%"></div><div class="base"></div></div><div class="def">−1.5<small>h</small></div></div>
+          <div class="brow"><b>周三</b><div class="track"><div class="sleep" style="width:55%"></div><div class="base"></div></div><div class="def">−2.5<small>h</small></div></div>
+          <div class="brow"><b>周四</b><div class="track"><div class="sleep" style="width:70%"></div><div class="base"></div></div><div class="def">−1.0<small>h</small></div></div>
+          <div class="brow"><b>周五</b><div class="track"><div class="sleep" style="width:65%"></div><div class="base"></div></div><div class="def">−1.5<small>h</small></div></div>
+          <div class="brow zero"><b>周六</b><div class="track"><div class="sleep" style="width:80%"></div><div class="repay"></div><div class="base"></div></div><div class="def">+0.5<small>h</small></div></div>
+          <div class="brow zero"><b>周日</b><div class="track"><div class="sleep" style="width:80%"></div><div class="repay"></div><div class="base"></div></div><div class="def">+0.5<small>h</small></div></div>
+        </div>
+        <p class="sched-note">满格 = 10 小时；竖线是 8.0h 基准。工作日五短；周六日起 09:30 / 09:00，各多还半小时——「多睡」在这里是算术，不是补偿的错觉。</p>
+      </div>
+    </div>
+    <div class="rail"><b>睡债 · 示例作息测算</b><span>02 / 05</span></div>
+  </div>
+
+  <!-- ── S3 累计曲线 ── -->
+  <div class="section s3" style="min-height:1214px">
+    <div class="sec-body">
+      <div class="sig">
+        <div class="n">3</div>
+        <div><h2>账是滚动的：越到周五越重</h2><div class="sub">把第 2 节每天的差额累加起来看</div></div>
+      </div>
+      <div class="main">
+        <div class="cum-hero">
+          <b>−8.0h</b>
+          <span>周五晚上 24:00 清点——这周已经少睡了一整个工作日的量</span>
+        </div>
+        <div class="cumwrap">
+          <svg width="638" height="470" viewBox="0 0 638 470" role="img" aria-label="一周累计睡债曲线">
+            <g stroke="rgba(27,36,48,.12)" stroke-width="1">
+              <line x1="56" y1="30"    x2="610" y2="30"/>
+              <line x1="56" y1="156.7" x2="610" y2="156.7"/>
+              <line x1="56" y1="283.3" x2="610" y2="283.3"/>
+              <line x1="56" y1="410"   x2="610" y2="410"/>
+            </g>
+            <g font-size="18" fill="#5A6474">
+              <text x="44" y="36"    text-anchor="end">0</text>
+              <text x="44" y="162.7" text-anchor="end">−3</text>
+              <text x="44" y="289.3" text-anchor="end">−6</text>
+              <text x="44" y="416"   text-anchor="end">−9</text>
+            </g>
+            <path d="M89 93.3 L176 156.7 L263 262.2 L349 304.4 L436 367.8 L523 346.7 L610 325.6 L610 410 L89 410 Z"
+                  fill="rgba(192,67,44,.12)"/>
+            <path d="M89 93.3 L176 156.7 L263 262.2 L349 304.4 L436 367.8 L523 346.7 L610 325.6"
+                  fill="none" stroke="#C0432C" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+            <g fill="#C0432C">
+              <circle cx="89"  cy="93.3"  r="6"/><circle cx="176" cy="156.7" r="6"/>
+              <circle cx="263" cy="262.2" r="6"/><circle cx="349" cy="304.4" r="6"/>
+              <circle cx="436" cy="367.8" r="9"/><circle cx="523" cy="346.7" r="6"/>
+              <circle cx="610" cy="325.6" r="6"/>
+            </g>
+            <circle cx="436" cy="367.8" r="14" fill="none" stroke="#1B2430" stroke-width="1.5"/>
+            <text x="436" y="338" text-anchor="middle" font-size="19" fill="#C0432C" font-weight="500">−8.0</text>
+            <g font-size="19" fill="#1B2430">
+              <text x="89"  y="445" text-anchor="middle">一</text>
+              <text x="176" y="445" text-anchor="middle">二</text>
+              <text x="263" y="445" text-anchor="middle">三</text>
+              <text x="349" y="445" text-anchor="middle">四</text>
+              <text x="436" y="445" text-anchor="middle">五</text>
+              <text x="523" y="445" text-anchor="middle">六</text>
+              <text x="610" y="445" text-anchor="middle">日</text>
+            </g>
+          </svg>
+        </div>
+        <p class="sched-note">纵轴 0 到 −9 小时；周末两天把曲线抬回 −7.0，但只抬回一截——第 4 节算这笔冲抵。</p>
+      </div>
+    </div>
+    <div class="rail"><b>睡债 · 示例作息测算</b><span>03 / 05</span></div>
+  </div>
+
+  <!-- ── S4 周末还款测试 ── -->
+  <div class="section s4" style="min-height:1262px">
+    <div class="sec-body">
+      <div class="sig">
+        <div class="n">4</div>
+        <div><h2>周末补觉测试</h2><div class="sub">把第 3 节的账拿到周末结一次</div></div>
+      </div>
+      <div class="main">
+        <div class="ledger">
+          <div class="lrow"><span>到周五晚 24:00，应还</span><span class="v">8.0h</span></div>
+          <div class="lrow plus"><span>周六 01:00 – 09:30，多睡还入</span><span class="v">+0.5h</span></div>
+          <div class="lrow plus"><span>周日 00:30 – 09:00，多睡还入</span><span class="v">+0.5h</span></div>
+          <div class="lrow"><span>周末两天实还</span><span class="v">1.0h</span></div>
+          <div class="lrow big"><b>带着余债进下周</b><span class="v">−7.0h</span></div>
+        </div>
+        <p class="sched-note">冲抵按 1:1 线性简化——真实的偿还率因人而异，只会更不利：睡眠的效率损耗，不是加法能还平的。</p>
+      </div>
+    </div>
+    <div class="rail"><b>睡债 · 示例作息测算</b><span>04 / 05</span></div>
+  </div>
+
+  <!-- ── S5 三件小事 ── -->
+  <div class="section s5" style="min-height:1230px">
+    <div class="sec-body">
+      <div class="sig">
+        <div class="n">5</div>
+        <div><h2>把账记小的三件小事</h2><div class="sub">不是医学建议，是让差额别再滚大的生活算术</div></div>
+      </div>
+      <div class="main">
+        <div class="habits">
+          <div class="habit">
+            <div class="n">01</div>
+            <div style="flex:1">
+              <b>先钉住起床，而不是入睡</b>
+              <p>起床时间比入睡意志好守。起床锚稳了，晚上的困意会自己往前挪。</p>
+            </div>
+          </div>
+          <div class="habit">
+            <div class="n">02</div>
+            <div style="flex:1">
+              <b>午后两点后不续杯</b>
+              <p>咖啡因的常见参考半衰期约 5 小时——下午那杯，会站到深夜的岗。</p>
+            </div>
+          </div>
+          <div class="habit">
+            <div class="n">03</div>
+            <div style="flex:1">
+              <b>小睡给 20 分钟上限</b>
+              <p>常见建议 20 分钟左右：够还困意，不至于睡沉；睡过头反而吃掉晚上的觉。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="rail"><b>睡债 · 示例作息测算</b><span>05 / 05</span></div>
+  </div>
+
+  <!-- ── 收尾 ── -->
+  <div class="section close" style="min-height:1050px">
+    <div class="sec-body">
+      <div class="sig">
+        <div class="n" style="border-color:var(--band);color:var(--band)">账</div>
+        <div><h2>合上账本</h2></div>
+      </div>
+      <div class="main">
+        <p class="takeaway">睡债不是感觉，是加减法——它每周五晚上清点一次。</p>
+        <div class="recap">
+          <div class="r1"><b>−8.0h</b><span>周五晚欠下</span></div>
+          <div class="r2"><b>+1.0h</b><span>周末还入</span></div>
+          <div class="r3"><b>−7.0h</b><span>带进下周</span></div>
+        </div>
+        <div class="cta">把这张图发给那个总说「我睡得少」的朋友</div>
+        <p class="cta-note">示例作息 · 基准 8.0h 为常见建议区间 7–9h 的中值 · 换成你自己的时刻再算一次</p>
+      </div>
+    </div>
+    <div class="rail"><b>睡债 · 一张图系列</b><span>05 / 05</span></div>
+  </div>
+
+</body>
+</html>

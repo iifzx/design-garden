@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>睡债 DEAL — direction 1, stat plate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EEF1F5; --ink:#1B2430; --band:#3D5A80; --dawn:#E8863A;
+    --red:#C0432C; --green:#3E7C4F; --hair:rgba(27,36,48,.22);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{width:1440px;height:900px;background:#121417;color:#EDEFF2;font-family:"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;
+       display:flex;align-items:center;gap:64px;padding:0 90px}
+  .frame{width:505px;height:900px;flex:none;position:relative;transform-origin:top left}
+  .canvas{width:750px;height:1334px;background:var(--paper);color:var(--ink);transform:scale(.6733);transform-origin:top left;
+          display:flex;flex-direction:column}
+  .top{background:var(--band);color:#F2F5F8;padding:64px 56px 48px}
+  .kicker{font-family:"JetBrains Mono",monospace;font-size:18px;letter-spacing:.3em;color:#BFD0E4}
+  h1{font-size:104px;font-weight:800;letter-spacing:.04em;line-height:1.08;margin-top:18px}
+  h1 span{color:#F4B87F}
+  .lead{font-size:29px;line-height:1.62;margin-top:26px;color:#D8E1EC;max-width:31ch}
+  .mid{flex:1;display:flex;align-items:center;justify-content:center;position:relative}
+  .stat{position:absolute;left:0;right:0;top:-86px;text-align:center}
+  .stat b{font-family:"JetBrains Mono",monospace;font-size:150px;font-weight:500;color:var(--red);letter-spacing:-.04em}
+  .stat span{display:block;font-size:26px;color:rgba(27,36,48,.7);margin-top:6px}
+  .week{margin-top:150px;display:flex;gap:10px;justify-content:center;align-items:flex-end;height:150px;padding:0 56px}
+  .day{width:56px;display:flex;flex-direction:column;justify-content:flex-end;gap:0;position:relative}
+  .day i{display:block;background:var(--band);border-radius:4px 4px 0 0}
+  .day.miss i{background:var(--red)}
+  .day em{position:absolute;left:50%;transform:translateX(-50%);bottom:-30px;font-style:normal;font-size:18px;color:rgba(27,36,48,.65)}
+  .baseline{position:relative;margin:44px 56px 0;border-top:2px dashed var(--hair)}
+  .baseline span{position:absolute;right:0;top:8px;font-size:18px;color:rgba(27,36,48,.6)}
+  .foot{padding:36px 56px 40px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--hair)}
+  .foot b{font-size:20px;font-weight:600}
+  .foot span{font-family:"JetBrains Mono",monospace;font-size:18px;color:rgba(27,36,48,.6)}
+  .note{width:600px}
+  .no{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.2em;color:#8A8F96}
+  h2{font-size:42px;font-weight:800;letter-spacing:-.01em;margin:10px 0 14px}
+  .essence{font-size:17px;line-height:1.6;color:#B9BEC5;max-width:44ch}
+  .spec{margin-top:26px;border-top:1px solid #3A3D42;padding-top:18px;display:grid;grid-template-columns:150px 1fr;row-gap:12px;font-size:14px}
+  .spec dt{color:#8A8F96;font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.1em;padding-top:2px}
+  .spec dd{color:#E2E4E8;line-height:1.55}
+</style>
+</head>
+<body>
+  <div class="frame"><div class="canvas">
+    <div class="top">
+      <div class="kicker">一张图的睡眠算术</div>
+      <h1>睡债<span>，</span><br>清算书</h1>
+      <p class="lead">睡不够不是感觉，是一笔每天累计、周末也还不完的账。这一张，按一个示例作息，一笔一笔算给你看。</p>
+    </div>
+    <div class="mid">
+      <div class="stat"><b>−8.0h</b><span>到周五晚上，这一周已经少睡的总量</span></div>
+      <div class="week" style="width:100%">
+        <div class="day miss" style="height:98px"><i style="height:100%"></i><em>一</em></div>
+        <div class="day miss" style="height:98px"><i style="height:100%"></i><em>二</em></div>
+        <div class="day miss" style="height:83px"><i style="height:100%"></i><em>三</em></div>
+        <div class="day miss" style="height:108px"><i style="height:100%"></i><em>四</em></div>
+        <div class="day miss" style="height:98px"><i style="height:100%"></i><em>五</em></div>
+        <div class="day" style="height:120px"><i style="height:100%"></i><em>六</em></div>
+        <div class="day" style="height:120px"><i style="height:100%"></i><em>日</em></div>
+      </div>
+      <div class="baseline"><span>基准 8h — 口径见第 1 节</span></div>
+    </div>
+    <div class="foot"><b>睡债 · 一张图系列</b><span>01 / 05</span></div>
+  </div></div>
+  <div class="note">
+    <div class="no">DIRECTION 01</div>
+    <h2>账本蓝 · 巨数封盘</h2>
+    <p class="essence">封面即结论：被单蓝的题头版面下压一枚 −8.0h 的红色巨数，下面排一周的睡眠小柱。读者滑动之前先拿到论点——"这一周欠了 8 小时"——再用余下五节证明它。</p>
+    <dl class="spec">
+      <dt>PALETTE</dt><dd>雾蓝纸 + 被单蓝题头 + 深夜蓝黑墨 + 晨橘点缀；欠账红只给数字</dd>
+      <dt>TYPE</dt><dd>系统黑体 800 做中文展示字重；JetBrains Mono 管所有数字</dd>
+      <dt>FORM</dt><dd>题头版块 + 居中巨数 + 一周条形锚图；冷蓝家族，全作品集里第一件冷色</dd>
+      <dt>MOTIF</dt><dd>"账"——数字是主角，晨橘只留给最后一节的 CTA</dd>
+    </dl>
+  </div>
+</body>
+</html>

@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Peso — onboarding prototype (tap-through, 375×812)</title>
+<!--
+  Peso onboarding — ui-mobile-01 example-set deliverable
+  Direction: "Receipt drawer" (DEAL evidence in deal/, sheet: deal/deal-sheet.png)
+  States: #s1 welcome · #s2 income rhythm · #s3 savings goal · #s4 bank connect
+          #s4f bank connect with the failed-connection card open · #s5 home (empty)
+  The hash router exists so capture.html can pin each state for screenshots;
+  open onboarding.html bare for the tap-through flow.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Spline+Sans+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* receipt tokens — paper, ink, stamp red, ledger mint */
+    --paper:#F7F4EE; --well:#F0EBE0; --ink:#241E17; --ink-2:#5D564B;
+    --stamp:#B23A2E; --mint:#2F6B4F; --dashes:rgba(36,30,23,.42); --hair:rgba(36,30,23,.24);
+    --error:#B23A2E; --success:#2F6B4F; --warning:#96601A; --info:#3D5A80;
+    --r-s:8px; --r-m:12px;
+    --t-in:260ms; --t-out:180ms;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    width:375px;height:100dvh;background:var(--paper);color:var(--ink);
+    font-family:"Bricolage Grotesque",sans-serif;font-size:16px;line-height:1.5;
+    overflow:hidden;position:relative;
+  }
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  .tap{transition:transform 120ms ease}
+  .tap:active{transform:scale(0.97)}
+  :focus-visible{outline:2px solid var(--stamp);outline-offset:2px;border-radius:4px}
+
+  .screen{
+    position:absolute;inset:0;display:flex;flex-direction:column;
+    padding:0 24px calc(20px + env(safe-area-inset-bottom));
+    visibility:hidden;opacity:0;transform:translateX(28px);
+    transition:opacity var(--t-out) ease, transform var(--t-out) ease, visibility 0s var(--t-out);
+  }
+  .screen.on{visibility:visible;opacity:1;transform:none;transition:opacity var(--t-in) ease, transform var(--t-in) ease}
+  .screen.leaving-back{transform:translateX(-28px)}
+  @starting-style{.screen.on{opacity:0;transform:translateX(28px)}}
+  @media (prefers-reduced-motion: reduce){
+    .screen,.tap{transition:none}
+    .screen{transform:none}
+  }
+
+  /* chrome strip: back · wordmark · step */
+  .bar{display:flex;align-items:center;gap:12px;padding-top:calc(18px + env(safe-area-inset-top));min-height:58px}
+  .bar .back{width:44px;height:44px;margin:-10px 0 0 -10px;display:flex;align-items:center;justify-content:center}
+  .bar .back svg{width:20px;height:20px}
+  .bar .mark{font-weight:800;font-size:20px;letter-spacing:-.02em}
+  .bar .step{margin-left:auto;font-family:"Spline Sans Mono",monospace;font-size:12px;letter-spacing:.12em;color:var(--stamp)}
+  .head{flex:0 0 auto}
+  .manifest{margin-top:34px;border:1.5px dashed var(--dashes);border-radius:var(--r-m);padding:2px 18px}
+  .m-line{font-family:"Spline Sans Mono",monospace;font-size:12px;letter-spacing:.1em;color:var(--ink-2);
+          padding:13px 0;border-top:1px dashed var(--dashes)}
+  .m-line:first-child{border-top:0}
+  .m-line span{display:inline-block;width:26px;height:26px;margin:9px 12px 0 0;border:1.5px solid var(--ink);border-radius:50%;
+          text-align:center;line-height:24px;color:var(--ink);vertical-align:top}
+  .tear{border-top:1.5px dashed var(--dashes);margin:14px 0 0}
+  h1{font-size:28px;font-weight:800;line-height:1.16;letter-spacing:-.01em;padding-top:20px;max-width:17ch}
+  h1 .red{color:var(--stamp)}
+  .lede{font-size:15.5px;color:var(--ink-2);padding-top:8px;max-width:32ch}
+  .body{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding-top:6px}
+  .actions{flex:0 0 auto;padding-top:12px}
+  .tear2{border-top:1.5px dashed var(--dashes);margin-bottom:14px}
+
+  .cta{
+    display:flex;align-items:center;justify-content:center;width:100%;height:56px;
+    background:var(--ink);color:var(--paper);border-radius:var(--r-s);
+    font-size:17px;font-weight:600;
+  }
+  .ghost{
+    display:flex;align-items:center;justify-content:center;width:100%;height:44px;margin-top:6px;
+    color:var(--ink-2);font-size:14.5px;font-weight:400;
+  }
+  .ghost u{text-underline-offset:3px}
+
+  /* s2 — income rhythm: receipt line items */
+  .rows{padding-top:4px}
+  .row{display:flex;gap:14px;align-items:flex-start;width:100%;text-align:left;padding:16px 2px;min-height:76px;border-top:1px dashed var(--dashes)}
+  .row:first-child{border-top:0}
+  .tick{width:24px;height:24px;flex:none;border:1.5px solid var(--ink);border-radius:4px;margin-top:1px;position:relative}
+  .row[aria-checked="true"] .tick{background:var(--stamp);border-color:var(--stamp)}
+  .row[aria-checked="true"] .tick::after{content:"";position:absolute;inset:5px 6px 8px;border-left:2px solid var(--paper);border-bottom:2px solid var(--paper);transform:rotate(-45deg)}
+  .row b{display:block;font-size:17.5px;font-weight:600;line-height:1.25}
+  .row span{display:block;font-size:14px;line-height:1.45;color:var(--ink-2);margin-top:2px;max-width:24ch}
+  .row[aria-checked="true"] b{color:var(--stamp)}
+
+  /* s3 — savings goal: big mono figure + steppers */
+  .goal-well{background:var(--well);border-radius:var(--r-m);padding:22px 20px 20px;margin-top:14px}
+  .goal-label{font-family:"Spline Sans Mono",monospace;font-size:12px;letter-spacing:.14em;color:var(--ink-2)}
+  .goal-line{display:flex;align-items:center;gap:12px;margin-top:12px}
+  .stepper{width:48px;height:48px;flex:none;border:1.5px solid var(--ink);border-radius:var(--r-s);display:flex;align-items:center;justify-content:center;background:var(--paper)}
+  .stepper svg{width:18px;height:18px}
+  .amount{flex:1;text-align:center;font-family:"Spline Sans Mono",monospace;font-size:34px;font-weight:400;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+  .amount input{
+    width:100%;border:0;background:none;color:inherit;font:inherit;text-align:center;
+    font-variant-numeric:tabular-nums;caret-color:var(--stamp);
+  }
+  .amount input:focus-visible{outline:2px solid var(--stamp);outline-offset:4px;border-radius:4px}
+  .presets{display:flex;gap:8px;margin-top:16px}
+  .chip{
+    flex:1;height:44px;border:1.5px solid var(--hair);border-radius:var(--r-s);background:var(--paper);
+    font-family:"Spline Sans Mono",monospace;font-size:14px;font-variant-numeric:tabular-nums;
+  }
+  .chip[aria-pressed="true"]{border-color:var(--stamp);color:var(--stamp)}
+  .goal-note{font-size:13px;color:var(--ink-2);margin-top:14px}
+
+  /* s4 — bank connect + failure card */
+  .connect-well{background:var(--well);border-radius:var(--r-m);padding:18px 18px 6px;margin-top:14px}
+  .connect-well p{font-size:16px;line-height:1.5;color:var(--ink-2);padding-bottom:14px}
+  .fail{
+    margin-top:12px;background:#FBEFEC;border:1.5px solid var(--error);border-radius:var(--r-m);
+    padding:16px 16px 18px;display:none;
+  }
+  .fail.on{display:block}
+  .fail h2{font-size:16.5px;font-weight:600;color:var(--error);display:flex;align-items:center;gap:8px}
+  .fail h2 svg{width:18px;height:18px;flex:none}
+  .fail p{font-size:16px;line-height:1.5;color:var(--ink);padding:8px 0 12px}
+  .fail .row2{display:flex;gap:10px}
+  .fail .row2 button{
+    flex:1;min-height:44px;border-radius:var(--r-s);font-size:14px;font-weight:600;
+    border:1.5px solid var(--error);color:var(--error);padding:10px 12px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .fail .row2 button.solid{background:var(--error);color:#FDF9F5}
+
+  /* s5 — home, empty state */
+  .home-head{display:flex;align-items:baseline;justify-content:space-between;padding-top:22px}
+  .home-head .wk{font-size:24px;font-weight:800;letter-spacing:-.01em}
+  .home-head .rng{font-family:"Spline Sans Mono",monospace;font-size:12px;letter-spacing:.14em;color:var(--ink-2)}
+  .empty{
+    margin-top:18px;border:1.5px dashed var(--dashes);border-radius:var(--r-m);
+    padding:26px 20px;text-align:center;
+  }
+  .empty .fig{font-family:"Spline Sans Mono",monospace;font-size:40px;font-weight:400;color:var(--ink);font-variant-numeric:tabular-nums}
+  .empty b{display:block;font-size:16.5px;font-weight:600;margin-top:8px}
+  .empty p{font-size:16px;line-height:1.5;color:var(--ink-2);margin:6px auto 0;max-width:28ch}
+  .goalcard{background:var(--well);border-radius:var(--r-m);padding:18px 18px 16px;margin-top:16px}
+  .goalcard .lab{font-family:"Spline Sans Mono",monospace;font-size:12px;letter-spacing:.14em;color:var(--ink-2)}
+  .goalcard .val{display:flex;align-items:baseline;justify-content:space-between;margin-top:8px}
+  .goalcard .val b{font-family:"Spline Sans Mono",monospace;font-size:26px;font-weight:400;font-variant-numeric:tabular-nums}
+  .goalcard .val span{font-size:12.5px;color:var(--ink-2)}
+  .track{height:6px;background:var(--paper);border-radius:3px;margin-top:10px;overflow:hidden}
+  .track i{display:block;height:100%;width:0%;background:var(--mint);border-radius:3px}
+  .home-cta{margin-top:16px}
+  .rhythm-line{font-size:13px;color:var(--ink-2);margin-top:12px}
+  .rhythm-line b{color:var(--ink);font-weight:600}
+
+  /* landscape check — two-column ergonomics under 500px height */
+  @media (orientation: landscape) and (max-height: 500px){
+    body{width:100%;height:100dvh}
+    .screen{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto 1fr auto;column-gap:28px;
+            padding:0 32px calc(16px + env(safe-area-inset-bottom))}
+    .bar{grid-column:1 / -1}
+    .head{grid-column:1;grid-row:2}
+    .body{grid-column:2;grid-row:2;padding-top:20px;overflow-y:auto}
+    .actions{grid-column:1 / -1;grid-row:3}
+    h1{padding-top:8px;font-size:24px}
+  }
+</style>
+</head>
+<body>
+
+  <!-- S1 · welcome -->
+  <section class="screen on" id="s1" aria-label="Welcome">
+    <div class="bar"><div class="mark">peso</div><div class="step">WELCOME</div></div>
+    <div class="head">
+      <h1>Paid Tuesday.<br>Rent due <span class="red">Friday.</span></h1>
+      <p class="lede">Peso budgets around the way gig income actually lands — daily, weekly, or all mixed up.</p>
+      <div class="tear"></div>
+    </div>
+    <div class="body">
+      <div class="manifest">
+        <div class="m-line"><span>1</span>RHYTHM — HOW PAY LANDS</div>
+        <div class="m-line"><span>2</span>GOAL — ONE FIRST TARGET</div>
+        <div class="m-line"><span>3</span>BANK — OPTIONAL</div>
+      </div>
+    </div>
+    <div class="actions">
+      <div class="tear2"></div>
+      <button class="cta tap" data-go="s2">Set up in 2 minutes</button>
+      <button class="ghost tap" data-go="s5"><u>Look around first</u></button>
+    </div>
+  </section>
+
+  <!-- S2 · income rhythm -->
+  <section class="screen" id="s2" aria-label="Income rhythm">
+    <div class="bar">
+      <button class="back tap" data-go="s1" aria-label="Back to welcome">
+        <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M12.5 4 6.5 10l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="mark">peso</div><div class="step">STEP 1 / 3</div>
+    </div>
+    <div class="head">
+      <h1>How does the money come&nbsp;in?</h1>
+      <p class="lede">Peso builds the weekly budget around your answer — not around a payday that never comes.</p>
+      <div class="tear"></div>
+    </div>
+    <div class="body">
+      <div class="rows" role="radiogroup" aria-label="Income rhythm">
+        <button class="row tap" role="radio" aria-checked="true" data-rhythm="daily">
+          <div class="tick"></div>
+          <div><b>Daily</b><span>Most days pay something. Rides, shifts, small jobs.</span></div>
+        </button>
+        <button class="row tap" role="radio" aria-checked="false" data-rhythm="weekly">
+          <div class="tick"></div>
+          <div><b>Weekly</b><span>A payday lands each week. Rosters, retainers.</span></div>
+        </button>
+        <button class="row tap" role="radio" aria-checked="false" data-rhythm="mixed">
+          <div class="tick"></div>
+          <div><b>Mixed</b><span>Some weeks daily, some weekly. It varies.</span></div>
+        </button>
+      </div>
+    </div>
+    <div class="actions">
+      <div class="tear2"></div>
+      <button class="cta tap" data-go="s3">Continue</button>
+      <button class="ghost tap" data-go="s5"><u>Skip for now</u></button>
+    </div>
+  </section>
+
+  <!-- S3 · first savings goal -->
+  <section class="screen" id="s3" aria-label="Savings goal">
+    <div class="bar">
+      <button class="back tap" data-go="s2" aria-label="Back to income rhythm">
+        <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M12.5 4 6.5 10l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="mark">peso</div><div class="step">STEP 2 / 3</div>
+    </div>
+    <div class="head">
+      <h1>Pick a first goal</h1>
+      <p class="lede">Something specific beats something big. You can change it any time.</p>
+      <div class="tear"></div>
+    </div>
+    <div class="body">
+      <div class="goal-well">
+        <div class="goal-label">FIRST GOAL</div>
+        <div class="goal-line">
+          <button class="stepper tap" data-step="-500" aria-label="Decrease goal by 500 pesos">
+            <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M3 9h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+          <div class="amount"><input id="goal" inputmode="numeric" value="2,500" aria-label="Goal amount in pesos"></div>
+          <button class="stepper tap" data-step="500" aria-label="Increase goal by 500 pesos">
+            <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M9 3v12M3 9h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+        <div class="presets" role="group" aria-label="Preset amounts">
+          <button class="chip tap" data-preset="1000">1,000</button>
+          <button class="chip tap" data-preset="2500" aria-pressed="true">2,500</button>
+          <button class="chip tap" data-preset="5000">5,000</button>
+        </div>
+        <p class="goal-note">Start anywhere — even ₱500 a month holds the habit.</p>
+      </div>
+    </div>
+    <div class="actions">
+      <div class="tear2"></div>
+      <button class="cta tap" data-go="s4">Save this goal</button>
+      <button class="ghost tap" data-go="s4"><u>Do it later</u></button>
+    </div>
+  </section>
+
+  <!-- S4 · bank connect (optional) -->
+  <section class="screen" id="s4" aria-label="Connect a bank">
+    <div class="bar">
+      <button class="back tap" data-go="s3" aria-label="Back to savings goal">
+        <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M12.5 4 6.5 10l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="mark">peso</div><div class="step">STEP 3 / 3</div>
+    </div>
+    <div class="head">
+      <h1>Connect a bank <span class="red">(optional)</span></h1>
+      <p class="lede">Peso can read income as it lands. Plain receipts work too — you can add those by hand.</p>
+      <div class="tear"></div>
+    </div>
+    <div class="body">
+      <div class="connect-well">
+        <p>Connecting is read-only. Peso never moves money, and receipts still count without it.</p>
+        <div class="fail" id="fail" role="alert">
+          <h2>
+            <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.5" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M9 5.5v4.2M9 12.4v.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            Couldn't reach your bank
+          </h2>
+          <p>Check your login in the bank's own app, or start with receipts — Peso fills the week either way.</p>
+          <div class="row2">
+            <button class="tap solid" id="retry">Try again</button>
+            <button class="tap" data-go="s5">Use receipts instead</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="actions">
+      <div class="tear2"></div>
+      <button class="cta tap" id="connect">Connect your bank</button>
+      <button class="ghost tap" data-go="s5"><u>Skip for now — receipts work</u></button>
+    </div>
+  </section>
+
+  <!-- S5 · home, empty state -->
+  <section class="screen" id="s5" aria-label="Home">
+    <div class="bar">
+      <div class="mark">peso</div>
+    </div>
+    <div class="home-head">
+      <div class="wk">This week</div>
+      <div class="rng" id="home-rhythm">NO ENTRIES YET</div>
+    </div>
+    <div class="body">
+      <div class="empty">
+        <div class="fig">₱0.00</div>
+        <b>Nothing logged yet</b>
+        <p>Log income the moment it lands — Peso does the weekly math and keeps Friday funded.</p>
+      </div>
+      <div class="goalcard">
+        <div class="lab">FIRST GOAL</div>
+        <div class="val"><b id="home-goal">₱2,500</b><span>0% saved</span></div>
+        <div class="track"><i id="home-track"></i></div>
+      </div>
+      <p class="rhythm-line" id="home-note">Tip: <b>Daily</b> weeks budget by day, so a slow Tuesday never breaks the month.</p>
+    </div>
+    <div class="actions">
+      <div class="tear2"></div>
+      <button class="cta tap">Add first entry</button>
+      <button class="ghost tap"><u>Add an expense instead</u></button>
+    </div>
+  </section>
+
+<script>
+  const state = { rhythm: "daily", goal: 2500 };
+  const screens = [...document.querySelectorAll(".screen")];
+  let current = "s1";
+
+  function show(id, back = false){
+    if (id === current) return;
+    const from = document.getElementById(current);
+    const to = document.getElementById(id);
+    from.classList.remove("on");
+    from.classList.toggle("leaving-back", back);
+    to.classList.toggle("leaving-back", back);
+    to.classList.add("on");
+    current = id;
+    if (id === "s5") paintHome();
+  }
+  document.addEventListener("click", (e) => {
+    const t = e.target.closest("[data-go]");
+    if (t) show(t.dataset.go, false);
+  });
+
+  // hash router — lets capture.html pin any state for screenshots
+  function route(){
+    const h = location.hash.replace("#","");
+    if (!h) return;
+    if (h === "s4f"){ document.getElementById("fail").classList.add("on"); show("s4"); }
+    else if (h.startsWith("s")) show(h);
+  }
+  window.addEventListener("hashchange", route); route();
+
+  // income rhythm — one live value, commit on release
+  document.querySelectorAll(".row").forEach(row => row.addEventListener("click", () => {
+    document.querySelectorAll(".row").forEach(r => r.setAttribute("aria-checked", String(r === row)));
+    state.rhythm = row.dataset.rhythm;
+  }));
+
+  // goal steppers + presets — animate from the live on-screen value
+  const input = document.getElementById("goal");
+  const fmt = n => Math.max(0, n).toLocaleString("en-PH");
+  function paintGoal(){
+    input.value = fmt(state.goal);
+    document.querySelectorAll(".chip").forEach(c =>
+      c.setAttribute("aria-pressed", String(Number(c.dataset.preset) === state.goal)));
+  }
+  document.querySelectorAll(".stepper").forEach(s => s.addEventListener("click", () => {
+    state.goal = Math.max(500, state.goal + Number(s.dataset.step)); paintGoal();
+  }));
+  document.querySelectorAll(".chip").forEach(c => c.addEventListener("click", () => {
+    state.goal = Number(c.dataset.preset); paintGoal();
+  }));
+  input.addEventListener("change", () => {
+    const n = Number(String(input.value).replace(/[^0-9]/g,""));
+    state.goal = Number.isFinite(n) && n > 0 ? n : 2500; paintGoal();
+  });
+  // the keyboard never covers the field: keep the well in view on focus
+  input.addEventListener("focus", () => {
+    input.closest(".body").scrollIntoView({ block: "nearest", behavior: "smooth" });
+  });
+
+  // bank connect — first attempt fails in the demo, states the fix
+  document.getElementById("connect").addEventListener("click", () => {
+    document.getElementById("fail").classList.add("on");
+    document.getElementById("retry").focus({ preventScroll: true });
+  });
+  document.getElementById("retry").addEventListener("click", () => {
+    document.getElementById("fail").classList.remove("on");
+  });
+
+  // home carries the choices made earlier — nothing is re-asked
+  function paintHome(){
+    document.getElementById("home-goal").textContent = "₱" + fmt(state.goal);
+    document.getElementById("home-track").style.width = "0%";
+    document.getElementById("home-rhythm").textContent = state.rhythm.toUpperCase() + " INCOME";
+    const notes = {
+      daily:  'Tip: <b>Daily</b> weeks budget by day, so a slow Tuesday never breaks the month.',
+      weekly: 'Tip: <b>Weekly</b> paydays split into day envelopes the morning they land.',
+      mixed:  'Tip: <b>Mixed</b> months budget from your quietest week — the loud ones top it up.'
+    };
+    document.getElementById("home-note").innerHTML = notes[state.rhythm];
+  }
+</script>
+</body>
+</html>

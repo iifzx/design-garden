@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Percolate — logo system & mini brand guide (example-set)</title>
+<!--
+  Percolate — logo-brand-01 example-set deliverable
+  Direction: "Bubble P" (DEAL evidence in deal/, sheet: deal/deal-sheet.png)
+  One board: construction · clear space · min sizes · 4 variants × 4 colorways ·
+  survival tests (16px / silhouette / blur / kraft / stainless / chalk) ·
+  palette + ratio · voice · don'ts.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;600;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --espresso:#201711; --crema:#F5EDDF; --crema-2:#EDE2CD; --crema-3:#E2D4B8;
+    --cherry:#C2452E; --leaf:#5F7355; --kraft:#C9A87C; --steel-1:#DDDFE1; --steel-2:#B4B8BB;
+    --chalk:#2B2E2B; --chalkink:#E7E2D6;
+    --hair:rgba(32,23,17,.24); --hair2:rgba(32,23,17,.12);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{width:1200px;background:var(--crema);color:var(--espresso);
+       font-family:"Gabarito",sans-serif;font-size:16px;line-height:1.5;padding:56px 64px 48px}
+  .mono{font-family:"JetBrains Mono",monospace}
+  .label{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.14em;color:rgba(32,23,17,.62)}
+
+  /* masthead */
+  .mast{display:flex;align-items:center;gap:18px;padding-bottom:22px;border-bottom:2px solid var(--espresso)}
+  .mast .wm{font-weight:800;font-size:44px;letter-spacing:-.02em}
+  .mast .pos{margin-left:auto;max-width:420px;font-size:15px;line-height:1.5;color:rgba(32,23,17,.78);border-left:2px solid var(--cherry);padding-left:16px}
+  .mast .pos b{color:var(--espresso)}
+
+  section{margin-top:40px}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:18px}
+  .sec-head h2{font-size:24px;font-weight:800;letter-spacing:-.01em}
+  .sec-head .label{margin-left:auto}
+
+  /* construction + clear space + min sizes */
+  .mk-row{display:flex;gap:24px;align-items:stretch}
+  .panel{border:1px solid var(--hair);border-radius:12px;background:#FBF6EA;padding:20px}
+  .panel .label{display:block;margin-bottom:12px}
+  .construct{flex:1.35}
+  .clear-min{flex:1;display:flex;flex-direction:column;gap:24px}
+  .min-row{display:flex;align-items:flex-end;gap:26px;margin-top:8px}
+
+  /* variants × colorways */
+  .mx{border:1px solid var(--hair);border-radius:12px;overflow:hidden}
+  .mx-corner{background:#FBF6EA;padding:10px 14px;font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.12em;color:rgba(32,23,17,.62);display:flex;align-items:center}
+  .mx-row{display:grid;grid-template-columns:150px repeat(4,1fr)}
+  .mx-row + .mx-row{border-top:1px solid var(--hair2)}
+  .mx-name{background:#FBF6EA;padding:10px 14px;font-weight:600;font-size:15px;display:flex;flex-direction:column;justify-content:center;gap:2px}
+  .mx-name small{font-weight:400;font-size:12px;color:rgba(32,23,17,.6)}
+  .cell{display:flex;align-items:center;justify-content:center;min-height:104px;background:var(--crema);border-left:1px solid var(--hair2)}
+  .cell.dark{background:var(--espresso)}
+  .wm-t{font-weight:800;letter-spacing:-.02em}
+
+  /* survival tests */
+  .tests{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+  .test{border:1px solid var(--hair);border-radius:12px;overflow:hidden}
+  .test .stage{height:112px;display:flex;align-items:center;justify-content:center;background:#FBF6EA}
+  .test .cap{padding:9px 12px;font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.1em;color:rgba(32,23,17,.62);border-top:1px solid var(--hair2)}
+
+  /* palette */
+  .pal{display:flex;gap:14px;margin-bottom:14px}
+  .sw{flex:1;border:1px solid var(--hair);border-radius:12px;overflow:hidden}
+  .sw .chip{height:84px}
+  .sw .meta{padding:10px 12px;background:#FBF6EA}
+  .sw .meta b{display:block;font-size:15px;font-weight:600}
+  .sw .meta span{font-size:12.5px;color:rgba(32,23,17,.65)}
+  .sw .meta .mono{font-size:12px;letter-spacing:.06em;color:rgba(32,23,17,.55);display:block;margin-top:3px}
+  .ratio{display:flex;height:44px;border-radius:10px;overflow:hidden;border:1px solid var(--hair)}
+  .ratio div{display:flex;align-items:center;padding:0 14px;font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.08em}
+  .ratio-note{font-size:13px;color:rgba(32,23,17,.65);margin-top:10px}
+
+  /* voice */
+  .voice{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .vp{border:1px solid var(--hair);border-radius:12px;padding:16px 16px 14px;background:#FBF6EA}
+  .vp b{display:block;font-size:18px;font-weight:600;line-height:1.3}
+  .vp b i{font-style:normal;color:var(--cherry);font-weight:800}
+  .vp p{font-size:14px;color:rgba(32,23,17,.7);margin-top:8px}
+
+  /* don'ts */
+  .donts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .dont{border:1px solid var(--hair);border-radius:12px;background:#FBF6EA;position:relative;overflow:hidden}
+  .dont .stage{height:96px;display:flex;align-items:center;justify-content:center}
+  .dont .cap{padding:8px 12px;border-top:1px solid var(--hair2);font-size:12.5px;color:var(--cherry);font-weight:600}
+  .xline{position:absolute;inset:0;pointer-events:none}
+  .xline::before,.xline::after{content:"";position:absolute;left:10%;right:10%;top:50%;height:1.5px;background:rgba(194,69,46,.55)}
+  .xline::before{transform:rotate(14deg)}
+  .xline::after{transform:rotate(-14deg)}
+
+  footer{margin-top:44px;border-top:2px solid var(--espresso);padding-top:16px;display:flex;gap:24px;align-items:baseline}
+  footer .label{margin-right:auto}
+  footer p{font-size:14px;color:rgba(32,23,17,.65);max-width:52ch}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="mk" viewBox="0 0 100 100">
+      <path d="M22 14 h16 a4 4 0 0 1 4 4 v64 a4 4 0 0 1 -4 4 h-16 a4 4 0 0 1 -4 -4 v-64 a4 4 0 0 1 4 -4 z" fill="var(--m-ink)"/>
+      <circle cx="49" cy="40" r="15" fill="none" stroke="var(--m-ink)" stroke-width="12"/>
+      <circle cx="49" cy="47.5" r="2.4" fill="var(--m-ink)"/>
+      <circle cx="49" cy="41" r="3.1" fill="var(--m-ink)"/>
+      <circle cx="49" cy="34.5" r="3.6" fill="var(--m-ink)"/>
+      <circle cx="78" cy="14" r="4.5" fill="var(--m-dot)"/>
+    </symbol>
+    <symbol id="mk-solid" viewBox="0 0 100 100">
+      <path fill-rule="evenodd" fill="var(--m-ink)" d="M49 19 a21 21 0 1 0 0.01 0 z M49 31 a9 9 0 1 1 -0.01 0 z
+        M22 14 h16 a4 4 0 0 1 4 4 v64 a4 4 0 0 1 -4 4 h-16 a4 4 0 0 1 -4 -4 v-64 a4 4 0 0 1 4 -4 z"/>
+      <circle cx="78" cy="14" r="4.5" fill="var(--m-ink)"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="mast">
+  <svg width="46" height="46" style="--m-ink:var(--espresso);--m-dot:var(--cherry)"><use href="#mk"/></svg>
+  <div class="wm">percolate</div>
+  <p class="pos"><b>For commuters and Saturday browsers</b> who want a real espresso without the café queue, <b>Percolate</b> is a mobile espresso cart that pulls proper shots at walking pace.</p>
+</header>
+
+<section>
+  <div class="sec-head"><h2>The mark</h2><span class="label">HOW IT IS BUILT, CLEARED AND SIZED</span></div>
+  <div class="mk-row">
+    <div class="panel construct">
+      <span class="label">GRID — EVERY ANCHOR IS A CIRCLE OR A VERTICAL</span>
+      <svg width="330" height="270" viewBox="0 0 100 82" style="display:block;margin:0 auto">
+        <g fill="none" stroke="rgba(32,23,17,.30)" stroke-width=".5" stroke-dasharray="2 2">
+          <circle cx="49" cy="32" r="21"/><circle cx="49" cy="32" r="15"/><circle cx="49" cy="32" r="9"/>
+          <circle cx="49" cy="39.5" r="2.4"/><circle cx="49" cy="33" r="3.1"/><circle cx="49" cy="26.5" r="3.6"/>
+          <circle cx="78" cy="6" r="4.5"/>
+          <rect x="18" y="6" width="24" height="72"/>
+          <line x1="49" y1="0" x2="49" y2="82"/>
+        </g>
+        <g transform="translate(0,8)">
+          <svg x="0" y="0" width="100" height="100" viewBox="0 0 100 100" style="--m-ink:var(--espresso);--m-dot:var(--cherry)"><use href="#mk"/></svg>
+        </g>
+      </svg>
+    </div>
+    <div class="clear-min">
+      <div class="panel">
+        <span class="label">CLEAR SPACE — THE MARK'S HEIGHT X, ALL SIDES</span>
+        <svg width="170" height="120" viewBox="0 0 170 120" style="display:block;margin:0 auto">
+          <rect x="10" y="10" width="146" height="98" fill="none" stroke="rgba(32,23,17,.35)" stroke-dasharray="4 3"/>
+          <g transform="translate(59,35)">
+            <svg width="48" height="48" viewBox="0 0 100 100" style="--m-ink:var(--espresso);--m-dot:var(--cherry)"><use href="#mk"/></svg>
+          </g>
+          <g stroke="var(--cherry)" stroke-width="1">
+            <line x1="59" y1="12" x2="59" y2="33"/>
+            <line x1="12" y1="59" x2="33" y2="59"/>
+          </g>
+          <text x="66" y="27" font-size="10" fill="var(--cherry)" class="mono">X</text>
+          <text x="19" y="53" font-size="10" fill="var(--cherry)" class="mono">X</text>
+        </svg>
+      </div>
+      <div class="panel">
+        <span class="label">MINIMUM SIZES — 120PX FULL · 24PX ICON</span>
+        <div class="min-row">
+          <div style="display:flex;align-items:center;gap:8px">
+            <svg width="34" height="34" viewBox="0 0 100 100" style="--m-ink:var(--espresso);--m-dot:var(--cherry)"><use href="#mk"/></svg>
+            <span class="wm-t" style="font-size:27px">percolate</span>
+          </div>
+          <span style="width:1px;align-self:stretch;background:var(--hair)"></span>
+          <svg width="24" height="24" viewBox="0 0 100 100" style="--m-ink:var(--espresso);--m-dot:var(--cherry)"><use href="#mk"/></svg>
+          <span class="label" style="letter-spacing:.08em">120PX MIN FULL<br>24PX MIN ICON</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Variants × colorways</h2><span class="label">4 × 4 — MIX NO MORE THAN ONE VARIANT AND ONE COLORWAY PER PLACEMENT</span></div>
+  <div class="mx">
+    <div class="mx-row"><div class="mx-corner">VARIANTS DOWN, COLORWAYS ACROSS</div>
+      <div class="mx-corner" style="background:var(--crema)">FULL-COLOR</div>
+      <div class="mx-corner" style="background:var(--espresso);color:rgba(245,237,223,.85)">REVERSED</div>
+      <div class="mx-corner" style="background:var(--crema)">MONO-DARK</div>
+      <div class="mx-corner" style="background:var(--espresso);color:rgba(245,237,223,.85)">MONO-LIGHT</div>
+    </div>
+    <div class="mx-row">
+      <div class="mx-name">Full horizontal<small>mark + wordmark, one line</small></div>
+      <div class="cell"><svg width="40" height="40" viewBox="0 0 100 100" style="--m-ink:var(--espresso);--m-dot:var(--cherry)"><use href="#mk"/></svg><span class="wm-t" style="font-size:30px;margin-left:10px">percolate</span></div>
+      <div class="cell dark"><svg width="40" height="40" viewBox="0 0 100 100" style="--m-ink:var(--crema);--m-dot:var(--cherry)"><use href="#mk"/></svg><span class="wm-t" style="font-size:30px;margin-left:10px;color:var(--crema)">percolate</span></div>
+      <div class="cell"><svg width="40" height="40" viewBox="0 0 100 100" style="--m-ink:#1F1D1B;--m-dot:#1F1D1B"><use href="#mk"/></svg><span class="wm-t" style="font-size:30px;margin-left:10px;color:#1F1D1B">percolate</span></div>
+      <div class="cell dark"><svg width="40" height="40" viewBox="0 0 100 100" style="--m-ink:var(--crema);--m-dot:var(--crema)"><use href="#mk"/></svg><span class="wm-t" style="font-size:30px;margin-left:10px;color:var(--crema)">percolate</span></div>
+    </div>
+    <div class="mx-row">
+      <div class="mx-name">Stacked<small>mark above wordmark</small></div>
+      <div class="cell" style="flex-direction:column;gap:8px"><svg width="44" height="44" viewBox="0 0 100 100" style="--m-ink:var(--espresso);--m-dot:var(--cherry)"><use href="#mk"/></svg><span class="wm-t" style="font-size:24px">percolate</span></div>
+      <div class="cell dark" style="flex-direction:column;gap:8px"><svg width="44" height="44" viewBox="0 0 100 100" style="--m-ink:var(--crema);--m-dot:var(--cherry)"><use href="#mk"/></svg><span class="wm-t" style="font-size:24px;color:var(--crema)">percolate</span></div>
+      <div class="cell" style="flex-direction:column;gap:8px"><svg width="44" height="44" viewBox="0 0 100 100" style="--m-ink:#1F1D1B;--m-dot:#1F1D1B"><use href="#mk"/></svg><span class="wm-t" style="font-size:24px;color:#1F1D1B">percolate</span></div>
+      <div class="cell dark" style="flex-direction:column;gap:8px"><svg width="44" height="44" viewBox="0 0 100 100" style="--m-ink:var(--crema);--m-dot:var(--crema)"><use href="#mk"/></svg><span class="wm-t" style="font-size:24px;color:var(--crema)">percolate</span></div>
+    </div>
+    <div class="mx-row">
+      <div class="mx-name">Icon-only<small>24px minimum</small></div>
+      <div class="cell"><svg width="56" height="56" viewBox="0 0 100 100" style="--m-ink:var(--espresso);--m-dot:var(--cherry)"><use href="#mk"/></svg></div>
+      <div class="cell dark"><svg width="56" height="56" viewBox="0 0 100 100" style="--m-ink:var(--crema);--m-dot:var(--cherry)"><use href="#mk"/></svg></div>
+      <div class="cell"><svg width="56" height="56" viewBox="0 0 100 100" style="--m-ink:#1F1D1B;--m-dot:#1F1D1B"><use href="#mk"/></svg></div>
+      <div class="cell dark"><svg width="56" height="56" viewBox="0 0 100 100" style="--m-ink:var(--crema);--m-dot:var(--crema)"><use href="#mk"/></svg></div>
+    </div>
+    <div class="mx-row">
+      <div class="mx-name">Wordmark<small>when the mark can't fit</small></div>
+      <div class="cell"><span class="wm-t" style="font-size:34px">percolate</span></div>
+      <div class="cell dark"><span class="wm-t" style="font-size:34px;color:var(--crema)">percolate</span></div>
+      <div class="cell"><span class="wm-t" style="font-size:34px;color:#1F1D1B">percolate</span></div>
+      <div class="cell dark"><span class="wm-t" style="font-size:34px;color:var(--crema)">percolate</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Survival tests</h2><span class="label">THE FOUR LIVES + THE TWO PRINT TESTS</span></div>
+  <div class="tests">
+    <div class="test"><div class="stage" style="gap:7px">
+      <svg width="16" height="16" viewBox="0 0 100 100" style="--m-ink:var(--espresso);--m-dot:var(--cherry)"><use href="#mk"/></svg>
+      <svg width="24" height="24" viewBox="0 0 100 100" style="--m-ink:var(--espresso);--m-dot:var(--cherry)"><use href="#mk"/></svg>
+      <svg width="48" height="48" viewBox="0 0 100 100" style="--m-ink:var(--espresso);--m-dot:var(--cherry)"><use href="#mk"/></svg>
+    </div><div class="cap">16 / 24 / 48 FAVICON</div></div>
+    <div class="test"><div class="stage">
+      <svg width="62" height="62" viewBox="0 0 100 100" style="--m-ink:var(--espresso)"><use href="#mk-solid"/></svg>
+    </div><div class="cap">SILHOUETTE</div></div>
+    <div class="test"><div class="stage">
+      <svg width="62" height="62" viewBox="0 0 100 100" style="--m-ink:var(--espresso);--m-dot:var(--espresso);filter:blur(2px)"><use href="#mk"/></svg>
+    </div><div class="cap">BLUR (SQUINT)</div></div>
+    <div class="test"><div class="stage" style="background:var(--kraft)">
+      <svg width="62" height="62" viewBox="0 0 100 100" style="--m-ink:#5C4326;--m-dot:#5C4326"><use href="#mk"/></svg>
+    </div><div class="cap">KRAFT 1-COLOR PRINT</div></div>
+    <div class="test"><div class="stage" style="background:linear-gradient(180deg,var(--steel-1),var(--steel-2))">
+      <svg width="62" height="62" viewBox="0 0 100 100" style="--m-ink:#9DA1A4;--m-dot:#9DA1A4"><use href="#mk"/></svg>
+    </div><div class="cap">STAINLESS EMBOSS</div></div>
+    <div class="test"><div class="stage" style="background:var(--chalk)">
+      <svg width="62" height="62" viewBox="0 0 100 100" style="--m-ink:var(--chalkink);--m-dot:var(--chalkink)"><use href="#mk"/></svg>
+    </div><div class="cap">CHALKBOARD A-FRAME</div></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Palette</h2><span class="label">ROLES + USAGE RATIO</span></div>
+  <div class="pal">
+    <div class="sw"><div class="chip" style="background:var(--espresso)"></div><div class="meta"><b>Espresso</b><span>Primary — ink, marks, structure</span><span class="mono">#201711</span></div></div>
+    <div class="sw"><div class="chip" style="background:var(--crema);border-bottom:1px solid var(--hair2)"></div><div class="meta"><b>Crema</b><span>Neutral field — paper, cups, cart face</span><span class="mono">#F5EDDF</span></div></div>
+    <div class="sw"><div class="chip" style="background:var(--cherry)"></div><div class="meta"><b>Cherry</b><span>Secondary — caps, awning, stickers</span><span class="mono">#C2452E</span></div></div>
+    <div class="sw"><div class="chip" style="background:var(--leaf)"></div><div class="meta"><b>Leaf</b><span>Accent — freshness cues only</span><span class="mono">#5F7355</span></div></div>
+    <div class="sw"><div class="chip" style="background:var(--kraft)"></div><div class="meta"><b>Kraft</b><span>Material tone — the cup itself</span><span class="mono">#C9A87C</span></div></div>
+  </div>
+  <div class="ratio">
+    <div style="flex:65;background:var(--espresso);color:var(--crema)">ESPRESSO + CREMA FIELD · 65</div>
+    <div style="flex:25;background:var(--cherry);color:#FDF3EA">CHERRY · 25</div>
+    <div style="flex:7;background:var(--leaf);color:#F0F2EA">7</div>
+    <div style="flex:3;background:var(--kraft);color:#3F2F1C"></div>
+  </div>
+  <p class="ratio-note">One warm family, one red, one green. Cherry may rise to a third of a surface (awning, cap band) but never carries text under 18px. Text is never pure #000 — espresso is the ink.</p>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Voice</h2><span class="label">X, NOT Y — A COMPETITOR COULD NOT SIGN THESE</span></div>
+  <div class="voice">
+    <div class="vp"><b>Quick, <i>not rushed.</i></b><p>The shot takes 25 seconds; the small talk doesn't get skipped. "Quick" is the line speed, not the manner.</p></div>
+    <div class="vp"><b>Cheeky, <i>not jokey.</i></b><p>One wink per placement — the escaped bubble, a chalk pun. If it needs a second beat to land, cut it.</p></div>
+    <div class="vp"><b>Craft, <i>not ceremony.</i></b><p>Origin, roast and grind are stated plainly. No tasting notes longer than the queue.</p></div>
+    <div class="vp"><b>Regular, <i>not regulars-only.</i></b><p>Everyone gets the sixth-card punch. The cart knows the difference between busy and exclusive.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Don'ts</h2><span class="label">THE RECURRING FOUR — FULL LIST IN THE DOCS</span></div>
+  <div class="donts">
+    <div class="dont"><div class="stage"><svg width="70" height="70" viewBox="0 0 100 100" style="--m-ink:var(--espresso);--m-dot:var(--cherry);transform:scale(1.5,.8)"><use href="#mk"/></svg></div><div class="xline"></div><div class="cap">Don't stretch</div></div>
+    <div class="dont"><div class="stage"><svg width="70" height="70" viewBox="0 0 100 100" style="--m-ink:var(--espresso);--m-dot:var(--cherry);transform:rotate(18deg)"><use href="#mk"/></svg></div><div class="xline"></div><div class="cap">Don't rotate</div></div>
+    <div class="dont"><div class="stage"><svg width="70" height="70" viewBox="0 0 100 100" style="--m-ink:var(--espresso);--m-dot:var(--cherry);filter:drop-shadow(3px 4px 2px rgba(32,23,17,.45))"><use href="#mk"/></svg></div><div class="xline"></div><div class="cap">Don't add shadows</div></div>
+    <div class="dont"><div class="stage"><svg width="70" height="70" viewBox="0 0 100 100"><defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#C2452E"/><stop offset="1" stop-color="#5F7355"/></linearGradient></defs><path d="M22 14 h16 a4 4 0 0 1 4 4 v64 a4 4 0 0 1 -4 4 h-16 a4 4 0 0 1 -4 -4 v-64 a4 4 0 0 1 4 -4 z" fill="url(#g1)"/><circle cx="51" cy="40" r="19" fill="none" stroke="url(#g1)" stroke-width="12"/><circle cx="51" cy="47" r="3.2" fill="url(#g1)"/><circle cx="51" cy="40" r="4.4" fill="url(#g1)"/><circle cx="51" cy="32.5" r="5" fill="url(#g1)"/><circle cx="80" cy="15" r="4.5" fill="url(#g1)"/></svg></div><div class="xline"></div><div class="cap">Don't gradient-fill</div></div>
+  </div>
+</section>
+
+<footer>
+  <span class="label">PERCOLATE — MINI BRAND GUIDE</span>
+  <p>Assets are named <span class="mono">logo_percolate_{variant}_{YYYYMMDD}_{colorway}.svg</span> and archived, never deleted. Example-set brand for the design-garden portfolio — the mark, palette and copy are demo material, drawn in code, free under the repo license.</p>
+</footer>
+
+</body>
+</html>

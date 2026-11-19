@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Peso DEAL — direction 3, shift sticker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F2E9D8; --ink:#17130C; --fluo:#F2C438; --coral:#E4572E; --sky:#7FB3C8;
+    --line:#17130C;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    width:1440px;height:900px;background:#101010;color:#EFEDE7;
+    font-family:"Archivo",sans-serif;
+    display:flex;align-items:center;gap:72px;padding:0 96px;
+  }
+  .frame{
+    width:375px;height:812px;flex:none;background:var(--paper);color:var(--ink);
+    border:3px solid var(--line);border-radius:18px;overflow:hidden;
+    display:flex;flex-direction:column;position:relative;
+  }
+  .top{padding:20px 22px 0;display:flex;justify-content:space-between;align-items:center}
+  .wordmark{font-family:"Archivo Black",sans-serif;font-size:20px;background:var(--ink);color:var(--paper);padding:5px 10px 4px;transform:rotate(-1.2deg)}
+  .stepline{font-size:12px;font-weight:600;letter-spacing:.06em;border:2px solid var(--ink);padding:5px 9px;background:var(--fluo);transform:rotate(1deg)}
+  h1{font-family:"Archivo Black",sans-serif;font-size:26px;line-height:1.1;letter-spacing:-.005em;padding:20px 22px 4px}
+  .sub{font-size:14px;line-height:1.45;color:#4A4336;padding:0 22px 14px}
+  .tiles{flex:1;padding:0 22px;display:grid;grid-template-columns:1fr 1fr;gap:14px;align-content:start}
+  .tile{
+    border:3px solid var(--line);background:#FFFDF6;box-shadow:6px 6px 0 var(--line);
+    border-radius:10px;padding:14px 14px 16px;min-height:150px;display:flex;flex-direction:column;
+  }
+  .tile.wide{grid-column:1 / -1;flex-direction:row;align-items:center;gap:14px;min-height:96px}
+  .tile.on{background:var(--fluo)}
+  .tile .badge{font-family:"Archivo Black",sans-serif;font-size:14px;width:30px;height:30px;border:2.5px solid var(--line);border-radius:7px;display:flex;align-items:center;justify-content:center;background:var(--sky);margin-bottom:10px}
+  .tile.wide .badge{margin-bottom:0;flex:none}
+  .tile b{font-family:"Archivo Black",sans-serif;font-size:17px;letter-spacing:.01em}
+  .tile span{font-size:12.5px;line-height:1.4;color:#4A4336;margin-top:4px}
+  .tile.wide span{margin-top:0}
+  .tile .mark{margin-left:auto;width:24px;height:24px;flex:none;border:2.5px solid var(--ink);border-radius:6px;background:#FFFDF6}
+  .tile.on .mark{background:var(--coral)}
+  .bottom{padding:18px 22px 24px}
+  .cta{
+    display:block;width:100%;height:58px;background:var(--coral);color:#FFFDF6;
+    border:3px solid var(--line);border-radius:10px;box-shadow:6px 6px 0 var(--line);
+    font-family:"Archivo Black",sans-serif;font-size:17px;letter-spacing:.02em;
+  }
+  .skip{display:block;width:100%;height:44px;border:0;background:none;color:#4A4336;font-size:14px;font-weight:600;text-decoration:underline;margin-top:8px}
+  .note{width:560px;flex:none}
+  .no{font-size:12px;letter-spacing:.2em;color:#8A8A82}
+  h2{font-family:"Archivo Black",sans-serif;font-weight:400;font-size:40px;letter-spacing:.005em;margin:10px 0 14px}
+  .essence{font-size:17px;line-height:1.55;color:#C4C1B8;max-width:46ch}
+  .spec{margin-top:26px;border-top:1px solid #3A3A3A;padding-top:18px;display:grid;grid-template-columns:170px 1fr;row-gap:12px;font-size:14px}
+  .spec dt{color:#8A8A82;letter-spacing:.1em;font-size:12px;padding-top:2px}
+  .spec dd{color:#E4E2DC;line-height:1.5}
+  .chips{display:flex;gap:8px;margin-top:2px}
+  .chip{width:26px;height:26px;border-radius:5px;border:1px solid #4A4A45}
+</style>
+</head>
+<body>
+  <div class="frame">
+    <div class="top">
+      <div class="wordmark">PESO</div>
+      <div class="stepline">STEP 2 / 4</div>
+    </div>
+    <h1>How does the money come in?</h1>
+    <p class="sub">Pick the shape of your week. Peso bends the budget to fit — not the other way round.</p>
+    <div class="tiles">
+      <div class="tile wide on">
+        <div class="badge">D</div>
+        <div><b>Daily</b><span>Most days pay something.</span></div>
+        <div class="mark"></div>
+      </div>
+      <div class="tile">
+        <div class="badge">W</div>
+        <b>Weekly</b>
+        <span>A payday lands each week — rosters, retainers.</span>
+      </div>
+      <div class="tile">
+        <div class="badge">M</div>
+        <b>Mixed</b>
+        <span>Some weeks daily, some weekly.</span>
+      </div>
+    </div>
+    <div class="bottom">
+      <button class="cta">CONTINUE</button>
+      <button class="skip">Skip for now</button>
+    </div>
+  </div>
+  <div class="note">
+    <div class="no">DIRECTION 03 — the deliberate roulette pick</div>
+    <h2>Shift sticker</h2>
+    <p class="essence">Roulette pull from the styles drawer, picked on purpose: neo-brutalist sticker tiles with hard offset shadows — the look of a locker-room noticeboard. The over-forceful option of the set: loud, cheeky, and it would fight the calm the brief asks for on every remaining screen.</p>
+    <dl class="spec">
+      <dt>PALETTE</dt><dd><span class="chips"><span class="chip" style="background:#F2E9D8"></span><span class="chip" style="background:#17130C"></span><span class="chip" style="background:#F2C438"></span><span class="chip" style="background:#E4572E"></span></span></dd>
+      <dt>TYPE</dt><dd>Archivo Black display + Archivo body</dd>
+      <dt>FORM</dt><dd>Sticker-tile grid, one wide promoted option (deviate-twice applied)</dd>
+      <dt>VERDICT</dt><dd>Kept as evidence. The gimmick fails the removal test — remove the hard shadows and nothing is lost, so the loudness is excess, not structure</dd>
+    </dl>
+  </div>
+</body>
+</html>

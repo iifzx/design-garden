@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Percolate DEAL — direction 3, cup ring</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{ --stage:#181816; --paper:#F5EDDF; --ink:#201711; --cherry:#C2452E; --kraft:#C9A87C; --chalk:#2B2E2B; }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{width:1440px;height:900px;background:var(--stage);color:#F2EFE8;font-family:"Gabarito",sans-serif;
+       display:flex;align-items:center;gap:64px;padding:0 90px}
+  .tile{width:600px;flex:none;background:var(--paper);border-radius:16px;padding:44px 48px 40px;color:var(--ink)}
+  .big{display:flex;align-items:center;justify-content:center;height:300px}
+  .wordmark{font-weight:800;font-size:96px;letter-spacing:-.02em;display:flex;align-items:center}
+  .survival{display:flex;gap:14px;margin-top:26px;border-top:1px solid rgba(32,23,17,.25);padding-top:24px}
+  .cell{flex:1;display:flex;flex-direction:column;align-items:center;gap:10px}
+  .canvas{height:74px;display:flex;align-items:center;justify-content:center}
+  .cap{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.12em;color:rgba(32,23,17,.6)}
+  .note{width:560px}
+  .no{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.2em;color:#9A968A}
+  h2{font-size:40px;font-weight:800;letter-spacing:-.015em;margin:10px 0 14px}
+  .essence{font-size:17px;line-height:1.55;color:#C9C4B6;max-width:44ch}
+  .spec{margin-top:26px;border-top:1px solid #3A382F;padding-top:18px;display:grid;grid-template-columns:150px 1fr;row-gap:12px;font-size:14px}
+  .spec dt{color:#8E8A7E;font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.1em;padding-top:2px}
+  .spec dd{color:#E4E0D4;line-height:1.5}
+</style>
+</head>
+<body>
+  <div class="tile">
+    <div class="big">
+      <div class="wordmark">percol<span style="position:relative;display:inline-block;width:.78em;height:.78em;margin:0 .03em">
+        <svg viewBox="0 0 100 100" style="position:absolute;inset:0" aria-hidden="true">
+          <circle cx="50" cy="50" r="34" fill="none" stroke="var(--ink)" stroke-width="13"/>
+          <path d="M50 16 a34 34 0 0 1 33 26" fill="none" stroke="var(--cherry)" stroke-width="13" stroke-linecap="round" transform="rotate(-8 50 50)"/>
+        </svg></span>ate</div>
+    </div>
+    <div class="survival">
+      <div class="cell"><div class="canvas"><svg width="48" height="48" viewBox="0 0 100 100"><circle cx="50" cy="50" r="34" fill="none" stroke="var(--ink)" stroke-width="13"/><path d="M50 16 a34 34 0 0 1 33 26" fill="none" stroke="var(--ink)" stroke-width="13" stroke-linecap="round" transform="rotate(-8 50 50)"/></svg></div><div class="cap">24PX APP ICON</div></div>
+      <div class="cell"><div class="canvas" style="background:var(--chalk);border-radius:8px;padding:0 12px"><svg width="54" height="54" viewBox="0 0 100 100"><circle cx="50" cy="50" r="34" fill="none" stroke="#EDE6D6" stroke-width="13"/><path d="M50 16 a34 34 0 0 1 33 26" fill="none" stroke="#EDE6D6" stroke-width="13" stroke-linecap="round" transform="rotate(-8 50 50)"/></svg></div><div class="cap">CHALKBOARD</div></div>
+      <div class="cell"><div class="canvas"><svg width="54" height="54" viewBox="0 0 100 100"><circle cx="50" cy="50" r="34" fill="none" stroke="#7A5A38" stroke-width="13"/><path d="M50 16 a34 34 0 0 1 33 26" fill="none" stroke="#7A5A38" stroke-width="13" stroke-linecap="round" transform="rotate(-8 50 50)"/></svg></div><div class="cap">KRAFT 1-COLOR</div></div>
+      <div class="cell"><div class="canvas" style="gap:6px"><svg width="16" height="16" viewBox="0 0 100 100"><circle cx="50" cy="50" r="34" fill="none" stroke="var(--ink)" stroke-width="13"/><path d="M50 16 a34 34 0 0 1 33 26" fill="none" stroke="var(--ink)" stroke-width="13" stroke-linecap="round" transform="rotate(-8 50 50)"/></svg><svg width="24" height="24" viewBox="0 0 100 100"><circle cx="50" cy="50" r="34" fill="none" stroke="var(--ink)" stroke-width="13"/><path d="M50 16 a34 34 0 0 1 33 26" fill="none" stroke="var(--ink)" stroke-width="13" stroke-linecap="round" transform="rotate(-8 50 50)"/></svg></div><div class="cap">16 / 24 FAVICON</div></div>
+    </div>
+  </div>
+  <div class="note">
+    <div class="no">DIRECTION 03</div>
+    <h2>Cup ring</h2>
+    <p class="essence">The honest trace every desk carries: a mug ring, offset by the arc of a second, fresher cup. Wordmark-led with the ring living inside the "o". Warm and human — and that is exactly the problem: warmth is not ownership.</p>
+    <dl class="spec">
+      <dt>TYPE</dt><dd>Wordmark with ring-glyph</dd>
+      <dt>STRONG</dt><dd>Instantly legible story; lovely on chalk; the cherry arc adds freshness</dd>
+      <dt>WEAK</dt><dd>Fails the swap test — any cafe could ship it tomorrow. A ring is also a circle badge in disguise, the brief's named cliché one step removed</dd>
+      <dt>16PX</dt><dd>Reads as a plain ring; the arc offset disappears</dd>
+    </dl>
+  </div>
+</body>
+</html>

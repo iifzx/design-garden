@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>睡债 DEAL — direction 2, vertical timetable</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F1F0EC; --ink:#232A24; --pine:#2F5D50; --dawn:#D97C2B;
+    --red:#B8482F; --hair:rgba(35,42,36,.22);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{width:1440px;height:900px;background:#121417;color:#EDEFF2;font-family:"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;
+       display:flex;align-items:center;gap:64px;padding:0 90px}
+  .canvas{width:505px;height:900px;flex:none;position:relative}
+  .sheet{width:750px;height:1334px;background:var(--paper);color:var(--ink);transform:scale(.6733);transform-origin:top left;
+         display:flex}
+  .left{width:190px;background:var(--pine);color:#EDF3EE;display:flex;flex-direction:column;justify-content:space-between;
+        padding:56px 0 48px;align-items:center}
+  .vtitle{writing-mode:vertical-rl;font-size:92px;font-weight:800;letter-spacing:.14em}
+  .vsub{writing-mode:vertical-rl;font-size:20px;letter-spacing:.3em;color:#B9CFC2}
+  .left .no{font-family:"JetBrains Mono",monospace;font-size:18px;color:#B9CFC2}
+  .right{flex:1;padding:60px 52px 0}
+  .lead{font-size:28px;line-height:1.7;max-width:19ch}
+  .timetable{margin-top:40px;border-top:1.5px solid var(--ink)}
+  .tt-row{display:flex;align-items:center;gap:14px;border-bottom:1px solid var(--hair);padding:16px 2px}
+  .tt-row b{width:52px;font-size:22px;font-weight:600}
+  .tt-row .span{flex:1;font-family:"JetBrains Mono",monospace;font-size:22px;letter-spacing:.02em}
+  .tt-row .def{font-family:"JetBrains Mono",monospace;font-size:22px;color:var(--red)}
+  .tt-row.zero .def{color:var(--pine)}
+  .sumline{display:flex;justify-content:space-between;align-items:baseline;padding:22px 2px 0}
+  .sumline span{font-size:20px;color:rgba(35,42,36,.7)}
+  .sumline b{font-family:"JetBrains Mono",monospace;font-size:44px;font-weight:500;color:var(--red)}
+  .note{width:600px}
+  .no{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.2em;color:#8A8F96}
+  h2{font-size:42px;font-weight:800;letter-spacing:-.01em;margin:10px 0 14px}
+  .essence{font-size:17px;line-height:1.6;color:#B9BEC5;max-width:44ch}
+  .spec{margin-top:26px;border-top:1px solid #3A3D42;padding-top:18px;display:grid;grid-template-columns:150px 1fr;row-gap:12px;font-size:14px}
+  .spec dt{color:#8A8F96;font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.1em;padding-top:2px}
+  .spec dd{color:#E2E4E8;line-height:1.55}
+</style>
+</head>
+<body>
+  <div class="canvas"><div class="sheet">
+    <div class="left">
+      <div class="vsub">睡眠算术 · 第一张</div>
+      <div class="vtitle">睡债</div>
+      <div class="no">01/05</div>
+    </div>
+    <div class="right">
+      <p class="lead">睡不够不是感觉，是一笔每天累计、周末也还不完的账。先看这一周的原始流水——</p>
+      <div class="timetable">
+        <div class="tt-row"><b>周一</b><span class="span">00:30 – 07:00</span><span class="def">−1.5</span></div>
+        <div class="tt-row"><b>周二</b><span class="span">01:00 – 07:30</span><span class="def">−1.5</span></div>
+        <div class="tt-row"><b>周三</b><span class="span">02:00 – 07:30</span><span class="def">−2.5</span></div>
+        <div class="tt-row"><b>周四</b><span class="span">00:30 – 07:30</span><span class="def">−1.0</span></div>
+        <div class="tt-row"><b>周五</b><span class="span">01:30 – 08:00</span><span class="def">−1.5</span></div>
+        <div class="tt-row zero"><b>周六</b><span class="span">01:00 – 09:30</span><span class="def">+0.5</span></div>
+        <div class="tt-row zero"><b>周日</b><span class="span">00:30 – 09:00</span><span class="def">+0.5</span></div>
+      </div>
+      <div class="sumline"><span>示例作息 · 基准 8h</span><b>−8.0h</b></div>
+    </div>
+  </div></div>
+  <div class="note">
+    <div class="no">DIRECTION 02</div>
+    <h2>松木绿 · 直排时刻表</h2>
+    <p class="essence">封面直接把原始数据拍在桌上：左侧松木色书脊上竖排「睡债」两个字，右侧是七行作息流水，红色差值挂在行尾。开卷即原始账目，标题用竖排——CJK 展示工具里最被冷落的一件。</p>
+    <dl class="spec">
+      <dt>PALETTE</dt><dd>暖纸 + 松木绿书脊 + 欠账红；无大面积冷蓝</dd>
+      <dt>TYPE</dt><dd>竖排 800 字重做主标；等宽数字直排流水</dd>
+      <dt>FORM</dt><dd>书脊 + 表格；封面即第一节数据（口径后移）</dd>
+      <dt>WEAK</dt><dd>封面承担了第 1 节的职能，滑动时叙事少了半拍铺垫</dd>
+    </dl>
+  </div>
+</body>
+</html>

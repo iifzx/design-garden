@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Percolate DEAL — direction 2, bubble P</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{ --stage:#181816; --paper:#F5EDDF; --ink:#201711; --cherry:#C2452E; --kraft:#C9A87C; --chalk:#2B2E2B; }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{width:1440px;height:900px;background:var(--stage);color:#F2EFE8;font-family:"Gabarito",sans-serif;
+       display:flex;align-items:center;gap:64px;padding:0 90px}
+  .tile{width:600px;flex:none;background:var(--paper);border-radius:16px;padding:44px 48px 40px;color:var(--ink)}
+  .big{display:flex;align-items:center;justify-content:center;height:300px}
+  .survival{display:flex;gap:14px;margin-top:26px;border-top:1px solid rgba(32,23,17,.25);padding-top:24px}
+  .cell{flex:1;display:flex;flex-direction:column;align-items:center;gap:10px}
+  .canvas{height:74px;display:flex;align-items:center;justify-content:center}
+  .cap{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.12em;color:rgba(32,23,17,.6)}
+  .note{width:560px}
+  .no{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.2em;color:#9A968A}
+  h2{font-size:40px;font-weight:800;letter-spacing:-.015em;margin:10px 0 14px}
+  .essence{font-size:17px;line-height:1.55;color:#C9C4B6;max-width:44ch}
+  .spec{margin-top:26px;border-top:1px solid #3A382F;padding-top:18px;display:grid;grid-template-columns:150px 1fr;row-gap:12px;font-size:14px}
+  .spec dt{color:#8E8A7E;font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.1em;padding-top:2px}
+  .spec dd{color:#E4E0D4;line-height:1.5}
+</style>
+</head>
+<body>
+  <div class="tile">
+    <div class="big">
+      <svg width="240" height="240" viewBox="0 0 100 100" aria-label="Bubble P mark">
+        <!-- stem -->
+        <path d="M22 14 h16 a4 4 0 0 1 4 4 v64 a4 4 0 0 1 -4 4 h-16 a4 4 0 0 1 -4 -4 v-64 a4 4 0 0 1 4 -4 z" fill="var(--ink)"/>
+        <!-- bowl ring -->
+        <circle cx="49" cy="40" r="15" fill="none" stroke="var(--ink)" stroke-width="12"/>
+        <!-- rising bubbles inside the counter -->
+        <circle cx="52" cy="51" r="3.4" fill="var(--ink)"/>
+        <circle cx="52" cy="43" r="4.6" fill="var(--ink)"/>
+        <circle cx="52" cy="34.6" r="5.4" fill="var(--ink)"/>
+        <!-- the bubble that got away -->
+        <circle cx="80" cy="15" r="4.5" fill="var(--cherry)"/>
+      </svg>
+    </div>
+    <div class="survival">
+      <div class="cell"><div class="canvas"><svg width="48" height="48" viewBox="0 0 100 100"><path d="M22 14 h16 a4 4 0 0 1 4 4 v64 a4 4 0 0 1 -4 4 h-16 a4 4 0 0 1 -4 -4 v-64 a4 4 0 0 1 4 -4 z" fill="var(--ink)"/><circle cx="49" cy="40" r="15" fill="none" stroke="var(--ink)" stroke-width="12"/><circle cx="49" cy="47.5" r="2.4" fill="var(--ink)"/><circle cx="49" cy="41" r="3.1" fill="var(--ink)"/><circle cx="49" cy="34.5" r="3.6" fill="var(--ink)"/><circle cx="80" cy="15" r="4.5" fill="var(--ink)"/></svg></div><div class="cap">24PX APP ICON</div></div>
+      <div class="cell"><div class="canvas" style="background:var(--chalk);border-radius:8px;padding:0 12px"><svg width="54" height="54" viewBox="0 0 100 100"><g fill="#EDE6D6"><path d="M22 14 h16 a4 4 0 0 1 4 4 v64 a4 4 0 0 1 -4 4 h-16 a4 4 0 0 1 -4 -4 v-64 a4 4 0 0 1 4 -4 z"/></g><circle cx="49" cy="40" r="15" fill="none" stroke="#EDE6D6" stroke-width="12"/><g fill="#EDE6D6"><circle cx="49" cy="47.5" r="2.4"/><circle cx="49" cy="41" r="3.1"/><circle cx="49" cy="34.5" r="3.6"/><circle cx="80" cy="15" r="4.5"/></g></svg></div><div class="cap">CHALKBOARD</div></div>
+      <div class="cell"><div class="canvas"><svg width="54" height="54" viewBox="0 0 100 100"><path d="M22 14 h16 a4 4 0 0 1 4 4 v64 a4 4 0 0 1 -4 4 h-16 a4 4 0 0 1 -4 -4 v-64 a4 4 0 0 1 4 -4 z" fill="#7A5A38"/><circle cx="49" cy="40" r="15" fill="none" stroke="#7A5A38" stroke-width="12"/><g fill="#7A5A38"><circle cx="49" cy="47.5" r="2.4"/><circle cx="49" cy="41" r="3.1"/><circle cx="49" cy="34.5" r="3.6"/><circle cx="80" cy="15" r="4.5"/></g></svg></div><div class="cap">KRAFT 1-COLOR</div></div>
+      <div class="cell"><div class="canvas" style="gap:6px"><svg width="16" height="16" viewBox="0 0 100 100"><path d="M22 14 h16 a4 4 0 0 1 4 4 v64 a4 4 0 0 1 -4 4 h-16 a4 4 0 0 1 -4 -4 v-64 a4 4 0 0 1 4 -4 z" fill="var(--ink)"/><circle cx="49" cy="40" r="15" fill="none" stroke="var(--ink)" stroke-width="12"/><circle cx="49" cy="47.5" r="2.4" fill="var(--ink)"/><circle cx="49" cy="41" r="3.1" fill="var(--ink)"/><circle cx="49" cy="34.5" r="3.6" fill="var(--ink)"/><circle cx="80" cy="15" r="4.5" fill="var(--ink)"/></svg><svg width="24" height="24" viewBox="0 0 100 100"><path d="M22 14 h16 a4 4 0 0 1 4 4 v64 a4 4 0 0 1 -4 4 h-16 a4 4 0 0 1 -4 -4 v-64 a4 4 0 0 1 4 -4 z" fill="var(--ink)"/><circle cx="49" cy="40" r="15" fill="none" stroke="var(--ink)" stroke-width="12"/><circle cx="49" cy="47.5" r="2.4" fill="var(--ink)"/><circle cx="49" cy="41" r="3.1" fill="var(--ink)"/><circle cx="49" cy="34.5" r="3.6" fill="var(--ink)"/><circle cx="80" cy="15" r="4.5" fill="var(--ink)"/></svg></div><div class="cap">16 / 24 FAVICON</div></div>
+    </div>
+  </div>
+  <div class="note">
+    <div class="no">DIRECTION 02</div>
+    <h2>Bubble P</h2>
+    <p class="essence">Percolation drawn as structure: three bubbles rising through the bowl of a P, one already out the top. Every anchor is a circle on a shared center line, so the mark can be re-derived, not traced. The cherry escape dot is the cart's cheek — one wink, then back to work.</p>
+    <dl class="spec">
+      <dt>TYPE</dt><dd>Lettermark / abstract hybrid</dd>
+      <dt>STRONG</dt><dd>Encodes the name's verb; two shapes total (stem + ring) plus dots; survives every mono context; 16px keeps the P</dd>
+      <dt>WEAK</dt><dd>Needs the wordmark beside it below 24px — dots merge into the counter</dd>
+      <dt>16PX</dt><dd>P + bowl read cleanly; bubbles hold as texture, escape dot drops</dd>
+    </dl>
+  </div>
+</body>
+</html>
