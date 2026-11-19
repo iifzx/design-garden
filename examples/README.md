@@ -1,6 +1,6 @@
 # Examples — grown by the garden itself
 
-Every piece here was produced by **design-garden running its own workflow** (PARSE → ROUTE → BRIEF → DEAL → EXECUTE → GATE → DELIVER → LEARN) against the eval briefs in [`evals/tasks/`](../evals/tasks/) — the three 2026-11-19 pieces ran briefs written for the example set instead, and are marked per row. These are not hand-polished portfolio pieces — they are what the skill actually ships, including visible `[PLACEHOLDER]` markers and labeled demo datasets where inventing facts would have been the slop move.
+Every piece here was produced by **design-garden running its own workflow** (PARSE → ROUTE → BRIEF → DEAL → EXECUTE → GATE → DELIVER → LEARN) against the eval briefs in [`evals/tasks/`](../evals/tasks/) — the three 2026-11-19 pieces ran briefs written for the example set instead, and are marked per row. These are not hand-polished portfolio pieces — they are what the skill actually ships, including visible `[PLACEHOLDER]` markers and labeled demo datasets where inventing facts would have been the slop move. **One exception:** [`perlume-store/`](perlume-store/) is a real shipped project, kept as a featured exhibit rather than an eval output — it says so in its own README.
 
 **Model attribution is part of the record.** Output quality comes from the model and the skill together, so every example states the model that produced it. Running the same brief on a different model? PR your result with the model named — cross-model results are exactly what the evals want to compare.
 
@@ -42,6 +42,20 @@ Open [styles/index.html](styles/index.html) for the labeled 18-tile wall (mode, 
 All PNGs are 1440×900; every tile's Mode label is authoritative (the folio `NN / 18` inside most specimens matches it). Rebuild the wall with `node scripts/gallery.mjs` (renders all 18, then writes `styles/index.html` and `styles/overview.png`); `--skip-render` rebuilds the tiles and overview from existing PNGs.
 
 Honest caption: glassmorphism's vivid gradient is the style's own signature (opted in by choosing the recipe) — outside a glassmorphism brief, that gradient sits on our Never list.
+
+## Featured exhibit — a real project, not an eval brief
+
+[`perlume-store/`](perlume-store/) is seven 2048×2732 portrait store pages for a shipped HarmonyOS tablet/PC agent workbench, plus three social assets. It is the one piece here that went to a real store instead of an eval brief, so it earns a different test: **the screenshots are the product, not an illustration of it.** The content area is the actual framed device capture (2979×2016, alpha corners, silver bezel) scaled to 1900×1286 — resizing is allowed, redrawing the bezel would be forging evidence. Every Chinese glyph, the wordmark and the footer signature are composited in code; a single wrong stroke in a 132px headline ruins the page, so no text ever went through a generative model.
+
+| Measure | Value |
+|---|---|
+| Canvas | 2048×2732 (3:4), JPEG q95, 0.67–1.17 MB per page |
+| Headline | CJK 132px Bold, tracking 14; ink at y=250 / y=434 |
+| Sub-line | CJK 52px Regular, tracking 3, y=626 |
+| Screenshot | 1900×1286, top edge y=940, two shadows only |
+| Thumbnail test | still reads "全球上架" at 200px width |
+
+Open [perlume-store/index.html](perlume-store/index.html) for the wall.
 
 ## What the critique gate caught in these very outputs
 

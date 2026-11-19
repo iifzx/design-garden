@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Perlume 缉熙 — 应用商店竖版图 · 七张</title>
+<style>
+  :root{--paper:#F7F6F2;--ink:#141414;--muted:#5F5F58;--hairline:rgba(20,20,20,.16)}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:Arial,"PingFang SC","Microsoft YaHei",sans-serif;padding:64px 72px 96px}
+  h1{font-size:28px;line-height:1.3}
+  p.meta{font-size:15px;color:var(--muted);margin:6px 0 36px;line-height:1.6}
+  .wall{display:grid;grid-template-columns:repeat(4,1fr);gap:24px 20px}
+  a{display:block;text-decoration:none;color:var(--ink)}
+  a img{width:100%;display:block;border:1px solid var(--hairline);background:#fff}
+  a span{display:block;font-size:13px;line-height:1.5;padding:9px 2px 0;color:var(--muted)}
+  a span b{display:block;font-family:"Courier New",monospace;font-weight:400;font-size:12px;letter-spacing:.08em;color:var(--ink);margin-bottom:2px}
+  h2{font-size:16px;margin:56px 0 6px;padding-top:26px;border-top:1px solid var(--hairline)}
+  .social{display:grid;grid-template-columns:220px 220px 1fr;gap:24px;align-items:start}
+  .social img{width:100%;display:block;border:1px solid var(--hairline);background:#fff}
+  .social .cap{font-size:13px;color:var(--muted);padding-top:9px;line-height:1.5}
+  .notes{margin-top:56px;padding-top:26px;border-top:1px solid var(--hairline);font-size:14px;line-height:1.75;color:#3C3C37;max-width:980px}
+  .notes b{font-weight:700}
+  .notes li{margin-left:18px}
+</style>
+</head>
+<body>
+  <h1>Perlume 缉熙 — 应用商店竖版图，七张</h1>
+  <p class="meta">7 张 · 2048×2732 · 3:4 · 内容区为真实带壳截图（2979×2016 等比缩放，银框与圆角为原图）· 标题、字标、署款全部代码叠加，不重绘外壳</p>
+
+  <div class="wall">
+    <a href="store/01-cover.jpg"><img src="store/01-cover.jpg" alt="封面"><span><b>01 · 封面</b>Perlume 缉熙 · 全球上架 · 一句话，落成一件成果</span></a>
+    <a href="store/02-session-game.jpg"><img src="store/02-session-game.jpg" alt="会话与游戏"><span><b>02 · 会话</b>说一句，就有一局可玩</span></a>
+    <a href="store/03-models.jpg"><img src="store/03-models.jpg" alt="模型接入"><span><b>03 · 模型</b>官方、第三方、自建端点，都能接</span></a>
+    <a href="store/04-usage.jpg"><img src="store/04-usage.jpg" alt="用量洞察"><span><b>04 · 用量</b>每天用了多少、花在哪里，一目了然</span></a>
+    <a href="store/05-plugins.jpg"><img src="store/05-plugins.jpg" alt="插件市场"><span><b>05 · 插件</b>市场里挑一个，装上就能用</span></a>
+    <a href="store/06-split.jpg"><img src="store/06-split.jpg" alt="分栏写作"><span><b>06 · 分栏</b>一边聊一边写，成稿直接落盘</span></a>
+    <a href="store/07-themes.jpg"><img src="store/07-themes.jpg" alt="主题"><span><b>07 · 主题</b>五套主题，深浅各成一境</span></a>
+  </div>
+
+  <h2>社媒物料</h2>
+  <p class="meta">抖音主页：1080×1080 白底头像 ×2（渐变 / 单色），1125×633 主页背景 ×1</p>
+  <div class="social">
+    <div><a href="social/avatar-icon-white.png"><img src="social/avatar-icon-white.png" alt="白底渐变头像"></a><div class="cap">1080×1080 · 白底 + 薄荷→深青渐变螺旋</div></div>
+    <div><a href="social/avatar-icon-white-solid.png"><img src="social/avatar-icon-white-solid.png" alt="白底单色头像"></a><div class="cap">1080×1080 · 白底 + 单色 #2F9D72</div></div>
+    <div><a href="social/banner-mist-1125x633.png"><img src="social/banner-mist-1125x633.png" alt="主页背景图"></a><div class="cap">1125×633 · 晨光云海；标题区全部压在抖音折叠前 400px 内</div></div>
+  </div>
+
+  <div class="notes">
+    <b>这套图在约束下做了什么</b>
+    <ul>
+      <li><b>不重绘外壳。</b>六张功能图的内容区就是真机截图本身（含银框、摄像头缺口与状态栏），按等比缩到 1900×1286 后贴版，只加两层投影。重描一遍外壳等于伪造证据。</li>
+      <li><b>不做整图生成。</b>所有中文标题、字标与配文由代码叠加，避免生成模型写出错字——封面大字一旦错一个笔画，整套图作废。</li>
+      <li><b>版式只借结构。</b>竖版三比四、标题在上、截图在下、底部留署款，这套骨架来自同类产品的公开商店图；文案、字标、截图与配色均为本项目自有。</li>
+      <li><b>缩略图可读。</b>标题按 132px、字距 10–14 排版，缩到 200px 宽仍能读出“全球上架”，不靠细节取胜。</li>
+    </ul>
+  </div>
+</body>
+</html>

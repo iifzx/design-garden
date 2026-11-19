@@ -1,7 +1,22 @@
 {
-  "updated": "2026-11-17",
+  "updated": "2026-11-19",
   "note": "Curated project outputs. These are real examples produced by design-garden's own workflow; they are gallery exhibits, not community submissions and not votes.",
   "items": [
+    {
+      "id": "perlume-store",
+      "title": "Perlume 缉熙 · 应用商店竖版图",
+      "titleEn": "Perlume store assets, portrait 3:4",
+      "type": "商店素材",
+      "typeEn": "Store assets",
+      "tags": ["app store", "tablet", "3:4"],
+      "image": "examples/perlume-store/store/01-cover.jpg",
+      "width": 2048,
+      "height": 2732,
+      "source": "examples/perlume-store/index.html",
+      "credit": "Doubao",
+      "note": "七张同一骨架；内容区是真实带壳截图，只缩不重绘，中文全部代码叠加。",
+      "noteEn": "Seven pages on one skeleton: the content area is the real framed screenshot, scaled but never redrawn, and every Chinese glyph is composited in code."
+    },
     {
       "id": "bike-shop",
       "title": "修车铺落地页",
