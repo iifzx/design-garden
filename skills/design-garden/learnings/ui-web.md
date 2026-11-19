@@ -11,10 +11,10 @@ Field notes recorded while working on web UI tasks. Newest first. See `learnings
 
 ## Entries
 
-### 2026-11-20 | 用户否掉"壁画抽象"人物：程序化动漫古风脸是可行的
-- Situation: user said "太丑了，我要的是动漫古风" — 首版飞天（小头比例、无眼白的侧脸剪影）被判丑；动漫感的关键在脸而非丝带特效
-- Move: 全程序化重绘 donghua 风角色——头身比放大到约 1:6，3/4 脸（眼白+虹膜渐变+双高光+眼睑影+下睫毛、远山眉、花钿、渐变唇）；发用 verlet 链+高髻步摇；先建 ?shot=figure 特写模式（2× 放大、锁倾斜）迭代脸面再整体接入
-- Pitfall: 暗背景上发色要提亮加月光描边否则读不出；前景手臂/广袖的路径会横穿脸部区域——先定脸部包围盒再布置肢体；特写截图要锁 bank/sway 否则每次抓到的姿态都不同
+### 2026-11-20 | 用户两次判丑，飛天游戏撤出作品集（保留可玩）
+- Situation: user said "太丑了，我要的是动漫古风"（首版壁画抽象人物）；v2 全程序化 donghua 重绘（眼白/虹膜/步摇/动态发链/襦裙广袖）后仍被判 "太丑了"，要求从作品集去掉
+- Move: 撤展不删档——双语 README 作品格、examples 表、展示图全部下架，游戏留在 examples/feitian-game/ 可玩；?shot=figure 特写模式与人物拆件绘制法（脸/发/裙/袖独立函数）是可复用资产
+- Pitfall: 程序化 canvas 画动漫脸有工艺天花板——当用户的对标是真实 donghua 美术时，先确认美术来源（生成图/图库/参考）再动手，别默认"代码能画=够好看"；同一作品"丑"出现两次即止损撤展，不继续无效打磨
 - Confidence: user-confirmed
 
 ### 2026-11-20 | canvas 游戏页的 QA：locator click 失效、后台 rAF 冻结、无头 30fps 假象
