@@ -11,6 +11,12 @@ Field notes recorded while working on web UI tasks. Newest first. See `learnings
 
 ## Entries
 
+### 2026-11-20 | 用户否掉"壁画抽象"人物：程序化动漫古风脸是可行的
+- Situation: user said "太丑了，我要的是动漫古风" — 首版飞天（小头比例、无眼白的侧脸剪影）被判丑；动漫感的关键在脸而非丝带特效
+- Move: 全程序化重绘 donghua 风角色——头身比放大到约 1:6，3/4 脸（眼白+虹膜渐变+双高光+眼睑影+下睫毛、远山眉、花钿、渐变唇）；发用 verlet 链+高髻步摇；先建 ?shot=figure 特写模式（2× 放大、锁倾斜）迭代脸面再整体接入
+- Pitfall: 暗背景上发色要提亮加月光描边否则读不出；前景手臂/广袖的路径会横穿脸部区域——先定脸部包围盒再布置肢体；特写截图要锁 bank/sway 否则每次抓到的姿态都不同
+- Confidence: user-confirmed
+
 ### 2026-11-20 | canvas 游戏页的 QA：locator click 失效、后台 rAF 冻结、无头 30fps 假象
 - Situation: 逐帧重绘的游戏页里 Playwright locator click 永远等不到 actionability；被遮挡的 IAB 标签 rAF 冻结造成"距离不涨"的假 bug；无头截图只有 30fps
 - Move: 用 `?shot=` 状态钉住（autopilot 收集/自动终式/强制终局）让 shoot.mjs 截到每个对局状态，替代交互点击；页面内 `?debug=1` 挂 errbox + fps 探针，前台真 GPU 读数（~150fps uncapped）裁决无头 SwiftShader 30fps 是环境伪影
