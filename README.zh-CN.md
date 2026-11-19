@@ -35,7 +35,7 @@
 | <img src="examples/images/peso-welcome.png" width="270" alt="Peso 记账 App onboarding 原型，欢迎屏"> | <img src="examples/images/percolate-guide-top.png" width="270" alt="Percolate 咖啡车标志系统与迷你品牌指南"> | <img src="examples/images/sleep-cover.png" width="270" alt="睡债长图封面（中文）"> |
 | **Onboarding 原型** · ui-mobile · 可点穿，6 个状态，375×812<br>**GLM-5.3-Flash** · [源码](examples/peso-onboarding/onboarding.html) · [连接失败态](examples/images/peso-connect-failed.png) · [空首页](examples/images/peso-home-empty.png) · [横屏](examples/images/peso-landscape.png) | **标志系统 + 指南** · logo-brand · 4 变体 × 4 色板<br>**GLM-5.3-Flash** · [品牌板](examples/percolate-brand/brand-guide.html) · [整板](examples/images/percolate-guide-full.png) · [DEAL 板](examples/percolate-brand/deal/deal-sheet.png) | **睡债长图** · infographic-long · 750×9054，中文<br>**GLM-5.3-Flash** · [源码](examples/sleep-debt-infographic/infographic.html) · [一周流水](examples/images/sleep-bars.png) · [累计曲线](examples/images/sleep-curve.png) |
 | <img src="examples/images/feitian-title.png" width="270" alt="敦煌飞天网页游戏标题屏：竖排汉字、朱砂印章与月下飞天"> | | |
-| **敦煌网页游戏** · ui-web · 可玩 canvas，中文<br>**GLM-5.3-Flash** · [源码](examples/feitian-game/index.html) · [散花终式](examples/images/feitian-sanhua.png) · [移动端](examples/images/feitian-play-mobile.png) · [终局面板](examples/images/feitian-end.png) | | |
+| **敦煌网页游戏** · ui-web · 可玩 canvas，中文<br>**GLM-5.3-Flash** · [源码](examples/feitian-game/index.html) · [人物特写](examples/images/feitian-figure.png) · [散花终式](examples/images/feitian-play.png) · [终局面板](examples/images/feitian-end.png) | | |
 
 <p align="center">
   <img src="examples/images/deck-directions.png" width="100%" alt="DEAL 决策板——deck brief 的三个结构不同的首屏并排">

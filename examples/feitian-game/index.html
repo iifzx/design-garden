@@ -233,7 +233,7 @@ const T = {
   azurite:'#4a7ba6', malachite:'#5e8c6a',
   duneFar:'#191420', duneNear:'#0d0a12',
   skin:'#ecd9bd', skinShade:'#d5b48c',
-  hair:'#1b1416'
+  hairDeep:'#241820', hairMass:'#3a2a35'
 };
 
 /* ---------- 基础工具 ---------- */
@@ -257,10 +257,10 @@ function resize(){
   dpr=Math.min(window.devicePixelRatio||1,2);
   canvas.width=Math.round(W*dpr);canvas.height=Math.round(H*dpr);
   ctx.setTransform(dpr,0,0,dpr,0,0);
-  S=W<600?1.35:W<1000?1.7:2.05;
-  S=Math.min(S,H/430);
+  S=W<600?1.5:W<1000?1.9:2.3;
+  S=Math.min(S,H/380);
   playerX=Math.max(96,Math.min(W*0.30,400));
-  playTop=64;playBot=H-84;
+  playTop=Math.max(96,H*.12);playBot=H-90;
   skyGrad=ctx.createLinearGradient(0,0,0,H);
   skyGrad.addColorStop(0,T.skyTop);skyGrad.addColorStop(.45,T.skyHi);
   skyGrad.addColorStop(.72,T.skyMid);skyGrad.addColorStop(.86,T.skyLow);
@@ -356,26 +356,23 @@ function moonSprite(r){
   }
   return c;
 }
-/* 藻井纹样 */
+/* 藻井纹样（八角叠涩 + 莲瓣） */
 function mandalaSprite(size){
   const c=makeCanvas(size,size),g=c.getContext('2d'),m=size/2;
   g.strokeStyle='rgba(217,164,65,.6)';g.fillStyle='rgba(217,164,65,.5)';
-  g.lineWidth=1.4;
-  g.beginPath();g.arc(m,m,m*.94,0,TAU);g.stroke();
-  g.beginPath();g.arc(m,m,m*.88,0,TAU);g.stroke();
-  for(let i=0;i<36;i++){const a=i/36*TAU;g.beginPath();g.arc(m+Math.cos(a)*m*.91,m+Math.sin(a)*m*.91,2.4,0,TAU);g.fill();}
-  g.save();g.translate(m,m);g.rotate(Math.PI/4);
-  g.strokeRect(-m*.6,-m*.6,m*1.2,m*1.2);
-  g.rotate(Math.PI/4);g.strokeRect(-m*.6,-m*.6,m*1.2,m*1.2);
-  g.restore();
-  for(let i=0;i<8;i++){
-    g.save();g.translate(m,m);g.rotate(i/8*TAU);
-    g.beginPath();g.moveTo(0,-m*.34);
-    g.quadraticCurveTo(m*.16,-m*.2,0,-m*.05);
-    g.quadraticCurveTo(-m*.16,-m*.2,0,-m*.34);
+  g.lineWidth=1.3;
+  const oct=(r,rot)=>{g.beginPath();for(let i=0;i<8;i++){const a=rot+i/8*TAU;const x=m+Math.cos(a)*r,y=m+Math.sin(a)*r;i?g.lineTo(x,y):g.moveTo(x,y);}g.closePath();g.stroke();};
+  g.beginPath();g.arc(m,m,m*.95,0,TAU);g.stroke();
+  oct(m*.82,Math.PI/8);oct(m*.72,0);oct(m*.56,Math.PI/8);
+  for(let i=0;i<32;i++){const a=i/32*TAU;g.beginPath();g.arc(m+Math.cos(a)*m*.885,m+Math.sin(a)*m*.885,2.2,0,TAU);g.fill();}
+  for(let i=0;i<16;i++){
+    g.save();g.translate(m,m);g.rotate(i/16*TAU);
+    g.beginPath();g.moveTo(0,-m*.54);
+    g.quadraticCurveTo(m*.09,-m*.34,0,-m*.22);
+    g.quadraticCurveTo(-m*.09,-m*.34,0,-m*.54);
     g.stroke();g.restore();
   }
-  g.beginPath();g.arc(m,m,m*.07,0,TAU);g.stroke();
+  g.beginPath();g.arc(m,m,m*.08,0,TAU);g.stroke();
   return c;
 }
 /* 祥云 */
@@ -605,6 +602,7 @@ const Input={
   },
   targetY(dt){
     if(this.auto){
+      if(this.still)return H*.46;
       if(Game.shotMode==='play'&&Game.state==='play'){
         let best=null,bd=1e9;
         for(const l of lamps){
@@ -858,17 +856,22 @@ function spawnBanner(chars){
 }
 function lampBob(l){return Math.sin(l.t*2+l.ph)*4;}
 
-/* ---------- 飞天 ---------- */
+/* ---------- 飞天（古风动漫） ---------- */
 const Player={
   x:0,y:0,ty:0,vy:0,bank:0,phase:0,sway:0,invuln:0,bloom:0,alpha:1,dissolving:0,
   ribbons:[],
   init(){
     this.ribbons=[
-      new Ribbon(26,6.8,T.gold,6.5,{ox:48,oy:-20,layer:1}),
-      new Ribbon(24,6.2,T.cinnabar,6,{ox:-36,oy:4,layer:1}),
-      new Ribbon(20,5.6,T.azurite,5.5,{ox:8,oy:-8,layer:0}),
-      new Ribbon(19,5.4,T.malachite,5,{ox:-10,oy:22,layer:0}),
-      new Ribbon(18,5.2,T.ivory,4.5,{ox:-4,oy:-6,layer:0})
+      new Ribbon(26,6.2,T.gold,5.5,{ox:26,oy:0,kind:'ribbon',far:false}),
+      new Ribbon(24,5.8,T.cinnabar,5.2,{ox:-33,oy:5,kind:'ribbon',far:false}),
+      new Ribbon(20,5.4,T.azurite,4.6,{ox:6,oy:-7,kind:'ribbon',far:true}),
+      new Ribbon(19,5.2,T.malachite,4.2,{ox:-14,oy:16,kind:'ribbon',far:true}),
+      new Ribbon(18,5.0,T.ivory,4.0,{ox:-24,oy:23,kind:'ribbon',far:true}),
+      new Ribbon(16,4.6,'#4a3440',4.2,{ox:-40,oy:24,kind:'hair',g:44,kx:.55,ky:.6}),
+      new Ribbon(14,4.2,'#3a2a35',3.4,{ox:-32,oy:27,kind:'hair',g:40,kx:.55,ky:.6}),
+      new Ribbon(20,5.4,'#a03626',5.0,{ox:-52,oy:36,kind:'skirt',g:26,kx:.85,ky:.8}),
+      new Ribbon(18,5.0,'#8a2a1e',4.2,{ox:-78,oy:26,kind:'skirt',g:24,kx:.85,ky:.8}),
+      new Ribbon(16,4.8,'#c4553a',4.0,{ox:-36,oy:9,kind:'sleeve',g:30,kx:.9,ky:.85})
     ];
   },
   reset(){
@@ -888,7 +891,7 @@ const Player={
     this.phase+=dt*(1.4+Math.abs(this.vy)*0.002);
     if(this.invuln>0)this.invuln-=dt;
     if(this.bloom>0)this.bloom=Math.max(0,this.bloom-dt*.9);
-    const tilt=-.10+this.bank+Math.sin(this.phase)*.045;
+    const tilt=-.10+this.bank+Math.sin(this.phase)*.05;
     const s=S;
     const cs=Math.cos(tilt),sn=Math.sin(tilt);
     const wb=this.bloom;
@@ -900,11 +903,11 @@ const Player={
       const ay=this.y+(a.ox*sn+a.oy*cs)*s;
       r.seg=r.segBase*s;
       r.wmax=r.wBase*s*(1+wb*.45);
-      r.update(dt,ax,ay,windX,windY+noise1(Game.time*1.1,a.ox)*18);
+      r.update(dt,ax,ay,windX*(a.kx||1),windY*(a.ky||1)+(a.g||0)+noise1(Game.time*1.1,a.ox)*14);
     }
   },
   anchorsWorld(){
-    const tilt=-.10+this.bank+Math.sin(this.phase)*.045;
+    const tilt=-.10+this.bank+Math.sin(this.phase)*.05;
     const cs=Math.cos(tilt),sn=Math.sin(tilt),s=S;
     return this.ribbons.map(r=>{
       const a=r.anchor;
@@ -916,53 +919,71 @@ const Player={
     const s=S,t=this.phase;
     const alpha=this.dissolving>0?Math.max(0,1-this.dissolving/1.2):(this.invuln>0?(.45+.3*Math.sin(Game.time*40)):1);
     const wb=this.bloom;
+    const tilt=-.10+this.bank+Math.sin(t)*.05;
     const A=this.anchorsWorld();
+    const chain=k=>A.filter(a=>a.r.anchor.kind===k);
+    const figure=()=>{g.save();g.translate(this.x,this.y);g.rotate(tilt);g.scale(s,s);};
     g.save();
     g.globalAlpha=alpha;
-    /* 远层丝带（世界坐标） */
-    for(const i of [2,3,4])this.ribbons[i].draw(g);
-    /* 身形（图元坐标） */
-    g.translate(this.x,this.y);
-    g.rotate(-.10+this.bank+Math.sin(t)*.045);
-    g.scale(s,s);
     /* 全身背光 */
-    g.save();g.globalAlpha=alpha*.6;
-    g.strokeStyle=hexA(T.gold,.30);g.lineWidth=1;
-    g.beginPath();g.ellipse(-4,10,92+wb*30,52+wb*18,-.15,0,TAU);g.stroke();
-    const mg=g.createRadialGradient(-4,10,4,-4,10,92);
-    mg.addColorStop(0,hexA(T.goldBright,.09+wb*.06));mg.addColorStop(1,hexA(T.goldBright,0));
-    g.fillStyle=mg;g.beginPath();g.ellipse(-4,10,92+wb*30,52+wb*18,-.15,0,TAU);g.fill();
+    figure();
+    g.globalAlpha=alpha*.6;
+    g.strokeStyle=hexA(T.gold,.22);g.lineWidth=1;
+    g.beginPath();g.ellipse(-6,14,100+wb*30,58+wb*18,-.14,0,TAU);g.stroke();
+    const mg=g.createRadialGradient(-6,14,4,-6,14,100);
+    mg.addColorStop(0,hexA(T.goldBright,.07+wb*.06));mg.addColorStop(1,hexA(T.goldBright,0));
+    g.fillStyle=mg;g.beginPath();g.ellipse(-6,14,100+wb*30,58+wb*18,-.14,0,TAU);g.fill();
     g.restore();
+    /* 远层丝带 + 发链（世界坐标，在身后） */
+    for(const a of chain('ribbon'))if(a.r.anchor.far)a.r.draw(g);
+    for(const a of chain('hair'))a.r.draw(g);
+    /* 脑后发 + 后袖后臂 + 襦裙（图元坐标） */
+    figure();
+    drawHairBack(g,alpha,t);
+    drawSleeveBack(g,alpha,t);
+    drawRobe(g,alpha,t);
+    g.restore();
+    /* 裙尾 / 袖尾飘带（世界坐标） */
+    for(const a of chain('skirt'))a.r.draw(g);
+    for(const a of chain('sleeve'))a.r.draw(g);
+    /* 上身 + 头（图元坐标） */
+    figure();
+    /* 肩胸与抹胸 */
+    limb(g,[[12,-4],[5,0],[-2,4]],9,11,T.skin);
+    const bg=g.createLinearGradient(14,-2,-9,13);
+    bg.addColorStop(0,hexA('#d25538',.97*alpha));
+    bg.addColorStop(1,hexA('#b03a26',.95*alpha));
+    g.fillStyle=bg;
+    limb(g,[[14,-2],[2,4],[-9,13]],14,16,hexA('#d25538',.96*alpha));
+    g.strokeStyle=hexA(T.goldBright,.8*alpha);g.lineWidth=.9;
+    g.beginPath();g.moveTo(14,-4);g.quadraticCurveTo(2,1,-10,11);g.stroke();
+    g.beginPath();g.moveTo(15,0);g.quadraticCurveTo(3,7,-9,15);g.stroke();
+    g.fillStyle=hexA(T.goldBright,.9*alpha);
+    g.beginPath();g.arc(3,3.5,1.6,0,TAU);g.fill();
+    g.beginPath();g.arc(3,3.5,.6,0,TAU);g.fill();
     /* 头光 */
-    drawHalo(g,34,-16,t,wb,alpha);
-    /* 后臂 / 后腿 */
-    limb(g,[[-2,-6],[-14,-4],[-26,0],[-36,4]],5.5,1.8,T.skinShade);
-    limb(g,[[-14,28],[-34,44],[-54,36],[-62,32]],7.5,2,T.skinShade);
-    /* 裙（石绿衬层 + 朱砂主层） */
-    skirt(g,alpha,wb);
-    limb(g,[[-24,32],[-40,38],[-58,46],[-74,56]],4.5,.8,hexA(T.ivory,.55));
-    /* 躯干 */
-    limb(g,[[10,-6],[2,0],[-6,8],[-12,20]],12,9,T.skin);
-    limb(g,[[11,-7],[4,-2],[-3,6]],11,10,T.cinnabar);
-    g.strokeStyle=hexA(T.gold,.7);g.lineWidth=1;
-    g.beginPath();g.moveTo(12,-8);g.quadraticCurveTo(4,-3,-4,7);g.stroke();
-    /* 金腰线 */
-    g.strokeStyle=hexA(T.gold,.8);g.lineWidth=2;
-    g.beginPath();g.moveTo(-6,10);g.quadraticCurveTo(-10,16,-13,22);g.stroke();
-    /* 前腿 */
-    limb(g,[[-12,26],[-30,40],[-50,30],[-58,24]],8,2,T.skin);
-    g.fillStyle=T.gold;g.beginPath();g.ellipse(-59,24,3.2,1.8,-.5,0,TAU);g.fill();
-    /* 颈 + 头 */
-    limb(g,[[22,-11],[28,-14]],4.6,4,T.skin);
-    head(g,t,alpha);
-    /* 前臂 + 手中莲 */
-    limb(g,[[6,-8],[18,-6],[30,-10],[40,-16],[48,-20]],5.5,1.8,T.skin);
-    drawLotus(g,52,-24,.9,t);
+    drawHalo(g,28,-17,t,wb,alpha);
+    /* 颈 + 脸 + 发 */
+    limb(g,[[24,-6.5],[18,-2],[13,-1]],3.2,4.4,T.skin);
+    g.fillStyle=hexA(T.skinShade,.35*alpha);
+    g.beginPath();g.ellipse(24.6,-7.6,2.6,1.2,.5,0,TAU);g.fill();
+    drawFace(g,alpha);
+    drawHairFront(g,alpha,t);
+    /* 前臂（前下托莲）+ 广袖 */
+    limb(g,[[6,-8],[20,-1],[32,3]],4.6,1.9,T.skin);
+    drawSleeveFront(g,alpha,t);
+    limb(g,[[28,1],[36,4.5],[42.5,6.5]],1.9,1.2,T.skin);
+    g.save();g.translate(44,7);g.rotate(-.15);
+    g.fillStyle=T.skin;
+    g.beginPath();g.ellipse(0,0,1.9,1.4,0,0,TAU);g.fill();
+    g.strokeStyle=T.skin;g.lineWidth=.8;g.lineCap='round';
+    g.beginPath();g.moveTo(1.2,-.6);g.lineTo(3.4,-1.8);g.stroke();
+    g.beginPath();g.moveTo(1.4,.2);g.lineTo(3.7,-.2);g.stroke();
     g.restore();
-    /* 近层丝带（世界坐标） */
-    g.save();
-    g.globalAlpha=alpha;
-    for(const i of [0,1])this.ribbons[i].draw(g);
+    drawLotus(g,49,7,.95,t);
+    g.restore();
+    /* 近层丝带（世界坐标，在最前） */
+    for(const a of chain('ribbon'))if(!a.r.anchor.far)a.r.draw(g);
     g.restore();
   }
 };
@@ -991,36 +1012,6 @@ function qpts(p0,p1,p2,n){
   }
   return out;
 }
-function skirt(g,alpha,wb){
-  /* 石绿衬层 */
-  g.fillStyle=hexA(T.malachite,.34*alpha);
-  g.beginPath();
-  g.moveTo(-10,16);
-  g.quadraticCurveTo(-34,8,-58,10);
-  g.quadraticCurveTo(-74,12,-88,22);
-  g.quadraticCurveTo(-80,42,-52,44);
-  g.quadraticCurveTo(-26,44,-14,34);
-  g.quadraticCurveTo(-8,26,-10,16);
-  g.closePath();g.fill();
-  /* 朱砂主层 */
-  const gr=g.createLinearGradient(-10,8,-88,26);
-  gr.addColorStop(0,hexA(T.cinnabar,.95*alpha));
-  gr.addColorStop(.55,hexA('#8a2a1e',.75*alpha));
-  gr.addColorStop(1,hexA('#4a1f18',.32*alpha));
-  g.fillStyle=gr;
-  g.beginPath();
-  g.moveTo(-10,10);
-  g.quadraticCurveTo(-34,2,-58,4);
-  g.quadraticCurveTo(-74,6,-88,16);
-  g.quadraticCurveTo(-86,24,-80,30);
-  g.quadraticCurveTo(-56,36,-32,34);
-  g.quadraticCurveTo(-16,32,-10,24);
-  g.quadraticCurveTo(-8,16,-10,10);
-  g.closePath();g.fill();
-  /* 金缘 */
-  g.strokeStyle=hexA(T.gold,.55*alpha);g.lineWidth=1;
-  g.beginPath();g.moveTo(-10,10);g.quadraticCurveTo(-34,2,-58,4);g.quadraticCurveTo(-74,6,-88,16);g.stroke();
-}
 function drawHalo(g,hx,hy,t,wb,alpha){
   const r=26*(1+wb*.45);
   g.save();g.globalAlpha=alpha;
@@ -1039,29 +1030,282 @@ function drawHalo(g,hx,hy,t,wb,alpha){
   }
   g.restore();
 }
-function head(g,t,alpha){
-  /* 发 */
-  g.fillStyle=T.hair;
-  g.beginPath();g.arc(34,-16,7.4,0,TAU);g.fill();
-  g.beginPath();g.arc(30,-25.5,4.6,0,TAU);g.fill();
+function drawHairBack(g,alpha,t){
+  const sway=Math.sin(t*1.1)*2;
+  const gr=g.createLinearGradient(24,-34,-42,26);
+  gr.addColorStop(0,hexA(T.hairMass,.99*alpha));
+  gr.addColorStop(1,hexA(T.hairDeep,.92*alpha));
+  g.fillStyle=gr;
+  g.beginPath();
+  g.moveTo(24,-33);
+  g.bezierCurveTo(14,-36,4,-34,-2,-26);
+  g.bezierCurveTo(-10,-16,-14,-2,-18,10);
+  g.bezierCurveTo(-22,20,-30,27,-42,26+sway);
+  g.bezierCurveTo(-30,18,-22,10,-18,0);
+  g.bezierCurveTo(-14,-10,-12,-20,-6,-27);
+  g.bezierCurveTo(2,-33,12,-34,24,-33);
+  g.closePath();g.fill();
+  /* 月光描边 + 发丝高光 */
+  g.strokeStyle=hexA('#c9a06a',.4*alpha);g.lineWidth=.7;
+  g.beginPath();
+  g.moveTo(24,-33);g.bezierCurveTo(14,-36,4,-34,-2,-26);g.bezierCurveTo(-10,-16,-14,-2,-18,10);
+  g.stroke();
+  g.strokeStyle=hexA('#7a5566',.38*alpha);g.lineWidth=1;
+  g.beginPath();g.moveTo(12,-30);g.quadraticCurveTo(-6,-18,-16,8);g.stroke();
+  g.beginPath();g.moveTo(18,-30);g.quadraticCurveTo(-2,-14,-24,22);g.stroke();
+}
+function drawSleeveBack(g,alpha,t){
+  const wave=Math.sin(t*1.5+1)*2;
+  g.fillStyle=hexA('#a83826',.92*alpha);
+  g.beginPath();
+  g.moveTo(-2,-8);
+  g.quadraticCurveTo(-14,-6,-24,0);
+  g.quadraticCurveTo(-30,4,-35,8);
+  g.quadraticCurveTo(-26,7+wave*.5,-18,9+wave);
+  g.quadraticCurveTo(-10,10,-4,6);
+  g.quadraticCurveTo(-1,0,-2,-8);
+  g.closePath();g.fill();
+  g.strokeStyle=hexA(T.gold,.4*alpha);g.lineWidth=.8;
+  g.beginPath();g.moveTo(-2,-8);g.quadraticCurveTo(-14,-6,-24,0);g.quadraticCurveTo(-30,4,-35,8);g.stroke();
+  limb(g,[[-3,-5],[-14,-3],[-24,1],[-31,4.5]],4.2,1.5,T.skinShade);
+}
+function drawRobe(g,alpha,t){
+  const sway=Math.sin(t*1.3)*2;
+  /* 石绿内层 */
+  g.fillStyle=hexA(T.malachite,.5*alpha);
+  g.beginPath();
+  g.moveTo(0,14);
+  g.quadraticCurveTo(-20,22,-40,27);
+  g.quadraticCurveTo(-56,30,-68,27);
+  g.quadraticCurveTo(-56,36,-40,36);
+  g.quadraticCurveTo(-22,36,-8,30);
+  g.quadraticCurveTo(-4,22,0,14);
+  g.closePath();g.fill();
+  /* 朱砂外层 */
+  const gr=g.createLinearGradient(10,4,-92,34);
+  gr.addColorStop(0,hexA('#d05a36',.97*alpha));
+  gr.addColorStop(.5,hexA('#a03024',.94*alpha));
+  gr.addColorStop(1,hexA('#5a2018',.55*alpha));
+  g.fillStyle=gr;
+  g.beginPath();
+  g.moveTo(13,0);
+  g.quadraticCurveTo(-4,8,-20,14);
+  g.quadraticCurveTo(-42,22,-62,24);
+  g.quadraticCurveTo(-78,25,-90,20);
+  g.quadraticCurveTo(-99,27+sway,-92,36+sway);
+  g.quadraticCurveTo(-74,44+sway,-54,42);
+  g.quadraticCurveTo(-36,40,-22,46);
+  g.quadraticCurveTo(-10,51,-6,40);
+  g.quadraticCurveTo(0,26,8,18);
+  g.quadraticCurveTo(12,9,13,0);
+  g.closePath();g.fill();
+  /* 金缘 */
+  g.strokeStyle=hexA(T.gold,.6*alpha);g.lineWidth=1.1;
+  g.beginPath();
+  g.moveTo(13,0);g.quadraticCurveTo(-4,8,-20,14);g.quadraticCurveTo(-42,22,-62,24);g.quadraticCurveTo(-78,25,-90,20);
+  g.stroke();
+  /* 前褶金线 */
+  g.strokeStyle=hexA(T.gold,.28*alpha);g.lineWidth=.8;
+  g.beginPath();g.moveTo(8,8);g.quadraticCurveTo(-30,22,-58,38);g.stroke();
+  g.beginPath();g.moveTo(2,12);g.quadraticCurveTo(-28,28,-44,42);g.stroke();
+  /* 腰绦 */
+  limb(g,[[-4,12],[-14,18],[-24,23]],3.8,2.4,hexA(T.gold,.95*alpha));
+}
+function drawSleeveFront(g,alpha,t){
+  const wave=Math.sin(t*1.7)*1.5;
+  /* 衬层 */
+  g.fillStyle=hexA('#a83826',.5*alpha);
+  g.beginPath();
+  g.moveTo(0,-6);
+  g.quadraticCurveTo(10,-2,20,2);
+  g.quadraticCurveTo(16,8+wave,6,10);
+  g.quadraticCurveTo(-2,10,-8,6);
+  g.quadraticCurveTo(-3,0,0,-6);
+  g.closePath();g.fill();
+  /* 主袖 */
+  const gr=g.createLinearGradient(-2,-8,22,6);
+  gr.addColorStop(0,hexA('#f0d7b0',.96*alpha));
+  gr.addColorStop(.6,hexA('#e0a470',.94*alpha));
+  gr.addColorStop(1,hexA('#cf6a44',.92*alpha));
+  g.fillStyle=gr;
+  g.beginPath();
+  g.moveTo(2,-9);
+  g.quadraticCurveTo(14,-7,24,-2);
+  g.quadraticCurveTo(26.5,-.6,28,1);
+  g.quadraticCurveTo(18,7+wave,8,11+wave);
+  g.quadraticCurveTo(-2,14,-8,10);
+  g.quadraticCurveTo(-2,2,2,-9);
+  g.closePath();g.fill();
+  /* 金缘 */
+  g.strokeStyle=hexA(T.gold,.65*alpha);g.lineWidth=.9;
+  g.beginPath();g.moveTo(2,-9);g.quadraticCurveTo(14,-7,24,-2);g.quadraticCurveTo(26.5,-.6,28,1);g.stroke();
+  g.beginPath();g.moveTo(28,1);g.quadraticCurveTo(18,7+wave,8,11+wave);g.quadraticCurveTo(-2,14,-8,10);g.stroke();
+}
+function drawFace(g,alpha){
   /* 脸 */
-  g.fillStyle=T.skin;
-  g.beginPath();g.arc(35.2,-15.4,6.2,0,TAU);g.fill();
-  /* 发际 */
-  g.fillStyle=T.hair;
-  g.beginPath();g.arc(34.4,-16.4,6.3,Math.PI*.75,Math.PI*1.92);
-  g.lineTo(34.4,-16.4);g.closePath();g.fill();
-  /* 金簪 */
-  g.strokeStyle=T.gold;g.lineWidth=1.3;
-  g.beginPath();g.moveTo(27,-27.5);g.lineTo(17,-31.5);g.stroke();
-  g.fillStyle=T.goldBright;g.beginPath();g.arc(16.4,-31.8,1.3,0,TAU);g.fill();
-  /* 目 + 眉 + 花钿 + 唇 */
-  g.strokeStyle='rgba(74,42,30,.9)';g.lineWidth=.7;
-  g.beginPath();g.moveTo(36.6,-15.2);g.quadraticCurveTo(38,-14.4,39.4,-15.4);g.stroke();
-  g.beginPath();g.moveTo(36.4,-18.4);g.quadraticCurveTo(38,-19.4,39.6,-18.8);g.stroke();
-  g.fillStyle=T.cinnabar;
-  g.beginPath();g.arc(38,-17,0.85,0,TAU);g.fill();
-  g.beginPath();g.arc(40.8,-12.6,0.95,0,TAU);g.fill();
+  const fg=g.createRadialGradient(30,-19,2,28,-16,13);
+  fg.addColorStop(0,hexA('#f8e8d4',.99*alpha));
+  fg.addColorStop(1,hexA('#ecc9a6',.97*alpha));
+  g.fillStyle=fg;
+  g.beginPath();
+  g.moveTo(28,-26.5);
+  g.bezierCurveTo(34.5,-25.5,37.8,-19.5,36.2,-13.5);
+  g.bezierCurveTo(35.2,-9.5,32.5,-6.8,29.2,-5.6);
+  g.bezierCurveTo(26.5,-6.2,23.2,-9.2,21.8,-13.2);
+  g.bezierCurveTo(20.6,-17.5,22.5,-24.5,28,-26.5);
+  g.closePath();g.fill();
+  /* 腮红 + 颌缘阴影 */
+  g.fillStyle=hexA('#d26e58',.13*alpha);
+  g.beginPath();g.ellipse(34.6,-12.2,2.2,1.1,-.2,0,TAU);g.fill();
+  g.beginPath();g.ellipse(22.4,-11.6,1.7,.9,.2,0,TAU);g.fill();
+  g.fillStyle=hexA('#c99a76',.16*alpha);
+  g.beginPath();
+  g.moveTo(21.8,-13.2);
+  g.bezierCurveTo(23.2,-9.2,26.5,-6.2,29.2,-5.6);
+  g.bezierCurveTo(27.2,-6.8,24.4,-9.8,23.0,-13.6);
+  g.closePath();g.fill();
+  /* 远侧目 */
+  g.fillStyle=hexA('#fff6ec',.88*alpha);
+  g.beginPath();
+  g.moveTo(22.9,-17.0);
+  g.quadraticCurveTo(24.9,-18.5,26.8,-16.9);
+  g.quadraticCurveTo(24.9,-14.7,22.9,-17.0);
+  g.closePath();g.fill();
+  g.strokeStyle='#241418';g.lineWidth=1.1;g.lineCap='round';
+  g.beginPath();g.moveTo(22.7,-17.3);g.quadraticCurveTo(24.8,-18.9,26.9,-17.0);g.stroke();
+  const irisF=g.createLinearGradient(0,-18.6,0,-13.8);
+  irisF.addColorStop(0,'#3a1f16');irisF.addColorStop(1,'#96622f');
+  g.fillStyle=irisF;
+  g.beginPath();g.ellipse(24.9,-16.2,1.35,1.8,0,0,TAU);g.fill();
+  g.fillStyle=hexA('#1a0f0a',.9*alpha);
+  g.beginPath();g.ellipse(24.9,-16.0,.65,1.05,0,0,TAU);g.fill();
+  g.fillStyle=hexA('#ffffff',.95*alpha);
+  g.beginPath();g.arc(24.3,-17.0,.48,0,TAU);g.fill();
+  g.strokeStyle='rgba(90,50,40,.4)';g.lineWidth=.55;
+  g.beginPath();g.moveTo(23.0,-14.6);g.quadraticCurveTo(24.9,-14.1,26.7,-14.9);g.stroke();
+  /* 近侧目 */
+  g.fillStyle=hexA('#fff6ec',.92*alpha);
+  g.beginPath();
+  g.moveTo(30.0,-17.4);
+  g.quadraticCurveTo(32.7,-19.2,35.3,-17.1);
+  g.quadraticCurveTo(32.6,-14.5,30.0,-17.4);
+  g.closePath();g.fill();
+  g.strokeStyle='#241418';g.lineWidth=1.4;
+  g.beginPath();g.moveTo(29.9,-17.8);g.quadraticCurveTo(32.7,-19.8,35.5,-17.2);g.stroke();
+  g.lineWidth=.9;
+  g.beginPath();g.moveTo(35.5,-17.2);g.lineTo(36.4,-16.8);g.stroke();
+  const irisN=g.createLinearGradient(0,-19,0,-13.6);
+  irisN.addColorStop(0,'#3a1f16');irisN.addColorStop(1,'#96622f');
+  g.fillStyle=irisN;
+  g.beginPath();g.ellipse(32.8,-16.3,1.7,2.2,0,0,TAU);g.fill();
+  g.fillStyle=hexA('#1a0f0a',.92*alpha);
+  g.beginPath();g.ellipse(32.8,-16.1,.8,1.3,0,0,TAU);g.fill();
+  g.fillStyle=hexA('#ffffff',.95*alpha);
+  g.beginPath();g.arc(32.0,-17.3,.58,0,TAU);g.fill();
+  g.beginPath();g.arc(33.5,-14.9,.3,0,TAU);g.fill();
+  g.strokeStyle='rgba(90,50,40,.45)';g.lineWidth=.6;
+  g.beginPath();g.moveTo(30.3,-14.8);g.quadraticCurveTo(32.7,-14.2,35.1,-15.1);g.stroke();
+  /* 眼睑影 + 下睫毛 */
+  g.strokeStyle='rgba(170,110,80,.4)';g.lineWidth=1.1;
+  g.beginPath();g.moveTo(30.3,-18.9);g.quadraticCurveTo(32.8,-20.5,35.3,-18.4);g.stroke();
+  g.strokeStyle='rgba(36,20,24,.5)';g.lineWidth=.6;
+  g.beginPath();g.moveTo(35.0,-14.8);g.lineTo(35.8,-14.5);g.stroke();
+  g.beginPath();g.moveTo(34.4,-14.4);g.lineTo(35.0,-13.9);g.stroke();
+  /* 虹膜底弧高光 */
+  g.fillStyle=hexA('#ffffff',.4*alpha);
+  g.beginPath();g.ellipse(33.2,-14.7,.5,.24,0,0,TAU);g.fill();
+  /* 眉（远山眉） */
+  g.strokeStyle='#33222a';g.lineWidth=.95;g.lineCap='round';
+  g.beginPath();g.moveTo(22.7,-20.2);g.quadraticCurveTo(24.9,-21.3,26.9,-19.9);g.stroke();
+  g.lineWidth=1.1;
+  g.beginPath();g.moveTo(29.7,-20.7);g.quadraticCurveTo(32.8,-22.1,35.9,-19.9);g.stroke();
+  /* 鼻 */
+  g.strokeStyle='rgba(150,90,60,.5)';g.lineWidth=.7;
+  g.beginPath();g.moveTo(28.7,-13.0);g.quadraticCurveTo(28.2,-12.2,28.5,-11.6);g.stroke();
+  /* 唇 */
+  g.strokeStyle='#a03a30';g.lineWidth=.9;
+  g.beginPath();g.moveTo(28.9,-8.3);g.quadraticCurveTo(30.2,-8.9,31.5,-8.2);g.stroke();
+  const lg=g.createLinearGradient(0,-7.9,0,-6.7);
+  lg.addColorStop(0,'#cf6a55');lg.addColorStop(1,'#a03a30');
+  g.fillStyle=lg;
+  g.beginPath();g.ellipse(30.2,-7.5,1.4,.7,0,0,TAU);g.fill();
+  g.fillStyle=hexA('#ffffff',.5*alpha);
+  g.beginPath();g.arc(29.8,-7.8,.3,0,TAU);g.fill();
+  /* 花钿 */
+  g.strokeStyle=hexA(T.goldBright,.9*alpha);g.lineWidth=.8;g.lineCap='round';
+  g.beginPath();g.moveTo(28.2,-23.4);g.lineTo(28.2,-21.9);g.stroke();
+  g.beginPath();g.moveTo(27.2,-22.6);g.lineTo(28.2,-22.0);g.stroke();
+  g.beginPath();g.moveTo(29.2,-22.6);g.lineTo(28.2,-22.0);g.stroke();
+  g.fillStyle=hexA(T.cinnabar,.9*alpha);
+  g.beginPath();g.arc(28.2,-21.7,.6,0,TAU);g.fill();
+}
+function drawHairFront(g,alpha,t){
+  const sway=Math.sin(t*1.6)*0.8;
+  /* 高髻 */
+  const hg=g.createLinearGradient(20,-38,30,-28);
+  hg.addColorStop(0,hexA(T.hairMass,.99*alpha));
+  hg.addColorStop(1,hexA(T.hairDeep,.99*alpha));
+  g.fillStyle=hg;
+  g.save();g.translate(23.5,-33);g.rotate(-.3);
+  g.beginPath();g.ellipse(0,0,6.2,4.6,0,0,TAU);g.fill();
+  g.restore();
+  g.beginPath();g.ellipse(27.5,-29.5,4.6,3.4,-.15,0,TAU);g.fill();
+  /* 髻环金饰 */
+  g.strokeStyle=hexA(T.goldBright,.85*alpha);g.lineWidth=1.1;
+  g.beginPath();g.arc(23.2,-33.2,4.6,-.5,1.6);g.stroke();
+  /* 步摇 */
+  g.strokeStyle=hexA(T.goldBright,.95*alpha);g.lineWidth=1.2;g.lineCap='round';
+  g.beginPath();g.moveTo(26,-35.5);g.lineTo(33.4,-37.6);g.stroke();
+  g.fillStyle=hexA(T.goldBright,.95*alpha);
+  const swx=Math.sin(t*2.2)*1.3;
+  g.beginPath();g.arc(34.1+swx*.3,-37.2,.85,0,TAU);g.fill();
+  g.beginPath();g.arc(34.6+swx*.6,-35.4,.75,0,TAU);g.fill();
+  g.beginPath();g.arc(35.0+swx*.9,-33.7,.65,0,TAU);g.fill();
+  g.beginPath();g.arc(35.3+swx*1.2,-32.0,1.0,0,TAU);g.fill();
+  g.fillStyle=hexA('#fff2cf',.8*alpha);
+  g.beginPath();g.arc(35.3+swx*1.2,-32.0,.4,0,TAU);g.fill();
+  /* 刘海 */
+  const bg2=g.createLinearGradient(18,-27,37,-9);
+  bg2.addColorStop(0,hexA('#33222b',.99*alpha));
+  bg2.addColorStop(1,hexA('#1a1216',.99*alpha));
+  g.fillStyle=bg2;
+  g.beginPath();
+  g.moveTo(27,-27.5);
+  g.bezierCurveTo(19.5,-26.5,16.8,-20,17.8,-13);
+  g.bezierCurveTo(18.3,-9.5,19.6,-7.2,20.6,-6.0);
+  g.bezierCurveTo(20.0,-11.5,21.4,-18.5,24.6,-23.5);
+  g.bezierCurveTo(25.6,-25.2,26.6,-26.4,27,-27.5);
+  g.closePath();g.fill();
+  g.beginPath();
+  g.moveTo(28,-27.5);
+  g.bezierCurveTo(34.8,-26.4,37.6,-20.5,37.0,-14.5);
+  g.bezierCurveTo(36.7,-11.0,35.8,-8.4,34.6,-6.6);
+  g.bezierCurveTo(35.4,-11.8,34.4,-18.0,31.4,-22.8);
+  g.bezierCurveTo(30.2,-24.9,28.8,-26.6,28,-27.5);
+  g.closePath();g.fill();
+  /* 中缝小碎发 + 刘海丝理 */
+  g.strokeStyle=hexA('#241418',.9*alpha);g.lineWidth=.7;g.lineCap='round';
+  g.beginPath();g.moveTo(27.6,-26.6);g.quadraticCurveTo(26.2+sway,-22.0,26.8,-18.6);g.stroke();
+  g.strokeStyle=hexA('#7a5566',.32*alpha);g.lineWidth=.7;
+  g.beginPath();g.moveTo(22.4,-24.5);g.quadraticCurveTo(19.2,-18.5,19.6,-11.5);g.stroke();
+  g.beginPath();g.moveTo(33.0,-24.5);g.quadraticCurveTo(35.6,-18.5,35.2,-11.5);g.stroke();
+  /* 鬓发 */
+  g.fillStyle=hexA('#241418',.96*alpha);
+  g.beginPath();
+  g.moveTo(18.6,-10.5);
+  g.quadraticCurveTo(17.0,-6.0,17.6,-1.5);
+  g.quadraticCurveTo(19.0,-2.2,19.6,-6.5);
+  g.quadraticCurveTo(19.8,-9.0,19.4,-11.0);
+  g.closePath();g.fill();
+  g.beginPath();
+  g.moveTo(36.4,-11.0);
+  g.quadraticCurveTo(38.2,-6.5,37.8,-2.0);
+  g.quadraticCurveTo(36.4,-2.8,35.6,-7.0);
+  g.quadraticCurveTo(35.3,-9.5,35.8,-11.6);
+  g.closePath();g.fill();
+  /* 冠部高光 */
+  g.strokeStyle=hexA('#7a5566',.4*alpha);g.lineWidth=1.8;g.lineCap='round';
+  g.beginPath();g.moveTo(22,-27.5);g.quadraticCurveTo(28,-30.5,33.5,-27.5);g.stroke();
 }
 function drawLotus(g,x,y,sc,t){
   g.save();g.translate(x,y);g.scale(sc,sc);
@@ -1508,7 +1752,7 @@ const Game={
       }
     }
     /* 险情近擦 */
-    if(this.shotMode&&this.meter>=this.meterMax&&!this.ultLock)this.ultimate();
+    if(this.shotMode==='play'&&this.meter>=this.meterMax&&!this.ultLock)this.ultimate();
     Player.update(wdt);
     if(this.ultActive>0)Player.bloom=1;
     Petals.update(wdt,Player.x,Player.y);
@@ -1783,11 +2027,20 @@ function boot(){
     Input.auto=true;
     if(Game.shotMode==='sanhua'){
       Game.meter=Game.meterMax;
-      setTimeout(()=>Game.ultimate(),1500);
+      setTimeout(()=>Game.ultimate(),2400);
     }
     if(Game.shotMode==='end'){
       spawnBanner(MILESTONES[0]);
       setTimeout(()=>{Game.hearts=1;Game.onHit(Player.x+10,Player.y);},4200);
+    }
+  if(Game.shotMode==='figure'){
+      Input.auto=true;
+      Input.still=true;
+      UI.hideTitle();
+      Game.state='title';
+      UI.el.hud.classList.remove('is-on');
+      S=Math.min(S*1.9,H/260);
+      Player.reset();
     }
   }
   requestAnimationFrame(loop);
