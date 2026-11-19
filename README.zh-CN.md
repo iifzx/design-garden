@@ -24,7 +24,7 @@
 
 ## 它能做出什么
 
-**作品集——11 件作品，9 个工艺域。** 每一件都由 skill 跑自己的完整工作流产出：动工前先出三方向 DEAL（证据留档），交付前过 `lint.mjs` + 渲染评审门，交付后写回学习笔记。每件作品都标注了所属域、尺寸规格与产出模型。
+**作品集——10 件作品，9 个工艺域。** 每一件都由 skill 跑自己的完整工作流产出：动工前先出三方向 DEAL（证据留档），交付前过 `lint.mjs` + 渲染评审门，交付后写回学习笔记。每件作品都标注了所属域、尺寸规格与产出模型。
 
 | | | |
 |---|---|---|
@@ -34,8 +34,6 @@
 | **开业海报** · poster-banner · 1080×1350<br>**GLM-5.3-Flash** · [源码](examples/jazz-cafe-poster/late-set-1080x1350.html) · [方向二](examples/images/jazz-poster-cut-record.png) | **夜跑轮播** · social-carousel · 7 页 1080×1440，中文<br>**GLM-5.3-Flash** · [源码](examples/night-run-carousel/carousel.html) · [路线页](examples/images/night-run-03.png) · [收官页](examples/images/night-run-07.png) | **植物图标集** · icon · 8 枚，16/24/48 阶梯<br>**GLM-5.3-Flash** · [源码](examples/plant-icons/icon-sheet.html) · [SVG](examples/plant-icons/svg/) |
 | <img src="examples/images/peso-welcome.png" width="270" alt="Peso 记账 App onboarding 原型，欢迎屏"> | <img src="examples/images/percolate-guide-top.png" width="270" alt="Percolate 咖啡车标志系统与迷你品牌指南"> | <img src="examples/images/sleep-cover.png" width="270" alt="睡债长图封面（中文）"> |
 | **Onboarding 原型** · ui-mobile · 可点穿，6 个状态，375×812<br>**GLM-5.3-Flash** · [源码](examples/peso-onboarding/onboarding.html) · [连接失败态](examples/images/peso-connect-failed.png) · [空首页](examples/images/peso-home-empty.png) · [横屏](examples/images/peso-landscape.png) | **标志系统 + 指南** · logo-brand · 4 变体 × 4 色板<br>**GLM-5.3-Flash** · [品牌板](examples/percolate-brand/brand-guide.html) · [整板](examples/images/percolate-guide-full.png) · [DEAL 板](examples/percolate-brand/deal/deal-sheet.png) | **睡债长图** · infographic-long · 750×9054，中文<br>**GLM-5.3-Flash** · [源码](examples/sleep-debt-infographic/infographic.html) · [一周流水](examples/images/sleep-bars.png) · [累计曲线](examples/images/sleep-curve.png) |
-| <img src="examples/images/feitian-title.png" width="270" alt="敦煌飞天网页游戏标题屏：竖排汉字、朱砂印章与月下飞天"> | | |
-| **敦煌网页游戏** · ui-web · 可玩 canvas，中文<br>**GLM-5.3-Flash** · [源码](examples/feitian-game/index.html) · [人物特写](examples/images/feitian-figure.png) · [散花终式](examples/images/feitian-play.png) · [终局面板](examples/images/feitian-end.png) | | |
 
 <p align="center">
   <img src="examples/images/deck-directions.png" width="100%" alt="DEAL 决策板——deck brief 的三个结构不同的首屏并排">

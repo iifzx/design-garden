@@ -1,5 +1,7 @@
 # 飛天 · 散花梦 — Dunhuang feitian web game
 
+> **Unlisted from the portfolio** at the owner's request (2026-11-20). The game stays here, playable; it no longer appears in the README showcase or the examples table.
+
 A single-file 2D canvas game — no dependencies, no assets, no network. Guide a flying apsara through a night sky over the Mingsha dunes: gather lotus lamps and gold bells, dodge ink-wisps and sand blades, spend the meter on 「散花」 — a slow-motion petal vortex that clears the screen. User commission, 2026-11-20 (Chinese brief: 敦煌飞天主题二维网页游戏，特效至上，必须好看，不能是儿童卡通).
 
 **Play:** serve this directory over any static HTTP server and open [index.html](index.html). Drag (or arrow/WASD) to steer; Space — or the 散 button on touch — triggers the ultimate when the meter is full; P pauses, M mutes. Best score persists locally.
