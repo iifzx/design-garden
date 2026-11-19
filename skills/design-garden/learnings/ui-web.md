@@ -11,6 +11,12 @@ Field notes recorded while working on web UI tasks. Newest first. See `learnings
 
 ## Entries
 
+### 2026-11-20 | canvas 游戏页的 QA：locator click 失效、后台 rAF 冻结、无头 30fps 假象
+- Situation: 逐帧重绘的游戏页里 Playwright locator click 永远等不到 actionability；被遮挡的 IAB 标签 rAF 冻结造成"距离不涨"的假 bug；无头截图只有 30fps
+- Move: 用 `?shot=` 状态钉住（autopilot 收集/自动终式/强制终局）让 shoot.mjs 截到每个对局状态，替代交互点击；页面内 `?debug=1` 挂 errbox + fps 探针，前台真 GPU 读数（~150fps uncapped）裁决无头 SwiftShader 30fps 是环境伪影
+- Pitfall: 别按无头帧率做优化决策；后台标签 rAF 冻结不是代码 bug——把 visibilitychange 自动暂停做成特性后，"后台不跑"就是正确行为
+- Confidence: repeated
+
 ### 2026-11-19 | CSS-3D pulled drawer showed no interior from a straight-on view
 - Situation: freezer drawer slid toward the viewer on translateZ, but the front's projected quad fully covered the interior tray — items existed, painted, yet were occluded
 - Move: real drawers tip as they extend — added translateY(22px) to the open state, widening the sight line above the front's projected top edge so tray contents peek out
