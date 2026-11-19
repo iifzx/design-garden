@@ -24,7 +24,7 @@
 
 ## What it makes
 
-**The portfolio — 10 works across 9 craft domains.** Every piece was made by the skill running its own workflow: a three-direction DEAL before the build (evidence kept), `lint.mjs` + rendered GATE before delivery, and a learning note written back afterwards. Each work below is labeled with its domain, format, and the model that produced it.
+**The portfolio — 11 works across 9 craft domains.** Every piece was made by the skill running its own workflow: a three-direction DEAL before the build (evidence kept), `lint.mjs` + rendered GATE before delivery, and a learning note written back afterwards. Each work below is labeled with its domain, format, and the model that produced it.
 
 | | | |
 |---|---|---|
@@ -34,6 +34,8 @@
 | **Opening-night poster** · poster-banner · 1080×1350<br>**GLM-5.3-Flash** · [source](examples/jazz-cafe-poster/late-set-1080x1350.html) · [direction 2](examples/images/jazz-poster-cut-record.png) | **Night-run carousel** · social-carousel · 7 × 1080×1440, 中文<br>**GLM-5.3-Flash** · [source](examples/night-run-carousel/carousel.html) · [route page](examples/images/night-run-03.png) · [closing CTA](examples/images/night-run-07.png) | **Plant-care icon set** · icon · 8 glyphs, 16/24/48 ladder<br>**GLM-5.3-Flash** · [source](examples/plant-icons/icon-sheet.html) · [SVGs](examples/plant-icons/svg/) |
 | <img src="examples/images/peso-welcome.png" width="270" alt="Peso budgeting onboarding prototype, welcome screen"> | <img src="examples/images/percolate-guide-top.png" width="270" alt="Percolate coffee-cart logo system and mini brand guide board"> | <img src="examples/images/sleep-cover.png" width="270" alt="Sleep-debt long-scroll infographic cover, Chinese"> |
 | **Onboarding prototype** · ui-mobile · tap-through, 6 states, 375×812<br>**GLM-5.3-Flash** · [source](examples/peso-onboarding/onboarding.html) · [failed state](examples/images/peso-connect-failed.png) · [empty home](examples/images/peso-home-empty.png) · [landscape](examples/images/peso-landscape.png) | **Logo system + guide** · logo-brand · 4 variants × 4 colorways<br>**GLM-5.3-Flash** · [board](examples/percolate-brand/brand-guide.html) · [full board](examples/images/percolate-guide-full.png) · [DEAL sheet](examples/percolate-brand/deal/deal-sheet.png) | **Sleep-debt longform** · infographic-long · 750×9054, 中文<br>**GLM-5.3-Flash** · [source](examples/sleep-debt-infographic/infographic.html) · [week bars](examples/images/sleep-bars.png) · [cumulative](examples/images/sleep-curve.png) |
+| <img src="examples/images/feitian-title.png" width="270" alt="Feitian Dunhuang web game title screen — vertical Chinese type, seal, and a flying apsara under the moon"> | | |
+| **Dunhuang web game** · ui-web · playable canvas, 中文<br>**GLM-5.3-Flash** · [source](examples/feitian-game/index.html) · [ultimate](examples/images/feitian-sanhua.png) · [mobile](examples/images/feitian-play-mobile.png) · [end panel](examples/images/feitian-end.png) | | |
 
 <p align="center">
   <img src="examples/images/deck-directions.png" width="100%" alt="DEAL sheet — three structurally different first screens for the deck brief, side by side">
